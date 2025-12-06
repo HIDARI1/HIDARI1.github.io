@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio de Saad Rhazzoul - Étudiant en BTS SIO" />
+    <title>Portfolio - Saad Rhazzoul</title>
+    <link rel="stylesheet" href="assets/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/newcss.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+  </head>
+
+  <body oncontextmenu="return false">
+    <!--================== Header ==================-->
+    <header class="header" id="header">
+      <nav class="nav container" role="navigation" aria-label="Navigation principale">
+        <a href="#" class="nav__logo" aria-label="Retour à l'accueil">Saad Rhazzoul</a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list grid">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active-link">
+                <i class="uil uil-estate nav__icon" aria-hidden="true"></i>Accueil
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#about" class="nav__link">
+                <i class="uil uil-user nav__icon" aria-hidden="true"></i>À propos de moi
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#bts" class="nav__link">
+                <i class="uil uil-graduation-cap nav__icon" aria-hidden="true"></i>BTS SIO
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#stages" class="nav__link">
+                <i class="uil uil-briefcase-alt nav__icon" aria-hidden="true"></i>Stages
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#veille" class="nav__link">
+                <i class="uil uil-lightbulb-alt nav__icon" aria-hidden="true"></i>Veille technologique
+              </a>
+            </li>
+            
+            <li class="nav__item">
+              <a href="#portfolio" class="nav__link">
+                <i class="uil uil-scenery nav__icon" aria-hidden="true"></i>Projets
+              </a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#contact" class="nav__link">
+                <i class="uil uil-message nav__icon" aria-hidden="true"></i>Me contacter
+              </a>
+            </li>
+          </ul>
+
+          <i class="uil uil-times nav__close" id="nav-close" aria-label="Fermer le menu" role="button"></i>
+        </div>
+
+        <div class="nav__btns">
+          <i class="uil uil-moon change-theme" id="theme-button" aria-label="Changer le thème" role="button"></i>
+
+          <div class="nav__toggle" id="nav-toggle" aria-label="Ouvrir le menu" role="button">
+            <i class="uil uil-apps" aria-hidden="true"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--================== Main ==================-->
+    <main class="main">
+      <!--================== Section Home ==================-->
+      <section class="home section" id="home">
+        <div class="home__container container grid">
+          <div class="home__content grid">
+            <div class="home__social">
+              <a href="#" target="_blank" class="home__social-icon" aria-label="Profil LinkedIn">
+                <i class="uil uil-linkedin-alt home__icon" aria-hidden="true"></i>
+              </a>
+
+              <a href="#" target="_blank" class="home__social-icon" aria-label="Profil GitHub">
+                <i class="uil uil-github-alt home__icon" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <div class="home__img">
+              <svg
+                class="home__blob"
+                viewBox="0 0 200 187"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                aria-hidden="true"
+              >
+                <mask id="mask0" mask-type="alpha">
+                  <path
+                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                      130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                      97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                      0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
+                  />
+                </mask>
+                <g mask="url(#mask0)">
+                  <path
+                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+                      165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
+                      129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
+                      -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
+                  />
+                  <image
+                    class="home__blob-img"
+                    x="-79"
+                    y="-46"
+                    xlink:href="assets/img/Pro.jpg"
+                    alt="Photo de profil de Saad Rhazzoul"
+                  />
+                </g>
+              </svg>
+            </div>
+
+            <div class="home__data">
+              <h1 class="home__title">Bonjour, je suis Saad Rhazzoul</h1>
+              <h3 class="home__subtitle">Étudiant en BTS SIO</h3>
+              <p class="home__description">
+                Étudiant motivé en BTS SIO, passionné par l'informatique,
+                les nouvelles technologies et le développement. Toujours prêt à apprendre et progresser.
+              </p>
+              <a href="#contact" class="button button--flex">
+                Me contacter<i class="uil uil-message button__icon" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="home__scroll">
+            <a href="#about" class="home__scroll-button button--flex" aria-label="Descendre vers la section À propos">
+              <i class="uil uil-mouse-alt home__scroll-mouse" aria-hidden="true"></i>
+              <span class="home__scroll-name">Descendre</span>
+              <i class="uil uil-arrow-down home__scroll-arrow" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!--================== Section About ==================-->
+      <section class="about section" id="about">
+        <h2 class="section__title">À propos de moi</h2>
+        <span class="section__subtitle">Mon introduction</span>
+
+        <div class="about__container container grid">
+          <img src="assets/img/about.jpg" alt="Photo de Saad Rhazzoul" class="about__img" />
+
+          <div class="about__data">
+            <p class="about__description">
+              Je suis étudiant en BTS SIO. Passionné par l'informatique,
+              j'aime apprendre, expérimenter et développer de nouvelles compétences.
+              Je compléterai bientôt cette section avec plus d'informations me concernant.
+            </p>
+
+            <div class="about__info">
+              <div>
+                <span class="about__info-title">2</span>
+                <span class="about__info-name">Projets <br />CGPA</span>
+              </div>
+
+              <div>
+                <span class="about__info-title">1</span>
+                <span class="about__info-name">Année <br />d'études</span>
+              </div>
+
+              <div>
+                <span class="about__info-title">01+</span>
+                <span class="about__info-name">Mois <br />d'expérience</span>
+              </div>
+            </div>
+
+            <div class="about__buttons">
+              <a download="" href="assets/MyCV.pdf" class="button button--flex">
+                Télécharger CV<i class="fas fa-download button__icon" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--================== Section BTS SIO ==================-->
+      <section class="services section" id="bts">
+        <h2 class="section__title">BTS SIO</h2>
+        <span class="section__subtitle">Présentation rapide</span>
+
+        <div class="container grid">
+          <p>
+            Le BTS Services Informatiques aux Organisations (SIO) est une formation
+            axée sur le développement, les réseaux et les systèmes informatiques.
+            Je compléterai prochainement cette section avec mon option, mes projets et mes compétences.
+          </p>
+        </div>
+      </section>
+
+      <!--================== Section Stages ==================-->
+      <section class="services section" id="stages">
+        <h2 class="section__title">Stages</h2>
+        <span class="section__subtitle">Mes expériences professionnelles</span>
+
+        <div class="container grid">
+          <p>Aucune expérience de stage ajoutée pour le moment. Cette section sera complétée prochainement.</p>
+        </div>
+      </section>
+
+      <!--================== Section Veille technologique ==================-->
+      <section class="services section" id="veille">
+        <h2 class="section__title">Veille technologique</h2>
+        <span class="section__subtitle">Sujet en cours</span>
+
+        <div class="container grid">
+          <p>
+            Je mettrai bientôt ici ma veille technologique : sujets, recherches et informations en rapport avec l'informatique.
+          </p>
+        </div>
+      </section>
+
+      <!--================== Section Skills ==================-->
+      <section class="skills section" id="skills">
+        <h2 class="section__title">Compétences</h2>
+        <span class="section__subtitle">Mon niveau de compétence</span>
+
+        <div class="skills__container container grid">
+          <div>
+            <!-- Skill 1 : Langages de programmation -->
+            <div class="skills__content skills__open">
+              <div class="skills__header">
+                <i class="fas fa-pencil-ruler skills__icon" aria-hidden="true"></i>
+
+                <div>
+                  <h1 class="skills__title">Langages de programmation</h1>
+                </div>
+
+                <i class="uil uil-angle-down skills__arrow" aria-hidden="true"></i>
+              </div>
+
+              <div class="skills__list grid">
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">C</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Java</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">JavaScript</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Python</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">TypeScript</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Skill 2 : Constructions informatiques -->
+            <div class="skills__content skills__close">
+              <div class="skills__header">
+                <i class="fas fa-code skills__icon" aria-hidden="true"></i>
+
+                <div>
+                  <h1 class="skills__title">Constructions informatiques</h1>
+                </div>
+
+                <i class="uil uil-angle-down skills__arrow" aria-hidden="true"></i>
+              </div>
+
+              <div class="skills__list grid">
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">SGBD</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">DS et algorithmes</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">POO</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">OS</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <!-- Skill 3 : Technologies -->
+            <div class="skills__content skills__close">
+              <div class="skills__header">
+                <i class="fas fa-swatchbook skills__icon" aria-hidden="true"></i>
+                <div>
+                  <h1 class="skills__title">Technologies</h1>
+                </div>
+
+                <i class="uil uil-angle-down skills__arrow" aria-hidden="true"></i>
+              </div>
+
+              <div class="skills__list grid">
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Git</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">MongoDB</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">MySQL</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">NextJs</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">NodeJs</h3>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+                  <div class="skills__titles">
+                    <h3 class="skills__name">Tailwind</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--================== Section Qualifications ==================-->
+      <section class="qualification__section service__section" id="qualification">
+        <h2 class="section__title">Certification</h2>
+        <span class="section__subtitle">Mon parcours personnel</span>
+
+        <div class="qualification__container container grid services__container">
+          <div class="qualification__tabs">
+            <div
+              class="qualification__button button--flex qualification__active"
+              data-target="#education"
+              role="button"
+              aria-label="Afficher l'éducation"
+            >
+              <i class="uil uil-graduation-cap qualification__icon" aria-hidden="true"></i>
+              Éducation
+            </div>
+          </div>
+
+          <div class="qualification__sections">
+            <div
+              class="qualification__content qualifiation__active services__content"
+              data-content
+              id="education"
+            >
+              <!-- Qualification 1 : Collège -->
+              <div class="qualification__data">
+                <div>
+                  <h3 class="qualification__title">Collège Courbet</h3>
+                  <span class="qualification__subtitle">France</span>
+                  <div class="qualification__calender">
+                    <i class="uil uil-calendar-alt" aria-hidden="true"></i>
+                    2017 - 2021
+                  </div>
+                </div>
+
+                <div>
+                  <span class="qualification__rounder"></span>
+                  <span class="qualification__line"></span>
+                </div>
+              </div>
+
+              <!-- Qualification 2 : Lycée -->
+              <div class="qualification__data">
+                <div></div>
+
+                <div>
+                  <span class="qualification__rounder"></span>
+                  <span class="qualification__line"></span>
+                </div>
+
+                <div>
+                  <h3 class="qualification__title">Lycée Breteuil</h3>
+                  <span class="qualification__subtitle">France</span>
+
+                  <div class="qualification__calender">
+                    <i class="uil uil-calendar-alt" aria-hidden="true"></i>
+                    2021 - 2024
+                  </div>
+                </div>
+              </div>
+
+              <!-- Qualification 3 : BUT -->
+              <div class="qualification__data">
+                <div>
+                  <h3 class="qualification__title">BUT Informatique</h3>
+                  <span class="qualification__subtitle">France</span>
+                  <div class="qualification__calender">
+                    <i class="uil uil-calendar-alt" aria-hidden="true"></i>
+                    2024 - 2025
+                  </div>
+                </div>
+
+                <div>
+                  <span class="qualification__rounder"></span>
+                  <span class="qualification__line"></span>
+                </div>
+              </div>
+
+              <!-- Qualification 4 : BTS SIO -->
+              <div class="qualification__data">
+                <div></div>
+
+                <div>
+                  <span class="qualification__rounder"></span>
+                </div>
+
+                <div>
+                  <h3 class="qualification__title">BTS SIO</h3>
+                  <span class="qualification__subtitle">Option SISR</span>
+                  <div class="qualification__calender">
+                    <i class="uil uil-calendar-alt" aria-hidden="true"></i>
+                    2025 - 2028
+                  </div>
+
+                  <span
+                    class="button button--flex button--small button--link services__button"
+                    role="button"
+                    aria-label="Voir plus d'informations sur le BTS SIO"
+                  >
+                    Voir plus
+                    <i class="uil uil-arrow-right button__icon" aria-hidden="true"></i>
+                  </span>
+
+                  <!-- Modal BTS SIO -->
+                  <div class="services__modal">
+                    <div class="services__modal-content">
+                      <h4 class="services__modal-title">Résumé BTS SIO :</h4>
+                      <i class="uil uil-times services__modal-close" aria-label="Fermer la modal" role="button"></i>
+
+                      <ul class="services__modal-services grid">
+                        <li class="services__modal-service">
+                          <i class="uil uil-check-circle services__modal-icon" aria-hidden="true"></i>
+                          <p>Développement d'applications (SISR), réseaux, cybersécurité, bases de données, gestion de projet.</p>
+                        </li>
+
+                        <li class="services__modal-service">
+                          <i class="uil uil-check-circle services__modal-icon" aria-hidden="true"></i>
+                          <p>Projets professionnels encadrés.</p>
+                        </li>
+
+                        <li class="services__modal-service">
+                          <i class="uil uil-check-circle services__modal-icon" aria-hidden="true"></i>
+                          <p>Stages et apprentissage en entreprise.</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--================== Section Portfolio ==================-->
+      <section class="portfolio section" id="portfolio">
+        <h2 class="section__title">Projets</h2>
+        <span class="section__subtitle">Travaux les plus récents</span>
+
+        <div class="portfolio__container container swiper-container">
+          <div class="swiper-wrapper">
+            <!-- Portfolio 1 -->
+            <div class="portfolio__content grid swiper-slide">
+              <img src="assets/img/portfolio5.png" alt="Projet en cours" class="portfolio__img" />
+
+              <div class="portfolio__data">
+                <h3 class="portfolio__title">EN COURS ....</h3>
+                <p class="portfolio__description">EN COURS ....</p>
+                <a
+                  href="https://github.com/Venkateeshh/DarkSurfer-Extension"
+                  class="button button--flex button--small portfolio__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Voir le projet sur GitHub"
+                >
+                  GitHub Repository
+                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://darksurfer.streamlit.app/"
+                  class="button button--flex button--small portfolio__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Voir le projet en direct"
+                >
+                  Voir en direct
+                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Portfolio 2 -->
+            <div class="portfolio__content grid swiper-slide">
+              <img src="assets/img/portfolio1.png" alt="Projet en cours" class="portfolio__img" />
+
+              <div class="portfolio__data">
+                <h3 class="portfolio__title">EN COURS ....</h3>
+                <p class="portfolio__description">EN COURS ....</p>
+                <a
+                  href="https://github.com/Venkateeshh/Weather-App"
+                  class="button button--flex button--small portfolio__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Voir le projet sur GitHub"
+                >
+                  GitHub Repository
+                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://venkateeshh.github.io/Weather-App/"
+                  class="button button--flex button--small portfolio__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Voir le projet en direct"
+                >
+                  Voir en direct
+                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Portfolio 3 -->
+            <div class="portfolio__content grid swiper-slide">
+              <img src="assets/img/portfolio2.png" alt="Projet en cours" class="portfolio__img" />
+
+              <div class="portfolio__data">
+                <h3 class="portfolio__title">EN COURS ....</h3>
+                <p class="portfolio__description">EN COURS ....</p>
+                <a
+                  href="https://github.com/Venkateeshh/Spotify-Clone"
+                  class="button button--flex button--small portfolio__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Voir le projet sur GitHub"
+                >
+                  GitHub Repository
+                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://venkateeshh.github.io/Spotify-Clone/"
+                  class="button button--flex button--small portfolio__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Voir le projet en direct"
+                >
+                  Voir en direct
+                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Portfolio 4 -->
+            <div class="portfolio__content grid swiper-slide">
+              <img src="assets/img/portfolio3.png" alt="Projet en cours" class="portfolio__img" />
+
+              <div class="portfolio__data">
+                <h3 class="portfolio__title">EN COURS ....</h3>
+                <p class="portfolio__description">EN COURS ....</p>
+                <a
+                  href="https://github.com/Venkateeshh/Js-Language-Translator"
+                  class="button button--flex button--small portfolio__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Voir le projet sur GitHub"
+                >
+                  GitHub Repository
+                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://venkateeshh.github.io/Js-Language-Translator/"
+                  class="button button--flex button--small portfolio__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Voir le projet en direct"
+                >
+                  Voir en direct
+                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Portfolio 5 -->
+            <div class="portfolio__content grid swiper-slide">
+              <img src="assets/img/portfolio4.png" alt="Projet en cours" class="portfolio__img" />
+
+              <div class="portfolio__data">
+                <h3 class="portfolio__title">EN COURS ....</h3>
+                <p class="portfolio__description">EN COURS ....</p>
+                <a
+                  href="https://github.com/Venkateeshh/Sorting-Visualizer"
+                  class="button button--flex button--small portfolio__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Voir le projet sur GitHub"
+                >
+                  Répertoire GitHub
+                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/posts/venkatesh-kamath/_algorithmdesign-sortingvisualizer-javaprojects-activity-7095437035125043200-fWDl?utm_source=share&utm_medium=member_desktop"
+                  class="button button--flex button--small portfolio__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Voir le projet en direct"
+                >
+                  Voir en direct
+                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Swiper -->
+          <div class="swiper-button-next" aria-label="Projet suivant">
+            <i class="uil uil-angle-right-b swiper-portfolio-icon" aria-hidden="true"></i>
+          </div>
+          <div class="swiper-button-prev" aria-label="Projet précédent">
+            <i class="uil uil-angle-left-b swiper-portfolio-icon" aria-hidden="true"></i>
+          </div>
+          <div class="swiper-pagination" aria-label="Pagination des projets"></div>
+        </div>
+      </section>
+
+      <!--================== Section Contact ==================-->
+      <section class="contact section" id="contact">
+        <h2 class="section__title">Contactez-moi</h2>
+        <span class="section__subtitle">Nous contacter</span>
+
+        <div class="contact__container container grid">
+          <div>
+            <div class="contact__information">
+              <i class="uil uil-calling contact__icon" aria-hidden="true"></i>
+
+              <div>
+                <h3 class="contact__title">Contactez-moi</h3>
+                <span class="contact__subtitle">
+                  <a href="tel:+33667626545" aria-label="Appeler Saad Rhazzoul">07 67 62 65 45</a>
+                </span>
+              </div>
+            </div>
+
+            <div class="contact__information">
+              <i class="uil uil-envelope-minus contact__icon" aria-hidden="true"></i>
+
+              <div>
+                <h3 class="contact__title">Email</h3>
+                <span class="contact__subtitle">
+                  <a href="mailto:saad.rhazzoul@gmail.com" aria-label="Envoyer un email à Saad Rhazzoul">saad.rhazzoul@gmail.com</a>
+                </span>
+              </div>
+            </div>
+
+            <div class="contact__information">
+              <i class="uil uil-map-marker contact__icon" aria-hidden="true"></i>
+
+              <div>
+                <h3 class="contact__title">Adresse</h3>
+                <span class="contact__subtitle">Yvelines, Trappes, France</span>
+              </div>
+            </div>
+          </div>
+
+          <form action="#" method="post" class="contact__form grid" aria-label="Formulaire de contact">
+            <div class="contact__inputs grid">
+              <div class="contact__content">
+                <label for="contact-name" class="content__label">Nom</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  class="contact__input"
+                  required
+                  aria-required="true"
+                />
+              </div>
+
+              <div class="contact__content">
+                <label for="contact-email" class="content__label">Email</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  class="contact__input"
+                  required
+                  aria-required="true"
+                />
+              </div>
+            </div>
+
+            <div class="contact__content">
+              <label for="contact-message" class="content__label">Message</label>
+              <textarea
+                id="contact-message"
+                name="message"
+                cols="0"
+                rows="7"
+                class="contact__input"
+                required
+                aria-required="true"
+              ></textarea>
+            </div>
+
+            <div>
+              <a
+                href="mailto:saad.rhazzoul@gmail.com?subject=Contact depuis le portfolio&body=Bonjour,"
+                class="button button--flex"
+                aria-label="Envoyer un message par email"
+              >
+                Envoyez un message
+                <i class="uil uil-message button__icon" aria-hidden="true"></i>
+              </a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!--================== Footer ==================-->
+    <footer class="footer">
+      <div class="footer__bg">
+        <div class="footer__container container grid">
+          <div>
+            <h1 class="footer__title">Saad</h1>
+            <span class="footer__subtitle">Étudiant 1ère année en BTS SIO</span>
+          </div>
+
+          <ul class="footer__links">
+            <li>
+              <a href="#qualification" class="footer__link">Diplôme</a>
+            </li>
+            <li>
+              <a href="#portfolio" class="footer__link">Portfolio</a>
+            </li>
+            <li>
+              <a href="#contact" class="footer__link">Me contacter</a>
+            </li>
+          </ul>
+
+          <div class="footer__socials">
+            <a
+              href="https://www.instagram.com/"
+              class="footer__social"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Profil Instagram"
+            >
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social"
+              aria-label="Profil Twitter"
+            >
+              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <p class="footer__copy">&#169; RHAZZOUL SAAD. Tous droits réservés</p>
+      </div>
+    </footer>
+
+    <!--================== Scroll Top ==================-->
+    <a href="#" class="scrollup" id="scroll-up" aria-label="Retour en haut de la page">
+      <i class="uil uil-arrow-up scrollup__icon" aria-hidden="true"></i>
+    </a>
+
+    <!--================== Scripts ==================-->
+    <script type="text/javascript" src="assets/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
+    <script src="assets/ptj.js"></script>
+  </body>
+</html>
