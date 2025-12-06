@@ -33,6 +33,12 @@
                 <i class="uil uil-user nav__icon" aria-hidden="true"></i>À propos de moi
               </a>
             </li>
+            
+            <li class="nav__item">
+              <a href="#portfolio" class="nav__link">
+                <i class="uil uil-scenery nav__icon" aria-hidden="true"></i>Projets
+              </a>
+            </li>
 
             <li class="nav__item">
               <a href="#bts" class="nav__link">
@@ -49,12 +55,6 @@
             <li class="nav__item">
               <a href="#veille" class="nav__link">
                 <i class="uil uil-lightbulb-alt nav__icon" aria-hidden="true"></i>Veille technologique
-              </a>
-            </li>
-            
-            <li class="nav__item">
-              <a href="#portfolio" class="nav__link">
-                <i class="uil uil-scenery nav__icon" aria-hidden="true"></i>Projets
               </a>
             </li>
 
@@ -185,46 +185,10 @@
 
             <div class="about__buttons">
               <a download="" href="assets/MyCV.pdf" class="button button--flex">
-                Télécharger CV<i class="fas fa-download button__icon" aria-hidden="true"></i>
+                Télécharger mon CV<i class="fas fa-download button__icon" aria-hidden="true"></i>
               </a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!--================== Section BTS SIO ==================-->
-      <section class="services section" id="bts">
-        <h2 class="section__title">BTS SIO</h2>
-        <span class="section__subtitle">Présentation rapide</span>
-
-        <div class="container grid">
-          <p>
-            Le BTS Services Informatiques aux Organisations (SIO) est une formation
-            axée sur le développement, les réseaux et les systèmes informatiques.
-            Je compléterai prochainement cette section avec mon option, mes projets et mes compétences.
-          </p>
-        </div>
-      </section>
-
-      <!--================== Section Stages ==================-->
-      <section class="services section" id="stages">
-        <h2 class="section__title">Stages</h2>
-        <span class="section__subtitle">Mes expériences professionnelles</span>
-
-        <div class="container grid">
-          <p>Aucune expérience de stage ajoutée pour le moment. Cette section sera complétée prochainement.</p>
-        </div>
-      </section>
-
-      <!--================== Section Veille technologique ==================-->
-      <section class="services section" id="veille">
-        <h2 class="section__title">Veille technologique</h2>
-        <span class="section__subtitle">Sujet en cours</span>
-
-        <div class="container grid">
-          <p>
-            Je mettrai bientôt ici ma veille technologique : sujets, recherches et informations en rapport avec l'informatique.
-          </p>
         </div>
       </section>
 
@@ -376,9 +340,6 @@
 
       <!--================== Section Qualifications ==================-->
       <section class="qualification__section service__section" id="qualification">
-        <h2 class="section__title">Certification</h2>
-        <span class="section__subtitle">Mon parcours personnel</span>
-
         <div class="qualification__container container grid services__container">
           <div class="qualification__tabs">
             <div
@@ -388,7 +349,7 @@
               aria-label="Afficher l'éducation"
             >
               <i class="uil uil-graduation-cap qualification__icon" aria-hidden="true"></i>
-              Éducation
+              Mon parcours scolaire
             </div>
           </div>
 
@@ -439,10 +400,39 @@
               <div class="qualification__data">
                 <div>
                   <h3 class="qualification__title">BUT Informatique</h3>
-                  <span class="qualification__subtitle">France</span>
+                  <span class="qualification__subtitle">Institut universitaire de technologie, Vélizy-Villacoublay</span>
                   <div class="qualification__calender">
                     <i class="uil uil-calendar-alt" aria-hidden="true"></i>
                     2024 - 2025
+                  </div>
+
+                  <span
+                    class="button button--flex button--small button--link services__button"
+                    role="button"
+                    aria-label="Voir plus d'informations sur le BUT Informatique"
+                  >
+                    Voir plus
+                    <i class="uil uil-arrow-right button__icon" aria-hidden="true"></i>
+                  </span>
+
+                  <!-- Modal BUT Informatique -->
+                  <div class="services__modal">
+                    <div class="services__modal-content">
+                      <h4 class="services__modal-title">Résumé BUT Informatique :</h4>
+                      <i class="uil uil-times services__modal-close" aria-label="Fermer la modal" role="button"></i>
+
+                      <ul class="services__modal-services grid">
+                        <li class="services__modal-service">
+                          <i class="uil uil-check-circle services__modal-icon" aria-hidden="true"></i>
+                          <p>Institut universitaire de technologie, Vélizy-Villacoublay</p>
+                        </li>
+
+                        <li class="services__modal-service">
+                          <i class="uil uil-check-circle services__modal-icon" aria-hidden="true"></i>
+                          <p>Apprentissage de Python, SQL, Java, C, HTML, CSS, R</p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
 
@@ -506,177 +496,234 @@
             </div>
           </div>
         </div>
-      </section>
 
-      <!--================== Section Portfolio ==================-->
-      <section class="portfolio section" id="portfolio">
-        <h2 class="section__title">Projets</h2>
-        <span class="section__subtitle">Travaux les plus récents</span>
+        <h2 class="section__title" style="margin-top: 4rem;">Certification</h2>
+        <span class="section__subtitle">Mon parcours personnel</span>
+        <div class="portfolio__content grid swiper-slide">
+          <img src="\assets\img\certificate-elements-of-ai-fr.png" alt="Projet en cours" class="portfolio__img" />
 
-        <div class="portfolio__container container swiper-container">
-          <div class="swiper-wrapper">
-            <!-- Portfolio 1 -->
-            <div class="portfolio__content grid swiper-slide">
-              <img src="assets/img/portfolio5.png" alt="Projet en cours" class="portfolio__img" />
-
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">EN COURS ....</h3>
-                <p class="portfolio__description">EN COURS ....</p>
-                <a
-                  href="https://github.com/Venkateeshh/DarkSurfer-Extension"
-                  class="button button--flex button--small portfolio__button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Voir le projet sur GitHub"
-                >
-                  GitHub Repository
-                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
-                </a>
-                <a
-                  href="https://darksurfer.streamlit.app/"
-                  class="button button--flex button--small portfolio__button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Voir le projet en direct"
-                >
-                  Voir en direct
-                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Portfolio 2 -->
-            <div class="portfolio__content grid swiper-slide">
-              <img src="assets/img/portfolio1.png" alt="Projet en cours" class="portfolio__img" />
-
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">EN COURS ....</h3>
-                <p class="portfolio__description">EN COURS ....</p>
-                <a
-                  href="https://github.com/Venkateeshh/Weather-App"
-                  class="button button--flex button--small portfolio__button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Voir le projet sur GitHub"
-                >
-                  GitHub Repository
-                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
-                </a>
-                <a
-                  href="https://venkateeshh.github.io/Weather-App/"
-                  class="button button--flex button--small portfolio__button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Voir le projet en direct"
-                >
-                  Voir en direct
-                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Portfolio 3 -->
-            <div class="portfolio__content grid swiper-slide">
-              <img src="assets/img/portfolio2.png" alt="Projet en cours" class="portfolio__img" />
-
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">EN COURS ....</h3>
-                <p class="portfolio__description">EN COURS ....</p>
-                <a
-                  href="https://github.com/Venkateeshh/Spotify-Clone"
-                  class="button button--flex button--small portfolio__button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Voir le projet sur GitHub"
-                >
-                  GitHub Repository
-                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
-                </a>
-                <a
-                  href="https://venkateeshh.github.io/Spotify-Clone/"
-                  class="button button--flex button--small portfolio__button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Voir le projet en direct"
-                >
-                  Voir en direct
-                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Portfolio 4 -->
-            <div class="portfolio__content grid swiper-slide">
-              <img src="assets/img/portfolio3.png" alt="Projet en cours" class="portfolio__img" />
-
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">EN COURS ....</h3>
-                <p class="portfolio__description">EN COURS ....</p>
-                <a
-                  href="https://github.com/Venkateeshh/Js-Language-Translator"
-                  class="button button--flex button--small portfolio__button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Voir le projet sur GitHub"
-                >
-                  GitHub Repository
-                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
-                </a>
-                <a
-                  href="https://venkateeshh.github.io/Js-Language-Translator/"
-                  class="button button--flex button--small portfolio__button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Voir le projet en direct"
-                >
-                  Voir en direct
-                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Portfolio 5 -->
-            <div class="portfolio__content grid swiper-slide">
-              <img src="assets/img/portfolio4.png" alt="Projet en cours" class="portfolio__img" />
-
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">EN COURS ....</h3>
-                <p class="portfolio__description">EN COURS ....</p>
-                <a
-                  href="https://github.com/Venkateeshh/Sorting-Visualizer"
-                  class="button button--flex button--small portfolio__button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Voir le projet sur GitHub"
-                >
-                  Répertoire GitHub
-                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
-                </a>
-                <a
-                  href="https://www.linkedin.com/posts/venkatesh-kamath/_algorithmdesign-sortingvisualizer-javaprojects-activity-7095437035125043200-fWDl?utm_source=share&utm_medium=member_desktop"
-                  class="button button--flex button--small portfolio__button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Voir le projet en direct"
-                >
-                  Voir en direct
-                  <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
+          <div class="portfolio__data">
+            <h3 class="portfolio__title">Formation "Elements of AI" - Certification 2025 </h3>
+            <p class="portfolio__description">Formation en ligne sur les fondamentaux de l'intelligence
+              artificielle avec la plateforme MOOC.fi.</p>
+            <a
+              href="https://certificates.mooc.fi/validate/jo1sm9aw099"
+              class="button button--flex button--small portfolio__button"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Voir le projet sur GitHub"
+            >
+              Voir la certification
+              <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+            </a>
           </div>
-
-          <!-- Navigation Swiper -->
-          <div class="swiper-button-next" aria-label="Projet suivant">
-            <i class="uil uil-angle-right-b swiper-portfolio-icon" aria-hidden="true"></i>
-          </div>
-          <div class="swiper-button-prev" aria-label="Projet précédent">
-            <i class="uil uil-angle-left-b swiper-portfolio-icon" aria-hidden="true"></i>
-          </div>
-          <div class="swiper-pagination" aria-label="Pagination des projets"></div>
+        </div>
         </div>
       </section>
 
+            <!--================== Section Portfolio ==================-->
+            <section class="portfolio section" id="portfolio">
+              <h2 class="section__title">Projets</h2>
+              <span class="section__subtitle">Travaux les plus récents</span>
+      
+              <div class="portfolio__container container swiper-container">
+                <div class="swiper-wrapper">
+                  <!-- Portfolio 1 -->
+                  <div class="portfolio__content grid swiper-slide">
+                    <img src="assets/img/portfolio5.png" alt="Projet en cours" class="portfolio__img" />
+      
+                    <div class="portfolio__data">
+                      <h3 class="portfolio__title">EN COURS ....</h3>
+                      <p class="portfolio__description">EN COURS ....</p>
+                      <a
+                        href="https://github.com/Venkateeshh/DarkSurfer-Extension"
+                        class="button button--flex button--small portfolio__button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Voir le projet sur GitHub"
+                      >
+                        GitHub Repository
+                        <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                      </a>
+                      <a
+                        href="https://darksurfer.streamlit.app/"
+                        class="button button--flex button--small portfolio__button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Voir le projet en direct"
+                      >
+                        Voir en direct
+                        <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+      
+                  <!-- Portfolio 2 -->
+                  <div class="portfolio__content grid swiper-slide">
+                    <img src="assets/img/portfolio1.png" alt="Projet en cours" class="portfolio__img" />
+      
+                    <div class="portfolio__data">
+                      <h3 class="portfolio__title">EN COURS ....</h3>
+                      <p class="portfolio__description">EN COURS ....</p>
+                      <a
+                        href="https://github.com/Venkateeshh/Weather-App"
+                        class="button button--flex button--small portfolio__button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Voir le projet sur GitHub"
+                      >
+                        GitHub Repository
+                        <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                      </a>
+                      <a
+                        href="https://venkateeshh.github.io/Weather-App/"
+                        class="button button--flex button--small portfolio__button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Voir le projet en direct"
+                      >
+                        Voir en direct
+                        <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+      
+                  <!-- Portfolio 3 -->
+                  <div class="portfolio__content grid swiper-slide">
+                    <img src="assets/img/portfolio2.png" alt="Projet en cours" class="portfolio__img" />
+      
+                    <div class="portfolio__data">
+                      <h3 class="portfolio__title">EN COURS ....</h3>
+                      <p class="portfolio__description">EN COURS ....</p>
+                      <a
+                        href="https://github.com/Venkateeshh/Spotify-Clone"
+                        class="button button--flex button--small portfolio__button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Voir le projet sur GitHub"
+                      >
+                        GitHub Repository
+                        <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                      </a>
+                      <a
+                        href="https://venkateeshh.github.io/Spotify-Clone/"
+                        class="button button--flex button--small portfolio__button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Voir le projet en direct"
+                      >
+                        Voir en direct
+                        <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+      
+                  <!-- Portfolio 4 -->
+                  <div class="portfolio__content grid swiper-slide">
+                    <img src="assets/img/portfolio3.png" alt="Projet en cours" class="portfolio__img" />
+      
+                    <div class="portfolio__data">
+                      <h3 class="portfolio__title">EN COURS ....</h3>
+                      <p class="portfolio__description">EN COURS ....</p>
+                      <a
+                        href="https://github.com/Venkateeshh/Js-Language-Translator"
+                        class="button button--flex button--small portfolio__button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Voir le projet sur GitHub"
+                      >
+                        GitHub Repository
+                        <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                      </a>
+                      <a
+                        href="https://venkateeshh.github.io/Js-Language-Translator/"
+                        class="button button--flex button--small portfolio__button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Voir le projet en direct"
+                      >
+                        Voir en direct
+                        <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+      
+                  <!-- Portfolio 5 -->
+                  <div class="portfolio__content grid swiper-slide">
+                    <img src="assets/img/portfolio4.png" alt="Projet en cours" class="portfolio__img" />
+      
+                    <div class="portfolio__data">
+                      <h3 class="portfolio__title">EN COURS ....</h3>
+                      <p class="portfolio__description">EN COURS ....</p>
+                      <a
+                        href="https://github.com/Venkateeshh/Sorting-Visualizer"
+                        class="button button--flex button--small portfolio__button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Voir le projet sur GitHub"
+                      >
+                        Répertoire GitHub
+                        <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/posts/venkatesh-kamath/_algorithmdesign-sortingvisualizer-javaprojects-activity-7095437035125043200-fWDl?utm_source=share&utm_medium=member_desktop"
+                        class="button button--flex button--small portfolio__button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Voir le projet en direct"
+                      >
+                        Voir en direct
+                        <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Navigation Swiper -->
+                <div class="swiper-button-next" aria-label="Projet suivant">
+                  <i class="uil uil-angle-right-b swiper-portfolio-icon" aria-hidden="true"></i>
+                </div>
+                <div class="swiper-button-prev" aria-label="Projet précédent">
+                  <i class="uil uil-angle-left-b swiper-portfolio-icon" aria-hidden="true"></i>
+                </div>
+                <div class="swiper-pagination" aria-label="Pagination des projets"></div>
+              </div>
+            </section>
+      <!--================== Section BTS SIO ==================-->
+      <section class="services section" id="bts">
+        <h2 class="section__title">BTS SIO</h2>
+        <span class="section__subtitle">Présentation rapide</span>
+
+        <div class="container grid">
+          <p>
+            Le BTS Services Informatiques aux Organisations (SIO) est une formation
+            axée sur le développement, les réseaux et les systèmes informatiques.
+            Je compléterai prochainement cette section avec mon option, mes projets et mes compétences.
+          </p>
+        </div>
+      </section>
+
+      <!--================== Section Stages ==================-->
+      <section class="services section" id="stages">
+        <h2 class="section__title">Stages</h2>
+        <span class="section__subtitle">Mes expériences professionnelles</span>
+
+        <div class="container grid">
+          <p>Aucune expérience de stage ajoutée pour le moment. Cette section sera complétée prochainement.</p>
+        </div>
+      </section>
+
+      <!--================== Section Veille technologique ==================-->
+      <section class="services section" id="veille">
+        <h2 class="section__title">Veille technologique</h2>
+        <span class="section__subtitle">Sujet en cours</span>
+
+        <div class="container grid">
+          <p>
+            Je mettrai bientôt ici ma veille technologique : sujets, recherches et informations en rapport avec l'informatique.
+          </p>
+        </div>
+      </section>
       <!--================== Section Contact ==================-->
       <section class="contact section" id="contact">
         <h2 class="section__title">Contactez-moi</h2>
