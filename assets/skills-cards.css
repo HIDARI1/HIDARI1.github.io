@@ -69,13 +69,18 @@
   .skill-category.active .skill-category-content {
     max-height: 2000px;
     padding: 2rem;
-    padding-top: 3rem;
+  }
+
+  /* Desktop styles - marge supplémentaire */
+  @media screen and (min-width: 768px) {
+    .skill-category.active .skill-category-content {
+      padding-top: 3rem;
+    }
   }
 
   .skills-cards {
     touch-action: none;
     padding-block: 1rem;
-    padding-top: 2rem;
     width: 100%;
     display: flex;
     gap: 1.5rem;
@@ -83,9 +88,16 @@
     justify-content: center;
   }
 
+  /* Desktop styles - marge supplémentaire */
+  @media screen and (min-width: 768px) {
+    .skills-cards {
+      padding-top: 2rem;
+    }
+  }
+
   .skills-cards article {
     -webkit-tap-highlight-color: #0000;
-    width: 280px;
+    width: 240px;
     aspect-ratio: 4 / 3;
     outline: 2px solid hsl(var(--hue-color), 8%, 20%);
     background: var(--container-color);
@@ -97,6 +109,13 @@
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: var(--shadow-sm);
+  }
+
+  /* Desktop styles - cartes plus grandes */
+  @media screen and (min-width: 768px) {
+    .skills-cards article {
+      width: 280px;
+    }
   }
 
   .skills-cards article:hover {
@@ -226,10 +245,16 @@
     position: relative;
     font-size: 1rem;
     margin: 0;
-    margin-bottom: 0.5rem;
     user-select: none;
     color: var(--title-color);
     font-weight: var(--font-semi-bold);
+  }
+
+  /* Desktop styles - marge pour éviter superposition */
+  @media screen and (min-width: 768px) {
+    .skills-cards article h2 {
+      margin-bottom: 0.5rem;
+    }
   }
 
   .skills-cards article .skill-level {
