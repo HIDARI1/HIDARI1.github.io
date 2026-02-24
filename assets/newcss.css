@@ -5,14 +5,20 @@
 :root {
   --header-height: 3.5rem;
 
-  /*======= Colors =======*/
+  /*======= Colors (alignés avec onglet Compétences) =======*/
   --hue-color: 240;
+  --accent-indigo: #6366f1;
+  --accent-violet: #8b5cf6;
+  --accent-purple: #a855f7;
+  --accent-cyan: #22d3ee;
+  --bg-primary: #080810;
+  --bg-secondary: #0d0d18;
 
   /*========= HSL Color mode =========*/
-  --first-color: hsl(var(--hue-color), 69%, 61%);
-  --first-color-second: hsl(var(--hue-color), 69%, 61%);
-  --first-color-alt: hsl(var(--hue-color), 57%, 53%);
-  --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+  --first-color: var(--accent-indigo);
+  --first-color-second: var(--accent-indigo);
+  --first-color-alt: var(--accent-violet);
+  --first-color-lighter: var(--accent-cyan);
   --title-color: hsl(var(--hue-color), 8%, 15%);
   --text-color: hsl(var(--hue-color), 8%, 45%);
   --text-color-light: hsl(var(--hue-color), 8%, 65%);
@@ -79,20 +85,24 @@
   }
 }
 
-/*================= Variables Dark Theme ===============*/
+/*================= Variables Dark Theme (même palette que Compétences) ===============*/
 body.dark-theme {
-  --first-color-second: hsl(var(--hue-color), 30%, 8%);
-  --title-color: hsl(var(--hue-color), 8%, 95%);
-  --text-color: hsl(var(--hue-color), 8%, 75%);
-  --input-color: hsl(var(--hue-color), 29%, 16%);
-  --body-color: hsl(var(--hue-color), 28%, 12%);
-  --container-color: hsl(var(--hue-color), 29%, 16%);
-  --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
-  --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
+  --first-color: var(--accent-indigo);
+  --first-color-second: var(--accent-indigo);
+  --first-color-alt: var(--accent-violet);
+  --first-color-lighter: var(--accent-cyan);
+  --title-color: #ffffff;
+  --text-color: rgba(255, 255, 255, 0.85);
+  --text-color-light: rgba(255, 255, 255, 0.7);
+  --input-color: #12121f;
+  --body-color: var(--bg-primary);
+  --container-color: var(--bg-secondary);
+  --scroll-bar-color: rgba(255, 255, 255, 0.1);
+  --scroll-thumb-color: rgba(255, 255, 255, 0.2);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 /*================= Animations ===============*/
@@ -160,6 +170,44 @@ body.dark-theme {
   color: var(--first-color);
   background-color: var(--input-color);
   transform: rotate(20deg);
+}
+
+/*================= Fond smooth (aligné avec Compétences) ===============*/
+body.dark-theme {
+  background: linear-gradient(
+    180deg,
+    #080810 0%,
+    #0d0d18 40%,
+    #080810 100%
+  );
+  background-attachment: fixed;
+}
+body.dark-theme::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(99, 102, 241, 0.08) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    ellipse 60% 40% at 100% 80%,
+    rgba(139, 92, 246, 0.06) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    ellipse 50% 30% at 0% 60%,
+    rgba(34, 211, 238, 0.05) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+body .header,
+body .main {
+  position: relative;
+  z-index: 1;
 }
 
 /*================= Base ===============*/
@@ -1001,6 +1049,106 @@ body.dark-theme .scroll-header {
   visibility: visible;
 }
 
+/*================== Certification Lightbox (agrandir image) ==================*/
+.certification__img-zoom {
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.certification__img-zoom:hover {
+  opacity: 0.9;
+}
+
+.certification-lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: var(--z-modal);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.certification-lightbox.certification-lightbox--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.certification-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.certification-lightbox__content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.certification-lightbox__img {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-xl);
+}
+
+.certification-lightbox__close {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--container-color);
+  color: var(--first-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-md);
+}
+
+.certification-lightbox__close:hover {
+  background-color: var(--first-color);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Certification Swiper : même affichage que section Projets (une slide, flèches dehors) */
+.certification-swiper {
+  overflow: initial;
+}
+
+.certification-swiper .swiper-slide {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.certification-swiper .swiper-button-prev {
+  left: -0.5rem;
+}
+
+.certification-swiper .swiper-button-next {
+  right: -0.5rem;
+}
+
 /*================== Portfolio ==================*/
 .portfolio__container {
   overflow: initial;
@@ -1114,6 +1262,119 @@ body.dark-theme .scroll-header {
 .swiper-button-prev,
 .swiper-pagination-bullets {
   outline: none;
+}
+
+/*================ BTS SIO Tabs ===============*/
+.bts-tabs {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.bts-tabs__buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: var(--mb-2);
+}
+
+.bts-tabs__button {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  background-color: var(--input-color);
+  color: var(--text-color);
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bts-tabs__button:hover {
+  color: var(--first-color);
+  border-color: var(--first-color);
+  transform: translateY(-2px);
+}
+
+.bts-tabs__button--active {
+  color: var(--first-color);
+  background-color: var(--container-color);
+  border-color: var(--first-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.bts-tabs__icon {
+  font-size: 1.5rem;
+}
+
+.bts-tabs__panels {
+  position: relative;
+}
+
+.bts-tabs__panel {
+  display: none;
+  padding: 2rem;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.bts-tabs__panel--active {
+  display: block;
+}
+
+.bts-tabs__badge {
+  display: inline-block;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--first-color);
+  background-color: var(--input-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--first-color-lighter);
+}
+
+.bts-tabs__title {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: var(--mb-1);
+}
+
+.bts-tabs__description {
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-bottom: var(--mb-1-5);
+}
+
+.bts-tabs__subtitle {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: var(--mb-0-75);
+}
+
+.bts-tabs__skills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bts-tabs__skills li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+}
+
+.bts-tabs__check {
+  color: var(--first-color);
+  font-size: 1.25rem;
+  flex-shrink: 0;
 }
 
 /*================ Contact Me ===============*/
@@ -1593,7 +1854,7 @@ body.dark-theme .scroll-header {
 
   .scrollup {
     right: 2rem;
-  }
+}
 
   .show-scroll {
     bottom: 3rem;

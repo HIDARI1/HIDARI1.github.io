@@ -85,20 +85,114 @@ modalCloses.forEach((modalClose) => {
   });
 });
 
-/*======================= Portfolio Swiper ===================*/
-var swiper = new Swiper(".portfolio__container", {
+/*======================= BTS Tabs Switcher ===================*/
+(function () {
+  var btsButtons = document.querySelectorAll("#bts [data-bts-target]");
+  var btsPanels = document.querySelectorAll("#bts [data-bts-content]");
+
+  if (btsButtons.length && btsPanels.length) {
+    btsButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = this.getAttribute("data-bts-target");
+        var targetPanel = document.querySelector(targetId);
+
+        if (!targetPanel) return;
+
+        btsButtons.forEach(function (b) {
+          b.classList.remove("bts-tabs__button--active");
+          b.setAttribute("aria-selected", "false");
+        });
+        btsPanels.forEach(function (p) {
+          p.classList.remove("bts-tabs__panel--active");
+        });
+
+        this.classList.add("bts-tabs__button--active");
+        this.setAttribute("aria-selected", "true");
+        targetPanel.classList.add("bts-tabs__panel--active");
+      });
+    });
+  }
+})();
+
+/*======================= Portfolio Swiper (section Projets) ===================*/
+var swiper = new Swiper("#portfolio .portfolio__container", {
   cssMode: true,
   loop: true,
 
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: "#portfolio .swiper-button-next",
+    prevEl: "#portfolio .swiper-button-prev",
   },
   pagination: {
-    el: ".swiper-pagination",
+    el: "#portfolio .swiper-pagination",
     clickable: true,
   },
 });
+
+/*======================= Certification Swiper (même structure que Projets) ===================*/
+var certificationSwiper = new Swiper("#certification .certification-swiper", {
+  cssMode: true,
+  loop: true,
+
+  navigation: {
+    nextEl: "#certification .swiper-button-next",
+    prevEl: "#certification .swiper-button-prev",
+  },
+  pagination: {
+    el: "#certification .swiper-pagination",
+    clickable: true,
+  },
+});
+
+/*======================= Certification Lightbox (agrandir image) ===================*/
+(function () {
+  var lightbox = document.getElementById("certification-lightbox");
+  var lightboxImg = lightbox && lightbox.querySelector(".certification-lightbox__img");
+  var lightboxBackdrop = lightbox && lightbox.querySelector(".certification-lightbox__backdrop");
+  var lightboxClose = lightbox && lightbox.querySelector(".certification-lightbox__close");
+  var zoomImgs = document.querySelectorAll(".certification__img-zoom");
+
+  function openLightbox(src, alt) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || "Image de certification agrandie";
+    lightbox.classList.add("certification-lightbox--open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove("certification-lightbox--open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  if (zoomImgs.length) {
+    zoomImgs.forEach(function (img) {
+      img.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openLightbox(this.src, this.alt);
+      });
+      img.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openLightbox(this.src, this.alt);
+        }
+      });
+    });
+  }
+
+  if (lightboxBackdrop) lightboxBackdrop.addEventListener("click", closeLightbox);
+  if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && lightbox && lightbox.classList.contains("certification-lightbox--open")) {
+      closeLightbox();
+    }
+  });
+})();
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll("section[id]");
