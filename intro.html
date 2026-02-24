@@ -99,6 +99,7 @@
                 rgba(255, 255, 255, 0.4) 100%);
             background-size: 200% 200%;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             animation: borderFlow 3s linear infinite;
@@ -174,18 +175,18 @@
     </style>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
+    <canvas id="canvas" aria-hidden="true"></canvas>
     <div class="content">
-        <h1>PRISM</h1>
-        <p class="tagline">Spectrum of Light</p>
+        <h1>Saad Rhazzoul</h1>
+        <p class="tagline">Étudiant en BTS SIO — Développement & Réseaux</p>
         <div class="buttons">
-            <a href="index.html" class="glass-button">
+            <a href="./index.html" class="glass-button" aria-label="Entrer dans le portfolio">
                 <span class="shimmer"></span>
-                <span>Discover</span>
+                <span>Entrer</span>
             </a>
-            <a href="index.html#contact" class="glass-button">
+            <a href="./index.html#contact" class="glass-button" aria-label="Accéder à la section contact">
                 <span class="shimmer"></span>
-                <span>Join Now</span>
+                <span>Me contacter</span>
             </a>
         </div>
     </div>
@@ -421,8 +422,11 @@
         const canvas = document.getElementById('canvas');
         const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
         if (!gl) {
-            alert('WebGL non supporté');
-        }
+            canvas.style.display = 'none';
+            document.body.style.background = '#080810';
+            document.querySelector('.content').style.pointerEvents = 'auto';
+            console.warn('WebGL non supporté — affichage simplifié');
+        } else {
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
@@ -520,6 +524,7 @@
             requestAnimationFrame(render);
         }
         render();
+        }
     </script>
 </body>
 </html>
