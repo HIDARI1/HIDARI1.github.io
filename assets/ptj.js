@@ -116,8 +116,8 @@ modalCloses.forEach((modalClose) => {
 
 /*======================= Portfolio Swiper (section Projets) ===================*/
 var swiper = new Swiper("#portfolio .portfolio__container", {
-  cssMode: true,
   loop: true,
+  mousewheel: false,
 
   navigation: {
     nextEl: "#portfolio .swiper-button-next",
@@ -131,8 +131,8 @@ var swiper = new Swiper("#portfolio .portfolio__container", {
 
 /*======================= Certification Swiper (même structure que Projets) ===================*/
 var certificationSwiper = new Swiper("#certification .certification-swiper", {
-  cssMode: true,
   loop: true,
+  mousewheel: false,
 
   navigation: {
     nextEl: "#certification .swiper-button-next",

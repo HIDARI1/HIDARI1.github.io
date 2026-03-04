@@ -220,6 +220,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #080810;
+  overflow-x: hidden;
 }
 
 body {
@@ -231,6 +232,7 @@ body {
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1,
@@ -1152,10 +1154,12 @@ body.dark-theme .scroll-header {
 /*================== Portfolio ==================*/
 .portfolio__container {
   overflow: initial;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .portfolio__content {
-  padding: 0 1.5rem;
+  padding: 0 2.5rem;
   background-color: var(--container-color);
   border-radius: 0.5rem;
   box-shadow: var(--shadow-sm);
@@ -1171,6 +1175,8 @@ body.dark-theme .scroll-header {
 .portfolio__img {
   width: 100%;
   max-width: 310px;
+  height: 180px;
+  object-fit: cover;
   border-radius: 0.5rem;
   justify-self: center;
   transition: var(--transition-base);
@@ -1686,7 +1692,7 @@ body.dark-theme .scroll-header {
   }
 
   .portfolio__content {
-    padding: 1.5rem;
+    padding: 1.5rem 2rem;
   }
 }
 
