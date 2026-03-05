@@ -1,27 +1,66 @@
 const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
-  navClose = document.getElementById("nav-close");
+  navClose = document.getElementById("nav-close"),
+  header = document.getElementById("header");
+
+function openMenu() {
+  if (!navMenu) return;
+  navMenu.classList.add("show-menu");
+  document.body.classList.add("nav-open");
+  if (header) header.classList.add("show-menu-active");
+}
+
+function closeMenu() {
+  if (!navMenu) return;
+  navMenu.classList.remove("show-menu");
+  document.body.classList.remove("nav-open");
+  if (header) header.classList.remove("show-menu-active");
+}
+
 if (navToggle) {
-  navToggle.addEventListener("click", () => {
-    navMenu.classList.add("show-menu");
-  });
+  navToggle.addEventListener("click", openMenu);
 }
 
 if (navClose) {
-  navClose.addEventListener("click", () => {
-    navMenu.classList.remove("show-menu");
-  });
+  navClose.addEventListener("click", closeMenu);
 }
 
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll(".nav__link");
+navLink.forEach((n) => n.addEventListener("click", closeMenu));
 
-function linkAction() {
-  const navMenu = document.getElementById("nav-menu");
-  // When we click on each nav__link, we remove the show-menu class
-  navMenu.classList.remove("show-menu");
-}
-navLink.forEach((n) => n.addEventListener("click", linkAction));
+/*==================== AUTO-HIDE HEADER ON MOBILE SCROLL ====================*/
+(function () {
+  var lastScroll = 0;
+  var scrollThreshold = 60;
+  var isMobile = function () { return window.innerWidth < 768; };
+
+  window.addEventListener("scroll", function () {
+    if (!isMobile() || !header) return;
+    if (navMenu && navMenu.classList.contains("show-menu")) return;
+
+    var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll <= 10) {
+      header.classList.remove("header--hidden");
+      return;
+    }
+
+    if (currentScroll > lastScroll + 5 && currentScroll > scrollThreshold) {
+      header.classList.add("header--hidden");
+    } else if (currentScroll < lastScroll - 5) {
+      header.classList.remove("header--hidden");
+    }
+
+    lastScroll = currentScroll;
+  }, { passive: true });
+
+  window.addEventListener("resize", function () {
+    if (!isMobile() && header) {
+      header.classList.remove("header--hidden");
+    }
+  });
+})();
 
 /*======================= ACCORD SKILLS ======================*/
 
@@ -190,6 +229,41 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && lightbox && lightbox.classList.contains("certification-lightbox--open")) {
       closeLightbox();
+    }
+  });
+})();
+
+/*======================= CV Lightbox (afficher PDF) ===================*/
+(function () {
+  var cvLightbox = document.getElementById("cv-lightbox");
+  var cvIframe = cvLightbox && cvLightbox.querySelector(".cv-lightbox__iframe");
+  var cvBackdrop = cvLightbox && cvLightbox.querySelector(".cv-lightbox__backdrop");
+  var cvClose = cvLightbox && cvLightbox.querySelector(".cv-lightbox__close");
+  var cvOpenBtn = document.getElementById("cv-open-btn");
+
+  function openCV() {
+    if (!cvLightbox || !cvIframe) return;
+    cvIframe.src = "assets/MyCV.pdf";
+    cvLightbox.classList.add("cv-lightbox--open");
+    cvLightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeCV() {
+    if (!cvLightbox) return;
+    cvLightbox.classList.remove("cv-lightbox--open");
+    cvLightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (cvIframe) cvIframe.src = "";
+  }
+
+  if (cvOpenBtn) cvOpenBtn.addEventListener("click", openCV);
+  if (cvBackdrop) cvBackdrop.addEventListener("click", closeCV);
+  if (cvClose) cvClose.addEventListener("click", closeCV);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && cvLightbox && cvLightbox.classList.contains("cv-lightbox--open")) {
+      closeCV();
     }
   });
 })();

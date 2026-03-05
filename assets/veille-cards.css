@@ -14,6 +14,217 @@
   position: relative;
 }
 
+/* ====== Intro block ====== */
+#veille .veille-intro {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 2rem 2.25rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+#veille .veille-intro__icon {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--veille-c1), var(--veille-c2));
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+#veille .veille-intro__content {
+  flex: 1;
+}
+
+#veille .veille-intro__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+#veille .veille-intro__text {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.25rem;
+}
+
+#veille .veille-intro__text strong {
+  color: var(--veille-c1);
+  font-weight: 600;
+}
+
+#veille .veille-intro__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+#veille .veille-intro__pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.25s ease;
+}
+
+#veille .veille-intro__pill:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateX(4px);
+}
+
+#veille .veille-intro__pill i {
+  font-size: 1.15rem;
+  color: var(--veille-c2);
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+#veille .veille-intro__pill span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+}
+
+#veille .veille-intro__focus {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.1) 0%,
+    rgba(168, 85, 247, 0.1) 100%
+  );
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+#veille .veille-intro__focus i {
+  font-size: 1.3rem;
+  color: var(--veille-c3);
+  flex-shrink: 0;
+}
+
+#veille .veille-intro__focus strong {
+  color: var(--veille-c1);
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  #veille .veille-intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  #veille .veille-intro__icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 1.3rem;
+    border-radius: 0.75rem;
+  }
+
+  #veille .veille-intro__title {
+    font-size: 1rem;
+  }
+
+  #veille .veille-intro__text {
+    font-size: 0.8rem;
+    margin-bottom: 0.85rem;
+    line-height: 1.55;
+  }
+
+  #veille .veille-intro__details {
+    gap: 0.4rem;
+    margin-bottom: 0.85rem;
+  }
+
+  #veille .veille-intro__pill {
+    text-align: left;
+    padding: 0.5rem 0.7rem;
+    gap: 0.5rem;
+    border-radius: 0.6rem;
+  }
+
+  #veille .veille-intro__pill i {
+    font-size: 0.95rem;
+  }
+
+  #veille .veille-intro__pill span {
+    font-size: 0.75rem;
+  }
+
+  #veille .veille-intro__focus {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.78rem;
+    gap: 0.5rem;
+    border-radius: 0.6rem;
+  }
+
+  #veille .veille-intro__focus i {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  #veille .veille-intro {
+    padding: 1rem 0.75rem;
+  }
+
+  #veille .veille-intro__title {
+    font-size: 0.9rem;
+  }
+
+  #veille .veille-intro__text {
+    font-size: 0.73rem;
+  }
+
+  #veille .veille-intro__pill span {
+    font-size: 0.68rem;
+  }
+
+  #veille .veille-intro__focus {
+    font-size: 0.72rem;
+  }
+}
+
 /* grille de cartes */
 #veille .veille-cards-grid {
   position: relative;
@@ -120,3 +331,4 @@
   opacity: 0.9;
   transform: scale(1.02);
 }
+

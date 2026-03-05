@@ -1132,6 +1132,186 @@ body.dark-theme .scroll-header {
   transform: scale(1.1);
 }
 
+/*================== CV Lightbox (PDF viewer) ==================*/
+.cv-lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: var(--z-modal);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cv-lightbox.cv-lightbox--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cv-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.cv-lightbox__content {
+  position: relative;
+  width: 90vw;
+  max-width: 900px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--container-color);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 0.3s ease-out;
+  z-index: 1;
+}
+
+.cv-lightbox__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.cv-lightbox__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cv-lightbox__title i {
+  font-size: 1.2rem;
+}
+
+.cv-lightbox__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cv-lightbox__download,
+.cv-lightbox__close {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.cv-lightbox__download:hover,
+.cv-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.cv-lightbox__iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .cv-lightbox__content {
+    width: 96vw;
+    height: 92vh;
+    border-radius: 0.75rem;
+  }
+
+  .cv-lightbox__header {
+    padding: 0.6rem 1rem;
+  }
+
+  .cv-lightbox__title {
+    font-size: 0.85rem;
+  }
+}
+
+/*================== Certification image hint (cliquer pour agrandir) ==================*/
+.certification__img-wrapper {
+  position: relative;
+  justify-self: center;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.certification__img-wrapper .portfolio__img {
+  margin-bottom: 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.4s ease;
+}
+
+.certification__img-wrapper:hover .portfolio__img {
+  transform: scale(1.03);
+  filter: brightness(0.7);
+}
+
+.certification__img-hint {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+
+.certification__img-hint i {
+  font-size: 0.95rem;
+}
+
+.certification__img-wrapper:hover .certification__img-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@keyframes certHintPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(99, 102, 241, 0); }
+}
+
+.certification__img-wrapper:hover .certification__img-hint {
+  animation: certHintPulse 2s ease-in-out infinite;
+}
+
 /* Certification Swiper : même affichage que section Projets (une slide, flèches dehors) */
 .certification-swiper {
   overflow: initial;
@@ -1617,20 +1797,6 @@ body.dark-theme .scroll-header {
     width: 180px;
   }
 
-  .skills__icon,
-  .skills__arrow {
-    font-size: 1.25rem;
-  }
-
-  .skills__title {
-    font-size: var(--normal-font-size);
-  }
-
-  .qualification__data {
-    gap: 0.5rem;
-    column-gap: 1rem;
-  }
-
   .services__container {
     justify-content: center;
     grid-template-columns: 1fr;
@@ -1642,19 +1808,6 @@ body.dark-theme .scroll-header {
 
   .services__modal {
     padding: 0 0.5rem;
-  }
-
-  .portfolio__img {
-    width: 200px;
-  }
-
-  .about__info {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .about__info > div {
-    width: 100%;
   }
 }
 

@@ -4,8 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio de Saad Rhazzoul - Étudiant en BTS SIO" />
+    <meta name="description" content="Portfolio de Saad Rhazzoul - Étudiant en BTS SIO option SISR, passionné par la cybersécurité et les infrastructures réseau." />
     <title>Portfolio - Saad Rhazzoul</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portfolio - Saad Rhazzoul" />
+    <meta property="og:description" content="Étudiant en BTS SIO option SISR, passionné par la cybersécurité et les infrastructures réseau." />
+    <meta property="og:image" content="assets/img/pro.jpg" />
+    <meta property="og:url" content="https://hidari1.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <base href="./" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,9 +30,14 @@
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
     />
+    <link rel="stylesheet" href="assets/animations.css" />
+    <link rel="stylesheet" href="assets/mobile.css" />
   </head>
 
   <body class="dark-theme">
+    <!-- Progress bar -->
+    <div id="progress-bar" aria-hidden="true"></div>
+
     <!--================== Header ==================-->
     <header class="header" id="header">
       <nav class="nav container" role="navigation" aria-label="Navigation principale">
@@ -91,10 +108,6 @@
         <div class="home__container container grid">
           <div class="home__content grid">
             <div class="home__social">
-              <a href="#" target="_blank" class="home__social-icon" aria-label="Profil LinkedIn">
-                <i class="uil uil-linkedin-alt home__icon" aria-hidden="true"></i>
-              </a>
-
               <a href="https://github.com/HIDARI1" target="_blank" class="home__social-icon" aria-label="Profil GitHub">
                 <i class="uil uil-github-alt home__icon" aria-hidden="true"></i>
               </a>
@@ -136,7 +149,7 @@
 
 <div class="home__data">
     <h1 class="home__title">Bonjour, je suis Saad Rhazzoul</h1>
-    <h3 class="home__subtitle">Étudiant en BTS SIO</h3>
+    <h3 class="home__subtitle"><span id="typing-text"></span><span class="typing-cursor" aria-hidden="true"></span></h3>
     <p class="home__description">
                 Passionné par l'informatique,
         les nouvelles technologies, le développement ainsi que par le réseau et ses infrastructures. Toujours prêt à apprendre et progresser.
@@ -162,32 +175,35 @@
         <h2 class="section__title">À propos de moi</h2>
         <span class="section__subtitle">Mon introduction</span>
 
-        <div class="about__container container grid">
+        <div class="about__container container grid reveal">
           <img src="assets/img/about.jpg" alt="Photo de Saad Rhazzoul" class="about__img" />
 
           <div class="about__data">
             <p class="about__description">
-              Je suis étudiant en BTS SIO. Passionné par l'informatique,
-              j'aime apprendre, expérimenter et développer de nouvelles compétences.
-              Je compléterai bientôt cette section avec plus d'informations me concernant.
+              Actuellement en première année de <strong>BTS SIO option SISR</strong>, je suis passionné par l'informatique, la cybersécurité et les infrastructures réseau. Curieux et motivé, je cherche constamment à développer mes compétences techniques à travers des projets concrets, des certifications professionnelles et une veille technologique active.
             </p>
 
             <div class="about__info">
               <div>
-                <span class="about__info-title">1re année</span>
-                <span class="about__info-name">BTS SIO <br />option SISR</span>
+                <span class="about__info-title" data-count="3">0</span>
+                <span class="about__info-name">Certifications<br />obtenues</span>
               </div>
 
               <div>
-                <span class="about__info-title">19 ans</span>
-                <span class="about__info-name">20/05/2006</span>
+                <span class="about__info-title" data-count="2">0</span>
+                <span class="about__info-name">Projets<br />réalisés</span>
+              </div>
+
+              <div>
+                <span class="about__info-title">1re année</span>
+                <span class="about__info-name">BTS SIO<br />option SISR</span>
               </div>
             </div>
 
             <div class="about__buttons">
-              <a download="" href="assets/MyCV.pdf" class="button button--flex">
-                Télécharger mon CV<i class="fas fa-download button__icon" aria-hidden="true"></i>
-              </a>            
+              <button type="button" class="button button--flex" id="cv-open-btn" aria-label="Afficher mon CV">
+                Voir mon CV<i class="uil uil-eye button__icon" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
             </div>
@@ -198,7 +214,7 @@
         <h2 class="section__title">Compétences</h2>
         <span class="section__subtitle">Mon niveau de compétence</span>
 
-        <div class="skills-tabs-pro container">
+        <div class="skills-tabs-pro container reveal">
           <div class="bg-effects" aria-hidden="true">
             <div class="bg-gradient"></div>
             <div class="bg-grid"></div>
@@ -381,7 +397,7 @@
       </div>
     </div>
 
-    <div class="qualification__sections">
+    <div class="qualification__sections reveal">
       <div
         class="qualification__content qualifiation__active services__content"
         data-content
@@ -539,7 +555,12 @@
           <div class="swiper-wrapper">
                   <!-- Certification 1 -->
             <div class="portfolio__content grid swiper-slide">
-                    <img src="assets/img/certfi1.png" alt="Certification Elements of AI" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" title="Cliquer pour agrandir" />
+                    <div class="certification__img-wrapper">
+                      <img src="assets/img/certfi1.png" alt="Certification Elements of AI" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" />
+                      <span class="certification__img-hint" aria-hidden="true">
+                        <i class="uil uil-search-plus"></i> Agrandir
+                      </span>
+                    </div>
 
               <div class="portfolio__data">
                       <h3 class="portfolio__title">Formation "Elements of AI" - Certification 2025</h3>
@@ -558,7 +579,12 @@
             </div>
                   <!-- Certification 2 -->
             <div class="portfolio__content grid swiper-slide">
-                    <img src="assets/img/certfi2.png" alt="Certification SecNum Académie" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" title="Cliquer pour agrandir" />
+                    <div class="certification__img-wrapper">
+                      <img src="assets/img/certfi2.png" alt="Certification SecNum Académie" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" />
+                      <span class="certification__img-hint" aria-hidden="true">
+                        <i class="uil uil-search-plus"></i> Agrandir
+                      </span>
+                    </div>
 
               <div class="portfolio__data">
                       <h3 class="portfolio__title">SecNum Académie - Certification 2026</h3>
@@ -578,7 +604,12 @@
 
                   <!-- Certification 3 -->
             <div class="portfolio__content grid swiper-slide">
-                    <img src="assets/img/certfi3.png" alt="Certification" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" title="Cliquer pour agrandir" />
+                    <div class="certification__img-wrapper">
+                      <img src="assets/img/certfi3.png" alt="Certification" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" />
+                      <span class="certification__img-hint" aria-hidden="true">
+                        <i class="uil uil-search-plus"></i> Agrandir
+                      </span>
+                    </div>
 
               <div class="portfolio__data">
                       <h3 class="portfolio__title">Certification MOOC Atelier RGPD</h3>
@@ -765,7 +796,7 @@
         <h2 class="section__title">Stages</h2>
         <span class="section__subtitle">Mes expériences professionnelles</span>
 
-        <div class="skills-tabs-pro container" id="stages-tabs-pro">
+        <div class="skills-tabs-pro container reveal" id="stages-tabs-pro">
           <div class="bg-effects" aria-hidden="true">
             <div class="bg-gradient"></div>
             <div class="bg-grid"></div>
@@ -862,7 +893,38 @@
       <section class="veille-holographic section" id="veille">
         <h2 class="section__title">Veille technologique</h2>
         <span class="section__subtitle">Mis constamment à jour</span>
-        <div class="veille-cards-grid">
+
+        <div class="veille-intro">
+          <div class="veille-intro__icon">
+            <i class="uil uil-radar" aria-hidden="true"></i>
+          </div>
+          <div class="veille-intro__content">
+            <h3 class="veille-intro__title">Qu'est-ce qu'une veille technologique ?</h3>
+            <p class="veille-intro__text">
+              La veille technologique consiste à <strong>surveiller en continu</strong> les évolutions, les innovations et les tendances dans un domaine technique précis. Elle permet de rester informé des nouvelles technologies, des menaces émergentes et des bonnes pratiques du secteur.
+            </p>
+            <div class="veille-intro__details">
+              <div class="veille-intro__pill">
+                <i class="uil uil-search" aria-hidden="true"></i>
+                <span>Collecte d'informations via des sources fiables (sites spécialisés, flux RSS, newsletters)</span>
+              </div>
+              <div class="veille-intro__pill">
+                <i class="uil uil-analysis" aria-hidden="true"></i>
+                <span>Analyse et tri des informations pertinentes pour mon domaine</span>
+              </div>
+              <div class="veille-intro__pill">
+                <i class="uil uil-share-alt" aria-hidden="true"></i>
+                <span>Partage et mise en application des connaissances acquises</span>
+              </div>
+            </div>
+            <p class="veille-intro__focus">
+              <i class="uil uil-shield-check" aria-hidden="true"></i>
+              Mon sujet de veille : <strong>Big Data appliqué à la cybersécurité</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="veille-cards-grid reveal reveal-stagger">
           <!-- Article 1 : Remplacer par vos flux Feedly -->
           <article class="veille-card">
             <span class="veille-card-source">SentinelOne · <time datetime="2025-02-15">5 août. 2025</time></span>
@@ -891,7 +953,7 @@
         <h2 class="section__title">Contactez-moi</h2>
         <span class="section__subtitle">N'hésitez pas à me contacter</span>
 
-        <div class="contact__container container grid">
+        <div class="contact__container container grid reveal">
           <div>
             <div class="contact__information">
               <i class="uil uil-calling contact__icon" aria-hidden="true"></i>
@@ -1001,32 +1063,30 @@
             </li>
           </ul>
 
-          <div class="footer__socials">
-            <a
-              href="https://www.instagram.com/"
-              class="footer__social"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Profil Instagram"
-            >
-              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-            </a>
-
-            <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="footer__social"
-              aria-label="Profil Twitter"
-            >
-              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-            </a>
-          </div>
         </div>
 
         <p class="footer__copy">&#169; RHAZZOUL SAAD. Tous droits réservés</p>
       </div>
     </footer>
+
+    <!--================== Lightbox CV (PDF) ==================-->
+    <div class="cv-lightbox" id="cv-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="CV de Saad Rhazzoul">
+      <div class="cv-lightbox__backdrop" aria-hidden="true"></div>
+      <div class="cv-lightbox__content">
+        <div class="cv-lightbox__header">
+          <span class="cv-lightbox__title"><i class="uil uil-file-alt" aria-hidden="true"></i> Mon CV</span>
+          <div class="cv-lightbox__actions">
+            <a href="assets/MyCV.pdf" download class="cv-lightbox__download" aria-label="Télécharger le CV">
+              <i class="uil uil-download-alt" aria-hidden="true"></i>
+            </a>
+            <button type="button" class="cv-lightbox__close" aria-label="Fermer">
+              <i class="uil uil-times" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <iframe class="cv-lightbox__iframe" src="" title="CV de Saad Rhazzoul"></iframe>
+      </div>
+    </div>
 
     <!--================== Lightbox Certification ==================-->
     <div class="certification-lightbox" id="certification-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image de certification agrandie">
@@ -1048,6 +1108,7 @@
     <script type="text/javascript" src="assets/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
     <script src="assets/ptj.js"></script>
+    <script src="assets/animations.js"></script>
     <script src="assets/tabs-pro.js"></script>
   </body>
 </html>
