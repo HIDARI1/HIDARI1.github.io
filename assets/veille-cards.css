@@ -9,7 +9,6 @@
 #veille.veille-holographic {
   min-height: 50vh;
   padding: 5rem 2rem;
-  perspective: 1000px;
   background: transparent;
   color: white;
   position: relative;
@@ -42,36 +41,20 @@
   );
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 0 50px rgba(56, 189, 248, 0.35),
-    inset 0 0 35px rgba(255, 255, 255, 0.15);
-  transform-style: preserve-3d;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   animation: veille-float 6s ease-in-out infinite;
   position: relative;
+}
+
+#veille .veille-card:hover {
+  animation-play-state: paused;
 }
 
 #veille .veille-card:nth-child(1) { animation-delay: 0s; }
 #veille .veille-card:nth-child(2) { animation-delay: 0.4s; }
 #veille .veille-card:nth-child(3) { animation-delay: 0.8s; }
 
-#veille .veille-card::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 30px;
-  background: linear-gradient(
-    120deg,
-    transparent 20%,
-    var(--veille-c1),
-    var(--veille-c2),
-    var(--veille-c3),
-    transparent 80%
-  );
-  background-size: 400% 100%;
-  filter: blur(25px);
-  opacity: 0.4;
-  z-index: -1;
-  animation: veille-holo 4s linear infinite;
-}
 
 @keyframes veille-holo {
   to {
@@ -82,10 +65,10 @@
 @keyframes veille-float {
   0%,
   100% {
-    transform: rotateX(12deg) rotateY(-10deg) translateY(0);
+    transform: translateY(0);
   }
   50% {
-    transform: rotateX(18deg) rotateY(12deg) translateY(-15px);
+    transform: translateY(-8px);
   }
 }
 
@@ -123,6 +106,9 @@
   letter-spacing: 0.05em;
   color: white;
   text-decoration: none;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
   background: linear-gradient(90deg, var(--veille-c1), var(--veille-c2), var(--veille-c3));
   background-size: 300% 100%;
   animation: veille-holo 3s linear infinite;

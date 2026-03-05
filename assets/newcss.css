@@ -202,7 +202,6 @@ body.dark-theme::before {
   pointer-events: none;
   z-index: 0;
 }
-body .header,
 body .main {
   position: relative;
   z-index: 1;
@@ -224,7 +223,7 @@ html {
 }
 
 body {
-  margin: 0 0 var(--header-height) 0;
+  margin: var(--header-height) 0 0 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color, #080810);
@@ -321,7 +320,7 @@ img {
 .header {
   width: 100%;
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   z-index: var(--z-fixed);
   background-color: var(--body-color);
@@ -369,13 +368,13 @@ img {
 @media screen and (max-width: 767px) {
   .nav__menu {
     position: fixed;
-    bottom: -100%;
+    top: -100%;
     left: 0;
     width: 100%;
     background-color: var(--body-color);
     padding: 2rem 1.5rem 4rem;
-    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 1.5rem 1.5rem 0 0;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 1.5rem 1.5rem;
     transition: var(--transition-slow);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -413,7 +412,7 @@ img {
 .nav__close {
   position: absolute;
   right: 1.3rem;
-  bottom: 0.5rem;
+  top: 0.5rem;
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--first-color);
@@ -430,7 +429,7 @@ img {
 
 /* Show Menu */
 .show-menu {
-  bottom: 0;
+  top: 0;
 }
 
 /* Active Link */
@@ -441,7 +440,7 @@ img {
 
 /* Change Background header */
 .scroll-header {
-  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -1716,8 +1715,6 @@ body.dark-theme .scroll-header {
   }
 
   .header {
-    top: 0;
-    bottom: initial;
     padding: 0;
   }
 
