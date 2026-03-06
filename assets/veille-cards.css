@@ -58,6 +58,7 @@
   position: relative;
   z-index: 1;
   max-width: 900px;
+  width: 100%;
   margin: 0 auto 2rem;
   padding: 2rem 2.25rem;
   border-radius: 1.25rem;
@@ -67,6 +68,8 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   scroll-margin-top: 5rem;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
 }
 
 #veille .veille-block__header {
@@ -130,6 +133,8 @@
   text-decoration: none;
   color: rgba(255, 255, 255, 0.8);
   transition: all 0.25s ease;
+  min-width: 0;
+  overflow: hidden;
 }
 
 #veille .veille-tool:hover {
@@ -173,6 +178,12 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
   transition: all 0.25s ease;
+  min-width: 0;
+}
+
+#veille .veille-trend > div:last-child {
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 #veille .veille-trend:hover {
@@ -211,9 +222,46 @@
   margin-bottom: 0;
 }
 
+/* Tags objectifs inline */
+#veille .veille-focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  align-items: center;
+}
+
+#veille .veille-focus-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--veille-c1);
+  padding-right: 0.25rem;
+}
+
+#veille .veille-focus-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(168, 85, 247, 0.12));
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  white-space: nowrap;
+}
+
+#veille .veille-focus-tag i {
+  font-size: 1rem;
+  color: var(--veille-c1);
+}
+
 #veille .veille-intro__focus {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.6rem;
   padding: 0.75rem 1rem;
   border-radius: 0.75rem;
