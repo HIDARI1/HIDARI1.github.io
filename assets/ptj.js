@@ -233,6 +233,70 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
   });
 })();
 
+/*======================= Certification Detail Modal ===================*/
+(function () {
+  var modal = document.getElementById("certif-modal");
+  if (!modal) return;
+  var backdrop = modal.querySelector(".certif-modal__backdrop");
+  var closeBtn = modal.querySelector(".certif-modal__close");
+  var titleEl = modal.querySelector(".certif-modal__title");
+  var bodyEl = modal.querySelector(".certif-modal__body");
+
+  var data = {
+    ai: {
+      title: "Elements of AI",
+      body: '<div class="certif-modal__section"><p class="certif-modal__section-title">Organisme</p><p>Université d\'Helsinki &amp; MinnaLearn — plateforme MOOC.fi</p></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>Cette certification couvre les <strong>fondamentaux de l\'intelligence artificielle</strong> à travers 6 modules progressifs :</p>' +
+        '<ul><li>Qu\'est-ce que l\'IA ? — définitions et applications concrètes</li><li>Résolution de problèmes &amp; algorithmes de recherche</li><li>Probabilités et modèle de Bayes</li><li>Apprentissage automatique (Machine Learning)</li><li>Réseaux de neurones et Deep Learning</li><li>Implications sociétales et éthiques de l\'IA</li></ul></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">Machine Learning</span><span class="certif-modal__tag">Réseaux de neurones</span><span class="certif-modal__tag">Probabilités</span><span class="certif-modal__tag">Éthique IA</span><span class="certif-modal__tag">Algorithmes</span></div></div>'
+    },
+    secnum: {
+      title: "SecNum Académie — ANSSI",
+      body: '<div class="certif-modal__section"><p class="certif-modal__section-title">Organisme</p><p><strong>ANSSI</strong> (Agence Nationale de la Sécurité des Systèmes d\'Information) — organisme gouvernemental français</p></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>Formation complète de <strong>sensibilisation à la cybersécurité</strong> composée de 4 modules :</p>' +
+        '<ul><li>Panorama de la sécurité des systèmes d\'information</li><li>Sécurité de l\'authentification et du poste de travail</li><li>Sécurité sur Internet — navigation, messagerie, réseaux sociaux</li><li>Sécurité du réseau local et gestion des incidents</li></ul></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">Hygiène numérique</span><span class="certif-modal__tag">Sécurité réseau</span><span class="certif-modal__tag">Gestion d\'incidents</span><span class="certif-modal__tag">Authentification</span><span class="certif-modal__tag">Protection des données</span></div></div>'
+    },
+    rgpd: {
+      title: "Atelier RGPD — CNIL",
+      body: '<div class="certif-modal__section"><p class="certif-modal__section-title">Organisme</p><p><strong>CNIL</strong> (Commission Nationale de l\'Informatique et des Libertés) — autorité française de protection des données</p></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>Formation sur le <strong>Règlement Général sur la Protection des Données</strong> en 5 modules :</p>' +
+        '<ul><li>Les données personnelles — définition, enjeux et cadre juridique</li><li>Les principes de la protection des données</li><li>Les droits des personnes concernées</li><li>Le responsable de traitement et ses obligations</li><li>Les outils de la conformité — registre, AIPD, DPO</li></ul></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">RGPD</span><span class="certif-modal__tag">Données personnelles</span><span class="certif-modal__tag">Conformité</span><span class="certif-modal__tag">Droits des personnes</span><span class="certif-modal__tag">DPO</span></div></div>'
+    }
+  };
+
+  function openModal(key) {
+    var d = data[key];
+    if (!d) return;
+    titleEl.textContent = d.title;
+    bodyEl.innerHTML = d.body;
+    modal.classList.add("certif-modal--open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.remove("certif-modal--open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll(".certif-detail-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      openModal(btn.getAttribute("data-certif"));
+    });
+  });
+
+  backdrop.addEventListener("click", closeModal);
+  closeBtn.addEventListener("click", closeModal);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("certif-modal--open")) {
+      closeModal();
+    }
+  });
+})();
+
 /*======================= CV Lightbox (afficher PDF) ===================*/
 (function () {
   var cvLightbox = document.getElementById("cv-lightbox");

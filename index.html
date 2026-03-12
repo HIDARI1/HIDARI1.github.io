@@ -266,6 +266,9 @@
                         <article class="skill-tab-card"><i class="fab fa-java"></i><h4 class="skill-name">Java</h4><p>Base de la POO</p></article>
                         <article class="skill-tab-card"><i class="fab fa-js"></i><h4 class="skill-name">JavaScript</h4><p>Front-end & interactivité</p></article>
                         <article class="skill-tab-card"><i class="fab fa-python"></i><h4 class="skill-name">Python</h4><p>Scripts & automatisation</p></article>
+                        <article class="skill-tab-card"><i class="fab fa-html5"></i><h4 class="skill-name">HTML / CSS</h4><p>Structure & mise en page web</p></article>
+                        <article class="skill-tab-card"><i class="fas fa-terminal"></i><h4 class="skill-name">Bash</h4><p>Scripts shell & automatisation</p></article>
+                        <article class="skill-tab-card"><i class="fas fa-chart-line"></i><h4 class="skill-name">R</h4><p>Statistiques & traitement de données</p></article>
                         <article class="skill-tab-card"><i class="fas fa-code"></i><h4 class="skill-name">C# / C++</h4><p>Programmation système</p></article>
                       </div>
                     </div>
@@ -281,8 +284,9 @@
                     <div class="panel-body">
                       <p>Administration de systèmes, virtualisation et gestion des serveurs.</p>
                       <div class="grid grid-auto">
-                        <article class="skill-tab-card"><i class="fab fa-linux"></i><h4 class="skill-name">Linux</h4><p>Aisance avec les distributions Linux</p></article>
-                        <article class="skill-tab-card"><i class="fab fa-windows"></i><h4 class="skill-name">Windows Server</h4><p>Configuration de Windows Server pour différents besoins</p></article>
+                        <article class="skill-tab-card"><i class="fab fa-linux"></i><h4 class="skill-name">Linux</h4><p>Ubuntu, CentOS</p></article>
+                        <article class="skill-tab-card"><i class="fab fa-windows"></i><h4 class="skill-name">Windows 11</h4><p>Administration & configuration</p></article>
+                        <article class="skill-tab-card"><i class="fab fa-windows"></i><h4 class="skill-name">Windows Server</h4><p>Configuration serveur</p></article>
                         <article class="skill-tab-card"><i class="fas fa-cube"></i><h4 class="skill-name">Virtualisation</h4><p>VMware®, VirtualBox</p></article>
                       </div>
                     </div>
@@ -439,7 +443,10 @@
               <div class="portfolio__data">
                 <h3 class="portfolio__title">Formation "Elements of AI" - Certification 2025</h3>
                 <p class="portfolio__description">Formation en ligne sur les fondamentaux de l'intelligence artificielle avec la plateforme MOOC.fi.</p>
-                <a href="https://certificates.mooc.fi/validate/jo1sm9aw099" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Voir la certification Elements of AI">Voir la certification <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
+                <div class="certif-actions">
+                  <a href="https://certificates.mooc.fi/validate/jo1sm9aw099" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Voir la certification Elements of AI">Voir <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
+                  <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="ai" aria-label="Détails sur la certification Elements of AI">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
+                </div>
               </div>
             </div>
             <div class="portfolio__content grid swiper-slide">
@@ -450,7 +457,10 @@
               <div class="portfolio__data">
                 <h3 class="portfolio__title">SecNum Académie - Certification 2026</h3>
                 <p class="portfolio__description">Formation en ligne pour s'initier à la cybersécurité, approfondir ses connaissances et protéger efficacement ses outils numériques.</p>
-                <a href="https://secnumacademie.gouv.fr/" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Voir la certification SecNum Académie">Voir la certification <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
+                <div class="certif-actions">
+                  <a href="https://secnumacademie.gouv.fr/" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Voir la certification SecNum Académie">Voir <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
+                  <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="secnum" aria-label="Détails sur la certification SecNum Académie">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
+                </div>
               </div>
             </div>
             <div class="portfolio__content grid swiper-slide">
@@ -461,7 +471,10 @@
               <div class="portfolio__data">
                 <h3 class="portfolio__title">Certification MOOC Atelier RGPD</h3>
                 <p class="portfolio__description">Formation en ligne pour s'initier à la protection des données ou approfondir ses connaissances en la matière.</p>
-                <a href="https://atelier-rgpd.cnil.fr/" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Voir la certification">Voir la certification <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
+                <div class="certif-actions">
+                  <a href="https://atelier-rgpd.cnil.fr/" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Voir la certification">Voir <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
+                  <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="rgpd" aria-label="Détails sur la certification RGPD">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
+                </div>
               </div>
             </div>
           </div>
@@ -506,7 +519,45 @@
       <!--================== Section BTS SIO ==================-->
       <section class="services section" id="bts">
         <h2 class="section__title">BTS SIO</h2>
-        <span class="section__subtitle">Les deux options du BTS SIO</span>
+        <span class="section__subtitle">Services Informatiques aux Organisations</span>
+
+        <div class="bts-intro container reveal">
+          <h3 class="bts-intro__heading">Qu'est-ce que le <span>BTS SIO</span> ?</h3>
+          <p class="bts-intro__lead">Un diplôme national en <strong>2 ans</strong> formant les futurs professionnels de l'informatique en entreprise.</p>
+
+          <div class="bts-intro__features">
+            <div class="bts-intro__feature">
+              <div class="bts-intro__feature-icon"><i class="uil uil-desktop" aria-hidden="true"></i></div>
+              <div class="bts-intro__feature-content">
+                <strong>Gestion de parc</strong>
+                <span>Infrastructure & matériel</span>
+              </div>
+            </div>
+            <div class="bts-intro__feature">
+              <div class="bts-intro__feature-icon"><i class="uil uil-brackets-curly" aria-hidden="true"></i></div>
+              <div class="bts-intro__feature-content">
+                <strong>Développement</strong>
+                <span>Applications & web</span>
+              </div>
+            </div>
+            <div class="bts-intro__feature">
+              <div class="bts-intro__feature-icon"><i class="uil uil-server-network-alt" aria-hidden="true"></i></div>
+              <div class="bts-intro__feature-content">
+                <strong>Administration</strong>
+                <span>Réseaux & systèmes</span>
+              </div>
+            </div>
+            <div class="bts-intro__feature">
+              <div class="bts-intro__feature-icon"><i class="uil uil-shield-check" aria-hidden="true"></i></div>
+              <div class="bts-intro__feature-content">
+                <strong>Cybersécurité</strong>
+                <span>Protection & conformité</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="bts-intro__cta">Deux spécialités au choix <i class="uil uil-angle-double-down" aria-hidden="true"></i></p>
+        </div>
 
         <div class="bts-tabs container reveal">
           <div class="bts-tabs__buttons">
@@ -864,6 +915,19 @@
           </div>
         </div>
         <iframe class="cv-lightbox__iframe" src="" title="CV de Saad Rhazzoul"></iframe>
+      </div>
+    </div>
+
+    <!--================== Modale Détail Certification ==================-->
+    <div class="certif-modal" id="certif-modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="certif-modal__backdrop"></div>
+      <div class="certif-modal__content">
+        <button type="button" class="certif-modal__close" aria-label="Fermer"><i class="uil uil-times"></i></button>
+        <div class="certif-modal__header">
+          <div class="certif-modal__icon"><i class="uil uil-award"></i></div>
+          <h3 class="certif-modal__title"></h3>
+        </div>
+        <div class="certif-modal__body"></div>
       </div>
     </div>
 
