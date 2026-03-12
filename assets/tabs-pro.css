@@ -511,3 +511,105 @@
   height: 1px;
   overflow: hidden;
 }
+
+/* ====== LIGHT THEME OVERRIDES ====== */
+body:not(.dark-theme) #skills .skills-tabs-pro,
+body:not(.dark-theme) #stages .skills-tabs-pro {
+  --tabs-bg-primary: var(--body-color);
+  --tabs-bg-secondary: var(--container-color);
+  --tabs-bg-elevated: rgba(99, 102, 241, 0.04);
+  --tabs-bg-hover: rgba(99, 102, 241, 0.08);
+  --tabs-text-primary: var(--title-color);
+  --tabs-text-secondary: var(--text-color);
+  --tabs-text-tertiary: var(--text-color-light);
+  --tabs-text-muted: var(--text-color-light);
+  --tabs-border: rgba(99, 102, 241, 0.1);
+  --tabs-border-hover: rgba(99, 102, 241, 0.2);
+  --tabs-gradient-card: linear-gradient(145deg, rgba(99, 102, 241, 0.05) 0%, rgba(99, 102, 241, 0.02) 100%);
+  --tabs-shadow-sm: 0 2px 8px rgba(99, 102, 241, 0.06);
+  --tabs-shadow-md: 0 8px 32px rgba(99, 102, 241, 0.08);
+  --tabs-shadow-lg: 0 16px 48px rgba(99, 102, 241, 0.1);
+  --tabs-shadow-glow: 0 0 30px rgba(99, 102, 241, 0.12);
+  background: var(--container-color);
+}
+
+/* Tabs wrapper: dark gradient -> light */
+body:not(.dark-theme) #skills .skills-tabs-pro .tabs-wrapper,
+body:not(.dark-theme) #stages .skills-tabs-pro .tabs-wrapper {
+  background: linear-gradient(145deg, rgba(99, 102, 241, 0.04) 0%, rgba(99, 102, 241, 0.01) 100%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.06);
+}
+
+body:not(.dark-theme) #skills .skills-tabs-pro .tabs-wrapper::before,
+body:not(.dark-theme) #stages .skills-tabs-pro .tabs-wrapper::before {
+  opacity: 0.3;
+}
+
+/* Tabs nav bar: dark -> light */
+body:not(.dark-theme) #skills .skills-tabs-pro .tabs-nav,
+body:not(.dark-theme) #stages .skills-tabs-pro .tabs-nav {
+  background: rgba(99, 102, 241, 0.06);
+}
+
+/* Active tab text: was --tabs-bg-primary (dark = #080810, light = body-color which is white) */
+body:not(.dark-theme) #skills .skills-tabs-pro .tab-btn[aria-selected="true"],
+body:not(.dark-theme) #stages .skills-tabs-pro .tab-btn[aria-selected="true"] {
+  color: #fff;
+}
+
+/* Panel content: dark gradient -> light */
+body:not(.dark-theme) #skills .skills-tabs-pro .panel-content,
+body:not(.dark-theme) #stages .skills-tabs-pro .panel-content {
+  background: linear-gradient(145deg, rgba(99, 102, 241, 0.03) 0%, rgba(255, 255, 255, 0.8) 100%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.06), inset 0 1px 0 rgba(99, 102, 241, 0.05);
+}
+
+/* Panel icon wrapper SVG stays white (on gradient bg) */
+body:not(.dark-theme) #skills .skills-tabs-pro .panel-icon-wrapper svg,
+body:not(.dark-theme) #stages .skills-tabs-pro .panel-icon-wrapper svg {
+  color: #fff;
+}
+
+/* Skill cards: dark bg -> light */
+body:not(.dark-theme) #skills .skills-tabs-pro .stat-card,
+body:not(.dark-theme) #stages .skills-tabs-pro .stat-card,
+body:not(.dark-theme) #skills .skills-tabs-pro .feature-card,
+body:not(.dark-theme) #stages .skills-tabs-pro .feature-card,
+body:not(.dark-theme) #skills .skills-tabs-pro .skill-tab-card,
+body:not(.dark-theme) #stages .skills-tabs-pro .skill-tab-card {
+  background: rgba(99, 102, 241, 0.04);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.05);
+}
+
+body:not(.dark-theme) #skills .skills-tabs-pro .stat-card:hover,
+body:not(.dark-theme) #stages .skills-tabs-pro .stat-card:hover,
+body:not(.dark-theme) #skills .skills-tabs-pro .feature-card:hover,
+body:not(.dark-theme) #stages .skills-tabs-pro .feature-card:hover,
+body:not(.dark-theme) #skills .skills-tabs-pro .skill-tab-card:hover,
+body:not(.dark-theme) #stages .skills-tabs-pro .skill-tab-card:hover {
+  background: rgba(99, 102, 241, 0.08);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.1);
+}
+
+/* Background effects: soften for light */
+body:not(.dark-theme) #skills .skills-tabs-pro .bg-gradient,
+body:not(.dark-theme) #stages .skills-tabs-pro .bg-gradient {
+  opacity: 0.3;
+}
+
+body:not(.dark-theme) #skills .skills-tabs-pro .bg-grid,
+body:not(.dark-theme) #stages .skills-tabs-pro .bg-grid {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+}
+
+body:not(.dark-theme) #skills .skills-tabs-pro .bg-orb,
+body:not(.dark-theme) #stages .skills-tabs-pro .bg-orb {
+  opacity: 0.1;
+}

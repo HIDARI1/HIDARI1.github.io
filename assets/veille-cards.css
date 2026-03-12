@@ -524,3 +524,122 @@
   transform: scale(1.02);
 }
 
+/* ======================================================
+   LIGHT THEME OVERRIDES
+   ====================================================== */
+
+body:not(.dark-theme) #veille.veille-holographic {
+  color: var(--text-color);
+}
+
+/* Nav */
+body:not(.dark-theme) #veille .veille-nav {
+  background: rgba(99, 102, 241, 0.05);
+  border-color: rgba(99, 102, 241, 0.12);
+  backdrop-filter: none;
+}
+
+body:not(.dark-theme) #veille .veille-nav__link {
+  color: var(--text-color);
+}
+
+body:not(.dark-theme) #veille .veille-nav__link:hover {
+  color: var(--first-color);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+/* Blocks */
+body:not(.dark-theme) #veille .veille-block {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(99, 102, 241, 0.02) 100%);
+  border-color: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.06);
+  backdrop-filter: none;
+}
+
+body:not(.dark-theme) #veille .veille-block__header {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+body:not(.dark-theme) #veille .veille-block__title {
+  color: var(--title-color);
+}
+
+body:not(.dark-theme) #veille .veille-block__body {
+  color: var(--text-color);
+}
+
+/* Tools */
+body:not(.dark-theme) #veille .veille-tool {
+  background: rgba(99, 102, 241, 0.04);
+  border-color: rgba(99, 102, 241, 0.08);
+  color: var(--text-color);
+}
+
+body:not(.dark-theme) #veille .veille-tool:hover {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+body:not(.dark-theme) #veille .veille-tool strong {
+  color: var(--title-color);
+}
+
+body:not(.dark-theme) #veille .veille-tool small {
+  color: var(--text-color-light);
+}
+
+/* Trends */
+body:not(.dark-theme) #veille .veille-trend {
+  background: rgba(99, 102, 241, 0.03);
+  border-color: rgba(99, 102, 241, 0.08);
+}
+
+body:not(.dark-theme) #veille .veille-trend:hover {
+  background: rgba(99, 102, 241, 0.06);
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+body:not(.dark-theme) #veille .veille-trend__icon {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(168, 85, 247, 0.1));
+  border-color: rgba(99, 102, 241, 0.1);
+}
+
+body:not(.dark-theme) #veille .veille-trend h4 {
+  color: var(--title-color);
+}
+
+body:not(.dark-theme) #veille .veille-trend p {
+  color: var(--text-color);
+}
+
+/* Focus tags */
+body:not(.dark-theme) #veille .veille-focus-tag {
+  color: var(--title-color);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(168, 85, 247, 0.08));
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+body:not(.dark-theme) #veille .veille-intro__focus {
+  color: var(--text-color);
+}
+
+/* Cards */
+body:not(.dark-theme) #veille .veille-card {
+  background: linear-gradient(120deg, rgba(99, 102, 241, 0.06), rgba(99, 102, 241, 0.02));
+  border-color: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.06);
+  backdrop-filter: none;
+}
+
+body:not(.dark-theme) #veille .veille-card-title {
+  color: var(--title-color);
+}
+
+body:not(.dark-theme) #veille .veille-card-source {
+  color: var(--text-color-light);
+}
+
+body:not(.dark-theme) #veille .veille-card-excerpt {
+  color: var(--text-color);
+}
+

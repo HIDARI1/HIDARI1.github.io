@@ -2378,6 +2378,101 @@ body.dark-theme .scroll-header {
   }
 }
 
+/*================= LIGHT THEME FIXES ===============*/
+body:not(.dark-theme) {
+  background: var(--body-color);
+}
+
+body:not(.dark-theme)::before {
+  display: none;
+}
+
+/* -- BTS Intro block -- */
+body:not(.dark-theme) .bts-intro {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(99, 102, 241, 0.02) 100%);
+  border-color: rgba(99, 102, 241, 0.12);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
+  backdrop-filter: none;
+}
+
+body:not(.dark-theme) .bts-intro__heading {
+  color: var(--title-color);
+}
+
+body:not(.dark-theme) .bts-intro__lead {
+  color: var(--text-color);
+}
+
+body:not(.dark-theme) .bts-intro__lead strong {
+  color: var(--title-color);
+}
+
+body:not(.dark-theme) .bts-intro__feature {
+  background: rgba(99, 102, 241, 0.04);
+  border-color: rgba(99, 102, 241, 0.1);
+}
+
+body:not(.dark-theme) .bts-intro__feature-content strong {
+  color: var(--title-color);
+}
+
+body:not(.dark-theme) .bts-intro__feature-content span {
+  color: var(--text-color-light);
+}
+
+body:not(.dark-theme) .bts-intro__cta {
+  color: var(--text-color-light);
+}
+
+/* -- Certification Detail Modal -- */
+body:not(.dark-theme) .certif-modal__backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+body:not(.dark-theme) .certif-modal__content {
+  background: var(--container-color);
+  border-color: rgba(99, 102, 241, 0.15);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  backdrop-filter: none;
+}
+
+body:not(.dark-theme) .certif-modal__close {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--text-color);
+}
+
+body:not(.dark-theme) .certif-modal__header {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+body:not(.dark-theme) .certif-modal__title {
+  color: var(--title-color);
+}
+
+body:not(.dark-theme) .certif-modal__body {
+  color: var(--text-color);
+}
+
+body:not(.dark-theme) .certif-modal__body ul li::before {
+  background: var(--first-color);
+}
+
+/* -- Certification image hint -- */
+body:not(.dark-theme) .certification__img-hint {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+/* -- CV Lightbox -- */
+body:not(.dark-theme) .cv-lightbox__content {
+  background: var(--container-color);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+body:not(.dark-theme) .cv-lightbox__title {
+  color: var(--title-color);
+}
+
 /*================= Print Styles ===============*/
 @media print {
   .header,
