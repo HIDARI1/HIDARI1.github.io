@@ -1132,6 +1132,61 @@ body.dark-theme .scroll-header {
   transform: scale(1.1);
 }
 
+.certification-lightbox__prev,
+.certification-lightbox__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+  z-index: 2;
+}
+
+.certification-lightbox__prev { left: -4rem; }
+.certification-lightbox__next { right: -4rem; }
+
+.certification-lightbox__prev:hover,
+.certification-lightbox__next:hover {
+  background-color: var(--first-color);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.certification-lightbox__counter {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+  .certification-lightbox__prev { left: -0.5rem; }
+  .certification-lightbox__next { right: -0.5rem; }
+  .certification-lightbox__prev,
+  .certification-lightbox__next {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.4rem;
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+}
+
 /*================ Certification Actions (boutons côte à côte) ===============*/
 .certif-actions {
   display: flex;
@@ -1676,6 +1731,64 @@ body.dark-theme .scroll-header {
   font-weight: 600;
 }
 
+/* --- Highlights (chiffres clés) --- */
+.bts-intro__highlights {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.bts-intro__highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1));
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  min-width: 130px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bts-intro__highlight:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.2);
+}
+
+.bts-intro__highlight-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--first-color), var(--first-color-lighter));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.bts-intro__highlight-label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* --- Description paragraph --- */
+.bts-intro__desc {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.bts-intro__desc strong {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
 /* --- Feature grid --- */
 .bts-intro__features {
   display: grid;
@@ -1731,6 +1844,80 @@ body.dark-theme .scroll-header {
 .bts-intro__feature-content span {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.45);
+}
+
+/* --- Why hire section --- */
+.bts-intro__why {
+  margin-top: 1.75rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(34, 211, 238, 0.05));
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  text-align: left;
+}
+
+.bts-intro__why-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bts-intro__why-title i {
+  color: var(--first-color);
+  font-size: 1.2rem;
+}
+
+.bts-intro__why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.bts-intro__why-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.bts-intro__why-item > i {
+  font-size: 1.25rem;
+  color: var(--first-color-lighter);
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.bts-intro__why-item strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.25rem;
+}
+
+.bts-intro__why-item p {
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+@media screen and (max-width: 568px) {
+  .bts-intro__why-grid {
+    grid-template-columns: 1fr;
+  }
+  .bts-intro__highlights {
+    gap: 0.75rem;
+  }
+  .bts-intro__highlight {
+    min-width: 0;
+    flex: 1;
+    padding: 0.75rem 0.5rem;
+  }
 }
 
 /* --- CTA arrow --- */
@@ -2422,6 +2609,40 @@ body:not(.dark-theme) .bts-intro__feature-content span {
 
 body:not(.dark-theme) .bts-intro__cta {
   color: var(--text-color-light);
+}
+
+body:not(.dark-theme) .bts-intro__highlight {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.06));
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+body:not(.dark-theme) .bts-intro__highlight-label {
+  color: var(--text-color);
+}
+
+body:not(.dark-theme) .bts-intro__desc {
+  color: var(--text-color);
+}
+
+body:not(.dark-theme) .bts-intro__desc strong {
+  color: var(--title-color);
+}
+
+body:not(.dark-theme) .bts-intro__why {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(34, 211, 238, 0.03));
+  border-color: rgba(99, 102, 241, 0.12);
+}
+
+body:not(.dark-theme) .bts-intro__why-title {
+  color: var(--title-color);
+}
+
+body:not(.dark-theme) .bts-intro__why-item strong {
+  color: var(--title-color);
+}
+
+body:not(.dark-theme) .bts-intro__why-item p {
+  color: var(--text-color);
 }
 
 /* -- Certification Detail Modal -- */

@@ -183,53 +183,80 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
   },
 });
 
-/*======================= Certification Lightbox (agrandir image) ===================*/
+/*======================= Certification Lightbox with Carousel ===================*/
 (function () {
   var lightbox = document.getElementById("certification-lightbox");
-  var lightboxImg = lightbox && lightbox.querySelector(".certification-lightbox__img");
-  var lightboxBackdrop = lightbox && lightbox.querySelector(".certification-lightbox__backdrop");
-  var lightboxClose = lightbox && lightbox.querySelector(".certification-lightbox__close");
+  if (!lightbox) return;
+  var lightboxImg = lightbox.querySelector(".certification-lightbox__img");
+  var lightboxBackdrop = lightbox.querySelector(".certification-lightbox__backdrop");
+  var lightboxClose = lightbox.querySelector(".certification-lightbox__close");
+  var prevBtn = lightbox.querySelector(".certification-lightbox__prev");
+  var nextBtn = lightbox.querySelector(".certification-lightbox__next");
+  var counter = lightbox.querySelector(".certification-lightbox__counter");
   var zoomImgs = document.querySelectorAll(".certification__img-zoom");
 
-  function openLightbox(src, alt) {
-    if (!lightbox || !lightboxImg) return;
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || "Image de certification agrandie";
+  var gallery = [];
+  var currentIndex = 0;
+
+  function updateNav() {
+    var isGallery = gallery.length > 1;
+    prevBtn.style.display = isGallery ? "" : "none";
+    nextBtn.style.display = isGallery ? "" : "none";
+    counter.style.display = isGallery ? "" : "none";
+    if (isGallery) {
+      counter.textContent = (currentIndex + 1) + " / " + gallery.length;
+    }
+  }
+
+  function showImage(index) {
+    currentIndex = (index + gallery.length) % gallery.length;
+    lightboxImg.src = gallery[currentIndex];
+    lightboxImg.alt = "Image " + (currentIndex + 1) + " sur " + gallery.length;
+    updateNav();
+  }
+
+  function openLightbox(images, startIndex) {
+    gallery = images;
     lightbox.classList.add("certification-lightbox--open");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    showImage(startIndex || 0);
   }
 
   function closeLightbox() {
-    if (!lightbox) return;
     lightbox.classList.remove("certification-lightbox--open");
     lightbox.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    gallery = [];
   }
 
-  if (zoomImgs.length) {
-    zoomImgs.forEach(function (img) {
-      img.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        openLightbox(this.src, this.alt);
-      });
-      img.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          openLightbox(this.src, this.alt);
-        }
-      });
+  zoomImgs.forEach(function (img) {
+    function handleOpen(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var galleryAttr = img.getAttribute("data-gallery");
+      if (galleryAttr) {
+        openLightbox(JSON.parse(galleryAttr), 0);
+      } else {
+        openLightbox([img.src], 0);
+      }
+    }
+    img.addEventListener("click", handleOpen);
+    img.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") handleOpen(e);
     });
-  }
+  });
 
-  if (lightboxBackdrop) lightboxBackdrop.addEventListener("click", closeLightbox);
-  if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+  prevBtn.addEventListener("click", function () { showImage(currentIndex - 1); });
+  nextBtn.addEventListener("click", function () { showImage(currentIndex + 1); });
+  lightboxBackdrop.addEventListener("click", closeLightbox);
+  lightboxClose.addEventListener("click", closeLightbox);
 
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && lightbox && lightbox.classList.contains("certification-lightbox--open")) {
-      closeLightbox();
-    }
+    if (!lightbox.classList.contains("certification-lightbox--open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+    if (e.key === "ArrowRight") showImage(currentIndex + 1);
   });
 })();
 
@@ -263,6 +290,13 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
         '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>Formation sur le <strong>Règlement Général sur la Protection des Données</strong> en 5 modules :</p>' +
         '<ul><li>Les données personnelles — définition, enjeux et cadre juridique</li><li>Les principes de la protection des données</li><li>Les droits des personnes concernées</li><li>Le responsable de traitement et ses obligations</li><li>Les outils de la conformité — registre, AIPD, DPO</li></ul></div>' +
         '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">RGPD</span><span class="certif-modal__tag">Données personnelles</span><span class="certif-modal__tag">Conformité</span><span class="certif-modal__tag">Droits des personnes</span><span class="certif-modal__tag">DPO</span></div></div>'
+    },
+    ipv6: {
+      title: "Objectif IPv6 — Institut Mines-Télécom",
+      body: '<div class="certif-modal__section"><p class="certif-modal__section-title">Organisme</p><p><strong>IMT</strong> (Institut Mines-Télécom) — badge de réussite de la formation</p></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>Formation sur les <strong>fondamentaux d\'IPv6</strong> et sa mise en œuvre :</p>' +
+        '<ul><li>Identifier l\'importance d\'IPv6 dans l\'Internet aujourd\'hui</li><li>Acquérir les fondamentaux d\'IPv6 et de sa mise en application sur un réseau local</li><li>Comprendre les phénomènes liés à la cohabitation IPv4/IPv6</li><li>Identifier les étapes et les solutions existantes vers l\'intégration d\'IPv6 selon les contextes</li></ul></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">IPv6</span><span class="certif-modal__tag">Adressage réseau</span><span class="certif-modal__tag">Cohabitation IPv4/IPv6</span><span class="certif-modal__tag">Réseau local</span><span class="certif-modal__tag">Transition réseau</span></div></div>'
     }
   };
 
