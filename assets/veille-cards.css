@@ -643,3 +643,74 @@ body:not(.dark-theme) #veille .veille-card-excerpt {
   color: var(--text-color);
 }
 
+/* ====== Pearltrees embed ====== */
+.veille-pearltrees {
+  margin-top: 1.25rem;
+}
+
+.veille-pearltrees__frame {
+  position: relative;
+  border-radius: 0.85rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.veille-pearltrees__frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 500px;
+}
+
+.veille-pearltrees__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.veille-pearltrees__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 2rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1));
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: var(--first-color-lighter);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.veille-pearltrees__link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.25);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.18));
+}
+
+@media (max-width: 568px) {
+  .veille-pearltrees__frame iframe {
+    min-height: 380px;
+  }
+}
+
+/* Pearltrees — light theme */
+body:not(.dark-theme) .veille-pearltrees__frame {
+  border-color: rgba(99, 102, 241, 0.12);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
+  background: rgba(99, 102, 241, 0.03);
+}
+
+body:not(.dark-theme) .veille-pearltrees__link {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.06));
+  border-color: rgba(99, 102, 241, 0.2);
+  color: var(--first-color);
+}
+
+body:not(.dark-theme) .veille-pearltrees__link:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(168, 85, 247, 0.12));
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.15);
+}
+
