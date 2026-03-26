@@ -297,6 +297,13 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
         '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>Formation sur les <strong>fondamentaux d\'IPv6</strong> et sa mise en œuvre :</p>' +
         '<ul><li>Identifier l\'importance d\'IPv6 dans l\'Internet aujourd\'hui</li><li>Acquérir les fondamentaux d\'IPv6 et de sa mise en application sur un réseau local</li><li>Comprendre les phénomènes liés à la cohabitation IPv4/IPv6</li><li>Identifier les étapes et les solutions existantes vers l\'intégration d\'IPv6 selon les contextes</li></ul></div>' +
         '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">IPv6</span><span class="certif-modal__tag">Adressage réseau</span><span class="certif-modal__tag">Cohabitation IPv4/IPv6</span><span class="certif-modal__tag">Réseau local</span><span class="certif-modal__tag">Transition réseau</span></div></div>'
+    },
+    fiveg: {
+      title: "5G : Principe du réseau coeur — Institut Mines-Télécom",
+      body: '<div class="certif-modal__section"><p class="certif-modal__section-title">Organisme</p><p><strong>France Université Numérique (FUN) / IMT</strong> — badge de réussite</p></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>MOOC centré sur le <strong>coeur de réseau 5G</strong>, l\'architecture et la sécurité :</p>' +
+        '<ul><li>Modes 5G : eMBB, uRLLC, mMTC</li><li>Fonctions coeur : gNB, AMF, SMF, UPF, UDM, AUSF</li><li>Gestion des connexions radio et réduction de la signalisation</li><li>Sécurité radio, interconnexion de réseaux et interfaces SBI/SBA</li></ul></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">5G Core</span><span class="certif-modal__tag">SBA/SBI</span><span class="certif-modal__tag">Sécurité 5G</span><span class="certif-modal__tag">Fonctions réseau</span><span class="certif-modal__tag">Télécommunications</span></div></div>'
     }
   };
 
