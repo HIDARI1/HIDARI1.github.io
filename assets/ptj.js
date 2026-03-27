@@ -382,9 +382,10 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
   if (!likeBtn || !likeCount) return;
 
   var namespace = "hidari1-github-io";
-  var key = "portfolio-likes";
-  var storageKey = "hidari_portfolio_liked_v1";
-  var alreadyLiked = localStorage.getItem(storageKey) === "1";
+  var key = "portfolio-likes-v2";
+  var likedKey = "hidari_portfolio_liked_v1";
+  var alreadyLiked = localStorage.getItem(likedKey) === "1";
+  var timeoutMs = 6000;
 
   function setLikedUI() {
     likeBtn.classList.add("like__btn--liked");
@@ -397,9 +398,16 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
     likeCount.textContent = Number(value || 0).toLocaleString("fr-FR");
   }
 
-  function loadCount() {
-    fetch("https://api.countapi.xyz/get/" + namespace + "/" + key)
+  function fetchJsonWithTimeout(url) {
+    var controller = new AbortController();
+    var timer = setTimeout(function () { controller.abort(); }, timeoutMs);
+    return fetch(url, { signal: controller.signal })
       .then(function (res) { return res.json(); })
+      .finally(function () { clearTimeout(timer); });
+  }
+
+  function loadGlobalCount() {
+    return fetchJsonWithTimeout("https://api.countapi.xyz/get/" + namespace + "/" + key)
       .then(function (data) {
         if (typeof data.value === "number") {
           setCount(data.value);
@@ -408,7 +416,8 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
         setCount(0);
       })
       .catch(function () {
-        if (likeStatus) likeStatus.textContent = "Compteur indisponible pour le moment.";
+        setCount(0);
+        if (likeStatus) likeStatus.textContent = "Compteur temporairement indisponible.";
       });
   }
 
@@ -416,31 +425,27 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
     setLikedUI();
     if (likeStatus) likeStatus.textContent = "Deja like depuis ce navigateur.";
   }
-  loadCount();
+  loadGlobalCount();
 
   likeBtn.addEventListener("click", function () {
-    if (localStorage.getItem(storageKey) === "1") {
+    if (localStorage.getItem(likedKey) === "1") {
       if (likeStatus) likeStatus.textContent = "Deja like depuis ce navigateur.";
       return;
     }
 
-    if (likeStatus) likeStatus.textContent = "Envoi du like...";
     likeBtn.setAttribute("disabled", "true");
+    if (likeStatus) likeStatus.textContent = "Envoi du like...";
 
-    fetch("https://api.countapi.xyz/hit/" + namespace + "/" + key)
-      .then(function (res) { return res.json(); })
+    fetchJsonWithTimeout("https://api.countapi.xyz/hit/" + namespace + "/" + key)
       .then(function (data) {
-        if (typeof data.value === "number") {
-          setCount(data.value);
-        } else {
-          throw new Error("invalid response");
-        }
-        localStorage.setItem(storageKey, "1");
+        if (typeof data.value !== "number") throw new Error("invalid");
+        setCount(data.value);
+        localStorage.setItem(likedKey, "1");
         setLikedUI();
       })
       .catch(function () {
         likeBtn.removeAttribute("disabled");
-        if (likeStatus) likeStatus.textContent = "Erreur reseau/API. Reessaie dans un instant.";
+        if (likeStatus) likeStatus.textContent = "Echec reseau. Reessaie dans un instant.";
       });
   });
 })();
