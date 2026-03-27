@@ -390,7 +390,7 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
     likeBtn.classList.add("like__btn--liked");
     likeBtn.setAttribute("disabled", "true");
     likeBtnText.textContent = "Merci !";
-    if (likeStatus) likeStatus.textContent = "Tu as deja like depuis ce navigateur.";
+    if (likeStatus) likeStatus.textContent = "Merci pour ton like.";
   }
 
   function setCount(value) {
@@ -405,32 +405,42 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
           setCount(data.value);
           return;
         }
-        return fetch("https://api.countapi.xyz/create?namespace=" + namespace + "&key=" + key + "&value=0")
-          .then(function (res) { return res.json(); })
-          .then(function (created) {
-            setCount(created.value || 0);
-          });
+        setCount(0);
       })
       .catch(function () {
         if (likeStatus) likeStatus.textContent = "Compteur indisponible pour le moment.";
       });
   }
 
-  if (alreadyLiked) setLikedUI();
+  if (alreadyLiked) {
+    setLikedUI();
+    if (likeStatus) likeStatus.textContent = "Deja like depuis ce navigateur.";
+  }
   loadCount();
 
   likeBtn.addEventListener("click", function () {
-    if (localStorage.getItem(storageKey) === "1") return;
+    if (localStorage.getItem(storageKey) === "1") {
+      if (likeStatus) likeStatus.textContent = "Deja like depuis ce navigateur.";
+      return;
+    }
+
+    if (likeStatus) likeStatus.textContent = "Envoi du like...";
+    likeBtn.setAttribute("disabled", "true");
 
     fetch("https://api.countapi.xyz/hit/" + namespace + "/" + key)
       .then(function (res) { return res.json(); })
       .then(function (data) {
-        if (typeof data.value === "number") setCount(data.value);
+        if (typeof data.value === "number") {
+          setCount(data.value);
+        } else {
+          throw new Error("invalid response");
+        }
         localStorage.setItem(storageKey, "1");
         setLikedUI();
       })
       .catch(function () {
-        if (likeStatus) likeStatus.textContent = "Erreur reseau, reessaie dans un instant.";
+        likeBtn.removeAttribute("disabled");
+        if (likeStatus) likeStatus.textContent = "Erreur reseau/API. Reessaie dans un instant.";
       });
   });
 })();

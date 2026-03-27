@@ -1237,6 +1237,11 @@ body.dark-theme .scroll-header {
   margin: 0 auto;
 }
 
+.like__btn[disabled] {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
 .like__btn-icon {
   font-size: 1.2rem;
   transition: transform 0.25s ease;
