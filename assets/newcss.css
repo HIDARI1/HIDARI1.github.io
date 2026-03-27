@@ -1208,6 +1208,61 @@ body.dark-theme .scroll-header {
   transform: translateY(-2px);
 }
 
+/*================ Like Counter ===============*/
+.like__container {
+  max-width: 540px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.like__count {
+  font-size: clamp(2rem, 6vw, 3.3rem);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: 0.9rem;
+  line-height: 1;
+}
+
+.like__count #like-count {
+  color: var(--first-color);
+}
+
+.like__btn {
+  margin: 0 auto;
+}
+
+.like__btn-icon {
+  font-size: 1.2rem;
+  transition: transform 0.25s ease;
+}
+
+.like__btn--liked .like__btn-icon {
+  transform: scale(1.25);
+}
+
+.like__status {
+  margin-top: 0.8rem;
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  min-height: 1.1rem;
+}
+
+.like__container--contact {
+  margin-top: 1.25rem;
+  max-width: 100%;
+  padding: 1.25rem 1rem;
+}
+
+.like__container--contact .like__count {
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+}
+
 /*================ Certification Detail Modal ===============*/
 .certif-modal {
   position: fixed;

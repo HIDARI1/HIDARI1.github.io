@@ -373,6 +373,68 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
   });
 })();
 
+/*======================= Global Like Counter ===================*/
+(function () {
+  var likeBtn = document.getElementById("like-btn");
+  var likeCount = document.getElementById("like-count");
+  var likeStatus = document.getElementById("like-status");
+  var likeBtnText = document.getElementById("like-btn-text");
+  if (!likeBtn || !likeCount) return;
+
+  var namespace = "hidari1-github-io";
+  var key = "portfolio-likes";
+  var storageKey = "hidari_portfolio_liked_v1";
+  var alreadyLiked = localStorage.getItem(storageKey) === "1";
+
+  function setLikedUI() {
+    likeBtn.classList.add("like__btn--liked");
+    likeBtn.setAttribute("disabled", "true");
+    likeBtnText.textContent = "Merci !";
+    if (likeStatus) likeStatus.textContent = "Tu as deja like depuis ce navigateur.";
+  }
+
+  function setCount(value) {
+    likeCount.textContent = Number(value || 0).toLocaleString("fr-FR");
+  }
+
+  function loadCount() {
+    fetch("https://api.countapi.xyz/get/" + namespace + "/" + key)
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (typeof data.value === "number") {
+          setCount(data.value);
+          return;
+        }
+        return fetch("https://api.countapi.xyz/create?namespace=" + namespace + "&key=" + key + "&value=0")
+          .then(function (res) { return res.json(); })
+          .then(function (created) {
+            setCount(created.value || 0);
+          });
+      })
+      .catch(function () {
+        if (likeStatus) likeStatus.textContent = "Compteur indisponible pour le moment.";
+      });
+  }
+
+  if (alreadyLiked) setLikedUI();
+  loadCount();
+
+  likeBtn.addEventListener("click", function () {
+    if (localStorage.getItem(storageKey) === "1") return;
+
+    fetch("https://api.countapi.xyz/hit/" + namespace + "/" + key)
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (typeof data.value === "number") setCount(data.value);
+        localStorage.setItem(storageKey, "1");
+        setLikedUI();
+      })
+      .catch(function () {
+        if (likeStatus) likeStatus.textContent = "Erreur reseau, reessaie dans un instant.";
+      });
+  });
+})();
+
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll("section[id]");
 
