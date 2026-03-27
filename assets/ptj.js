@@ -381,11 +381,16 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
   var likeBtnText = document.getElementById("like-btn-text");
   if (!likeBtn || !likeCount) return;
 
-  var namespace = "hidari1-github-io";
-  var key = "portfolio-likes-v2";
+  /**
+   * Compteur global (partagé entre tous les visiteurs).
+   * Ancienne API api.countapi.xyz est souvent injoignable (DNS / blocage).
+   * Alternative stable (GET / HIT) : https://countapi.mileshilliard.com/api/v1/
+   */
+  var likeApiBase = "https://countapi.mileshilliard.com/api/v1";
+  var likeKey = "hidari1-portfolio-likes";
   var likedKey = "hidari_portfolio_liked_v1";
   var alreadyLiked = localStorage.getItem(likedKey) === "1";
-  var timeoutMs = 6000;
+  var timeoutMs = 8000;
 
   function setLikedUI() {
     likeBtn.classList.add("like__btn--liked");
@@ -398,54 +403,72 @@ var certificationSwiper = new Swiper("#certification .certification-swiper", {
     likeCount.textContent = Number(value || 0).toLocaleString("fr-FR");
   }
 
+  function parseCounterValue(data) {
+    if (!data || data.error) return null;
+    var v = data.value;
+    if (typeof v === "string") v = parseInt(v, 10);
+    if (typeof v === "number" && !isNaN(v)) return v;
+    return null;
+  }
+
   function fetchJsonWithTimeout(url) {
-    var controller = new AbortController();
-    var timer = setTimeout(function () { controller.abort(); }, timeoutMs);
-    return fetch(url, { signal: controller.signal })
-      .then(function (res) { return res.json(); })
-      .finally(function () { clearTimeout(timer); });
+    var controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+    var timer = setTimeout(function () {
+      if (controller) controller.abort();
+    }, timeoutMs);
+    return fetch(url, controller ? { signal: controller.signal } : {})
+      .then(function (res) {
+        if (!res.ok) throw new Error("http " + res.status);
+        return res.json();
+      })
+      .finally(function () {
+        clearTimeout(timer);
+      });
   }
 
   function loadGlobalCount() {
-    return fetchJsonWithTimeout("https://api.countapi.xyz/get/" + namespace + "/" + key)
+    return fetchJsonWithTimeout(likeApiBase + "/get/" + encodeURIComponent(likeKey))
       .then(function (data) {
-        if (typeof data.value === "number") {
-          setCount(data.value);
+        var n = parseCounterValue(data);
+        if (n === null) {
+          setCount(0);
           return;
         }
-        setCount(0);
+        setCount(n);
+        if (likeStatus && !alreadyLiked) likeStatus.textContent = "";
       })
       .catch(function () {
         setCount(0);
-        if (likeStatus) likeStatus.textContent = "Compteur temporairement indisponible.";
+        if (likeStatus) likeStatus.textContent = "Compteur indisponible (réseau ou blocage). Recharge la page.";
       });
   }
 
   if (alreadyLiked) {
     setLikedUI();
-    if (likeStatus) likeStatus.textContent = "Deja like depuis ce navigateur.";
+    if (likeStatus) likeStatus.textContent = "Déjà liké depuis ce navigateur.";
   }
   loadGlobalCount();
 
   likeBtn.addEventListener("click", function () {
     if (localStorage.getItem(likedKey) === "1") {
-      if (likeStatus) likeStatus.textContent = "Deja like depuis ce navigateur.";
+      if (likeStatus) likeStatus.textContent = "Déjà liké depuis ce navigateur.";
       return;
     }
 
     likeBtn.setAttribute("disabled", "true");
     if (likeStatus) likeStatus.textContent = "Envoi du like...";
 
-    fetchJsonWithTimeout("https://api.countapi.xyz/hit/" + namespace + "/" + key)
+    fetchJsonWithTimeout(likeApiBase + "/hit/" + encodeURIComponent(likeKey))
       .then(function (data) {
-        if (typeof data.value !== "number") throw new Error("invalid");
-        setCount(data.value);
+        var n = parseCounterValue(data);
+        if (n === null) throw new Error("invalid");
+        setCount(n);
         localStorage.setItem(likedKey, "1");
         setLikedUI();
       })
       .catch(function () {
         likeBtn.removeAttribute("disabled");
-        if (likeStatus) likeStatus.textContent = "Echec reseau. Reessaie dans un instant.";
+        if (likeStatus) likeStatus.textContent = "Échec réseau. Réessaie dans un instant.";
       });
   });
 })();
