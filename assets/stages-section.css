@@ -1,0 +1,502 @@
+/* Section Stages — hub interactif (couleurs du site) */
+
+#stages {
+  padding-bottom: 4rem;
+}
+
+#stages .stages-hub {
+  max-width: 920px;
+  margin: 0 auto;
+  min-height: 420px;
+  padding: 2.25rem 2.5rem;
+  border-radius: 1.25rem;
+  background: var(--container-color);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+#stages .stages-hub::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.06) 0%,
+    rgba(34, 211, 238, 0.04) 50%,
+    rgba(139, 92, 246, 0.05) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+#stages .stages-hub__screen {
+  position: relative;
+  z-index: 1;
+  animation: stagesFadeIn 0.4s ease;
+}
+
+#stages .stages-hub__screen[hidden] {
+  display: none !important;
+}
+
+@keyframes stagesFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#stages .stages-hub__screen-inner {
+  width: 100%;
+}
+
+#stages .stages-hub__lead {
+  text-align: center;
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Choix année */
+#stages .stages-year-picker {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+#stages .stages-year-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  background: var(--body-color);
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  font-family: var(--body-font);
+  color: var(--title-color);
+}
+
+#stages .stages-year-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--first-color);
+  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.2);
+}
+
+#stages .stages-year-btn:focus-visible {
+  outline: 2px solid var(--first-color);
+  outline-offset: 3px;
+}
+
+#stages .stages-year-btn__badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 2rem;
+  background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+  color: #fff;
+}
+
+#stages .stages-year-btn--soon .stages-year-btn__badge {
+  background: var(--input-color);
+  color: var(--text-color-light);
+}
+
+#stages .stages-year-btn__icon {
+  font-size: 2.5rem;
+  color: var(--first-color);
+  margin: 0.25rem 0;
+}
+
+#stages .stages-year-btn--soon .stages-year-btn__icon {
+  color: var(--text-color-light);
+}
+
+#stages .stages-year-btn__title {
+  font-size: 1.15rem;
+  font-weight: var(--font-semi-bold);
+}
+
+#stages .stages-year-btn__meta {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  line-height: 1.4;
+}
+
+/* Toolbar */
+#stages .stages-hub__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#stages .stages-hub__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  background: transparent;
+  color: var(--first-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  font-family: var(--body-font);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#stages .stages-hub__back:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--first-color-alt);
+}
+
+#stages .stages-hub__badge {
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-medium);
+  padding: 0.35rem 0.85rem;
+  border-radius: 2rem;
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--first-color);
+}
+
+#stages .stages-hub__badge--muted {
+  background: var(--input-color);
+  color: var(--text-color-light);
+}
+
+#stages .stages-hub__heading {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+  margin-bottom: 0.35rem;
+}
+
+#stages .stages-hub__hint {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  margin-bottom: 1.5rem;
+}
+
+/* Cartes thèmes */
+#stages .stages-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+#stages .stages-topic-grid--single {
+  grid-template-columns: 1fr;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+#stages .stages-topic-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.35rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  background: var(--body-color);
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  font-family: var(--body-font);
+  color: var(--title-color);
+  position: relative;
+  overflow: hidden;
+}
+
+#stages .stages-topic-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+#stages .stages-topic-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--first-color);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+}
+
+#stages .stages-topic-card:hover::after {
+  opacity: 1;
+}
+
+#stages .stages-topic-card:focus-visible {
+  outline: 2px solid var(--first-color);
+  outline-offset: 2px;
+}
+
+#stages .stages-topic-card__num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--first-color-lighter);
+}
+
+#stages .stages-topic-card__icon {
+  font-size: 1.75rem;
+  color: var(--first-color);
+  margin: 0.15rem 0;
+}
+
+#stages .stages-topic-card__title {
+  font-size: 1rem;
+  font-weight: var(--font-semi-bold);
+  position: relative;
+  z-index: 1;
+}
+
+#stages .stages-topic-card__desc {
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+  position: relative;
+  z-index: 1;
+}
+
+/* Détail : onglets */
+#stages .stages-detail-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+  padding: 0.35rem;
+  border-radius: 0.75rem;
+  background: var(--input-color);
+}
+
+#stages .stages-detail-nav__btn {
+  flex: 1 1 auto;
+  min-width: fit-content;
+  padding: 0.5rem 0.85rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  font-family: var(--body-font);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#stages .stages-detail-nav__btn:hover {
+  color: var(--first-color);
+}
+
+#stages .stages-detail-nav__btn--active {
+  background: var(--container-color);
+  color: var(--first-color);
+  box-shadow: var(--shadow-sm);
+}
+
+#stages .stages-detail-panels {
+  min-height: 200px;
+}
+
+#stages .stages-detail-panel {
+  animation: stagesFadeIn 0.35s ease;
+}
+
+#stages .stages-detail-panel[hidden] {
+  display: none !important;
+}
+
+#stages .stages-detail-panel__header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--input-color);
+}
+
+#stages .stages-detail-panel__num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+#stages .stages-detail-panel__header h3 {
+  font-size: 1.1rem;
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+#stages .stages-detail-panel__body {
+  font-size: var(--small-font-size);
+  line-height: 1.65;
+  color: var(--text-color);
+}
+
+#stages .stages-detail-panel__body p {
+  margin-bottom: 0.85rem;
+}
+
+#stages .stages-detail-panel__body strong {
+  color: var(--first-color);
+  font-weight: 600;
+}
+
+#stages .stages-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+#stages .stages-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 2rem;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-medium);
+  color: var(--title-color);
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+#stages .stages-tag i {
+  color: var(--first-color);
+  font-size: 1rem;
+}
+
+#stages .stages-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 0.65rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(34, 211, 238, 0.06));
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+#stages .stages-callout--muted {
+  background: var(--input-color);
+  border-style: dashed;
+  border-color: var(--text-color-light);
+}
+
+#stages .stages-callout i {
+  font-size: 1.35rem;
+  color: var(--first-color-lighter);
+  flex-shrink: 0;
+}
+
+#stages .stages-callout p {
+  margin-bottom: 0;
+}
+
+#stages .stages-mission-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+#stages .stages-mission-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  background: var(--input-color);
+  transition: background 0.2s ease;
+}
+
+#stages .stages-mission-list li:hover {
+  background: rgba(99, 102, 241, 0.08);
+}
+
+#stages .stages-mission-list li i {
+  font-size: 1.2rem;
+  color: var(--first-color);
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+#stages .stages-mission-list li span {
+  line-height: 1.5;
+}
+
+/* Dark theme */
+body.dark-theme #stages .stages-hub {
+  background: rgba(13, 13, 24, 0.85);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+body.dark-theme #stages .stages-year-btn,
+body.dark-theme #stages .stages-topic-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+body.dark-theme #stages .stages-year-btn:hover,
+body.dark-theme #stages .stages-topic-card:hover {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+body.dark-theme #stages .stages-detail-nav {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme #stages .stages-detail-nav__btn--active {
+  background: rgba(99, 102, 241, 0.2);
+}
+
+body.dark-theme #stages .stages-mission-list li {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@media screen and (max-width: 768px) {
+  #stages .stages-hub {
+    padding: 1.5rem 1.15rem;
+    min-height: 360px;
+  }
+
+  #stages .stages-year-picker {
+    grid-template-columns: 1fr;
+  }
+
+  #stages .stages-year-btn {
+    padding: 1.5rem 1rem;
+  }
+
+  #stages .stages-topic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #stages .stages-detail-nav__btn {
+    flex: 1 1 calc(50% - 0.25rem);
+    font-size: 0.72rem;
+    padding: 0.45rem 0.5rem;
+  }
+}

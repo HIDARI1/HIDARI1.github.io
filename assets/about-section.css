@@ -1,0 +1,319 @@
+/* Section À propos — hub moderne */
+
+#about .about-hub {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Intro */
+#about .about-intro {
+  text-align: center;
+  padding: 1.75rem 2rem;
+  border-radius: 1.25rem;
+  background: var(--container-color);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  box-shadow: var(--shadow-md);
+}
+
+#about .about-intro__greeting {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+}
+
+#about .about-intro__greeting strong {
+  color: var(--first-color);
+}
+
+#about .about-intro__text {
+  font-size: var(--small-font-size);
+  line-height: 1.65;
+  color: var(--text-color);
+  max-width: 520px;
+  margin: 0 auto 1rem;
+}
+
+#about .about-intro__tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+#about .about-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-medium);
+  color: var(--title-color);
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  border-radius: 2rem;
+}
+
+#about .about-tag i {
+  color: var(--first-color);
+  font-size: 1rem;
+}
+
+/* Stats */
+#about .about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+#about .about-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.1rem 0.75rem;
+  border-radius: 0.85rem;
+  background: var(--container-color);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#about .about-stat:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+#about .about-stat--accent {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(34, 211, 238, 0.08));
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+#about .about-stat__value {
+  font-size: 1.75rem;
+  font-weight: var(--font-semi-bold);
+  color: var(--first-color);
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+#about .about-stat__value i {
+  font-size: 1.5rem;
+}
+
+#about .about-stat__label {
+  font-size: 0.7rem;
+  font-weight: var(--font-medium);
+  color: var(--text-color-light);
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Grille cartes */
+#about .about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+#about .about-card {
+  padding: 1.25rem 1.35rem;
+  border-radius: 1rem;
+  background: var(--container-color);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  box-shadow: var(--shadow-sm);
+}
+
+#about .about-card--wide {
+  grid-column: 1 / -1;
+}
+
+#about .about-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--input-color);
+}
+
+#about .about-card__num {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--first-color-lighter);
+}
+
+#about .about-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#about .about-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: var(--smaller-font-size);
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+#about .about-card__list li i {
+  color: var(--first-color);
+  font-size: 1rem;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+#about .about-card__timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#about .about-card__timeline li {
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--first-color);
+}
+
+#about .about-card__timeline strong {
+  display: block;
+  font-size: var(--smaller-font-size);
+  color: var(--first-color);
+  margin-bottom: 0.15rem;
+}
+
+#about .about-card__timeline span {
+  font-size: var(--smaller-font-size);
+  color: var(--text-color);
+  line-height: 1.45;
+}
+
+#about .about-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+#about .about-pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.85rem;
+  border-radius: 0.65rem;
+  background: var(--body-color);
+  border: 1px solid rgba(99, 102, 241, 0.08);
+}
+
+#about .about-pillar > i {
+  font-size: 1.35rem;
+  color: var(--first-color);
+  flex-shrink: 0;
+}
+
+#about .about-pillar strong {
+  display: block;
+  font-size: var(--smaller-font-size);
+  color: var(--title-color);
+  margin-bottom: 0.2rem;
+}
+
+#about .about-pillar span {
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--text-color-light);
+}
+
+/* Actions */
+#about .about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding-top: 0.5rem;
+}
+
+#about .about-actions__primary {
+  margin-right: 0.25rem;
+}
+
+#about .about-actions__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.9rem;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-medium);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: var(--container-color);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+#about .about-actions__link:hover {
+  color: var(--first-color);
+  border-color: var(--first-color);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+#about .about-actions__link i {
+  font-size: 1rem;
+}
+
+body.dark-theme #about .about-intro,
+body.dark-theme #about .about-stat,
+body.dark-theme #about .about-card {
+  background: rgba(13, 13, 24, 0.85);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+body.dark-theme #about .about-pillar {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+body.dark-theme #about .about-actions__link {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@media screen and (max-width: 768px) {
+  #about .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #about .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #about .about-card--wide {
+    grid-column: auto;
+  }
+
+  #about .about-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  #about .about-intro {
+    padding: 1.25rem 1rem;
+  }
+
+  #about .about-actions__primary {
+    width: 100%;
+    justify-content: center;
+  }
+}

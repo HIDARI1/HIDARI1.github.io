@@ -153,20 +153,7 @@ modalCloses.forEach((modalClose) => {
   }
 })();
 
-/*======================= Portfolio Swiper (section Projets) ===================*/
-var swiper = new Swiper("#portfolio .portfolio__container", {
-  loop: true,
-  mousewheel: false,
-
-  navigation: {
-    nextEl: "#portfolio .swiper-button-next",
-    prevEl: "#portfolio .swiper-button-prev",
-  },
-  pagination: {
-    el: "#portfolio .swiper-pagination",
-    clickable: true,
-  },
-});
+/* Portfolio : hub par mission (voir assets/portfolio.js) — pas de Swiper */
 
 /*======================= Certification Swiper (même structure que Projets) ===================*/
 var certificationSwiper = new Swiper("#certification .certification-swiper", {

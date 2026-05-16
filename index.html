@@ -14,7 +14,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Portfolio - Saad Rhazzoul" />
     <meta property="og:description" content="Étudiant en BTS SIO option SISR, passionné par la cybersécurité et les infrastructures réseau." />
-    <meta property="og:image" content="assets/img/pro.jpg" />
+    <meta property="og:image" content="assets/favicon.svg" />
     <meta property="og:url" content="https://hidari1.github.io/" />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="assets/newcss.css" />
     <link rel="stylesheet" href="assets/tabs-pro.css" />
     <link rel="stylesheet" href="assets/veille-cards.css" />
+    <link rel="stylesheet" href="assets/stages-section.css" />
+    <link rel="stylesheet" href="assets/portfolio-projects.css" />
+    <link rel="stylesheet" href="assets/about-section.css" />
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
@@ -113,49 +116,15 @@
               </a>
             </div>
 
-            <div class="home__img">
-              <svg
-                class="home__blob"
-                viewBox="0 0 200 187"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                aria-hidden="true"
-              >
-                <mask id="mask0" mask-type="alpha">
-                  <path
-                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                      130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                      97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                      0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                  />
-                </mask>
-                <g mask="url(#mask0)">
-                  <path
-                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                      165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                      129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                  />
-                  <image
-                    class="home__blob-img"
-                    x="-79"
-                    y="-46"
-                    xlink:href="assets/img/pro.jpg"
-                    alt="Photo de profil de Saad Rhazzoul"
-                  />
-                </g>
-              </svg>
-            </div>
-
             <div class="home__data">
               <h1 class="home__title">Bonjour, je suis Saad Rhazzoul</h1>
               <h3 class="home__subtitle"><span id="typing-text"></span><span class="typing-cursor" aria-hidden="true"></span></h3>
               <p class="home__description">
                 Passionné par l'informatique, les nouvelles technologies, le développement ainsi que par le réseau et ses infrastructures. Toujours prêt à apprendre et progresser.
               </p>
-              <a href="#contact" class="button button--flex">
-                Me contacter<i class="uil uil-message button__icon" aria-hidden="true"></i>
-              </a>
+              <button type="button" class="button button--flex about-actions__primary" id="cv-open-btn" aria-label="Afficher mon CV">
+                Voir mon CV <i class="uil uil-eye button__icon" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
 
@@ -172,40 +141,39 @@
       <!--================== Section About ==================-->
       <section class="about section" id="about">
         <h2 class="section__title">À propos de moi</h2>
-        <span class="section__subtitle">Mon introduction</span>
 
-        <div class="about__container container grid reveal">
-          <img src="assets/img/about.jpg" alt="Photo de Saad Rhazzoul" class="about__img" />
-
-          <div class="about__data">
-            <p class="about__description">
-              Actuellement en première année de <strong>BTS SIO option SISR</strong>, je suis passionné par l'informatique, la cybersécurité et les infrastructures réseau. Curieux et motivé, je cherche constamment à développer mes compétences techniques à travers des projets concrets, des certifications professionnelles et une veille technologique active.
+        <div class="about-hub container reveal">
+          <header class="about-intro">
+            <p class="about-intro__greeting"><strong>Saad Rhazzoul / 20 ans</strong></p>
+            <p class="about-intro__text">
+              Étudiant en <strong>1<sup>re</sup> année de BTS SIO option SISR</strong>, je me spécialise dans les infrastructures réseau, la cybersécurité et l'administration des systèmes.
             </p>
-
-            <div class="about__info">
-              <div>
-                <span class="about__info-title" data-count="5">0</span>
-                <span class="about__info-name">Certifications<br />obtenues</span>
-              </div>
-
-              <div>
-                <span class="about__info-title" data-count="2">0</span>
-                <span class="about__info-name">Projets<br />réalisés</span>
-              </div>
-
-              <div>
-                <span class="about__info-title">1re année</span>
-                <span class="about__info-name">BTS SIO<br />option SISR</span>
-              </div>
+            <div class="about-intro__tags" aria-label="Domaines d'intérêt">
+              <span class="about-tag"><i class="uil uil-graduation-cap" aria-hidden="true"></i> BTS SIO SISR</span>
+              <span class="about-tag"><i class="uil uil-shield-check" aria-hidden="true"></i> Cybersécurité</span>
+              <span class="about-tag"><i class="uil uil-server-network" aria-hidden="true"></i> Réseau & systèmes</span>
+              <span class="about-tag"><i class="uil uil-cloud-computing" aria-hidden="true"></i> Virtualisation</span>
             </div>
+          </header>
 
-            <div class="about__buttons">
-              <button type="button" class="button button--flex" id="cv-open-btn" aria-label="Afficher mon CV">
-                Voir mon CV<i class="uil uil-eye button__icon" aria-hidden="true"></i>
-              </button>
+          <div class="about-stats" aria-label="Chiffres clés">
+            <div class="about-stat">
+              <span class="about-stat__value" data-count="5">0</span>
+              <span class="about-stat__label">Certifications</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat__value" data-count="3">0</span>
+              <span class="about-stat__label">Projets PPE2</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat__value">1<sup>re</sup></span>
+              <span class="about-stat__label">Année BTS</span>
+            </div>
+            <div class="about-stat about-stat--accent">
+              <span class="about-stat__value"><i class="uil uil-briefcase-alt" aria-hidden="true"></i></span>
+              <span class="about-stat__label">Stage Hitachi Rail</span>
             </div>
           </div>
-        </div>
       </section>
 
       <!--================== Section Skills (Tabs Pro) ==================-->
@@ -518,32 +486,143 @@
       <!--================== Section Portfolio ==================-->
       <section class="portfolio section" id="portfolio">
         <h2 class="section__title">Projets</h2>
-        <span class="section__subtitle">Travaux les plus récents</span>
+        <span class="section__subtitle">Réalisations en formation — PPE2 SISR</span>
 
-        <div class="portfolio__container container swiper-container">
-          <div class="swiper-wrapper">
-            <div class="portfolio__content grid swiper-slide">
-              <img src="assets/img/portfolio1.png" alt="Image du projet" class="portfolio__img" />
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">Déploiement d'une machine virtuelle Ubuntu et mise en place d'un accès distant</h3>
-                <p>Configuration du réseau en DHCP et vérification de la communication entre les machines via des tests de ping.</p>
-                <p>Mise en place d'un serveur RustDesk sur Windows Server 2022 et configuration du pare-feu pour autoriser les connexions distantes sur le réseau local.</p>
-                <a href="assets/docs/cr-1.pdf" class="button button--flex button--small portfolio__button portfolio__button--pdf" target="_blank" rel="noopener noreferrer" aria-label="Voir le compte rendu du projet (PDF)">Compte rendu PDF <i class="uil uil-file button__icon" aria-hidden="true"></i></a>
+        <div class="portfolio-hub container reveal" id="portfolioHub">
+          <nav class="portfolio-hub__tabs" aria-label="Choisir une mission">
+            <button type="button" class="portfolio-hub__tab portfolio-hub__tab--active" data-mission="1" aria-selected="true">Mission 1</button>
+            <button type="button" class="portfolio-hub__tab" data-mission="2" aria-selected="false">Mission 2</button>
+            <button type="button" class="portfolio-hub__tab" data-mission="3" aria-selected="false">Mission 3</button>
+          </nav>
+
+          <article class="portfolio-mission portfolio-mission--active" data-mission-panel="1">
+            <div class="portfolio-mission__hero">
+              <div class="portfolio-mission__intro">
+                <img src="assets/img/Mission1.png" alt="Image du projet" class="portfolio__img" />
+                <span class="portfolio-mission__label">Mission 1 · Soccer78</span>
+                <h3 class="portfolio-mission__title">Installation du système d'information</h3>
+                <p class="portfolio-mission__period"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 15 jan. – 29 jan. 2026</p>
               </div>
             </div>
-            <div class="portfolio__content grid swiper-slide">
-              <img src="assets/img/portfolio2.png" alt="Projet en cours" class="portfolio__img" />
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">Développement d'une IA pour le jeu BomberBUT</h3>
-                <p class="portfolio__description">Conception d'une intelligence artificielle capable de collecter des ressources et d'éviter les dangers dans le jeu BomberBUT. Implémentation d'un algorithme de recherche de chemin (BFS/A*) pour atteindre les minerais tout en contournant obstacles et bombes, gestion dynamique des bombes et des situations de blocage pour optimiser les déplacements.</p>
-                <p>L'IA inclut des stratégies pour les parties solo et prépare le terrain pour des améliorations multijoueurs, avec mémorisation des zones explorées et anticipation des dangers.</p>
-                <a href="assets/docs/cr-2.pdf" class="button button--flex button--small portfolio__button portfolio__button--pdf" target="_blank" rel="noopener noreferrer" aria-label="Voir le compte rendu du projet (PDF)">Compte rendu PDF <i class="uil uil-file button__icon" aria-hidden="true"></i></a>
+            <div class="portfolio-mission__grid">
+              <section class="portfolio-card">
+                <h4 class="portfolio-card__title"><i class="uil uil-users-alt" aria-hidden="true"></i> Organisation</h4>
+                <p>Projet PPE2 réalisé en <strong>équipe</strong> dans un environnement de test sous <strong>VMware</strong> : installation du serveur, configuration du réseau et du DHCP, ajout des clients puis mise en place de <strong>RustDesk</strong> pour la prise en main à distance.</p>
+              </section>
+              <section class="portfolio-card">
+                <h4 class="portfolio-card__title"><i class="uil uil-crosshair" aria-hidden="true"></i> Objectifs</h4>
+                <ul class="portfolio-chips">
+                  <li>Mettre en place un environnement Linux</li>
+                  <li>Assurer la communication réseau</li>
+                  <li>Permettre la prise en main à distance</li>
+                </ul>
+              </section>
+              <section class="portfolio-card portfolio-card--highlight">
+                <h4 class="portfolio-card__title"><i class="uil uil-check-circle" aria-hidden="true"></i> Réalisations</h4>
+                <ul class="portfolio-done">
+                  <li>Installation d’une VM Ubuntu</li>
+                  <li>Configuration réseau en DHCP</li>
+                  <li>Installation et configuration de RustDesk</li>
+                </ul>
+              </section>
+              <section class="portfolio-card">
+                <h4 class="portfolio-card__title"><i class="uil uil-layer-group" aria-hidden="true"></i> Technologies</h4>
+                <div class="portfolio-tech">
+                  <span>Windows Server</span><span>Ubuntu</span><span>VMware</span><span>DHCP</span><span>RustDesk</span>
+                </div>
+              </section>
+            </div>
+            <div class="portfolio-mission__docs">
+              <a href="assets/docs/ex-Mission1.pdf" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer">Énoncé <i class="uil uil-file-alt button__icon" aria-hidden="true"></i></a>
+              <a href="assets/docs/cr-Mission1.pdf" class="button button--flex button--small portfolio__button portfolio__button--pdf" target="_blank" rel="noopener noreferrer">Compte rendu <i class="uil uil-file button__icon" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="portfolio-mission" data-mission-panel="2" hidden>
+            <div class="portfolio-mission__hero">
+              <div class="portfolio-mission__intro">
+                <img src="assets/img/Mission2.png" alt="Image du projet" class="portfolio__img" />
+                <span class="portfolio-mission__label">Mission 2 · Soccer78</span>
+                <h3 class="portfolio-mission__title">Évolution réseau, AD & impression</h3>
+                <p class="portfolio-mission__period"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 05 Fev. – 12 Mars. 2026</p>
               </div>
             </div>
-          </div>
-          <div class="swiper-button-next" aria-label="Projet suivant"><i class="uil uil-angle-right-b swiper-portfolio-icon" aria-hidden="true"></i></div>
-          <div class="swiper-button-prev" aria-label="Projet précédent"><i class="uil uil-angle-left-b swiper-portfolio-icon" aria-hidden="true"></i></div>
-          <div class="swiper-pagination" aria-label="Pagination des projets"></div>
+            <div class="portfolio-mission__grid">
+              <section class="portfolio-card">
+                <h4 class="portfolio-card__title"><i class="uil uil-users-alt" aria-hidden="true"></i> Organisation</h4>
+                <p>Suite du projet avec des <strong>tests</strong> et l’intégration des équipements réseau : configuration du switch Aruba, accès sécurisé en <strong>SSH</strong> et mise en place d’une solution de sauvegarde des configurations.</p>
+              </section>
+              <section class="portfolio-card">
+                <h4 class="portfolio-card__title"><i class="uil uil-crosshair" aria-hidden="true"></i> Objectifs</h4>
+                <ul class="portfolio-chips">
+                  <li>Administrer un switch réseau</li>
+                  <li>Sécuriser l’accès distant</li>
+                  <li>Sauvegarder la configuration du switch</li>
+                </ul>
+              </section>
+              <section class="portfolio-card portfolio-card--highlight">
+                <h4 class="portfolio-card__title"><i class="uil uil-check-circle" aria-hidden="true"></i> Réalisations</h4>
+                <ul class="portfolio-done">
+                  <li>Réinitialisation du switch Aruba</li>
+                  <li>Activation des ports réseau</li>
+                  <li>Sauvegarde de configuration via TFTP</li>
+                </ul>
+              </section>
+              <section class="portfolio-card">
+                <h4 class="portfolio-card__title"><i class="uil uil-layer-group" aria-hidden="true"></i> Technologies</h4>
+                <div class="portfolio-tech">
+                  <span>ASwitch Aruba 2530-8G</span><span>TFTP / TFTPD64</span><span>PuTTY</span><span>SSH</span>
+                </div>
+              </section>
+            </div>
+            <div class="portfolio-mission__docs">
+              <a href="assets/docs/ex-Mission2.pdf" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer">Énoncé <i class="uil uil-file-alt button__icon" aria-hidden="true"></i></a>
+              <a href="assets/docs/cr-Mission2.pdf" class="button button--flex button--small portfolio__button portfolio__button--pdf" target="_blank" rel="noopener noreferrer">Compte rendu <i class="uil uil-file button__icon" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="portfolio-mission" data-mission-panel="3" hidden>
+            <div class="portfolio-mission__hero">
+              <div class="portfolio-mission__intro">
+                <img src="assets/img/Mission3.jpg" alt="Image du projet" class="portfolio__img" />
+                <span class="portfolio-mission__label">Mission 3 · Soccer78</span>
+                <h3 class="portfolio-mission__title">Sécurisation & services réseau</h3>
+                <p class="portfolio-mission__period"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 19 Mars. – 16 Avr. 2026</p>
+              </div>
+            </div>
+            <div class="portfolio-mission__grid">
+              <section class="portfolio-card">
+                <h4 class="portfolio-card__title"><i class="uil uil-users-alt" aria-hidden="true"></i> Organisation</h4>
+                <p>Phase de <strong>finalisation et d’administration</strong> de l’infrastructure : déploiement de <strong>GLPI</strong>, liaison avec l’Active Directory, configuration du serveur <strong>NTP</strong> et amélioration des services réseau.</p>
+              </section>
+              <section class="portfolio-card">
+                <h4 class="portfolio-card__title"><i class="uil uil-crosshair" aria-hidden="true"></i> Objectifs</h4>
+                <ul class="portfolio-chips">
+                  <li>Déployer une solution de ticketing</li>
+                  <li>Authentifier les utilisateurs du domaine</li>
+                  <li>Synchroniser l’heure du réseau</li>
+                </ul>
+              </section>
+              <section class="portfolio-card portfolio-card--highlight">
+                <h4 class="portfolio-card__title"><i class="uil uil-check-circle" aria-hidden="true"></i> Réalisations</h4>
+                <ul class="portfolio-done">
+                  <li>Installation de GLPI</li>
+                  <li>Liaison LDAP avec Active Directory</li>
+                  <li>Mise en place d’un serveur NTP avec Chrony</li>
+                </ul>
+              </section>
+              <section class="portfolio-card">
+                <h4 class="portfolio-card__title"><i class="uil uil-layer-group" aria-hidden="true"></i> Technologies</h4>
+                <div class="portfolio-tech">
+                  <span>Debian 13</span><span>GLPI</span><span>Chrony</span><span>Active Directory</span>
+                </div>
+              </section>
+            </div>
+            <div class="portfolio-mission__docs">
+              <a href="assets/docs/ex-Mission3.pdf" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer">Énoncé <i class="uil uil-file-alt button__icon" aria-hidden="true"></i></a>
+              <a href="assets/docs/cr-Mission3.pdf" class="button button--flex button--small portfolio__button portfolio__button--pdf" target="_blank" rel="noopener noreferrer">Compte rendu <i class="uil uil-file button__icon" aria-hidden="true"></i></a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -680,62 +759,211 @@
             </div>
           </div>
         </div>
+        <div class="bts-e5 container reveal">
+          <h3 class="bts-e5__title"><i class="uil uil-table" aria-hidden="true"></i> Tableau de synthèse E5</h3>
+          <p class="bts-e5__desc">Document officiel de synthèse des compétences et activités du BTS SIO (épreuve E5).</p>
+          <a href="assets/docs/E5-tableau.pdf" class="button button--flex bts-e5__btn" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le tableau de synthèse E5 au format PDF">
+            Voir le tableau E5 <i class="uil uil-file-alt button__icon" aria-hidden="true"></i>
+          </a>
+        </div>
+
       </section>
 
-      <!--================== Section Stages (Tabs Pro) ==================-->
-      <section class="skills section" id="stages">
+      <!--================== Section Stages ==================-->
+      <section class="stages section" id="stages">
         <h2 class="section__title">Stages</h2>
-        <span class="section__subtitle">Mes expériences professionnelles</span>
+        <span class="section__subtitle">Mes expériences en entreprise</span>
 
-        <div class="skills-tabs-pro container reveal" id="stages-tabs-pro">
-          <div class="bg-effects" aria-hidden="true"><div class="bg-gradient"></div><div class="bg-grid"></div><div class="bg-orb orb-1"></div><div class="bg-orb orb-2"></div></div>
-          <div class="toast-container" id="stagesToastContainer" aria-live="polite"></div>
-          <div class="live-region" role="status" aria-live="polite" id="stagesLiveRegion"></div>
-
-          <div class="main-container">
-            <div class="tabs-wrapper">
-              <header class="section-header"><span class="section-badge">Recherche de stage</span></header>
-              <div class="tabs-nav" role="tablist" aria-label="Stages" id="stagesTabsNav">
-                <div class="tab-indicator" id="stagesTabIndicator" aria-hidden="true"></div>
-                <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-stages-recherche" id="tab-stages-recherche" tabindex="0" data-tab="recherche">
-                  <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
-                  <span>Recherche</span>
+        <div class="stages-hub container reveal" id="stagesHub">
+          <!-- Écran : choix de l'année -->
+          <div class="stages-hub__screen stages-hub__screen--active" data-stages-screen="year" aria-label="Choisir l'année de stage">
+            <div class="stages-hub__screen-inner">
+              <p class="stages-hub__lead">Sélectionnez l'année de stage à explorer</p>
+              <div class="stages-year-picker">
+                <button type="button" class="stages-year-btn" data-stages-year="1">
+                  <span class="stages-year-btn__badge">Disponible</span>
+                  <i class="uil uil-briefcase-alt stages-year-btn__icon" aria-hidden="true"></i>
+                  <span class="stages-year-btn__title">1<sup>re</sup> année</span>
+                  <span class="stages-year-btn__meta">Hitachi Rail GTS · Mai–Juillet 2026</span>
                 </button>
-                <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-stages-domaines" id="tab-stages-domaines" tabindex="-1" data-tab="domaines">
-                  <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
-                  <span>Domaines</span>
+                <button type="button" class="stages-year-btn stages-year-btn--soon" data-stages-year="2">
+                  <span class="stages-year-btn__badge">À venir</span>
+                  <i class="uil uil-hourglass stages-year-btn__icon" aria-hidden="true"></i>
+                  <span class="stages-year-btn__title">2<sup>e</sup> année</span>
+                  <span class="stages-year-btn__meta">Fin de formation BTS SIO</span>
                 </button>
               </div>
+            </div>
+          </div>
 
-              <div class="tabs-content">
-                <section class="tab-panel" role="tabpanel" id="panel-stages-recherche" aria-labelledby="tab-stages-recherche" aria-hidden="false" tabindex="0" style="--panel-color: #22d3ee; --panel-color-alt: #6366f1;">
-                  <div class="panel-content">
-                    <header class="panel-header">
-                      <div class="panel-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg></div>
-                      <div><h4 class="panel-title">En recherche de stage</h4><p class="panel-subtitle">Je suis actuellement à la recherche d'un stage en entreprise</p></div>
-                    </header>
-                    <div class="panel-body">
-                      <p><strong>Je suis en recherche de stage</strong> dans le cadre de ma formation en BTS SIO</p>
-                      <div class="grid grid-3">
-                        <article class="skill-tab-card"><i class="fas fa-briefcase"></i><h4 class="skill-name">Stage</h4><p>Recherche active</p></article>
-                        <article class="skill-tab-card"><i class="fas fa-calendar-alt"></i><h4 class="skill-name">Durée</h4><p><strong>6</strong> Semaines<br><strong>25-05-2026 - 03-07-2026</strong></p></article>
-                        <article class="skill-tab-card"><i class="fas fa-map-marker-alt"></i><h4 class="skill-name">Zone</h4><p>Île-de-France</p></article>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <section class="tab-panel" role="tabpanel" id="panel-stages-domaines" aria-labelledby="tab-stages-domaines" aria-hidden="true" tabindex="0" style="--panel-color: #10b981; --panel-color-alt: #14b8a6;">
-                  <div class="panel-content">
-                    <header class="panel-header">
-                      <div class="panel-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg></div>
-                      <div><h4 class="panel-title">Domaines recherchés</h4><p class="panel-subtitle">Secteurs et compétences visés</p></div>
-                    </header>
-                    <div class="panel-body">
-                      <h4 class="panel-title">Je suis à l'écoute des opportunités dans les domaines de l'administration système, des réseaux, de la cybersécurité.</h4>
-                    </div>
-                  </div>
-                </section>
+          <!-- Écran : menu thèmes — 1re année -->
+          <div class="stages-hub__screen" data-stages-screen="menu" data-stages-year="1" hidden>
+            <div class="stages-hub__screen-inner">
+              <div class="stages-hub__toolbar">
+                <button type="button" class="stages-hub__back" data-stages-goto="year">
+                  <i class="uil uil-arrow-left" aria-hidden="true"></i> Changer d'année
+                </button>
+                <span class="stages-hub__badge">Stage 1<sup>re</sup> année</span>
               </div>
+              <h3 class="stages-hub__heading">Que souhaitez-vous découvrir ?</h3>
+              <p class="stages-hub__hint">Cliquez sur un thème pour afficher le détail dans cette fenêtre.</p>
+              <div class="stages-topic-grid" role="list">
+                <button type="button" class="stages-topic-card" data-stages-topic="entreprise" data-stages-year="1" role="listitem">
+                  <span class="stages-topic-card__num">01</span>
+                  <i class="uil uil-building stages-topic-card__icon" aria-hidden="true"></i>
+                  <span class="stages-topic-card__title">Entreprise</span>
+                  <span class="stages-topic-card__desc">Hitachi Rail GTS France</span>
+                </button>
+                <button type="button" class="stages-topic-card" data-stages-topic="contexte" data-stages-year="1" role="listitem">
+                  <span class="stages-topic-card__num">02</span>
+                  <i class="uil uil-info-circle stages-topic-card__icon" aria-hidden="true"></i>
+                  <span class="stages-topic-card__title">Contexte</span>
+                  <span class="stages-topic-card__desc">Cadre du stage SISR</span>
+                </button>
+                <button type="button" class="stages-topic-card" data-stages-topic="missions" data-stages-year="1" role="listitem">
+                  <span class="stages-topic-card__num">03</span>
+                  <i class="uil uil-layers stages-topic-card__icon" aria-hidden="true"></i>
+                  <span class="stages-topic-card__title">Missions</span>
+                  <span class="stages-topic-card__desc">Activités confiées</span>
+                </button>
+                <button type="button" class="stages-topic-card" data-stages-topic="competences" data-stages-year="1" role="listitem">
+                  <span class="stages-topic-card__num">04</span>
+                  <i class="uil uil-award stages-topic-card__icon" aria-hidden="true"></i>
+                  <span class="stages-topic-card__title">Compétences</span>
+                  <span class="stages-topic-card__desc">Objectifs pédagogiques</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Écran : menu thèmes — 2e année -->
+          <div class="stages-hub__screen" data-stages-screen="menu" data-stages-year="2" hidden>
+            <div class="stages-hub__screen-inner">
+              <div class="stages-hub__toolbar">
+                <button type="button" class="stages-hub__back" data-stages-goto="year">
+                  <i class="uil uil-arrow-left" aria-hidden="true"></i> Changer d'année
+                </button>
+                <span class="stages-hub__badge stages-hub__badge--muted">Stage 2<sup>e</sup> année</span>
+              </div>
+              <h3 class="stages-hub__heading">Stage de 2<sup>e</sup> année</h3>
+              <div class="stages-topic-grid stages-topic-grid--single" role="list">
+                <button type="button" class="stages-topic-card" data-stages-topic="apercu" data-stages-year="2" role="listitem">
+                  <span class="stages-topic-card__num">—</span>
+                  <i class="uil uil-hourglass stages-topic-card__icon" aria-hidden="true"></i>
+                  <span class="stages-topic-card__title">Aperçu</span>
+                  <span class="stages-topic-card__desc">Informations à venir</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Écran : détail — 1re année -->
+          <div class="stages-hub__screen" data-stages-screen="detail" data-stages-year="1" hidden>
+            <div class="stages-hub__screen-inner">
+              <div class="stages-hub__toolbar">
+                <button type="button" class="stages-hub__back" data-stages-goto="menu" data-stages-year-target="1">
+                  <i class="uil uil-arrow-left" aria-hidden="true"></i> Retour au menu
+                </button>
+                <span class="stages-hub__badge">1<sup>re</sup> année</span>
+              </div>
+              <nav class="stages-detail-nav" aria-label="Navigation du détail du stage">
+                <button type="button" class="stages-detail-nav__btn stages-detail-nav__btn--active" data-stages-topic="entreprise" data-stages-year="1">Entreprise</button>
+                <button type="button" class="stages-detail-nav__btn" data-stages-topic="contexte" data-stages-year="1">Contexte</button>
+                <button type="button" class="stages-detail-nav__btn" data-stages-topic="missions" data-stages-year="1">Missions</button>
+                <button type="button" class="stages-detail-nav__btn" data-stages-topic="competences" data-stages-year="1">Compétences</button>
+              </nav>
+              <div class="stages-detail-panels">
+                <article class="stages-detail-panel stages-detail-panel--active" data-stages-panel="entreprise">
+                  <header class="stages-detail-panel__header">
+                    <span class="stages-detail-panel__num">01</span>
+                    <h3>Hitachi Rail GTS France</h3>
+                  </header>
+                  <div class="stages-detail-panel__body">
+                    <p>Stage de <strong>1<sup>re</sup> année</strong> au sein de <strong>Hitachi Rail GTS France</strong>, filiale du groupe Hitachi spécialisée dans les solutions ferroviaires et les systèmes de transport intelligents.</p>
+                    <div class="stages-tags">
+                      <span class="stages-tag"><i class="uil uil-map-marker" aria-hidden="true"></i> Vélizy-Villacoublay</span>
+                      <span class="stages-tag"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 25 mai – 3 juillet 2026</span>
+                      <span class="stages-tag"><i class="uil uil-clock" aria-hidden="true"></i> 6 semaines</span>
+                      <span class="stages-tag"><i class="uil uil-train" aria-hidden="true"></i> Secteur ferroviaire</span>
+                    </div>
+                    <div class="stages-callout">
+                      <i class="uil uil-shield-check" aria-hidden="true"></i>
+                      <p>Environnement industriel structuré, avec des <strong>enjeux techniques et normatifs</strong> propres au secteur du rail.</p>
+                    </div>
+                  </div>
+                </article>
+                <article class="stages-detail-panel" data-stages-panel="contexte" hidden>
+                  <header class="stages-detail-panel__header">
+                    <span class="stages-detail-panel__num">02</span>
+                    <h3>Contexte du stage</h3>
+                  </header>
+                  <div class="stages-detail-panel__body">
+                    <p>Ce stage s'inscrit dans le cadre de ma formation <strong>BTS SIO option SISR</strong>. Il vise une première immersion concrète dans l'administration des infrastructures réseau et systèmes en entreprise.</p>
+                    <p>J'intègre l'équipe pour participer au <strong>support et à la mise en œuvre réseau</strong> sur des projets ferroviaires, en collaboration avec des ingénieurs et administrateurs expérimentés.</p>
+                    <div class="stages-tags">
+                      <span class="stages-tag"><i class="uil uil-server-network" aria-hidden="true"></i> Réseau & VLAN</span>
+                      <span class="stages-tag"><i class="uil uil-desktop-cloud-alt" aria-hidden="true"></i> Virtualisation</span>
+                      <span class="stages-tag"><i class="uil uil-monitor" aria-hidden="true"></i> Administration IT</span>
+                    </div>
+                  </div>
+                </article>
+                <article class="stages-detail-panel" data-stages-panel="missions" hidden>
+                  <header class="stages-detail-panel__header">
+                    <span class="stages-detail-panel__num">03</span>
+                    <h3>Missions confiées</h3>
+                  </header>
+                  <div class="stages-detail-panel__body">
+                    <p>Participation à des activités de <strong>support et de mise en œuvre réseau</strong> :</p>
+                    <ul class="stages-mission-list">
+                      <li><i class="uil uil-sitemap" aria-hidden="true"></i><span><strong>Architecture réseau</strong> — Découvrir l'architecture du projet (LAN, VLAN, équipements actifs).</span></li>
+                      <li><i class="uil uil-router" aria-hidden="true"></i><span><strong>Configuration matérielle</strong> — Switchs, routeurs et points d'accès.</span></li>
+                      <li><i class="uil uil-eye" aria-hidden="true"></i><span><strong>Surveillance & incidents</strong> — Suivi des incidents simples.</span></li>
+                      <li><i class="uil uil-file-bookmark-alt" aria-hidden="true"></i><span><strong>Documentation</strong> — Schémas et procédures réseau.</span></li>
+                      <li><i class="uil uil-cloud-database-tree" aria-hidden="true"></i><span><strong>Machines virtuelles</strong> — Création et gestion (Windows, Linux…).</span></li>
+                      <li><i class="uil uil-cloud-computing" aria-hidden="true"></i><span><strong>Virtualisation</strong> — VMware, Proxmox ou équivalents.</span></li>
+                    </ul>
+                  </div>
+                </article>
+                <article class="stages-detail-panel" data-stages-panel="competences" hidden>
+                  <header class="stages-detail-panel__header">
+                    <span class="stages-detail-panel__num">04</span>
+                    <h3>Compétences visées</h3>
+                  </header>
+                  <div class="stages-detail-panel__body">
+                    <p>Ces missions permettent d'appréhender :</p>
+                    <ul class="stages-mission-list">
+                      <li><i class="uil uil-network-chart" aria-hidden="true"></i><span>Principes fondamentaux d'un <strong>réseau informatique en entreprise</strong>.</span></li>
+                      <li><i class="uil uil-cog" aria-hidden="true"></i><span>Fonctionnement et <strong>configuration des équipements réseau</strong>.</span></li>
+                      <li><i class="uil uil-desktop" aria-hidden="true"></i><span>Introduction à l'<strong>administration IT</strong> : VMs, virtualisation, installation d'OS.</span></li>
+                      <li><i class="uil uil-train" aria-hidden="true"></i><span>Première immersion dans le <strong>secteur ferroviaire</strong> et ses contraintes.</span></li>
+                    </ul>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <!-- Écran : détail — 2e année -->
+          <div class="stages-hub__screen" data-stages-screen="detail" data-stages-year="2" hidden>
+            <div class="stages-hub__screen-inner">
+              <div class="stages-hub__toolbar">
+                <button type="button" class="stages-hub__back" data-stages-goto="menu" data-stages-year-target="2">
+                  <i class="uil uil-arrow-left" aria-hidden="true"></i> Retour au menu
+                </button>
+                <span class="stages-hub__badge stages-hub__badge--muted">2<sup>e</sup> année</span>
+              </div>
+              <article class="stages-detail-panel stages-detail-panel--active" data-stages-panel="apercu">
+                <header class="stages-detail-panel__header">
+                  <span class="stages-detail-panel__num">—</span>
+                  <h3>Stage à venir</h3>
+                </header>
+                <div class="stages-detail-panel__body">
+                  <div class="stages-callout stages-callout--muted">
+                    <i class="uil uil-hourglass" aria-hidden="true"></i>
+                    <p><strong>À venir</strong> — période prévue en fin de 2<sup>e</sup> année de BTS SIO, pour approfondir les compétences SISR acquises en entreprise.</p>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </div>
@@ -863,33 +1091,33 @@
         <div class="veille-block reveal" id="veille-articles">
           <div class="veille-block__header">
             <span class="veille-block__number">04</span>
-            <h3 class="veille-block__title">Articles récents</h3><em>(Dernière mise à jour : 27 mars 2026)</em>
+            <h3 class="veille-block__title">Articles récents</h3><em>(Dernière mise à jour : 16 mai 2026)</em>
           </div>
           <div class="veille-block__body">
             <div class="veille-cards-grid">
               <article class="veille-card">
-                <span class="veille-card-source">ZATAZ · <time datetime="2025-08-05">26 Mars 2026</time></span>
-                <h3 class="veille-card-title">Une nouvelle boutique dédiée aux fuites de données</h3>
-                <p class="veille-card-excerpt">errière une promesse de discrétion absolue, un nouveau blackmarket découvert par ZATAZ expose une logique cyber redoutable : fluidifier la vente de données volées</p>
-                <a class="veille-btn" href="https://www.zataz.com/une-boutique-dediee-aux-fuites-de-donnees-vitrine-dun-marche-noir-methodique/" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
+                <span class="veille-card-source">Care News · <time datetime="2025-08-05">18 avr 2026</time></span>
+                <h3 class="veille-card-title">Cybersécurité et données : des enjeux cruciaux pour les associations</h3>
+                <p class="veille-card-excerpt">Les associations deviennent des cibles de plus en plus fréquentes des cyberattaques. L’article explique les risques liés aux données sensibles et les bonnes pratiques pour renforcer la sécurité informatique.</p>
+                <a class="veille-btn" href="https://www.carenews.com/salesforce-org/news/cybersecurite-et-donnees-des-enjeux-cruciaux-de-la-gestion-d-une-association" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
               </article>
               <article class="veille-card">
-                <span class="veille-card-source">ZATAZ · <time datetime="2026-01-10">10 jan. 2026</time></span>
-                <h3 class="veille-card-title">Rançongiciels 2025–2026 : concentration des attaques</h3>
-                <p class="veille-card-excerpt">Analyse du paysage des rançongiciels avec une intensification des campagnes criminelles en 2026, pointant une menace massive sur les grandes infrastructures.</p>
-                <a class="veille-btn" href="https://www.zataz.com/ransomware-2025-2026-la-concentration-saccelere/" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
+                <span class="veille-card-source">L’Indépendant · <time datetime="2026-01-10">9 mai 2026</time></span>
+                <h3 class="veille-card-title">Exaforce lève 125 millions de dollars pour sa cybersécurité IA</h3>
+                <p class="veille-card-excerpt">Un expert en cybersécurité alerte sur l’explosion des attaques informatiques depuis plusieurs mois. L’intelligence artificielle facilite désormais les vols de données et les campagnes de cybercriminalité.</p>
+                <a class="veille-btn" href="https://www.lindependant.fr/2026/05/09/cybersecurite-un-nombre-dattaques-incroyable-depuis-le-mois-daout-lia-accelere-les-vols-de-donnees-cet-expert-alerte-et-donne-des-cles-pour-se-13362058.php" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
               </article>
               <article class="veille-card">
-                <span class="veille-card-source">ZATAZ · <time datetime="2026-02-28">dernière mise à jour 25 Mars 2026</time></span>
+                <span class="veille-card-source">LeBigData · <time datetime="2026-02-28">12 mai 2026</time></span>
                 <h3 class="veille-card-title">Les cyberattaques en 2025</h3>
-                <p class="veille-card-excerpt">En 2025, les cyberattaques explosent et deviennent plus sophistiquées, compromettant massivement les données (data) et les systèmes des entreprises et institutions.</p>
-                <a class="veille-btn" href="https://www.atlas-mag.net/fr/articles/les-cyberattaques-en-2025" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
+                <p class="veille-card-excerpt">La startup Exaforce développe une plateforme de cybersécurité basée sur l’intelligence artificielle. Cette importante levée de fonds montre l’essor des technologies IA dans la protection des données.</p>
+                <a class="veille-btn" href="https://www.lebigdata.fr/exaforce-leve-125-millions-de-dollars-pour-sa-plateforme-de-cybersecurite-ia" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
               </article>
               <article class="veille-card">
-                <span class="veille-card-source">ANSSI / CERT-FR · <time datetime="2026-03-03">1 mars 2025</time></span>
-                <h3 class="veille-card-title">Panorama de la cybermenace 2024</h3>
-                <p class="veille-card-excerpt">Le rapport annuel de l'ANSSI dresse un état des lieux des menaces cyber en France : espionnage, attaques par rançongiciel, et rôle croissant de l'analyse de données dans la réponse aux incidents.</p>
-                <a class="veille-btn" href="https://cyber.gouv.fr/nous-connaitre/publications/panoramas-de-la-cybermenace/panorama-de-la-cybermenace-2024/" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
+                <span class="veille-card-source">Le Courrier du Vietnam · <time datetime="2026-03-03">1 mars 2025</time></span>
+                <h3 class="veille-card-title">L’ASEAN renforce la lutte contre la cybercriminalité</h3>
+                <p class="veille-card-excerpt">Les pays de l’ASEAN renforcent leur coopération contre les escroqueries en ligne et les cyberattaques. Cette collaboration régionale vise à améliorer la protection des données et la cybersécurité face à des menaces numériques en forte augmentation.</p>
+                <a class="veille-btn" href="https://lecourrier.vn/lasean-renforce-la-lutte-contre-la-cybercriminalite-et-les-escroqueries-en-ligne/1347189.html" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
               </article>
             </div>
           </div>
@@ -1066,5 +1294,7 @@
     <script src="assets/ptj.js"></script>
     <script src="assets/animations.js"></script>
     <script src="assets/tabs-pro.js"></script>
+    <script src="assets/stages.js"></script>
+    <script src="assets/portfolio.js"></script>
   </body>
 </html>
