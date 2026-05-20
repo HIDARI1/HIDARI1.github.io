@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude install *)",
+      "PowerShell(claude install https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git 2>&1)",
+      "PowerShell(Get-ChildItem \"$env:USERPROFILE\\\\.claude\" -Recurse -Depth 3 2>&1 | Select-Object -First 30)",
+      "Skill(anthropic-skills:skill-creator)",
+      "Skill(anthropic-skills:skill-creator:*)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
