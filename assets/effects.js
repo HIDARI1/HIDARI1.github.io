@@ -25,7 +25,7 @@
       canvas.style.width = w + 'px';
       canvas.style.height = h + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      count = Math.min(110, Math.floor((w * h) / 14000));
+      count = Math.min(55, Math.floor((w * h) / 28000));
       seed();
     }
 
@@ -35,21 +35,22 @@
         particles.push({
           x: Math.random() * w,
           y: Math.random() * h,
-          r: Math.random() * 1.4 + 0.3,
-          vx: (Math.random() - 0.5) * 0.15,
-          vy: (Math.random() - 0.5) * 0.15,
-          a: Math.random() * 0.45 + 0.15
+          r: Math.random() * 1.1 + 0.25,
+          vx: (Math.random() - 0.5) * 0.12,
+          vy: (Math.random() - 0.5) * 0.12,
+          a: Math.random() * 0.35 + 0.1
         });
       }
     }
 
     function step() {
-      // Reads CSS variable so it adapts to theme toggle
-      var styles = getComputedStyle(document.body);
-      var accent = styles.getPropertyValue('--accent').trim() || '#d4c5a9';
-      var dim    = styles.getPropertyValue('--text-dim').trim() || 'rgba(237,232,223,.6)';
-
       ctx.clearRect(0, 0, w, h);
+
+      // Bright white particles for the dark Apple void
+      var isDark = document.body.classList.contains('dark-theme');
+      var baseR = isDark ? 255 : 30;
+      var baseG = isDark ? 255 : 30;
+      var baseB = isDark ? 255 : 30;
 
       for (var i = 0; i < particles.length; i++) {
         var p = particles[i];
@@ -74,37 +75,10 @@
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = hexA(accent, p.a);
+        ctx.fillStyle = 'rgba(' + baseR + ',' + baseG + ',' + baseB + ',' + p.a + ')';
         ctx.fill();
-
-        // soft lines between close particles
-        for (var j = i + 1; j < particles.length; j++) {
-          var q = particles[j];
-          var ddx = p.x - q.x;
-          var ddy = p.y - q.y;
-          var d = ddx * ddx + ddy * ddy;
-          if (d < 11000) {
-            var op = (1 - d / 11000) * 0.07;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = hexA(accent, op);
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
       }
       requestAnimationFrame(step);
-    }
-
-    function hexA(hex, a) {
-      hex = (hex || '').replace('#', '');
-      if (hex.length === 3) hex = hex.split('').map(function (c) { return c + c; }).join('');
-      if (hex.length !== 6) return 'rgba(212,197,169,' + a + ')';
-      var r = parseInt(hex.substr(0, 2), 16);
-      var g = parseInt(hex.substr(2, 2), 16);
-      var b = parseInt(hex.substr(4, 2), 16);
-      return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
     }
 
     window.addEventListener('mousemove', function (e) {
