@@ -7,7 +7,9 @@
       "Skill(anthropic-skills:skill-creator)",
       "Skill(anthropic-skills:skill-creator:*)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "PowerShell(Get-ChildItem \"$env:APPDATA\\\\Claude\\\\claude-code\\\\2.1.142\\\\claude.exe\" | Select-Object FullName; & \"$env:APPDATA\\\\Claude\\\\claude-code\\\\2.1.142\\\\claude.exe\" mcp add magic --scope user --env API_KEY=\"3d507a91d643443439cef53106a32a20e637060557a96d4094bc903c312a2848\" -- npx -y @21st-dev/magic@latest 2>&1)",
+      "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"User\"\\); node --version; npx --version)"
     ]
   }
 }
