@@ -1,0 +1,13 @@
+# Claude Code local settings (permissions, etc.)
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
