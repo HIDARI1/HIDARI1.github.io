@@ -2308,6 +2308,373 @@ body:not(.dark-theme) .home__title .grad-text {
   color: var(--text-muted);
 }
 
+/* ============================================================
+   PATCH — Lisibilité · Couleurs · Modal certif
+   ============================================================ */
+
+/* ── A. STRONG TAGS : couleur indigo (rappel BG) ────────── */
+p strong,
+li strong,
+.about-intro__text strong,
+.veille-block__body strong,
+.stages-detail-panel__body strong,
+.bts-tabs__description strong,
+.bts-intro__desc strong,
+.portfolio-card p strong,
+.veille-card-excerpt strong {
+  color: var(--hl-indigo);
+  font-weight: 600;
+  letter-spacing: -.005em;
+}
+
+body:not(.dark-theme) p strong,
+body:not(.dark-theme) li strong {
+  color: #4338ca;
+}
+
+/* Mots-clés dans paragraphes — soulignement subtil au hover */
+p strong:hover,
+li strong:hover {
+  color: var(--hl-rose);
+  transition: color .25s var(--ease);
+}
+
+/* ── B. SECTION LABELS : couleurs variées (recall BG) ───── */
+.section__label::before {
+  background: linear-gradient(135deg, var(--hl-indigo), var(--hl-rose));
+  box-shadow: 0 0 12px rgba(165,180,252,.5);
+}
+
+/* Couleurs alternées par section (échos des shapes BG) */
+#about .section__label::before        { background: var(--hl-indigo); box-shadow: 0 0 12px rgba(165,180,252,.5); }
+#skills .section__label::before       { background: var(--hl-violet); box-shadow: 0 0 12px rgba(196,181,253,.5); }
+#qualification .section__label::before{ background: var(--hl-amber); box-shadow: 0 0 12px rgba(252,211,77,.4); }
+#certification .section__label::before{ background: var(--hl-rose);  box-shadow: 0 0 12px rgba(253,164,175,.5); }
+#portfolio .section__label::before    { background: var(--hl-indigo); box-shadow: 0 0 12px rgba(165,180,252,.5); }
+#bts .section__label::before          { background: var(--hl-cyan);  box-shadow: 0 0 12px rgba(103,232,249,.4); }
+#stages .section__label::before       { background: var(--hl-violet); box-shadow: 0 0 12px rgba(196,181,253,.5); }
+#veille .section__label::before       { background: var(--hl-amber); box-shadow: 0 0 12px rgba(252,211,77,.4); }
+#contact .section__label::before      { background: var(--hl-rose);  box-shadow: 0 0 12px rgba(253,164,175,.5); }
+
+/* ── C. CERTIF MODAL : contenu structuré et lisible ─────── */
+.certif-modal__content {
+  width: min(92vw, 680px);
+  max-height: 88vh;
+  padding: 40px;
+}
+
+.certif-modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.certif-modal__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.certif-modal__section:hover {
+  background: rgba(255,255,255,0.045);
+  border-color: var(--border-2);
+}
+
+.certif-modal__section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--hl-indigo);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.certif-modal__section-title::before {
+  content: '';
+  width: 4px; height: 4px;
+  background: var(--hl-indigo);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--hl-indigo);
+}
+
+/* Alterne les couleurs de titre dans la modale */
+.certif-modal__section:nth-of-type(2) .certif-modal__section-title,
+.certif-modal__section:nth-of-type(2) .certif-modal__section-title::before { color: var(--hl-rose); }
+.certif-modal__section:nth-of-type(2) .certif-modal__section-title::before { background: var(--hl-rose); box-shadow: 0 0 8px var(--hl-rose); }
+
+.certif-modal__section:nth-of-type(3) .certif-modal__section-title,
+.certif-modal__section:nth-of-type(3) .certif-modal__section-title::before { color: var(--hl-violet); }
+.certif-modal__section:nth-of-type(3) .certif-modal__section-title::before { background: var(--hl-violet); box-shadow: 0 0 8px var(--hl-violet); }
+
+.certif-modal__section p {
+  font-size: 14.5px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Liste des modules — cards avec puces colorées */
+.certif-modal__body ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 4px 0 0;
+  padding: 0;
+}
+.certif-modal__body li {
+  position: relative;
+  padding: 12px 14px 12px 36px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  transition: var(--t-fast);
+}
+.certif-modal__body li:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: var(--border-2);
+  transform: translateX(2px);
+}
+.certif-modal__body li::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--hl-indigo), var(--hl-rose));
+  box-shadow: 0 0 8px rgba(165,180,252,.5);
+}
+
+/* Tags compétences — pilules colorées */
+.certif-modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.certif-modal__tag {
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-2);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  transition: var(--t-fast);
+  cursor: default;
+}
+.certif-modal__tag:hover {
+  background: linear-gradient(135deg, rgba(165,180,252,.15), rgba(253,164,175,.15));
+  border-color: rgba(165,180,252,.35);
+  transform: translateY(-2px);
+}
+
+/* Tags colorés cycliquement */
+.certif-modal__tag:nth-child(5n+1) { color: var(--hl-indigo); border-color: rgba(165,180,252,.25); }
+.certif-modal__tag:nth-child(5n+2) { color: var(--hl-rose);   border-color: rgba(253,164,175,.25); }
+.certif-modal__tag:nth-child(5n+3) { color: var(--hl-violet); border-color: rgba(196,181,253,.25); }
+.certif-modal__tag:nth-child(5n+4) { color: var(--hl-amber);  border-color: rgba(252,211,77,.25); }
+.certif-modal__tag:nth-child(5n+5) { color: var(--hl-cyan);   border-color: rgba(103,232,249,.25); }
+
+/* Header modal plus aéré */
+.certif-modal__header {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.certif-modal__icon {
+  background: linear-gradient(135deg, rgba(165,180,252,.18), rgba(253,164,175,.18));
+  border: 1px solid rgba(165,180,252,.3);
+}
+.certif-modal__title {
+  background: linear-gradient(90deg, var(--text), var(--hl-indigo));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── D. PORTFOLIO MISSION : labels colorés ──────────────── */
+.portfolio-mission[data-mission-panel="1"] .portfolio-mission__label { color: var(--hl-indigo); }
+.portfolio-mission[data-mission-panel="2"] .portfolio-mission__label { color: var(--hl-rose); }
+.portfolio-mission[data-mission-panel="3"] .portfolio-mission__label { color: var(--hl-violet); }
+
+.portfolio-done li::before {
+  background: linear-gradient(135deg, var(--hl-indigo), var(--hl-rose));
+  box-shadow: 0 0 10px rgba(165,180,252,.5);
+}
+
+/* portfolio-card hover plus expressif */
+.portfolio-card:hover .portfolio-card__title i {
+  color: var(--hl-rose);
+  transition: color .3s var(--ease);
+}
+
+/* ── E. VEILLE : sources et titres colorés ──────────────── */
+.veille-block:nth-child(odd) .veille-block__number { color: var(--hl-indigo); }
+.veille-block:nth-child(even) .veille-block__number { color: var(--hl-rose); }
+.veille-card-source { color: var(--hl-indigo); }
+.veille-card:nth-child(even) .veille-card-source { color: var(--hl-rose); }
+
+.veille-trend__icon {
+  background: rgba(165,180,252,.12);
+  border: 1px solid rgba(165,180,252,.25);
+}
+.veille-trend:nth-child(even) .veille-trend__icon {
+  background: rgba(253,164,175,.12);
+  border-color: rgba(253,164,175,.25);
+  color: var(--hl-rose);
+}
+.veille-trend:nth-child(3n) .veille-trend__icon {
+  background: rgba(196,181,253,.12);
+  border-color: rgba(196,181,253,.25);
+  color: var(--hl-violet);
+}
+
+/* ── F. BTS SIO : highlight numbers + icons colorés ─────── */
+.bts-intro__highlight:nth-child(1) .bts-intro__highlight-number {
+  background: linear-gradient(180deg, var(--hl-indigo), rgba(165,180,252,.6));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bts-intro__highlight:nth-child(2) .bts-intro__highlight-number {
+  background: linear-gradient(180deg, var(--hl-rose), rgba(253,164,175,.6));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bts-intro__highlight:nth-child(3) .bts-intro__highlight-number {
+  background: linear-gradient(180deg, var(--hl-amber), rgba(252,211,77,.6));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bts-intro__feature:nth-child(1) .bts-intro__feature-icon { color: var(--hl-indigo); background: rgba(165,180,252,.12); }
+.bts-intro__feature:nth-child(2) .bts-intro__feature-icon { color: var(--hl-rose);   background: rgba(253,164,175,.12); }
+.bts-intro__feature:nth-child(3) .bts-intro__feature-icon { color: var(--hl-violet); background: rgba(196,181,253,.12); }
+.bts-intro__feature:nth-child(4) .bts-intro__feature-icon { color: var(--hl-amber);  background: rgba(252,211,77,.12); }
+
+/* ── G. ABOUT STATS : valeurs colorées ──────────────────── */
+.about-stat:nth-child(1) .about-stat__value {
+  background: linear-gradient(180deg, var(--hl-indigo), rgba(165,180,252,.55));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about-stat:nth-child(2) .about-stat__value {
+  background: linear-gradient(180deg, var(--hl-rose), rgba(253,164,175,.55));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about-stat:nth-child(3) .about-stat__value {
+  background: linear-gradient(180deg, var(--hl-violet), rgba(196,181,253,.55));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about-stat--accent .about-stat__value i { color: var(--hl-amber); }
+
+/* ── H. HOME STATS : valeurs avec couleur cyclique ──────── */
+.home__stat:nth-child(1) .home__stat-value {
+  background: linear-gradient(180deg, #fff, var(--hl-indigo));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.home__stat:nth-child(2) .home__stat-value {
+  background: linear-gradient(180deg, #fff, var(--hl-rose));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.home__stat:nth-child(3) .home__stat-value {
+  background: linear-gradient(180deg, #fff, var(--hl-violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.home__stat:nth-child(4) .home__stat-value {
+  background: linear-gradient(180deg, #fff, var(--hl-amber));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── I. SKILL CARDS : icônes colorées ───────────────────── */
+.skill-tab-card:nth-child(4n+1) i { color: var(--hl-indigo); }
+.skill-tab-card:nth-child(4n+2) i { color: var(--hl-rose); }
+.skill-tab-card:nth-child(4n+3) i { color: var(--hl-violet); }
+.skill-tab-card:nth-child(4n+4) i { color: var(--hl-amber); }
+
+/* ── J. STAGES : tags colorés ───────────────────────────── */
+.stages-tag:nth-child(4n+1) i { color: var(--hl-indigo); }
+.stages-tag:nth-child(4n+2) i { color: var(--hl-rose); }
+.stages-tag:nth-child(4n+3) i { color: var(--hl-violet); }
+.stages-tag:nth-child(4n+4) i { color: var(--hl-amber); }
+
+/* ── K. CONTACT : icons colorés différemment ────────────── */
+.contact__information:nth-child(1) .contact__icon { color: var(--hl-indigo); }
+.contact__information:nth-child(2) .contact__icon { color: var(--hl-rose); }
+.contact__information:nth-child(3) .contact__icon { color: var(--hl-violet); }
+
+/* ── L. LISIBILITÉ — paragraphes plus aérés ─────────────── */
+.veille-block__body p,
+.bts-intro__desc,
+.bts-tabs__description,
+.about-intro__text,
+.portfolio__description,
+.stages-detail-panel__body p {
+  line-height: 1.78;
+  color: rgba(245,245,247,0.82);
+}
+
+/* Active link nav : underline coloré */
+.nav__link.active-link {
+  color: var(--text);
+  background: rgba(165,180,252,.1);
+}
+.nav__link.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: 50%;
+  transform: translateX(-50%);
+  width: 4px; height: 4px;
+  background: var(--hl-indigo);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--hl-indigo);
+}
+
+/* Eyebrow hero : dot rose pulse */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 12px rgba(244,63,94,.6); }
+  50%      { opacity: .7; box-shadow: 0 0 20px rgba(244,63,94,.9); }
+}
+.home__eyebrow::before {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ── M. LIGHT THEME : ajustements des couleurs ──────────── */
+body:not(.dark-theme) .certif-modal__section-title { color: #4338ca; }
+body:not(.dark-theme) .certif-modal__section:nth-of-type(2) .certif-modal__section-title { color: #be123c; }
+body:not(.dark-theme) .certif-modal__section:nth-of-type(3) .certif-modal__section-title { color: #7c3aed; }
+body:not(.dark-theme) p strong,
+body:not(.dark-theme) li strong { color: #4338ca; }
+body:not(.dark-theme) .veille-card-source { color: #4338ca; }
+
 /* ── 26. SCROLL REVEAL ───────────────────────────────────── */
 .reveal {
   opacity: 0;
