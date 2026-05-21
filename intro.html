@@ -348,12 +348,49 @@
       line-height: 1.2;
     }
 
+    .card-left-eyebrow {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: rgba(165,180,252,0.9);
+      margin-bottom: 0.8rem;
+      padding: 5px 12px;
+      border: 1px solid rgba(165,180,252,0.25);
+      border-radius: 999px;
+      background: rgba(165,180,252,0.06);
+    }
+
     .card-left p {
-      color: rgba(180,205,255,0.6);
-      font-size: clamp(0.8rem, 1.2vw, 1rem);
+      color: rgba(180,205,255,0.65);
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
       font-weight: 300;
       line-height: 1.7;
-      max-width: 320px;
+      max-width: 340px;
+    }
+    .card-left p strong { color: #fff; font-weight: 500; }
+
+    /* Hero scroll hint with bouncing chevron */
+    .hero-scroll-hint {
+      margin-top: 1.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .hero-chev {
+      animation: chev-bounce 1.6s ease-in-out infinite;
+    }
+    @keyframes chev-bounce {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50%      { transform: translateY(5px); opacity: 1; }
     }
 
     @media (max-width: 1023px) {
@@ -741,15 +778,18 @@
 
       <!-- ── Layer 1 : Hero text ── -->
       <div id="hero-text" aria-label="Saad Rhazzoul — Portfolio">
-        <h1 class="text-track">BONJOUR</h1>
-        <h1 class="text-days">Bienvenue</h1>
-        <p><strong style="color:#fff;"><i>Faites défiler pour continuer.</i></strong></p>
+        <h1 class="text-track">BONJOUR.</h1>
+        <h1 class="text-days">Bienvenue.</h1>
+        <p class="hero-scroll-hint">
+          <span>Scrollez</span>
+          <svg class="hero-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </p>
       </div>
 
       <!-- ── Layer 2 : CTA ── -->
       <div id="cta-wrapper" aria-hidden="true">
-        <h2 class="cta-title">Entrons en contact.</h2>
-        <p class="cta-sub">Veuillez sélectionner l’un des deux choix.</p>
+        <h2 class="cta-title">On y va ?</h2>
+        <p class="cta-sub">Choisissez votre destination.</p>
         <div class="cta-buttons">
           <a href="./index.html" class="glass-btn primary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -771,10 +811,11 @@
 
           <!-- Left: description text -->
           <div class="card-left" id="card-left">
-            <h3>Développement<br>& Réseaux.</h3>
+            <span class="card-left-eyebrow">Portfolio · 2026</span>
+            <h3>Réseau,<br>Sécurité,<br>Code.</h3>
             <p>
-              <strong style="color:#fff;">Saad Rhazzoul</strong> est étudiant en BTS SIO option SISR,
-              spécialisé en cybersécurité et infrastructures réseau, avec une vraie passion pour le développement web et les nouvelles technologies.
+              Étudiant en <strong style="color:#fff;">BTS SIO option SISR</strong>.<br>
+              Spécialisé en cybersécurité et infrastructures.
             </p>
           </div>
 
@@ -864,7 +905,7 @@
 
           <!-- Right: brand name -->
           <div class="card-right" id="card-right">
-            <div class="brand-name">Reseau<br>Rhazzoul<br>zoul.</div>
+            <div class="brand-name">Saad<br>Rhaz<br>zoul.</div>
           </div>
 
         </div>
