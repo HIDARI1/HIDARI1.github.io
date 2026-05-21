@@ -9,6 +9,9 @@
   (function initParticles() {
     var canvas = document.getElementById('particles-canvas');
     if (!canvas) return;
+    // Skip sur petit ecran + reduced-motion (perf + accessibilite)
+    if (window.innerWidth < 600) { canvas.style.display = 'none'; return; }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.style.display = 'none'; return; }
     var ctx = canvas.getContext('2d');
     if (!ctx) return;
 

@@ -3196,3 +3196,334 @@ body:not(.dark-theme) .veille-card-source { color: #4338ca; }
   .portfolio__content.grid { padding: 24px; }
   .portfolio-mission { padding: 26px 22px; }
 }
+
+/* ============================================================
+   MOBILE OPTIMIZATION PATCH
+   Touch targets - Safe areas - Performance - Reduced motion
+   Apple HIG + Material Design touch standards
+   ============================================================ */
+
+/* A. SAFE AREAS (notch / dynamic island / home indicator) */
+@supports (padding: max(0px)) {
+  .header {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+  .container,
+  .veille-nav,
+  .veille-block,
+  .footer__copy {
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+  .nav__menu { padding-right: max(28px, env(safe-area-inset-right)); }
+  .scrollup {
+    right: max(20px, env(safe-area-inset-right));
+    bottom: max(20px, env(safe-area-inset-bottom));
+  }
+}
+
+/* B. REDUCED MOTION (accessibilite) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .shape, .shape__inner { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .marquee__track { animation: none !important; }
+  #particles-canvas { display: none !important; }
+  .home__scroll-arrow,
+  .stage-hero__pulse,
+  .home__eyebrow::before,
+  .stage-soon__icon { animation: none !important; }
+}
+
+/* C. MOBILE (max-width 768px) — Touch + Lisibilite */
+@media (max-width: 768px) {
+  /* Touch target minimum 44pt (Apple HIG) */
+  .nav__link,
+  .btn,
+  .button.button--flex,
+  .stage-tab,
+  .tab-btn,
+  .portfolio-hub__tab,
+  .bts-tabs__button,
+  .stages-detail-nav__btn,
+  .veille-nav__link,
+  .footer__link,
+  .change-theme,
+  .nav__toggle,
+  .home__social-icon,
+  .scrollup,
+  .swiper-button-next,
+  .swiper-button-prev,
+  .certif-modal__close,
+  .cv-lightbox__close,
+  .cv-lightbox__download,
+  .certification-lightbox__close,
+  .certification-lightbox__prev,
+  .certification-lightbox__next {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Inputs 16px min pour bloquer le zoom auto iOS */
+  .contact__input,
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 16px !important;
+    min-height: 48px;
+  }
+  textarea.contact__input { min-height: 120px; }
+
+  /* Container padding plus genereux */
+  .container { padding: 0 18px; }
+
+  /* Hero plus respirant */
+  .home.section {
+    padding-top: 130px;
+    padding-bottom: 60px;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  .home__data { text-align: center; }
+  .home__social { justify-content: center; }
+  .home__description { padding: 0 8px; font-size: 15px; }
+  .home__actions { padding: 0 12px; gap: 10px; }
+  .home__actions .btn { width: 100%; justify-content: center; min-height: 50px; }
+
+  /* Section titles + labels */
+  .section__title { font-size: clamp(2rem, 8vw, 2.6rem) !important; }
+  .section__subtitle { margin-bottom: 48px; font-size: 14.5px; }
+  .section { padding: 80px 0; }
+
+  /* STAGES tabs — restaure les labels (icon-only mauvais UX) */
+  .stage-tab span { display: inline !important; }
+  .stage-tab {
+    padding: 12px 14px;
+    font-size: 12.5px;
+    flex: 1;
+    justify-content: center;
+    min-height: 48px;
+  }
+  .stage-tab i { font-size: 1rem; }
+  .stage-tabs { width: 100%; padding: 5px; }
+  .stage-tabs-wrap { justify-content: stretch; }
+
+  /* Stages hero pills plus aerees */
+  .stage-hero__meta span { font-size: 11.5px; padding: 8px 12px; }
+  .stage-hero__company { font-size: 1.6rem; line-height: 1.15; }
+
+  /* Skills tabs */
+  .tabs-nav { padding: 18px 20px; gap: 6px; }
+  .tab-btn { padding: 12px 18px; min-height: 44px; }
+  .tabs-content { padding: 28px 22px; }
+  .grid-auto { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .skill-tab-card { padding: 20px 16px; }
+
+  /* Portfolio tabs scrollables */
+  .portfolio-hub__tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 18px 20px;
+  }
+  .portfolio-hub__tabs::-webkit-scrollbar { display: none; }
+  .portfolio-hub__tab {
+    flex-shrink: 0;
+    padding: 11px 22px;
+    min-height: 44px;
+  }
+  .portfolio-mission { padding: 28px 22px; }
+  .portfolio-mission__title { font-size: 1.5rem; }
+
+  /* Modal certif full-width */
+  .certif-modal__content {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    border-radius: 0;
+    padding: 24px 18px;
+    padding-top: max(24px, env(safe-area-inset-top));
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+  .certif-modal__section { padding: 18px; }
+  .certif-modal__body li { padding: 12px 14px 12px 32px; font-size: 13px; }
+  .certif-modal__title { font-size: 1.1rem; }
+
+  /* CV lightbox plein ecran */
+  .cv-lightbox__content {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .cv-lightbox__header {
+    padding: 14px 18px;
+    padding-top: max(14px, env(safe-area-inset-top));
+  }
+
+  /* Cards : moins de padding */
+  .about-intro { padding: 26px 22px; }
+  .veille-block__body { padding: 24px 20px; }
+  .contact__form.grid { padding: 26px 20px; }
+  .bts-intro { padding: 28px 22px; }
+  .bts-tabs__panels { padding: 28px 22px; }
+
+  /* Forms : labels + inputs lisibles */
+  .content__label { font-size: 13px; letter-spacing: .04em; }
+  .contact__information {
+    padding: 18px 20px;
+    gap: 14px;
+    min-height: 64px;
+  }
+  .contact__information:hover { transform: none; }
+
+  /* Marquee ralentie */
+  .marquee { padding: 20px 0; margin-top: 60px; }
+  .marquee__track { animation-duration: 60s; font-size: 1.05rem; gap: 32px; }
+  .marquee__track span { gap: 32px; }
+  .marquee__track span::after { width: 6px; height: 6px; }
+
+  /* Shapes — reduction visuelle */
+  .shape { opacity: .85; }
+  .shape__inner { animation-duration: 18s; }
+
+  /* Backdrop-blur reduit (perf mobile) */
+  .nav,
+  .tabs-wrapper,
+  .portfolio-hub,
+  .stages-hub,
+  .bts-intro,
+  .bts-tabs,
+  .bts-e5,
+  .stage-hero,
+  .stage-panel,
+  .about-intro,
+  .veille-block__body,
+  .contact__form.grid,
+  .home__stats {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+
+  /* Hover effects desactives (pas de hover sur touch) */
+  .about-stat:hover,
+  .skill-tab-card:hover,
+  .portfolio-card:hover,
+  .veille-tool:hover,
+  .veille-card:hover,
+  .veille-trend:hover,
+  .stage-mission:hover,
+  .stage-skill:hover,
+  .stages-topic-card:hover,
+  .stage-chip:hover,
+  .about-tag:hover,
+  .stage-hero:hover .stage-hero__logo,
+  .btn:hover,
+  .button.button--flex:hover {
+    transform: none !important;
+  }
+
+  /* Navbar safe-area */
+  .nav__menu {
+    padding-top: max(100px, calc(env(safe-area-inset-top) + 90px));
+  }
+  .nav__close {
+    top: max(20px, env(safe-area-inset-top));
+  }
+
+  /* Footer safe-area */
+  .footer__bg { padding: 48px 0 32px; padding-bottom: max(32px, env(safe-area-inset-bottom)); }
+
+  /* Veille nav scrollable horizontal */
+  .veille-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+  }
+  .veille-nav::-webkit-scrollbar { display: none; }
+  .veille-nav__link { flex-shrink: 0; min-height: 40px; }
+
+  /* Tap highlight personnalise */
+  a, button {
+    -webkit-tap-highlight-color: rgba(165,180,252,.18);
+  }
+
+  /* Scrollup plus discret */
+  .scrollup { width: 46px; height: 46px; right: 16px; bottom: 20px; }
+}
+
+/* D. VERY SMALL (max-width 480px) — ajustements supplementaires */
+@media (max-width: 480px) {
+  /* Hero ultra-compact */
+  .home__title { font-size: clamp(2.4rem, 12vw, 3.6rem); margin-bottom: 24px; }
+  .home__eyebrow { font-size: 10.5px; padding: 6px 14px; }
+  .home__subtitle { font-size: 14px; }
+  .home__description { font-size: 14px; margin-bottom: 36px; }
+
+  /* Stages compact */
+  .stage-hero { padding: 22px 18px; }
+  .stage-hero__logo { width: 64px; height: 64px; font-size: 1.7rem; border-radius: 16px; }
+  .stage-hero__main { gap: 18px; }
+  .stage-hero__company { font-size: 1.4rem; }
+  .stage-hero__meta span { font-size: 11px; padding: 6px 10px; }
+  .stage-tab i { font-size: .95rem; }
+  .stage-tab { padding: 11px 8px; font-size: 11.5px; gap: 6px; }
+  .stage-panel { padding: 22px 18px; }
+  .stage-missions { grid-template-columns: 1fr; }
+  .stage-skills-grid { grid-template-columns: 1fr; }
+  .stage-soon { padding: 22px 18px; gap: 18px; }
+
+  /* About stats 1 colonne */
+  .about-stats { grid-template-columns: 1fr; gap: 12px; }
+  .about-stat { padding: 22px 20px; }
+
+  /* Skills grid 1 colonne */
+  .grid-auto { grid-template-columns: 1fr; }
+
+  /* BTS highlights */
+  .bts-intro__highlights { grid-template-columns: 1fr; }
+  .bts-intro__highlight { padding: 22px 20px; }
+  .bts-intro__why-grid { grid-template-columns: 1fr; }
+
+  /* Portfolio missions */
+  .portfolio-mission__grid { grid-template-columns: 1fr; }
+  .portfolio-mission__intro img { max-height: 180px; }
+
+  /* Veille */
+  .veille-trend { flex-direction: column; padding: 22px 20px; }
+  .veille-trend__icon { width: 40px; height: 40px; }
+  .veille-tools-grid { grid-template-columns: 1fr; }
+  .veille-cards-grid { grid-template-columns: 1fr; }
+
+  /* Section padding */
+  .section { padding: 64px 0; }
+
+  /* Marquee */
+  .marquee__track { font-size: .95rem; gap: 26px; }
+  .marquee__track span { gap: 26px; }
+}
+
+/* E. iOS-specific : empeche le bounce/overscroll glitchy */
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Empeche le zoom sur double-tap iOS */
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
+}
