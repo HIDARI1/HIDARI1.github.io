@@ -3516,6 +3516,227 @@ body:not(.dark-theme) .veille-card-source { color: #4338ca; }
   .marquee__track span { gap: 26px; }
 }
 
+/* ============================================================
+   FIX MOBILE — Skills (tableau competences) + Qualifications
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* ── SKILLS : tableau de competences ─────────────────── */
+
+  /* Wrapper - reduit le padding */
+  .tabs-wrapper { border-radius: 22px; }
+  .section-header { padding: 22px 18px 0; }
+  .section-badge { font-size: 11px; }
+
+  /* Tabs nav : scroll horizontal lisse avec snap */
+  .tabs-nav {
+    padding: 16px;
+    gap: 6px;
+    scroll-snap-type: x proximity;
+    scroll-padding: 16px;
+  }
+  .tab-btn {
+    scroll-snap-align: start;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    flex-shrink: 0;
+    gap: 6px;
+    min-height: 42px;
+    min-width: auto;
+  }
+  .tab-btn span { display: inline; white-space: nowrap; }
+  .tab-icon { width: 13px; height: 13px; flex-shrink: 0; }
+
+  /* Panel header : empile icon + titre */
+  .panel-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+  }
+  .panel-icon-wrapper { width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0; }
+  .panel-icon-wrapper svg { width: 18px; height: 18px; }
+  .panel-title { font-size: 1.05rem; line-height: 1.2; }
+  .panel-subtitle { font-size: 11.5px; }
+
+  /* Tabs content : padding compact */
+  .tabs-content { padding: 22px 16px; }
+  .panel-body p { font-size: 13.5px; margin-bottom: 20px; }
+
+  /* CARDS : 1 colonne sur phone pour respiration max */
+  .grid-auto {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+  }
+
+  /* Carte horizontale (icon a gauche, texte a droite) */
+  .skill-tab-card {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    text-align: left;
+    border-radius: 14px;
+  }
+  .skill-tab-card i {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .skill-tab-card h4.skill-name {
+    font-size: 13.5px;
+    margin-bottom: 2px;
+    line-height: 1.25;
+  }
+  .skill-tab-card p {
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
+
+
+  /* ── QUALIFICATIONS : parcours scolaire ──────────────── */
+
+  /* Container : alignement gauche, single-column timeline */
+  .qualification__sections { padding: 0 6px; }
+
+  .qualification__content {
+    max-width: 100%;
+    padding: 12px 0;
+  }
+
+  /* Ligne verticale : visible et placee a gauche */
+  .qualification__content::before {
+    display: block !important;
+    left: 14px !important;
+    top: 14px;
+    bottom: 14px;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent 0%, var(--border-2) 8%, var(--border-2) 92%, transparent 100%);
+    transform: none;
+  }
+
+  /* Chaque item : flex avec dot a gauche, contenu a droite */
+  .qualification__data {
+    display: flex !important;
+    grid-template-columns: none;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    padding-left: 4px;
+  }
+
+  /* Cache les divs vides (placeholders du layout alterne desktop) */
+  .qualification__data > div:empty { display: none; }
+
+  /* Le container du dot (avec rounder + line) : a gauche, fixe */
+  .qualification__data > div:has(.qualification__rounder) {
+    order: -1;
+    flex: 0 0 22px;
+    width: 22px;
+    text-align: center;
+    padding-top: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Cache les lines internes (la ligne verticale du container suffit) */
+  .qualification__line { display: none; }
+
+  /* Le rounder : un peu plus visible */
+  .qualification__rounder {
+    margin: 0 auto;
+    width: 14px; height: 14px;
+    border-width: 2px;
+    background: var(--bg);
+  }
+
+  /* Le contenu : prend la place restante, texte aligne a gauche */
+  .qualification__data > div:not(:empty):not(:has(.qualification__rounder)) {
+    flex: 1;
+    text-align: left !important;
+    min-width: 0;
+    padding-top: 0;
+  }
+
+  /* Carte info : background subtle pour distinguer */
+  .qualification__data > div:not(:empty):not(:has(.qualification__rounder)) {
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+
+  .qualification__title {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .qualification__subtitle {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  /* Calendrier : pleine ligne, jamais flottant */
+  .qualification__calender {
+    float: none !important;
+    display: inline-flex;
+    margin-top: 10px;
+    font-size: 11.5px;
+    padding: 4px 10px;
+    background: var(--accent-soft);
+    border-radius: 100px;
+    color: var(--accent);
+  }
+  .qualification__calender i { color: var(--accent); }
+
+  /* Bouton "Voir plus" : full width sous le contenu */
+  .qualification__data .services__button {
+    display: inline-flex;
+    margin-top: 12px;
+    padding: 8px 14px;
+    background: rgba(165,180,252,.1);
+    border: 1px solid rgba(165,180,252,.2);
+    border-radius: 100px;
+    color: var(--hl-indigo) !important;
+    font-size: 12px;
+    min-height: 36px;
+  }
+  .qualification__data .services__button::after { display: none; }
+  .qualification__data .services__button:hover {
+    background: rgba(165,180,252,.18);
+  }
+
+  /* Modale services : padding mobile */
+  .services__modal-content {
+    width: 92%;
+    padding: 28px 22px;
+    border-radius: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Skills : padding tabs encore plus compact */
+  .tabs-nav { padding: 14px 12px; }
+  .tabs-content { padding: 20px 14px; }
+  .panel-header { gap: 10px; padding-bottom: 16px; margin-bottom: 18px; }
+  .panel-icon-wrapper { width: 36px; height: 36px; }
+  .panel-title { font-size: 1rem; }
+
+  /* Qualifications : encore plus compact */
+  .qualification__data { gap: 14px; margin-bottom: 22px; padding-left: 2px; }
+  .qualification__data > div:has(.qualification__rounder) { flex: 0 0 20px; width: 20px; }
+  .qualification__content::before { left: 13px !important; }
+  .qualification__data > div:not(:empty):not(:has(.qualification__rounder)) {
+    padding: 14px 16px;
+  }
+  .qualification__title { font-size: 1rem; }
+  .qualification__subtitle { font-size: 12.5px; }
+}
+
 /* E. iOS-specific : empeche le bounce/overscroll glitchy */
 @supports (-webkit-touch-callout: none) {
   body {
