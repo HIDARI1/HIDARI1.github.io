@@ -92,47 +92,7 @@
     step();
   })();
 
-  /* ─────────── 2. CUSTOM CURSOR ─────────── */
-  (function initCursor() {
-    if (window.matchMedia('(hover: none), (max-width: 768px)').matches) return;
-
-    var dot = document.createElement('div');
-    var ring = document.createElement('div');
-    dot.className = 'cursor-dot';
-    ring.className = 'cursor-ring';
-    document.body.appendChild(dot);
-    document.body.appendChild(ring);
-
-    var mx = 0, my = 0;
-    var rx = 0, ry = 0;
-    var dx = 0, dy = 0;
-
-    window.addEventListener('mousemove', function (e) {
-      mx = e.clientX; my = e.clientY;
-      dot.style.transform = 'translate(' + (mx - 3) + 'px,' + (my - 3) + 'px)';
-    });
-
-    function loop() {
-      rx += (mx - rx) * 0.18;
-      ry += (my - ry) * 0.18;
-      ring.style.transform = 'translate(' + (rx - 18) + 'px,' + (ry - 18) + 'px)';
-      requestAnimationFrame(loop);
-    }
-    loop();
-
-    // Grow on interactive elements
-    var hoverSel = 'a, button, [role="button"], input, textarea, .stages-year-btn, .stages-topic-card, .veille-tool, .skill-tab-card, .portfolio-hub__tab, .bts-tabs__button, .stages-detail-nav__btn, .tab-btn, .swiper-button-next, .swiper-button-prev, .nav__link, .footer__link, .home__social-icon, .about-tag, .nav__logo, .change-theme';
-    document.addEventListener('mouseover', function (e) {
-      if (e.target.closest && e.target.closest(hoverSel)) {
-        document.body.classList.add('cursor-hover');
-      }
-    });
-    document.addEventListener('mouseout', function (e) {
-      if (e.target.closest && e.target.closest(hoverSel)) {
-        document.body.classList.remove('cursor-hover');
-      }
-    });
-  })();
+  /* ─────────── 2. CURSOR — retiré (curseur système natif) ─────────── */
 
   /* ─────────── 3. MAGNETIC BUTTONS ─────────── */
   (function initMagnetic() {
