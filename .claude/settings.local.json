@@ -12,7 +12,9 @@
       "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"User\"\\); node --version; npx --version)",
       "mcp__magic__21st_magic_component_inspiration",
       "Skill(ui-ux-pro-max)",
-      "Skill(ui-ux-pro-max:*)"
+      "Skill(ui-ux-pro-max:*)",
+      "Bash(sed -i '1038,1230d' index.html)",
+      "Bash(sed -n '1030,1045p' index.html)"
     ]
   }
 }

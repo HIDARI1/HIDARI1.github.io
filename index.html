@@ -866,201 +866,175 @@
           <span class="section__subtitle">Mes expériences en entreprise</span>
         </div>
 
-        <div class="stages-hub container reveal" id="stagesHub">
+        <div class="container stage-wrap">
+          <!-- HERO Stage 1 — Hitachi Rail -->
+          <article class="stage-hero reveal">
+            <div class="stage-hero__top">
+              <span class="stage-hero__status"><span class="stage-hero__pulse"></span>Disponible</span>
+              <span class="stage-hero__year">1<sup>re</sup> année · 6 semaines</span>
+            </div>
 
-          <!-- Écran : choix de l'année -->
-          <div class="stages-hub__screen stages-hub__screen--active" data-stages-screen="year" aria-label="Choisir l'année de stage">
-            <div class="stages-hub__screen-inner">
-              <p class="stages-hub__lead">Sélectionnez l'année de stage à explorer</p>
-              <div class="stages-year-picker">
-                <button type="button" class="stages-year-btn" data-stages-year="1">
-                  <span class="stages-year-btn__badge">Disponible</span>
-                  <i class="uil uil-briefcase-alt stages-year-btn__icon" aria-hidden="true"></i>
-                  <span class="stages-year-btn__title">1<sup>re</sup> année</span>
-                  <span class="stages-year-btn__meta">Hitachi Rail GTS · Mai–Juillet 2026</span>
-                </button>
-                <button type="button" class="stages-year-btn stages-year-btn--soon" data-stages-year="2">
-                  <span class="stages-year-btn__badge">À venir</span>
-                  <i class="uil uil-hourglass stages-year-btn__icon" aria-hidden="true"></i>
-                  <span class="stages-year-btn__title">2<sup>e</sup> année</span>
-                  <span class="stages-year-btn__meta">Fin de formation BTS SIO</span>
-                </button>
+            <div class="stage-hero__main">
+              <div class="stage-hero__logo" aria-hidden="true">
+                <i class="uil uil-train"></i>
+              </div>
+              <div class="stage-hero__info">
+                <span class="stage-hero__label">Stage SISR · Réseau & Virtualisation</span>
+                <h3 class="stage-hero__company">Hitachi Rail <span>GTS France</span></h3>
+                <div class="stage-hero__meta">
+                  <span><i class="uil uil-map-marker" aria-hidden="true"></i> Vélizy-Villacoublay</span>
+                  <span><i class="uil uil-calendar-alt" aria-hidden="true"></i> 25 mai – 3 juillet 2026</span>
+                  <span><i class="uil uil-train" aria-hidden="true"></i> Secteur ferroviaire</span>
+                </div>
               </div>
             </div>
+          </article>
+
+          <!-- Tabs segmented control -->
+          <div class="stage-tabs-wrap reveal">
+            <nav class="stage-tabs" role="tablist" aria-label="Détails du stage">
+              <button type="button" class="stage-tab stage-tab--active" data-stage-tab="contexte" role="tab" aria-selected="true">
+                <i class="uil uil-info-circle" aria-hidden="true"></i>
+                <span>Contexte</span>
+              </button>
+              <button type="button" class="stage-tab" data-stage-tab="missions" role="tab" aria-selected="false">
+                <i class="uil uil-layers" aria-hidden="true"></i>
+                <span>Missions</span>
+              </button>
+              <button type="button" class="stage-tab" data-stage-tab="competences" role="tab" aria-selected="false">
+                <i class="uil uil-award" aria-hidden="true"></i>
+                <span>Compétences</span>
+              </button>
+            </nav>
           </div>
 
-          <!-- Écran : menu thèmes — 1re année -->
-          <div class="stages-hub__screen" data-stages-screen="menu" data-stages-year="1" hidden>
-            <div class="stages-hub__screen-inner">
-              <div class="stages-hub__toolbar">
-                <button type="button" class="stages-hub__back" data-stages-goto="year">
-                  <i class="uil uil-arrow-left" aria-hidden="true"></i> Changer d'année
-                </button>
-                <span class="stages-hub__badge">Stage 1<sup>re</sup> année</span>
-              </div>
-              <h3 class="stages-hub__heading">Que souhaitez-vous découvrir ?</h3>
-              <p class="stages-hub__hint">Cliquez sur un thème pour afficher le détail dans cette fenêtre.</p>
-              <div class="stages-topic-grid" role="list">
-                <button type="button" class="stages-topic-card" data-stages-topic="entreprise" data-stages-year="1" role="listitem">
-                  <span class="stages-topic-card__num">01</span>
-                  <i class="uil uil-building stages-topic-card__icon" aria-hidden="true"></i>
-                  <span class="stages-topic-card__title">Entreprise</span>
-                  <span class="stages-topic-card__desc">Hitachi Rail GTS France</span>
-                </button>
-                <button type="button" class="stages-topic-card" data-stages-topic="contexte" data-stages-year="1" role="listitem">
-                  <span class="stages-topic-card__num">02</span>
-                  <i class="uil uil-info-circle stages-topic-card__icon" aria-hidden="true"></i>
-                  <span class="stages-topic-card__title">Contexte</span>
-                  <span class="stages-topic-card__desc">Cadre du stage SISR</span>
-                </button>
-                <button type="button" class="stages-topic-card" data-stages-topic="missions" data-stages-year="1" role="listitem">
-                  <span class="stages-topic-card__num">03</span>
-                  <i class="uil uil-layers stages-topic-card__icon" aria-hidden="true"></i>
-                  <span class="stages-topic-card__title">Missions</span>
-                  <span class="stages-topic-card__desc">Activités confiées</span>
-                </button>
-                <button type="button" class="stages-topic-card" data-stages-topic="competences" data-stages-year="1" role="listitem">
-                  <span class="stages-topic-card__num">04</span>
-                  <i class="uil uil-award stages-topic-card__icon" aria-hidden="true"></i>
-                  <span class="stages-topic-card__title">Compétences</span>
-                  <span class="stages-topic-card__desc">Objectifs pédagogiques</span>
-                </button>
-              </div>
-            </div>
-          </div>
+          <!-- Panels -->
+          <div class="stage-panels reveal">
 
-          <!-- Écran : menu thèmes — 2e année -->
-          <div class="stages-hub__screen" data-stages-screen="menu" data-stages-year="2" hidden>
-            <div class="stages-hub__screen-inner">
-              <div class="stages-hub__toolbar">
-                <button type="button" class="stages-hub__back" data-stages-goto="year">
-                  <i class="uil uil-arrow-left" aria-hidden="true"></i> Changer d'année
-                </button>
-                <span class="stages-hub__badge stages-hub__badge--muted">Stage 2<sup>e</sup> année</span>
+            <!-- CONTEXTE -->
+            <article class="stage-panel stage-panel--active" data-stage-panel="contexte" role="tabpanel">
+              <div class="stage-panel__lead">
+                <p>Ce stage s'inscrit dans le cadre de ma formation <strong>BTS SIO option SISR</strong>. Il vise une première immersion concrète dans l'administration des infrastructures réseau et systèmes en entreprise.</p>
+                <p>J'intègre l'équipe pour participer au <strong>support et à la mise en œuvre réseau</strong> sur des projets ferroviaires, en collaboration avec des ingénieurs et administrateurs expérimentés.</p>
               </div>
-              <h3 class="stages-hub__heading">Stage de 2<sup>e</sup> année</h3>
-              <div class="stages-topic-grid stages-topic-grid--single" role="list">
-                <button type="button" class="stages-topic-card" data-stages-topic="apercu" data-stages-year="2" role="listitem">
-                  <span class="stages-topic-card__num">—</span>
-                  <i class="uil uil-hourglass stages-topic-card__icon" aria-hidden="true"></i>
-                  <span class="stages-topic-card__title">Aperçu</span>
-                  <span class="stages-topic-card__desc">Informations à venir</span>
-                </button>
+              <div class="stage-chips">
+                <span class="stage-chip"><i class="uil uil-server-network" aria-hidden="true"></i> Réseau & VLAN</span>
+                <span class="stage-chip"><i class="uil uil-desktop-cloud-alt" aria-hidden="true"></i> Virtualisation</span>
+                <span class="stage-chip"><i class="uil uil-monitor" aria-hidden="true"></i> Administration IT</span>
+                <span class="stage-chip"><i class="uil uil-shield-check" aria-hidden="true"></i> Cybersécurité</span>
               </div>
-            </div>
-          </div>
+              <div class="stage-callout">
+                <div class="stage-callout__icon"><i class="uil uil-shield-check" aria-hidden="true"></i></div>
+                <p>Environnement industriel structuré, avec des <strong>enjeux techniques et normatifs</strong> propres au secteur du rail.</p>
+              </div>
+            </article>
 
-          <!-- Écran : détail — 1re année -->
-          <div class="stages-hub__screen" data-stages-screen="detail" data-stages-year="1" hidden>
-            <div class="stages-hub__screen-inner">
-              <div class="stages-hub__toolbar">
-                <button type="button" class="stages-hub__back" data-stages-goto="menu" data-stages-year-target="1">
-                  <i class="uil uil-arrow-left" aria-hidden="true"></i> Retour au menu
-                </button>
-                <span class="stages-hub__badge">1<sup>re</sup> année</span>
-              </div>
-              <nav class="stages-detail-nav" aria-label="Navigation du détail du stage">
-                <button type="button" class="stages-detail-nav__btn stages-detail-nav__btn--active" data-stages-topic="entreprise" data-stages-year="1">Entreprise</button>
-                <button type="button" class="stages-detail-nav__btn" data-stages-topic="contexte" data-stages-year="1">Contexte</button>
-                <button type="button" class="stages-detail-nav__btn" data-stages-topic="missions" data-stages-year="1">Missions</button>
-                <button type="button" class="stages-detail-nav__btn" data-stages-topic="competences" data-stages-year="1">Compétences</button>
-              </nav>
-              <div class="stages-detail-panels">
-                <article class="stages-detail-panel stages-detail-panel--active" data-stages-panel="entreprise">
-                  <header class="stages-detail-panel__header">
-                    <span class="stages-detail-panel__num">01</span>
-                    <h3>Hitachi Rail GTS France</h3>
-                  </header>
-                  <div class="stages-detail-panel__body">
-                    <p>Stage de <strong>1<sup>re</sup> année</strong> au sein de <strong>Hitachi Rail GTS France</strong>, filiale du groupe Hitachi spécialisée dans les solutions ferroviaires et les systèmes de transport intelligents.</p>
-                    <div class="stages-tags">
-                      <span class="stages-tag"><i class="uil uil-map-marker" aria-hidden="true"></i> Vélizy-Villacoublay</span>
-                      <span class="stages-tag"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 25 mai – 3 juillet 2026</span>
-                      <span class="stages-tag"><i class="uil uil-clock" aria-hidden="true"></i> 6 semaines</span>
-                      <span class="stages-tag"><i class="uil uil-train" aria-hidden="true"></i> Secteur ferroviaire</span>
-                    </div>
-                    <div class="stages-callout">
-                      <i class="uil uil-shield-check" aria-hidden="true"></i>
-                      <p>Environnement industriel structuré, avec des <strong>enjeux techniques et normatifs</strong> propres au secteur du rail.</p>
-                    </div>
+            <!-- MISSIONS -->
+            <article class="stage-panel" data-stage-panel="missions" role="tabpanel" hidden>
+              <p class="stage-panel__intro">Participation à des activités de <strong>support et de mise en œuvre réseau</strong> :</p>
+              <ul class="stage-missions">
+                <li class="stage-mission">
+                  <span class="stage-mission__num">01</span>
+                  <i class="uil uil-sitemap stage-mission__icon" aria-hidden="true"></i>
+                  <div>
+                    <strong>Architecture réseau</strong>
+                    <p>Découvrir l'architecture du projet (LAN, VLAN, équipements actifs).</p>
                   </div>
-                </article>
-                <article class="stages-detail-panel" data-stages-panel="contexte" hidden>
-                  <header class="stages-detail-panel__header">
-                    <span class="stages-detail-panel__num">02</span>
-                    <h3>Contexte du stage</h3>
-                  </header>
-                  <div class="stages-detail-panel__body">
-                    <p>Ce stage s'inscrit dans le cadre de ma formation <strong>BTS SIO option SISR</strong>. Il vise une première immersion concrète dans l'administration des infrastructures réseau et systèmes en entreprise.</p>
-                    <p>J'intègre l'équipe pour participer au <strong>support et à la mise en œuvre réseau</strong> sur des projets ferroviaires, en collaboration avec des ingénieurs et administrateurs expérimentés.</p>
-                    <div class="stages-tags">
-                      <span class="stages-tag"><i class="uil uil-server-network" aria-hidden="true"></i> Réseau & VLAN</span>
-                      <span class="stages-tag"><i class="uil uil-desktop-cloud-alt" aria-hidden="true"></i> Virtualisation</span>
-                      <span class="stages-tag"><i class="uil uil-monitor" aria-hidden="true"></i> Administration IT</span>
-                    </div>
+                </li>
+                <li class="stage-mission">
+                  <span class="stage-mission__num">02</span>
+                  <i class="uil uil-router stage-mission__icon" aria-hidden="true"></i>
+                  <div>
+                    <strong>Configuration matérielle</strong>
+                    <p>Switchs, routeurs et points d'accès.</p>
                   </div>
-                </article>
-                <article class="stages-detail-panel" data-stages-panel="missions" hidden>
-                  <header class="stages-detail-panel__header">
-                    <span class="stages-detail-panel__num">03</span>
-                    <h3>Missions confiées</h3>
-                  </header>
-                  <div class="stages-detail-panel__body">
-                    <p>Participation à des activités de <strong>support et de mise en œuvre réseau</strong> :</p>
-                    <ul class="stages-mission-list">
-                      <li><i class="uil uil-sitemap" aria-hidden="true"></i><span><strong>Architecture réseau</strong> — Découvrir l'architecture du projet (LAN, VLAN, équipements actifs).</span></li>
-                      <li><i class="uil uil-router" aria-hidden="true"></i><span><strong>Configuration matérielle</strong> — Switchs, routeurs et points d'accès.</span></li>
-                      <li><i class="uil uil-eye" aria-hidden="true"></i><span><strong>Surveillance & incidents</strong> — Suivi des incidents simples.</span></li>
-                      <li><i class="uil uil-file-bookmark-alt" aria-hidden="true"></i><span><strong>Documentation</strong> — Schémas et procédures réseau.</span></li>
-                      <li><i class="uil uil-cloud-database-tree" aria-hidden="true"></i><span><strong>Machines virtuelles</strong> — Création et gestion (Windows, Linux…).</span></li>
-                      <li><i class="uil uil-cloud-computing" aria-hidden="true"></i><span><strong>Virtualisation</strong> — VMware, Proxmox ou équivalents.</span></li>
-                    </ul>
+                </li>
+                <li class="stage-mission">
+                  <span class="stage-mission__num">03</span>
+                  <i class="uil uil-eye stage-mission__icon" aria-hidden="true"></i>
+                  <div>
+                    <strong>Surveillance & incidents</strong>
+                    <p>Suivi des incidents simples.</p>
                   </div>
-                </article>
-                <article class="stages-detail-panel" data-stages-panel="competences" hidden>
-                  <header class="stages-detail-panel__header">
-                    <span class="stages-detail-panel__num">04</span>
-                    <h3>Compétences visées</h3>
-                  </header>
-                  <div class="stages-detail-panel__body">
-                    <p>Ces missions permettent d'appréhender :</p>
-                    <ul class="stages-mission-list">
-                      <li><i class="uil uil-network-chart" aria-hidden="true"></i><span>Principes fondamentaux d'un <strong>réseau informatique en entreprise</strong>.</span></li>
-                      <li><i class="uil uil-cog" aria-hidden="true"></i><span>Fonctionnement et <strong>configuration des équipements réseau</strong>.</span></li>
-                      <li><i class="uil uil-desktop" aria-hidden="true"></i><span>Introduction à l'<strong>administration IT</strong> : VMs, virtualisation, installation d'OS.</span></li>
-                      <li><i class="uil uil-train" aria-hidden="true"></i><span>Première immersion dans le <strong>secteur ferroviaire</strong> et ses contraintes.</span></li>
-                    </ul>
+                </li>
+                <li class="stage-mission">
+                  <span class="stage-mission__num">04</span>
+                  <i class="uil uil-file-bookmark-alt stage-mission__icon" aria-hidden="true"></i>
+                  <div>
+                    <strong>Documentation</strong>
+                    <p>Schémas et procédures réseau.</p>
                   </div>
-                </article>
-              </div><!-- /.stages-detail-panels -->
-            </div>
-          </div>
+                </li>
+                <li class="stage-mission">
+                  <span class="stage-mission__num">05</span>
+                  <i class="uil uil-cloud-database-tree stage-mission__icon" aria-hidden="true"></i>
+                  <div>
+                    <strong>Machines virtuelles</strong>
+                    <p>Création et gestion (Windows, Linux…).</p>
+                  </div>
+                </li>
+                <li class="stage-mission">
+                  <span class="stage-mission__num">06</span>
+                  <i class="uil uil-cloud-computing stage-mission__icon" aria-hidden="true"></i>
+                  <div>
+                    <strong>Virtualisation</strong>
+                    <p>VMware, Proxmox ou équivalents.</p>
+                  </div>
+                </li>
+              </ul>
+            </article>
 
-          <!-- Écran : détail — 2e année -->
-          <div class="stages-hub__screen" data-stages-screen="detail" data-stages-year="2" hidden>
-            <div class="stages-hub__screen-inner">
-              <div class="stages-hub__toolbar">
-                <button type="button" class="stages-hub__back" data-stages-goto="menu" data-stages-year-target="2">
-                  <i class="uil uil-arrow-left" aria-hidden="true"></i> Retour au menu
-                </button>
-                <span class="stages-hub__badge stages-hub__badge--muted">2<sup>e</sup> année</span>
-              </div>
-              <article class="stages-detail-panel stages-detail-panel--active" data-stages-panel="apercu">
-                <header class="stages-detail-panel__header">
-                  <span class="stages-detail-panel__num">—</span>
-                  <h3>Stage à venir</h3>
-                </header>
-                <div class="stages-detail-panel__body">
-                  <div class="stages-callout stages-callout--muted">
-                    <i class="uil uil-hourglass" aria-hidden="true"></i>
-                    <p><strong>À venir</strong> — période prévue en fin de 2<sup>e</sup> année de BTS SIO, pour approfondir les compétences SISR acquises en entreprise.</p>
+            <!-- COMPÉTENCES -->
+            <article class="stage-panel" data-stage-panel="competences" role="tabpanel" hidden>
+              <p class="stage-panel__intro">Ces missions permettent d'appréhender :</p>
+              <div class="stage-skills-grid">
+                <div class="stage-skill">
+                  <div class="stage-skill__icon"><i class="uil uil-network-chart" aria-hidden="true"></i></div>
+                  <div>
+                    <strong>Réseau d'entreprise</strong>
+                    <p>Principes fondamentaux d'un <strong>réseau informatique en entreprise</strong>.</p>
                   </div>
                 </div>
-              </article>
-            </div>
-          </div>
+                <div class="stage-skill">
+                  <div class="stage-skill__icon"><i class="uil uil-cog" aria-hidden="true"></i></div>
+                  <div>
+                    <strong>Équipements réseau</strong>
+                    <p>Fonctionnement et <strong>configuration des équipements réseau</strong>.</p>
+                  </div>
+                </div>
+                <div class="stage-skill">
+                  <div class="stage-skill__icon"><i class="uil uil-desktop" aria-hidden="true"></i></div>
+                  <div>
+                    <strong>Administration IT</strong>
+                    <p>Introduction à l'<strong>administration IT</strong> : VMs, virtualisation, installation d'OS.</p>
+                  </div>
+                </div>
+                <div class="stage-skill">
+                  <div class="stage-skill__icon"><i class="uil uil-train" aria-hidden="true"></i></div>
+                  <div>
+                    <strong>Secteur ferroviaire</strong>
+                    <p>Première immersion dans le <strong>secteur ferroviaire</strong> et ses contraintes.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
 
-        </div><!-- /.stages-hub -->
+          </div><!-- /.stage-panels -->
+
+          <!-- COMING SOON — 2ème année -->
+          <article class="stage-soon reveal">
+            <div class="stage-soon__icon" aria-hidden="true">
+              <i class="uil uil-hourglass"></i>
+            </div>
+            <div class="stage-soon__content">
+              <span class="stage-soon__badge">À venir</span>
+              <h3 class="stage-soon__title">Stage de 2<sup>e</sup> année</h3>
+              <p>Période prévue en fin de 2<sup>e</sup> année de BTS SIO, pour <strong>approfondir les compétences SISR</strong> acquises en entreprise.</p>
+            </div>
+          </article>
+
+        </div><!-- /.stage-wrap -->
+
       </section>
 
       <!--================== Section Veille technologique ==================-->

@@ -1,103 +1,48 @@
 /**
- * Hub interactif — section Stages
+ * STAGES — Tab switcher simple (Apple segmented control style)
  */
 (function () {
   "use strict";
 
-  var hub = document.getElementById("stagesHub");
-  if (!hub) return;
+  var tabs = document.querySelectorAll(".stage-tab");
+  var panels = document.querySelectorAll(".stage-panel");
+  if (!tabs.length || !panels.length) return;
 
-  var currentYear = null;
-
-  function getScreen(type, year) {
-    if (type === "year") {
-      return hub.querySelector('[data-stages-screen="year"]');
-    }
-    return hub.querySelector(
-      '[data-stages-screen="' + type + '"][data-stages-year="' + year + '"]'
-    );
-  }
-
-  function hideAllScreens() {
-    hub.querySelectorAll(".stages-hub__screen").forEach(function (screen) {
-      screen.hidden = true;
-      screen.classList.remove("stages-hub__screen--active");
+  function activate(target) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute("data-stage-tab") === target;
+      t.classList.toggle("stage-tab--active", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
     });
-  }
-
-  function showScreen(type, year) {
-    hideAllScreens();
-    var screen = getScreen(type, year);
-    if (!screen) return;
-    screen.hidden = false;
-    screen.classList.add("stages-hub__screen--active");
-    hub.setAttribute("data-stages-view", type + (year ? "-" + year : ""));
-  }
-
-  function showPanel(year, topic) {
-    var detailScreen = getScreen("detail", year);
-    if (!detailScreen) return;
-
-    detailScreen.querySelectorAll(".stages-detail-panel").forEach(function (panel) {
-      var isActive = panel.getAttribute("data-stages-panel") === topic;
-      panel.hidden = !isActive;
-      panel.classList.toggle("stages-detail-panel--active", isActive);
-    });
-
-    detailScreen.querySelectorAll(".stages-detail-nav__btn").forEach(function (btn) {
-      var active =
-        btn.getAttribute("data-stages-topic") === topic &&
-        btn.getAttribute("data-stages-year") === String(year);
-      btn.classList.toggle("stages-detail-nav__btn--active", active);
-    });
-  }
-
-  function openDetail(year, topic) {
-    currentYear = year;
-    showScreen("detail", year);
-    if (year === "2") {
-      return;
-    }
-    showPanel(year, topic || "entreprise");
-  }
-
-  hub.addEventListener("click", function (e) {
-    var yearBtn = e.target.closest(".stages-year-btn");
-    if (yearBtn) {
-      currentYear = yearBtn.getAttribute("data-stages-year");
-      showScreen("menu", currentYear);
-      return;
-    }
-
-    var topicCard = e.target.closest(".stages-topic-card");
-    if (topicCard) {
-      var y = topicCard.getAttribute("data-stages-year");
-      var topic = topicCard.getAttribute("data-stages-topic");
-      openDetail(y, topic);
-      return;
-    }
-
-    var backBtn = e.target.closest(".stages-hub__back");
-    if (backBtn) {
-      var goto = backBtn.getAttribute("data-stages-goto");
-      if (goto === "year") {
-        currentYear = null;
-        showScreen("year");
-      } else if (goto === "menu") {
-        var targetYear =
-          backBtn.getAttribute("data-stages-year-target") || currentYear;
-        showScreen("menu", targetYear);
+    panels.forEach(function (p) {
+      var on = p.getAttribute("data-stage-panel") === target;
+      p.classList.toggle("stage-panel--active", on);
+      if (on) {
+        p.removeAttribute("hidden");
+      } else {
+        p.setAttribute("hidden", "");
       }
-      return;
-    }
+    });
+  }
 
-    var navBtn = e.target.closest(".stages-detail-nav__btn");
-    if (navBtn) {
-      var ny = navBtn.getAttribute("data-stages-year");
-      var nt = navBtn.getAttribute("data-stages-topic");
-      showPanel(ny, nt);
-    }
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      var target = tab.getAttribute("data-stage-tab");
+      if (target) activate(target);
+    });
+
+    // Keyboard navigation: arrow keys cycle through tabs
+    tab.addEventListener("keydown", function (e) {
+      var arr = Array.prototype.slice.call(tabs);
+      var idx = arr.indexOf(tab);
+      var next = -1;
+      if (e.key === "ArrowRight") next = (idx + 1) % arr.length;
+      else if (e.key === "ArrowLeft") next = (idx - 1 + arr.length) % arr.length;
+      if (next >= 0) {
+        e.preventDefault();
+        arr[next].focus();
+        arr[next].click();
+      }
+    });
   });
-
-  showScreen("year");
 })();
