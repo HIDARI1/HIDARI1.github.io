@@ -1,5 +1,5 @@
 /* ============================================================
-   PORTFOLIO 2026 — APPLE INSPIRED
+   PORTFOLIO 2026
    Saad Rhazzoul · BTS SIO SISR
    Direction : Dark void · Floating shapes · Apple keynote vibes
    ============================================================ */
@@ -21,12 +21,19 @@
   --border-3:     rgba(255,255,255,0.22);
 
   --text:         #f5f5f7;          /* Apple "Pearl" */
-  --text-dim:     rgba(245,245,247,0.62);
-  --text-muted:   rgba(245,245,247,0.38);
+  --text-dim:     rgba(245,245,247,0.78);   /* boosté pour lisibilité */
+  --text-muted:   rgba(245,245,247,0.46);
 
   --accent:       #d4c5a9;
   --accent-soft:  rgba(212,197,169,0.14);
   --accent-hi:    #e8d5b5;
+
+  /* Couleurs de rappel (issues des shapes BG) */
+  --hl-indigo:    #a5b4fc;
+  --hl-rose:      #fda4af;
+  --hl-violet:    #c4b5fd;
+  --hl-amber:     #fcd34d;
+  --hl-cyan:      #67e8f9;
 
   /* Shape gradient stops (Apple keynote palette) */
   --c-indigo:     rgba(99,102,241,0.22);
@@ -267,6 +274,18 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: #fff; 
 }
 .split.revealed .word__inner { transform: translateY(0); }
 .split .word:nth-child(n+2) .word__inner { transition-delay: calc(.05s * var(--i, 0)); }
+
+/* Fix: background-clip ne traverse pas les enfants générés par split */
+.home__title > span .word__inner {
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home__title > span {
+  color: unset; /* retire le transparent du parent */
+}
 
 /* ── 7. TYPOGRAPHY ───────────────────────────────────────── */
 .section__label {
@@ -574,16 +593,24 @@ body:not(.dark-theme) .nav { background: rgba(245,245,247,.6); }
 }
 .home__title > span {
   display: block;
+  color: #fff; /* fallback visible */
+}
+.home__title > span .word__inner {
   background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,.82) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  display: inline-block;
 }
 .home__title .grad-text {
+  color: #fff; /* fallback */
+}
+.home__title .grad-text .word__inner {
   background: linear-gradient(90deg, #a5b4fc 0%, #fff 50%, #fda4af 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  display: inline-block;
 }
 body:not(.dark-theme) .home__title > span {
   background: linear-gradient(180deg, #1d1d1f, rgba(29,29,31,.7));

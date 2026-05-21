@@ -1,530 +1,1048 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Saad Rhazzoul</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            overflow: hidden;
-            background: #000;
-        }
-        canvas {
-            display: block;
-            width: 100%;
-            height: 100vh;
-        }
-        .content {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            text-align: center;
-            color: white;
-            pointer-events: none;
-        }
-        h1 {
-            font-size: clamp(4.5rem, 13vw, 11rem);
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.06em;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 50%, #ffffff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 80px rgba(138, 43, 226, 0.3));
-            animation: glowPulse 3s ease-in-out infinite alternate;
-        }
-        @keyframes glowPulse {
-            from {
-                filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 80px rgba(138, 43, 226, 0.3));
-            }
-            to {
-                filter: drop-shadow(0 0 60px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 120px rgba(0, 191, 255, 0.4));
-            }
-        }
-        .tagline {
-            font-size: clamp(0.9rem, 2vw, 1.2rem);
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 60px rgba(138, 43, 226, 0.3);
-        }
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 40px;
-            pointer-events: auto;
-        }
-        .glass-button {
-            position: relative;
-            padding: 16px 40px;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            color: #fff;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border: 1.5px solid transparent;
-            border-radius: 40px;
-            backdrop-filter: blur(30px);
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                inset 0 -1px 0 rgba(255, 255, 255, 0.05);
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: auto;
-        }
-        .glass-button::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 40px;
-            padding: 1.5px;
-            background: linear-gradient(135deg,
-                rgba(255, 255, 255, 0.4) 0%,
-                rgba(138, 43, 226, 0.4) 25%,
-                rgba(0, 191, 255, 0.4) 50%,
-                rgba(255, 105, 180, 0.4) 75%,
-                rgba(255, 255, 255, 0.4) 100%);
-            background-size: 200% 200%;
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            animation: borderFlow 3s linear infinite;
-            opacity: 0.6;
-            transition: opacity 0.5s ease;
-        }
-        @keyframes borderFlow {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-        .glass-button::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 40px;
-            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
-                rgba(255, 255, 255, 0.2) 0%,
-                transparent 50%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        .glass-button:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
-            box-shadow:
-                0 12px 48px rgba(138, 43, 226, 0.3),
-                0 0 80px rgba(0, 191, 255, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px) scale(1.02);
-        }
-        .glass-button:hover::before {
-            opacity: 1;
-            animation-duration: 2s;
-        }
-        .glass-button:hover::after {
-            opacity: 1;
-        }
-        .glass-button:active {
-            transform: translateY(-1px) scale(0.98);
-            box-shadow:
-                0 6px 24px rgba(138, 43, 226, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
-        .glass-button .shimmer {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.1) 45%,
-                rgba(255, 255, 255, 0.3) 50%,
-                rgba(255, 255, 255, 0.1) 55%,
-                transparent 100%
-            );
-            transform: rotate(30deg);
-            animation: shimmer 3s infinite;
-            pointer-events: none;
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(30deg); }
-            100% { transform: translateX(100%) rotate(30deg); }
-        }
-        .glass-button:hover .shimmer {
-            animation-duration: 1.5s;
-        }
-        .glass-button span:last-child {
-            position: relative;
-            z-index: 1;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Saad Rhazzoul</title>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ── Fonts ── */
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
+
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      cursor: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Scroll Container ── */
+    #scroll-container {
+      height: 800vh;
+    }
+
+    /* ── Sticky Scene ── */
+    #scene {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Film Grain ── */
+    .film-grain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.045;
+      mix-blend-mode: overlay;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23n)"/></svg>');
+    }
+
+    /* ── Grid background ── */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.4;
+      background-size: 60px 60px;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    }
+
+    /* ── Custom cursor ── */
+    .cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 6px; height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: width .2s, height .2s;
+      will-change: transform;
+    }
+    .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: width .35s cubic-bezier(.34,1.56,.64,1), height .35s cubic-bezier(.34,1.56,.64,1), border-color .3s;
+      will-change: transform;
+    }
+    body:has(a:hover, button:hover) .cursor-dot { width: 0; height: 0; }
+    body:has(a:hover, button:hover) .cursor-ring { width: 60px; height: 60px; border-color: #fff; background: rgba(255,255,255,0.06); }
+
+    @media (hover: none) {
+      .cursor-dot, .cursor-ring { display: none; }
+      body { cursor: auto; }
+    }
+
+    /* ── Hero text layer ── */
+    #hero-text {
+      position: absolute;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      padding: 0 1rem;
+      will-change: transform, opacity, filter;
+      transform-style: preserve-3d;
+    }
+
+    .text-track {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: #fff;
+      text-shadow:
+        0 10px 30px rgba(255,255,255,0.18),
+        0 2px 4px rgba(255,255,255,0.08);
+      visibility: hidden;
+    }
+
+    .text-days {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+      background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.45) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transform: translateZ(0);
+      filter: drop-shadow(0px 10px 20px rgba(255,255,255,0.14)) drop-shadow(0px 2px 4px rgba(255,255,255,0.08));
+      clip-path: inset(0 100% 0 0);
+    }
+
+    /* ── CTA layer ── */
+    #cta-wrapper {
+      position: absolute;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      padding: 0 1.5rem;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      will-change: transform, opacity, filter;
+    }
+
+    #cta-wrapper.active {
+      pointer-events: auto;
+    }
+
+    .cta-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.45) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transform: translateZ(0);
+      filter: drop-shadow(0px 10px 20px rgba(255,255,255,0.15));
+    }
+
+    .cta-sub {
+      color: rgba(255,255,255,0.5);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 300;
+      margin-bottom: 3rem;
+      max-width: 480px;
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Glass buttons */
+    .glass-btn {
+      position: relative;
+      padding: 1rem 2.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1.5px solid transparent;
+      border-radius: 999px;
+      backdrop-filter: blur(24px);
+      overflow: hidden;
+      cursor: none;
+      transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .glass-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      padding: 1.5px;
+      background: linear-gradient(135deg,
+        rgba(255,255,255,0.4) 0%,
+        rgba(100,150,255,0.4) 33%,
+        rgba(200,150,255,0.4) 66%,
+        rgba(255,255,255,0.4) 100%);
+      background-size: 200% 200%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: borderFlow 3s linear infinite;
+      opacity: 0.55;
+      transition: opacity 0.4s;
+    }
+    .glass-btn:hover {
+      background: linear-gradient(135deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.05) 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(100,150,255,0.2), 0 0 60px rgba(200,150,255,0.1);
+    }
+    .glass-btn:hover::before { opacity: 1; }
+    .glass-btn:active { transform: translateY(0); }
+
+    .glass-btn.primary {
+      background: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 100%);
+    }
+
+    @keyframes borderFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    /* ── Main card ── */
+    #main-card {
+      position: absolute;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 92vw;
+      height: 92vh;
+      border-radius: 32px;
+      overflow: hidden;
+      will-change: transform;
+      pointer-events: auto;
+
+      /* Deep blue physical card */
+      background: linear-gradient(145deg, #0d1f52 0%, #060c18 100%);
+      box-shadow:
+        0 40px 100px -20px rgba(0,0,0,0.95),
+        0 20px 40px -20px rgba(0,0,0,0.8),
+        inset 0 1px 2px rgba(255,255,255,0.18),
+        inset 0 -2px 4px rgba(0,0,0,0.8);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    @media (min-width: 768px) {
+      #main-card { width: 85vw; height: 85vh; border-radius: 40px; }
+    }
+
+    /* Dynamic mouse sheen */
+    .card-sheen {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 50;
+      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.055) 0%, transparent 40%);
+      mix-blend-mode: screen;
+    }
+
+    /* ── Card inner grid ── */
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      z-index: 10;
+    }
+
+    @media (min-width: 1024px) {
+      .card-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        gap: 2rem;
+        padding: 0 3rem;
+      }
+    }
+
+    /* ── Card left text ── */
+    .card-left {
+      order: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      visibility: hidden;
+    }
+
+    @media (min-width: 1024px) {
+      .card-left {
+        order: 1;
+        text-align: left;
+      }
+    }
+
+    .card-left h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .card-left p {
+      color: rgba(180,205,255,0.6);
+      font-size: clamp(0.8rem, 1.2vw, 1rem);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 320px;
+    }
+
+    @media (max-width: 1023px) {
+      .card-left p { display: none; }
+    }
+
+    /* ── Phone mockup wrapper ── */
+    .mockup-wrapper {
+      order: 2;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 340px;
+      visibility: hidden;
+      will-change: transform;
+      transform-style: preserve-3d;
+    }
+
+    @media (min-width: 1024px) {
+      .mockup-wrapper { height: 580px; }
+    }
+
+    .mockup-scale {
+      transform: scale(0.62);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    @media (min-width: 768px) { .mockup-scale { transform: scale(0.82); } }
+    @media (min-width: 1024px) { .mockup-scale { transform: scale(1); } }
+
+    /* iPhone bezel */
+    .iphone-bezel {
+      position: relative;
+      width: 280px;
+      height: 580px;
+      border-radius: 3rem;
+      background-color: #111;
+      box-shadow:
+        inset 0 0 0 2px #52525b,
+        inset 0 0 0 7px #000,
+        0 40px 80px -15px rgba(0,0,0,0.95),
+        0 15px 25px -5px rgba(0,0,0,0.7);
+      transform-style: preserve-3d;
+    }
+
+    .hw-btn {
+      position: absolute;
+      background: linear-gradient(90deg, #404040 0%, #171717 100%);
+      box-shadow: -2px 0 5px rgba(0,0,0,0.8), inset -1px 0 1px rgba(255,255,255,0.15), inset 1px 0 2px rgba(0,0,0,0.8);
+      border-left: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .phone-screen {
+      position: absolute;
+      inset: 7px;
+      background: #050914;
+      border-radius: 2.5rem;
+      overflow: hidden;
+      box-shadow: inset 0 0 15px rgba(0,0,0,1);
+      color: #fff;
+    }
+
+    .screen-glare {
+      position: absolute;
+      inset: 0;
+      z-index: 40;
+      pointer-events: none;
+      background: linear-gradient(110deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 45%);
+    }
+
+    .dynamic-island {
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px; height: 28px;
+      background: #000;
+      border-radius: 999px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 12px;
+    }
+
+    .di-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34,197,94,0.8);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* App UI */
+    .app-ui {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 3rem 1.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .app-header-label {
+      font-size: 9px;
+      color: #a1a1aa;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .app-header-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .app-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Progress ring */
+    .ring-wrapper {
+      position: relative;
+      width: 176px; height: 176px;
+      margin: 0 auto 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8));
+    }
+
+    .ring-wrapper svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .progress-ring-bg { stroke: rgba(255,255,255,0.03); }
+
+    .progress-ring-fg {
+      stroke: #3b82f6;
+      stroke-linecap: round;
+      stroke-dasharray: 402;
+      stroke-dashoffset: 402;
+      transform: rotate(-90deg);
+      transform-origin: center;
+    }
+
+    .ring-center {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .counter-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .counter-label {
+      font-size: 7px;
+      color: rgba(191,219,254,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    /* Widgets */
+    .phone-widget {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.05), inset 0 -1px 1px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.03);
+      border-radius: 1rem;
+      padding: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      visibility: hidden;
+    }
+
+    .widget-icon {
+      width: 40px; height: 40px;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .widget-icon.blue {
+      background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(59,130,246,0.05));
+      border: 1px solid rgba(59,130,246,0.2);
+    }
+
+    .widget-icon.green {
+      background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(16,185,129,0.05));
+      border: 1px solid rgba(16,185,129,0.2);
+    }
+
+    .widget-bars { flex: 1; }
+    .widget-bar-1 { height: 8px; width: 80px; background: #d4d4d8; border-radius: 999px; margin-bottom: 8px; }
+    .widget-bar-2 { height: 6px; width: 50px; background: #52525b; border-radius: 999px; }
+
+    .phone-home-indicator {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px; height: 4px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 999px;
+    }
+
+    /* ── Floating badges ── */
+    .floating-badge {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.01) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.1),
+        0 25px 50px -12px rgba(0,0,0,0.8),
+        inset 0 1px 1px rgba(255,255,255,0.18),
+        inset 0 -1px 1px rgba(0,0,0,0.5);
+      z-index: 30;
+      visibility: hidden;
+    }
+
+    .badge-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .badge-icon.blue-bg {
+      background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(99,102,241,0.05));
+      border: 1px solid rgba(99,102,241,0.3);
+    }
+
+    .badge-icon.purple-bg {
+      background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(139,92,246,0.05));
+      border: 1px solid rgba(139,92,246,0.3);
+    }
+
+    .badge-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .badge-sub {
+      font-size: 0.68rem;
+      color: rgba(191,219,254,0.45);
+      font-weight: 400;
+      margin-top: 1px;
+    }
+
+    .badge--top { top: 16px; left: -60px; }
+    .badge--bottom { bottom: 48px; right: -60px; }
+
+    @media (max-width: 1023px) {
+      .badge--top { left: -10px; top: 8px; }
+      .badge--bottom { right: -10px; bottom: 20px; }
+    }
+
+    /* ── Card right brand ── */
+    .card-right {
+      order: 1;
+      display: flex;
+      justify-content: center;
+      visibility: hidden;
+    }
+
+    @media (min-width: 1024px) {
+      .card-right {
+        order: 3;
+        justify-content: flex-end;
+      }
+    }
+
+    .brand-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transform: translateZ(0);
+      filter: drop-shadow(0px 12px 24px rgba(0,0,0,0.8)) drop-shadow(0px 4px 8px rgba(0,0,0,0.6));
+    }
+
+    /* ── Screen noise on card ── */
+    .card-noise {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.015;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n2"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23n2)"/></svg>');
+    }
+
+    /* ── Progress bar (page scroll) ── */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, #6366f1, #a855f7, #3b82f6);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+  </style>
 </head>
 <body>
-    <canvas id="canvas" aria-hidden="true"></canvas>
-    <div class="content">
-        <h1>Saad Rhazzoul</h1>
-        <p class="tagline">Étudiant en BTS SIO — Développement & Réseaux</p>
-        <div class="buttons">
-            <a href="./index.html" class="glass-button" aria-label="Entrer dans le portfolio">
-                <span class="shimmer"></span>
-                <span>Entrer</span>
-            </a>
-            <a href="./index.html#contact" class="glass-button" aria-label="Accéder à la section contact">
-                <span class="shimmer"></span>
-                <span>Me contacter</span>
-            </a>
+
+  <!-- Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Progress bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Main scroll container -->
+  <div id="scroll-container">
+    <div id="scene">
+
+      <!-- Grain -->
+      <div class="film-grain" aria-hidden="true"></div>
+
+      <!-- Grid -->
+      <div class="bg-grid" aria-hidden="true"></div>
+
+      <!-- ── Layer 1 : Hero text ── -->
+      <div id="hero-text" aria-label="Saad Rhazzoul — Portfolio">
+        <h1 class="text-track">BONJOUR</h1>
+        <h1 class="text-days">Bienvenue</h1>
+        <p><strong style="color:#fff;"><i>Faites défiler pour continuer.</i></strong></p>
+      </div>
+
+      <!-- ── Layer 2 : CTA ── -->
+      <div id="cta-wrapper" aria-hidden="true">
+        <h2 class="cta-title">Entrons en contact.</h2>
+        <p class="cta-sub">Veuillez sélectionner l’un des deux choix.</p>
+        <div class="cta-buttons">
+          <a href="./index.html" class="glass-btn primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Voir le portfolio
+          </a>
+          <a href="./index.html#contact" class="glass-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Me contacter
+          </a>
         </div>
+      </div>
+
+      <!-- ── Layer 3 : Main Card ── -->
+      <div id="main-card" aria-label="Présentation interactive">
+        <div class="card-noise" aria-hidden="true"></div>
+        <div class="card-sheen" aria-hidden="true"></div>
+
+        <div class="card-inner">
+
+          <!-- Left: description text -->
+          <div class="card-left" id="card-left">
+            <h3>Développement<br>& Réseaux.</h3>
+            <p>
+              <strong style="color:#fff;">Saad Rhazzoul</strong> est étudiant en BTS SIO option SISR,
+              spécialisé en cybersécurité et infrastructures réseau, avec une vraie passion pour le développement web et les nouvelles technologies.
+            </p>
+          </div>
+
+          <!-- Center: iPhone mockup -->
+          <div class="mockup-wrapper" id="mockup-wrapper">
+            <div class="mockup-scale">
+              <div class="iphone-bezel" id="iphone">
+                <!-- Hardware buttons -->
+                <div class="hw-btn" style="top:120px;left:-3px;width:3px;height:25px;border-radius:3px 0 0 3px;" aria-hidden="true"></div>
+                <div class="hw-btn" style="top:160px;left:-3px;width:3px;height:45px;border-radius:3px 0 0 3px;" aria-hidden="true"></div>
+                <div class="hw-btn" style="top:220px;left:-3px;width:3px;height:45px;border-radius:3px 0 0 3px;" aria-hidden="true"></div>
+                <div class="hw-btn" style="top:170px;right:-3px;width:3px;height:70px;border-radius:0 3px 3px 0;" aria-hidden="true"></div>
+
+                <!-- Screen -->
+                <div class="phone-screen">
+                  <div class="screen-glare" aria-hidden="true"></div>
+                  <div class="dynamic-island" aria-hidden="true">
+                    <div class="di-dot"></div>
+                  </div>
+
+                  <div class="app-ui">
+                    <!-- Header -->
+                    <div class="app-header phone-widget" style="margin-bottom:2rem;visibility:visible;background:none;box-shadow:none;border:none;border-radius:0;padding:0;">
+                      <div>
+                        <div class="app-header-label">Portfolio</div>
+                        <div class="app-header-title">Parcours</div>
+                      </div>
+                      <div class="app-avatar">SR</div>
+                    </div>
+
+                    <!-- Ring counter -->
+                    <div class="ring-wrapper">
+                      <svg viewBox="0 0 176 176" aria-hidden="true">
+                        <circle class="progress-ring-bg" cx="88" cy="88" r="64" fill="none" stroke-width="12"/>
+                        <circle class="progress-ring-fg" cx="88" cy="88" r="64" fill="none" stroke-width="12" id="ring-fg"/>
+                      </svg>
+                      <div class="ring-center">
+                        <div class="counter-val" id="counter-val" aria-live="polite">0</div>
+                        <div class="counter-label">Certifications</div>
+                      </div>
+                    </div>
+
+                    <!-- Widgets -->
+                    <div class="phone-widget" id="widget-1">
+                      <div class="widget-icon blue">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      </div>
+                      <div class="widget-bars">
+                        <div class="widget-bar-1"></div>
+                        <div class="widget-bar-2"></div>
+                      </div>
+                    </div>
+                    <div class="phone-widget" id="widget-2">
+                      <div class="widget-icon green">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <div class="widget-bars">
+                        <div class="widget-bar-1" style="width:64px;"></div>
+                        <div class="widget-bar-2" style="width:96px;"></div>
+                      </div>
+                    </div>
+
+                    <div class="phone-home-indicator" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating badges -->
+              <div class="floating-badge badge--top" id="badge-1">
+                <div class="badge-icon blue-bg">🎓</div>
+                <div>
+                  <div class="badge-title">BTS SIO · SISR</div>
+                  <div class="badge-sub">2025 — 2027</div>
+                </div>
+              </div>
+
+              <div class="floating-badge badge--bottom" id="badge-2">
+                <div class="badge-icon purple-bg">💻</div>
+                <div>
+                  <div class="badge-title">Dev & Réseaux</div>
+                  <div class="badge-sub">Cybersécurité · Infra</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: brand name -->
+          <div class="card-right" id="card-right">
+            <div class="brand-name">Reseau<br>Rhazzoul<br>zoul.</div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
-
-    <script id="vertexShader" type="x-shader/x-vertex">
-        attribute vec2 position;
-
-        void main() {
-            gl_Position = vec4(position, 0.0, 1.0);
-        }
-    </script>
-    <script id="fragmentShader" type="x-shader/x-fragment">
-        precision highp float;
-
-        uniform float uTime;
-        uniform vec2 uResolution;
-        uniform vec2 uMouse;
-
-        #define PI 3.14159265359
-        #define TAU 6.28318530718
-        #define MAX_STEPS 80
-        #define MAX_DIST 50.0
-        #define SURF_DIST 0.001
-
-        float hash(float n) {
-            return fract(sin(n) * 43758.5453123);
-        }
-
-        mat2 rot(float a) {
-            float s = sin(a);
-            float c = cos(a);
-            return mat2(c, -s, s, c);
-        }
-
-        float sdSphere(vec3 p, float r) {
-            return length(p) - r;
-        }
-        float sdBox(vec3 p, vec3 b) {
-            vec3 q = abs(p) - b;
-            return length(max(q, 0.0)) + min(max(q.x, max(q.y, q.z)), 0.0);
-        }
-
-        float sdOctahedron(vec3 p, float s) {
-            p = abs(p);
-            float m = p.x + p.y + p.z - s;
-            vec3 q;
-            if(3.0 * p.x < m) q = p.xyz;
-            else if(3.0 * p.y < m) q = p.yzx;
-            else if(3.0 * p.z < m) q = p.zxy;
-            else return m * 0.57735027;
-
-            float k = clamp(0.5 * (q.z - q.y + s), 0.0, s);
-            return length(vec3(q.x, q.y - s + k, q.z - k));
-        }
-        float sdTriPrism(vec3 p, vec2 h) {
-            vec3 q = abs(p);
-            return max(q.z - h.y, max(q.x * 0.866025 + p.y * 0.5, -p.y) - h.x * 0.5);
-        }
-
-        float smin(float a, float b, float k) {
-            float h = clamp(0.5 + 0.5 * (b - a) / k, 0.0, 1.0);
-            return mix(b, a, h) - k * h * (1.0 - h);
-        }
-        float smax(float a, float b, float k) {
-            return -smin(-a, -b, k);
-        }
-
-        float map(vec3 p) {
-            vec3 op = p;
-
-            vec2 m = (uMouse - 0.5) * 2.5;
-            p.xy += m * 0.4;
-
-            p.xz *= rot(uTime * 0.12);
-            p.xy *= rot(uTime * 0.08);
-
-            float d = 100.0;
-
-            vec3 p1 = p;
-            p1.yz *= rot(uTime * 0.15);
-
-            float core_distort = sin(p1.x * 3.0 + uTime) * sin(p1.y * 3.0 + uTime) * sin(p1.z * 3.0 + uTime) * 0.1;
-            float core = sdOctahedron(p1, 1.6) + core_distort;
-
-            vec3 p2 = p1;
-            p2.xy *= rot(PI * 0.25 + uTime * 0.2);
-            float prism = sdTriPrism(p2, vec2(1.4, 2.0));
-            core = smax(core, -prism, 0.2);
-
-            d = core;
-
-            float k_blend = 0.2 + 0.15 * (0.5 + 0.5 * sin(uTime * 1.5));
-
-            for(int i = 0; i < 4; i++) {
-                float fi = float(i);
-                float angle = fi * TAU / 4.0 + uTime * 0.3;
-
-                float radius = 3.0 + 0.3 * sin(uTime * 0.4 + fi);
-
-                vec3 pos = vec3(
-                    cos(angle) * radius,
-                    sin(angle * 0.7) * 1.0,
-                    sin(angle) * radius
-                );
-
-                vec3 po = p - pos;
-                po.xy *= rot(uTime * 0.5 + fi);
-
-                float sat_distort = sin(po.x * 5.0 + fi) * sin(po.y * 5.0 + fi) * sin(po.z * 5.0 + fi) * 0.05;
-                float satellite = sdOctahedron(po, 0.4) + sat_distort;
-
-                d = smin(d, satellite, k_blend);
-            }
-
-            return d;
-        }
-
-        vec3 getNormal(vec3 p) {
-            vec2 e = vec2(0.001, 0.0);
-            return normalize(vec3(
-                map(p + e.xyy) - map(p - e.xyy),
-                map(p + e.yxy) - map(p - e.yxy),
-                map(p + e.yyx) - map(p - e.yyx)
-            ));
-        }
-
-        float raymarch(vec3 ro, vec3 rd) {
-            float t = 0.0;
-            for(int i = 0; i < MAX_STEPS; i++) {
-                vec3 p = ro + rd * t;
-                float d = map(p);
-                if(abs(d) < SURF_DIST || t > MAX_DIST) break;
-                t += d * 0.7;
-            }
-            return t;
-        }
-
-        vec3 getBackground(vec3 rd) {
-            float stars = 0.0;
-            vec3 p = rd * 100.0;
-            float h = hash(dot(p, vec3(12.9898, 78.233, 54.53)));
-            if(h > 0.98) stars = pow(h - 0.98, 10.0) * 20.0;
-            vec3 nebula = vec3(0.0);
-            nebula += vec3(0.3, 0.15, 0.5) * pow(max(0.0, sin(rd.x * 2.0 + uTime * 0.1)), 3.0) * 0.2;
-            nebula += vec3(0.15, 0.3, 0.6) * pow(max(0.0, sin(rd.y * 2.5 + uTime * 0.05)), 3.0) * 0.2;
-
-            return stars + nebula;
-        }
-
-        void main() {
-            vec2 uv = (gl_FragCoord.xy - 0.5 * uResolution) / min(uResolution.x, uResolution.y);
-
-            vec2 m = (uMouse - 0.5) * 0.5;
-            vec3 ro = vec3(m.x * 2.0, m.y * 2.0, 5.5);
-            vec3 rd = normalize(vec3(uv, -1.0));
-
-            rd.xy *= rot(m.x * 0.2);
-            rd.yz *= rot(m.y * 0.2);
-
-            float t = raymarch(ro, rd);
-
-            vec3 color = vec3(0.0);
-
-            if(t < MAX_DIST) {
-                vec3 p = ro + rd * t;
-                vec3 normal = getNormal(p);
-
-                vec3 viewDir = normalize(ro - p);
-
-                float fresnel = pow(1.0 - max(dot(viewDir, normal), 0.0), 3.0);
-
-                float ior = 1.5;
-                vec3 refractDir = refract(rd, normal, 1.0 / ior);
-
-                if(length(refractDir) > 0.0) {
-                    float t2 = raymarch(p - normal * 0.01, refractDir);
-
-                    if(t2 < MAX_DIST) {
-                        vec3 p2 = p - normal * 0.01 + refractDir * t2;
-                        vec3 normal2 = getNormal(p2);
-
-                        vec3 r = refract(refractDir, -normal2, ior - 0.2);
-                        vec3 g = refract(refractDir, -normal2, ior);
-                        vec3 b = refract(refractDir, -normal2, ior + 0.2);
-
-                        vec3 bgR = getBackground(r) * vec3(1.4, 0.7, 0.7);
-                        vec3 bgG = getBackground(g) * vec3(0.7, 1.4, 0.8);
-                        vec3 bgB = getBackground(b) * vec3(0.7, 0.8, 1.4);
-
-                        color = vec3(bgR.x, bgG.y, bgB.z);
-                        color = pow(color, vec3(0.7)) * 5.0;
-
-                    } else {
-                        color = getBackground(refractDir) * 2.0;
-                    }
-                }
-
-                vec3 lightDir = normalize(vec3(1.0, 1.0, -1.0));
-                vec3 halfDir = normalize(lightDir + viewDir);
-                float spec = pow(max(dot(normal, halfDir), 0.0), 150.0);
-                color += spec * vec3(1.0, 1.0, 1.0) * 3.5;
-
-                vec3 fresnelColor = vec3(
-                    0.5 + 0.5 * sin(fresnel * TAU + uTime),
-                    0.5 + 0.5 * sin(fresnel * TAU + uTime + TAU / 3.0),
-                    0.5 + 0.5 * sin(fresnel * TAU + uTime + TAU * 2.0 / 3.0)
-                );
-                color += fresnel * fresnelColor * 1.2;
-
-                float edge = pow(1.0 - abs(dot(viewDir, normal)), 4.0);
-                color += edge * vec3(0.6, 0.7, 1.0) * 0.7;
-
-                float sss = pow(max(dot(-normal, lightDir), 0.0), 2.0);
-                color += sss * vec3(1.0, 0.6, 0.8) * 0.5;
-
-            } else {
-                color = getBackground(rd);
-            }
-
-            float vignette = 1.0 - length(uv) * 0.4;
-            vignette = smoothstep(0.3, 1.0, vignette);
-            color *= vignette;
-
-            color *= vec3(0.96, 0.99, 1.06);
-
-            color = pow(color, vec3(0.88));
-            color *= 1.12;
-
-            gl_FragColor = vec4(color, 1.0);
-        }
-    </script>
-    <script>
-        const canvas = document.getElementById('canvas');
-        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        if (!gl) {
-            canvas.style.display = 'none';
-            document.body.style.background = '#080810';
-            document.querySelector('.content').style.pointerEvents = 'auto';
-            console.warn('WebGL non supporté — affichage simplifié');
-        } else {
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            gl.viewport(0, 0, canvas.width, canvas.height);
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        function createShader(gl, type, source) {
-            const shader = gl.createShader(type);
-            gl.shaderSource(shader, source);
-            gl.compileShader(shader);
-
-            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-                console.error('Erreur compilation shader:', gl.getShaderInfoLog(shader));
-                gl.deleteShader(shader);
-                return null;
-            }
-            return shader;
-        }
-
-        function createProgram(gl, vertexShader, fragmentShader) {
-            const program = gl.createProgram();
-            gl.attachShader(program, vertexShader);
-            gl.attachShader(program, fragmentShader);
-            gl.linkProgram(program);
-
-            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-                console.error('Erreur liaison programme:', gl.getProgramInfoLog(program));
-                gl.deleteProgram(program);
-                return null;
-            }
-            return program;
-        }
-
-        const vertexShaderSource = document.getElementById('vertexShader').textContent;
-        const fragmentShaderSource = document.getElementById('fragmentShader').textContent;
-
-        const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-        const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-        const program = createProgram(gl, vertexShader, fragmentShader);
-
-        const uTime = gl.getUniformLocation(program, 'uTime');
-        const uResolution = gl.getUniformLocation(program, 'uResolution');
-        const uMouse = gl.getUniformLocation(program, 'uMouse');
-
-        const positions = new Float32Array([
-            -1, -1,
-             1, -1,
-            -1,  1,
-             1,  1,
-        ]);
-        const positionBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
-
-        const mouse = { x: 0.5, y: 0.5, targetX: 0.5, targetY: 0.5 };
-        canvas.addEventListener('mousemove', (e) => {
-            mouse.targetX = e.clientX / canvas.width;
-            mouse.targetY = 1.0 - e.clientY / canvas.height;
+  </div><!-- end scroll-container -->
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ── Cursor ── */
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    window.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+    });
+
+    (function animRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animRing);
+    })();
+
+    /* ── Progress bar ── */
+    const pb = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+      pb.style.width = pct + '%';
+    });
+
+    /* ── Card mouse sheen ── */
+    const card = document.getElementById('main-card');
+    let rafSheen;
+    window.addEventListener('mousemove', e => {
+      cancelAnimationFrame(rafSheen);
+      rafSheen = requestAnimationFrame(() => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+
+    /* ── iPhone parallax tilt ── */
+    const iphone = document.getElementById('iphone');
+    let rafTilt;
+    window.addEventListener('mousemove', e => {
+      if (window.scrollY > window.innerHeight * 6) return;
+      cancelAnimationFrame(rafTilt);
+      rafTilt = requestAnimationFrame(() => {
+        const xVal = (e.clientX / window.innerWidth - 0.5) * 2;
+        const yVal = (e.clientY / window.innerHeight - 0.5) * 2;
+        gsap.to(iphone, {
+          rotationY: xVal * 12,
+          rotationX: -yVal * 12,
+          ease: 'power3.out',
+          duration: 1.2
         });
-        document.querySelectorAll('.glass-button').forEach(button => {
-            button.addEventListener('mousemove', (e) => {
-                const rect = button.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-                button.style.setProperty('--x', x + '%');
-                button.style.setProperty('--y', y + '%');
-            });
-        });
+      });
+    });
 
-        let startTime = Date.now();
-        function render() {
-            const currentTime = (Date.now() - startTime) * 0.001;
+    /* ── Counter animation helper ── */
+    function animateCounter(target, duration) {
+      const el = document.getElementById('counter-val');
+      const start = performance.now();
+      const startVal = parseInt(el.textContent) || 0;
+      function update(now) {
+        const progress = Math.min((now - start) / (duration * 1000), 1);
+        const ease = 1 - Math.pow(1 - progress, 4);
+        el.textContent = Math.round(startVal + (target - startVal) * ease);
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
 
-            mouse.x += (mouse.targetX - mouse.x) * 0.05;
-            mouse.y += (mouse.targetY - mouse.y) * 0.05;
+    /* ── Ring animation ── */
+    const ringFg = document.getElementById('ring-fg');
+    const CIRCUMFERENCE = 402;
 
-            gl.clearColor(0.0, 0.0, 0.0, 1.0);
-            gl.clear(gl.COLOR_BUFFER_BIT);
-            gl.useProgram(program);
+    /* ── Main GSAP Timeline ── */
+    const isMobile = window.innerWidth < 768;
 
-            gl.uniform1f(uTime, currentTime);
-            gl.uniform2f(uResolution, canvas.width, canvas.height);
-            gl.uniform2f(uMouse, mouse.x, mouse.y);
+    // Initial states
+    gsap.set('.text-track', { autoAlpha: 0, y: 60, scale: 0.85, filter: 'blur(20px)', rotationX: -20 });
+    gsap.set('.text-days', { autoAlpha: 1, clipPath: 'inset(0 100% 0 0)' });
+    gsap.set('#main-card', { y: window.innerHeight + 200 });
+    gsap.set(['#card-left', '#card-right', '#mockup-wrapper', '#badge-1', '#badge-2', '#widget-1', '#widget-2'], { autoAlpha: 0 });
+    gsap.set('#cta-wrapper', { autoAlpha: 0, scale: 0.8, filter: 'blur(30px)', visibility: 'visible' });
 
-            const positionLocation = gl.getAttribLocation(program, 'position');
-            gl.enableVertexAttribArray(positionLocation);
-            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-            gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+    // Intro animation
+    const introTl = gsap.timeline({ delay: 0.4 });
+    introTl
+      .to('.text-track', { duration: 1.8, autoAlpha: 1, y: 0, scale: 1, filter: 'blur(0px)', rotationX: 0, ease: 'expo.out' })
+      .to('.text-days', { duration: 1.4, clipPath: 'inset(0 0% 0 0)', ease: 'power4.inOut' }, '-=1.0');
 
-            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    // Scroll timeline
+    const scrollTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#scroll-container',
+        start: 'top top',
+        end: '+=7000',
+        pin: '#scene',
+        scrub: 1,
+        anticipatePin: 1,
+      }
+    });
 
-            requestAnimationFrame(render);
-        }
-        render();
-        }
-    </script>
+    let counterStarted = false;
+
+    scrollTl
+      // 1. Hero text fades back
+      .to(['#hero-text', '.bg-grid'], { scale: 1.15, filter: 'blur(20px)', opacity: 0.15, ease: 'power2.inOut', duration: 2 }, 0)
+      // 2. Card rises
+      .to('#main-card', { y: 0, ease: 'power3.inOut', duration: 2 }, 0)
+      // 3. Card expands to fullscreen
+      .to('#main-card', { width: '100%', height: '100%', borderRadius: '0px', ease: 'power3.inOut', duration: 1.5 })
+      // 4. Mockup enters
+      .fromTo('#mockup-wrapper',
+        { y: 300, z: -500, rotationX: 50, rotationY: -30, autoAlpha: 0, scale: 0.6 },
+        { y: 0, z: 0, rotationX: 0, rotationY: 0, autoAlpha: 1, scale: 1, ease: 'expo.out', duration: 2.5 },
+        '-=0.8'
+      )
+      // 5. Phone widgets
+      .fromTo(['#widget-1', '#widget-2'],
+        { y: 40, autoAlpha: 0, scale: 0.95 },
+        { y: 0, autoAlpha: 1, scale: 1, stagger: 0.15, ease: 'back.out(1.2)', duration: 1.5 },
+        '-=1.5'
+      )
+      // 6. Ring & counter
+      .to('#ring-fg', {
+        strokeDashoffset: 60,
+        duration: 2,
+        ease: 'power3.inOut',
+        onStart: () => { animateCounter(5, 2); }
+      }, '-=1.2')
+      // 7. Badges
+      .fromTo(['#badge-1', '#badge-2'],
+        { y: 100, autoAlpha: 0, scale: 0.7, rotation: -10 },
+        { y: 0, autoAlpha: 1, scale: 1, rotation: 0, ease: 'back.out(1.5)', duration: 1.5, stagger: 0.2 },
+        '-=2.0'
+      )
+      // 8. Left & right text
+      .fromTo('#card-left', { x: -50, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: 'power4.out', duration: 1.5 }, '-=1.5')
+      .fromTo('#card-right', { x: 50, autoAlpha: 0, scale: 0.8 }, { x: 0, autoAlpha: 1, scale: 1, ease: 'expo.out', duration: 1.5 }, '<')
+      // 9. Hold
+      .to({}, { duration: 2.5 })
+      // 10. Swap to CTA
+      .set('#hero-text', { autoAlpha: 0 })
+      .set('#cta-wrapper', { autoAlpha: 1 })
+      .to({}, { duration: 1.5 })
+      // 11. Card elements fade out
+      .to(['#mockup-wrapper', '#badge-1', '#badge-2', '#card-left', '#card-right'], {
+        scale: 0.9, y: -40, z: -200, autoAlpha: 0, ease: 'power3.in', duration: 1.2, stagger: 0.05,
+      })
+      // 12. Card shrinks back
+      .to('#main-card', {
+        width: isMobile ? '92vw' : '85vw',
+        height: isMobile ? '92vh' : '85vh',
+        borderRadius: isMobile ? '32px' : '40px',
+        ease: 'expo.inOut',
+        duration: 1.8
+      }, 'pullback')
+      // 13. CTA reveals
+      .to('#cta-wrapper', { scale: 1, filter: 'blur(0px)', ease: 'expo.inOut', duration: 1.8 }, 'pullback')
+      // 14. Card exits
+      .to('#main-card', { y: -(window.innerHeight + 300), ease: 'power3.in', duration: 1.5 });
+
+    // CTA pointer events
+    ScrollTrigger.create({
+      trigger: '#scroll-container',
+      start: '80% top',
+      onEnter: () => document.getElementById('cta-wrapper').classList.add('active'),
+      onLeaveBack: () => document.getElementById('cta-wrapper').classList.remove('active'),
+    });
+  </script>
 </body>
 </html>
