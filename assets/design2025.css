@@ -3198,6 +3198,139 @@ body:not(.dark-theme) .veille-card-source { color: #4338ca; }
 }
 
 /* ============================================================
+   QUALIFICATION TIMELINE — amélioration lisibilité
+   ============================================================ */
+
+/* Espace + ligne plus visible */
+.qualification__content { padding: 8px 0 0; gap: 8px; }
+.qualification__content::before { background: linear-gradient(to bottom, transparent 0%, var(--border-2) 8%, var(--border-2) 92%, transparent 100%); }
+.qualification__data { margin-bottom: 44px; align-items: start; }
+
+/* Titres plus lisibles */
+.qualification__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  margin-bottom: 6px;
+}
+.qualification__subtitle {
+  font-size: 14px;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+.qualification__calender {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  padding: 4px 10px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  display: inline-flex;
+}
+.qualification__calender i { color: var(--accent); font-size: .9rem; }
+
+/* Dots colorés cycliquement (rappel du BG) */
+.qualification__rounder {
+  width: 16px; height: 16px;
+  background: var(--bg);
+  border: 2px solid var(--text-muted);
+  margin: 6px auto;
+  transition: var(--t);
+}
+.qualification__rounder::after { inset: 4px; }
+
+.qualification__data:nth-of-type(1) .qualification__rounder { border-color: var(--hl-amber); }
+.qualification__data:nth-of-type(1) .qualification__rounder::after { background: var(--hl-amber); }
+.qualification__data:nth-of-type(2) .qualification__rounder { border-color: var(--hl-violet); }
+.qualification__data:nth-of-type(2) .qualification__rounder::after { background: var(--hl-violet); }
+.qualification__data:nth-of-type(3) .qualification__rounder { border-color: var(--hl-rose); }
+.qualification__data:nth-of-type(3) .qualification__rounder::after { background: var(--hl-rose); }
+
+/* Dot du dernier (BTS SIO en cours) — gros + glow + pulse */
+.qualification__data:last-of-type .qualification__rounder {
+  width: 20px; height: 20px;
+  border-color: #4ade80;
+  box-shadow: 0 0 16px rgba(74,222,128,.5);
+  margin-top: 4px;
+}
+.qualification__data:last-of-type .qualification__rounder::after {
+  background: #4ade80;
+  inset: 4px;
+  animation: qualif-pulse 2.2s ease-in-out infinite;
+}
+@keyframes qualif-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .55; transform: scale(.85); }
+}
+
+/* Card BTS SIO légèrement mise en avant */
+.qualification__data:last-of-type > div:last-child {
+  position: relative;
+}
+
+/* Badge "En cours" */
+.qualification__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(74,222,128,.1);
+  border: 1px solid rgba(74,222,128,.3);
+  border-radius: 100px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #86efac;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  margin-bottom: 10px;
+}
+.qualification__badge-dot {
+  width: 6px; height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #4ade80;
+  animation: qualif-pulse 2.2s ease-in-out infinite;
+}
+
+/* Bouton "Voir plus" plus visible */
+.qualification__data .services__button {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+}
+
+/* Responsive : sur mobile, tout aligné à gauche pour lire */
+@media (max-width: 768px) {
+  .qualification__content { max-width: 100%; padding-left: 12px; }
+  .qualification__data {
+    grid-template-columns: 24px 1fr !important;
+    column-gap: 18px;
+    margin-bottom: 36px;
+  }
+  .qualification__data > div:first-child {
+    display: none !important;
+  }
+  .qualification__data > div:nth-child(2) {
+    order: 1;
+    text-align: center;
+  }
+  .qualification__data > div:last-child {
+    order: 2;
+    text-align: left !important;
+  }
+  .qualification__data > div:last-child .qualification__calender {
+    float: none;
+  }
+  .qualification__rounder { margin: 4px auto !important; }
+  .qualification__line { display: none; }
+  .qualification__content::before { left: 12px; transform: none; }
+  .qualification__title { font-size: 1.1rem; }
+}
+
+/* ============================================================
    MOBILE OPTIMIZATION PATCH
    Touch targets - Safe areas - Performance - Reduced motion
    Apple HIG + Material Design touch standards
