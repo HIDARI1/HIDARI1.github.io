@@ -116,7 +116,19 @@
     });
   })();
 
-  /* ─────────── 4. SPLIT TEXT REVEAL ─────────── */
+  /* ─────────── 4. NAVBAR SCROLL EFFECT ─────────── */
+  (function initNavbarScroll() {
+    var header = document.getElementById('header');
+    if (!header) return;
+    function onScroll() {
+      if (window.scrollY > 30) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  /* ─────────── 5. SPLIT TEXT REVEAL ─────────── */
   (function initSplit() {
     var nodes = document.querySelectorAll('[data-split]');
     if (!nodes.length) return;
