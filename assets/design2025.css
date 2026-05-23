@@ -3198,17 +3198,17 @@ body:not(.dark-theme) .veille-card-source { color: #4338ca; }
 }
 
 /* ============================================================
-   SKILL CARDS V2 — bigger icons + niveau bars (visuel)
+   SKILL CARDS V3 — icons en box colorée + nom coloré
+   (pas de niveau / pas de barre — rendu pro et sobre)
    ============================================================ */
 .skill-tab-card {
   position: relative;
   overflow: hidden;
-  padding: 24px 20px 20px;
+  padding: 24px 20px;
   text-align: left;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  min-height: 160px;
 }
 
 /* Subtle corner glow par couleur — apparaît au hover */
@@ -3229,14 +3229,14 @@ body:not(.dark-theme) .veille-card-source { color: #4338ca; }
 .skill-tab-card:nth-child(4n+4)::before { background: var(--hl-amber); }
 .skill-tab-card:hover::before { opacity: .18; }
 
-/* Icon container : plus gros + bg coloré */
+/* Icon container : box carrée colorée */
 .skill-tab-card i {
   width: 44px; height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  font-size: 1.4rem !important;
+  font-size: 1.35rem !important;
   margin-bottom: 14px !important;
   border: 1px solid var(--border-2);
   flex-shrink: 0;
@@ -3249,61 +3249,24 @@ body:not(.dark-theme) .veille-card-source { color: #4338ca; }
 .skill-tab-card:nth-child(4n+3) i { background: rgba(196,181,253,.12); border-color: rgba(196,181,253,.25); }
 .skill-tab-card:nth-child(4n+4) i { background: rgba(252,211,77,.12); border-color: rgba(252,211,77,.25); }
 
-.skill-tab-card .skill-name { margin-bottom: 4px !important; font-size: 14.5px !important; }
+/* Nom coloré (couleur cyclique) — c'est ce que tu voulais */
+.skill-tab-card .skill-name {
+  margin-bottom: 4px !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: -.005em;
+}
+.skill-tab-card:nth-child(4n+1) .skill-name { color: var(--hl-indigo); }
+.skill-tab-card:nth-child(4n+2) .skill-name { color: var(--hl-rose); }
+.skill-tab-card:nth-child(4n+3) .skill-name { color: var(--hl-violet); }
+.skill-tab-card:nth-child(4n+4) .skill-name { color: var(--hl-amber); }
+
+/* Description : texte normal (text-dim) */
 .skill-tab-card p {
-  font-size: 11.5px !important;
-  line-height: 1.5 !important;
-  flex: 1;
-}
-
-/* Barre de niveau */
-.skill-bar {
-  position: relative;
-  height: 4px;
-  background: rgba(255,255,255,.06);
-  border-radius: 999px;
-  margin-top: 14px;
-  overflow: hidden;
-}
-.skill-bar::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--hl-indigo);
-  width: 0%;
-  transition: width 1.2s var(--ease) .2s;
-  box-shadow: 0 0 8px currentColor;
-}
-.skill-tab-card[data-level="1"] .skill-bar::after { width: 20%; }
-.skill-tab-card[data-level="2"] .skill-bar::after { width: 40%; }
-.skill-tab-card[data-level="3"] .skill-bar::after { width: 60%; }
-.skill-tab-card[data-level="4"] .skill-bar::after { width: 80%; }
-.skill-tab-card[data-level="5"] .skill-bar::after { width: 100%; }
-
-/* Couleur de la barre = couleur du card (cycle 4) */
-.skill-tab-card:nth-child(4n+1) .skill-bar::after { background: var(--hl-indigo); color: var(--hl-indigo); }
-.skill-tab-card:nth-child(4n+2) .skill-bar::after { background: var(--hl-rose); color: var(--hl-rose); }
-.skill-tab-card:nth-child(4n+3) .skill-bar::after { background: var(--hl-violet); color: var(--hl-violet); }
-.skill-tab-card:nth-child(4n+4) .skill-bar::after { background: var(--hl-amber); color: var(--hl-amber); }
-
-/* Niveau 5 = gradient finish */
-.skill-tab-card[data-level="5"] .skill-bar::after {
-  background: linear-gradient(90deg, var(--hl-indigo), var(--hl-rose)) !important;
-}
-
-/* Petit label de niveau en haut à droite */
-.skill-tab-card::after {
-  content: attr(data-level) "/5";
-  position: absolute;
-  top: 14px; right: 16px;
-  font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: 0;
-  z-index: 1;
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+  color: var(--text-dim) !important;
+  font-weight: 400 !important;
 }
 
 /* ============================================================
