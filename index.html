@@ -1,1381 +1,1115 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description" content="Portfolio de Saad Rhazzoul - Étudiant en BTS SIO option SISR, passionné par la cybersécurité et les infrastructures réseau." />
-    <meta name="theme-color" content="#030303" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="format-detection" content="telephone=yes" />
-    <title>Portfolio - Saad Rhazzoul</title>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Portfolio - Saad Rhazzoul" />
-    <meta property="og:description" content="Étudiant en BTS SIO option SISR, passionné par la cybersécurité et les infrastructures réseau." />
-    <meta property="og:image" content="assets/favicon.svg" />
-    <meta property="og:url" content="https://hidari1.github.io/" />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <base href="./" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Swiper -->
-    <link rel="stylesheet" href="assets/swiper-bundle.min.css" />
-
-    <!-- Design 2025 — feuille principale -->
-    <link rel="stylesheet" href="assets/design2025.css" />
-
-    <!-- Icons : Unicons (UI) + Font Awesome free CDN (brand logos) -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer" />
-  </head>
-
-  <body class="dark-theme">
-    <!-- Background: floating shapes (Apple keynote style) -->
-    <div class="shapes" aria-hidden="true">
-      <div class="shape shape--1"><div class="shape__inner"></div></div>
-      <div class="shape shape--2"><div class="shape__inner"></div></div>
-      <div class="shape shape--3"><div class="shape__inner"></div></div>
-      <div class="shape shape--4"><div class="shape__inner"></div></div>
-      <div class="shape shape--5"><div class="shape__inner"></div></div>
-    </div>
-
-    <!-- Particles (subtle accent) -->
-    <canvas id="particles-canvas" aria-hidden="true"></canvas>
-
-    <!-- Progress bar -->
-    <div id="progress-bar" aria-hidden="true"></div>
-
-    <!--================== Header ==================-->
-    <header class="header" id="header">
-      <nav class="nav container" role="navigation" aria-label="Navigation principale">
-        <a href="#" class="nav__logo" aria-label="Retour à l'accueil">Saad Rhazzoul</a>
-
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="#home" class="nav__link active-link">
-                <i class="uil uil-estate nav__icon" aria-hidden="true"></i>Accueil
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#about" class="nav__link">
-                <i class="uil uil-user nav__icon" aria-hidden="true"></i>À propos
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#portfolio" class="nav__link">
-                <i class="uil uil-scenery nav__icon" aria-hidden="true"></i>Projets
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#bts" class="nav__link">
-                <i class="uil uil-graduation-cap nav__icon" aria-hidden="true"></i>BTS SIO
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#stages" class="nav__link">
-                <i class="uil uil-briefcase-alt nav__icon" aria-hidden="true"></i>Stages
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#veille" class="nav__link">
-                <i class="uil uil-lightbulb-alt nav__icon" aria-hidden="true"></i>Veille
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#contact" class="nav__link">
-                <i class="uil uil-message nav__icon" aria-hidden="true"></i>Contact
-              </a>
-            </li>
-          </ul>
-          <i class="uil uil-times nav__close" id="nav-close" aria-label="Fermer le menu" role="button"></i>
-        </div>
-
-        <div class="nav__btns">
-          <i class="uil uil-moon change-theme" id="theme-button" aria-label="Changer le thème" role="button"></i>
-          <div class="nav__toggle" id="nav-toggle" aria-label="Ouvrir le menu" role="button">
-            <i class="uil uil-apps" aria-hidden="true"></i>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!--================== Main ==================-->
-    <main class="main">
-
-      <!--================== Section Home ==================-->
-      <section class="home section" id="home">
-        <div class="home__container container">
-          <div class="home__content">
-            <div class="home__data">
-
-              <!-- Social icons -->
-              <div class="home__social">
-                <a href="https://github.com/HIDARI1" target="_blank" class="home__social-icon" aria-label="Profil GitHub">
-                  <i class="uil uil-github-alt" aria-hidden="true"></i>
-                </a>
-              </div>
-
-              <!-- Eyebrow label -->
-              <div class="home__eyebrow">BTS SIO · Option SISR · 2025–2027</div>
-
-              <!-- Main title -->
-              <h1 class="home__title">
-                <span data-split>Bonjour, je suis</span>
-                <span class="grad-text" data-split>Saad Rhazzoul.</span>
-              </h1>
-
-              <!-- Typing subtitle -->
-              <h3 class="home__subtitle">
-                <span id="typing-text"></span><span class="typing-cursor" aria-hidden="true"></span>
-              </h3>
-
-              <!-- Description -->
-              <p class="home__description">
-                Passionné par l'informatique, les nouvelles technologies, le développement ainsi que par le réseau et ses infrastructures. Toujours prêt à apprendre et progresser.
-              </p>
-
-              <!-- CTA buttons -->
-              <div class="home__actions">
-                <button type="button" class="btn btn-primary" id="cv-open-btn" aria-label="Afficher mon CV">
-                  <i class="uil uil-eye" aria-hidden="true"></i> Voir mon CV
-                </button>
-                <a href="#contact" class="btn btn-secondary">
-                  <i class="uil uil-message" aria-hidden="true"></i> Me contacter
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Scroll indicator -->
-          <div class="home__scroll">
-            <a href="#about" class="home__scroll-button" aria-label="Descendre vers la section À propos">
-              <i class="uil uil-mouse-alt home__scroll-mouse" aria-hidden="true"></i>
-              <span class="home__scroll-name">Descendre</span>
-              <i class="uil uil-arrow-down home__scroll-arrow" aria-hidden="true"></i>
-            </a>
-          </div>
-
-          <!-- Stats bar -->
-          <div class="home__stats">
-            <div class="home__stat">
-              <span class="home__stat-value">5</span>
-              <span class="home__stat-label">Certifications</span>
-            </div>
-            <div class="home__stat">
-              <span class="home__stat-value">3</span>
-              <span class="home__stat-label">Projets PPE2</span>
-            </div>
-            <div class="home__stat">
-              <span class="home__stat-value">1<sup>re</sup></span>
-              <span class="home__stat-label">Année BTS</span>
-            </div>
-            <div class="home__stat">
-              <span class="home__stat-value">6</span>
-              <span class="home__stat-label">Semaines de stage</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Marquee décorative -->
-        <div class="marquee" aria-hidden="true">
-          <div class="marquee__track">
-            <span>Réseaux</span><span>Cybersécurité</span><span>Virtualisation</span><span>Linux</span><span>Windows Server</span><span>Active Directory</span><span>Cisco</span><span>BTS SIO · SISR</span><span>Veille technologique</span>
-            <span>Réseaux</span><span>Cybersécurité</span><span>Virtualisation</span><span>Linux</span><span>Windows Server</span><span>Active Directory</span><span>Cisco</span><span>BTS SIO · SISR</span><span>Veille technologique</span>
-          </div>
-        </div>
-      </section>
-
-      <!--================== Section About ==================-->
-      <section class="about section" id="about">
-        <div class="container">
-          <span class="section__label">À propos</span>
-          <h2 class="section__title">Qui suis-je ?</h2>
-          <span class="section__subtitle">Étudiant passionné par le réseau et la cybersécurité</span>
-        </div>
-
-        <div class="about-hub container reveal">
-          <header class="about-intro">
-            <p class="about-intro__greeting"><strong>Saad Rhazzoul / 20 ans</strong></p>
-            <p class="about-intro__text">
-              Étudiant en <strong>1<sup>re</sup> année de BTS SIO option SISR</strong>, je me spécialise dans les infrastructures réseau, la cybersécurité et l'administration des systèmes.
-            </p>
-            <div class="about-intro__tags" aria-label="Domaines d'intérêt">
-              <span class="about-tag"><i class="uil uil-graduation-cap" aria-hidden="true"></i> BTS SIO SISR</span>
-              <span class="about-tag"><i class="uil uil-shield-check" aria-hidden="true"></i> Cybersécurité</span>
-              <span class="about-tag"><i class="uil uil-server-network" aria-hidden="true"></i> Réseau & systèmes</span>
-              <span class="about-tag"><i class="uil uil-cloud-computing" aria-hidden="true"></i> Virtualisation</span>
-            </div>
-          </header>
-
-          <div class="about-stats" aria-label="Chiffres clés">
-            <div class="about-stat">
-              <span class="about-stat__value" data-count="5">0</span>
-              <span class="about-stat__label">Certifications</span>
-            </div>
-            <div class="about-stat">
-              <span class="about-stat__value" data-count="3">0</span>
-              <span class="about-stat__label">Projets PPE2</span>
-            </div>
-            <div class="about-stat">
-              <span class="about-stat__value">1<sup>re</sup></span>
-              <span class="about-stat__label">Année BTS</span>
-            </div>
-            <div class="about-stat about-stat--accent">
-              <span class="about-stat__value"><i class="uil uil-briefcase-alt" aria-hidden="true"></i></span>
-              <span class="about-stat__label">Stage Hitachi Rail</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--================== Section Skills (Tabs Pro) ==================-->
-      <section class="skills section" id="skills">
-        <div class="container">
-          <span class="section__label">Compétences</span>
-          <h2 class="section__title">Mon niveau de compétence</h2>
-          <span class="section__subtitle">Technologies & outils maîtrisés</span>
-        </div>
-
-        <div class="skills-tabs-pro container reveal">
-          <div class="bg-effects" aria-hidden="true">
-            <div class="bg-gradient"></div>
-            <div class="bg-grid"></div>
-            <div class="bg-orb orb-1"></div>
-            <div class="bg-orb orb-2"></div>
-          </div>
-          <div class="toast-container" id="skillsToastContainer" aria-live="polite"></div>
-          <div class="live-region" role="status" aria-live="polite" id="skillsLiveRegion"></div>
-
-          <div class="main-container">
-            <div class="tabs-wrapper">
-              <header class="section-header">
-                <span class="section-badge">Parcourez mes compétences par catégorie</span>
-              </header>
-
-              <div class="tabs-nav" role="tablist" aria-label="Catégories de compétences" id="skillsTabsNav">
-                <div class="tab-indicator" id="skillsTabIndicator" aria-hidden="true"></div>
-                <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-dev" id="tab-dev" tabindex="0" data-tab="dev">
-                  <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16,18 22,12 16,6" /><polyline points="8,6 2,12 8,18" /></svg>
-                  <span>Développement</span>
-                </button>
-                <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-sys" id="tab-sys" tabindex="-1" data-tab="sys">
-                  <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>
-                  <span>Systèmes</span>
-                </button>
-                <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-reseau" id="tab-reseau" tabindex="-1" data-tab="reseau">
-                  <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /></svg>
-                  <span>Réseaux</span>
-                </button>
-                <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-bdd" id="tab-bdd" tabindex="-1" data-tab="bdd">
-                  <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" /><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" /></svg>
-                  <span>Bases de données</span>
-                </button>
-                <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-outils" id="tab-outils" tabindex="-1" data-tab="outils">
-                  <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>
-                  <span>Outils</span>
-                </button>
-              </div>
-
-              <div class="tabs-content">
-                <!-- Développement -->
-                <section class="tab-panel" role="tabpanel" id="panel-dev" aria-labelledby="tab-dev" aria-hidden="false" tabindex="0">
-                  <div class="panel-content">
-                    <header class="panel-header">
-                      <div class="panel-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16,18 22,12 16,6" /><polyline points="8,6 2,12 8,18" /></svg></div>
-                      <div><h4 class="panel-title">Langages & Développement</h4><p class="panel-subtitle">Langages de programmation et frameworks</p></div>
-                    </header>
-                    <div class="panel-body">
-                      <p>Compétences en développement d'applications, scripts et projets logiciels.</p>
-                      <div class="grid grid-auto">
-                        <article class="skill-tab-card"><i class="fab fa-java"></i><h4 class="skill-name">Java</h4><p>Base de la POO</p></article>
-                        <article class="skill-tab-card"><i class="fab fa-js"></i><h4 class="skill-name">JavaScript</h4><p>Front-end & interactivité</p></article>
-                        <article class="skill-tab-card"><i class="fab fa-python"></i><h4 class="skill-name">Python</h4><p>Scripts & automatisation</p></article>
-                        <article class="skill-tab-card"><i class="fab fa-html5"></i><h4 class="skill-name">HTML / CSS</h4><p>Structure & mise en page web</p></article>
-                        <article class="skill-tab-card"><i class="fas fa-terminal"></i><h4 class="skill-name">Bash</h4><p>Scripts shell & automatisation</p></article>
-                        <article class="skill-tab-card"><i class="fas fa-chart-line"></i><h4 class="skill-name">R</h4><p>Statistiques & traitement de données</p></article>
-                        <article class="skill-tab-card"><i class="fas fa-code"></i><h4 class="skill-name">C# / C++</h4><p>Programmation système</p></article>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <!-- Systèmes -->
-                <section class="tab-panel" role="tabpanel" id="panel-sys" aria-labelledby="tab-sys" aria-hidden="true" tabindex="0">
-                  <div class="panel-content">
-                    <header class="panel-header">
-                      <div class="panel-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg></div>
-                      <div><h4 class="panel-title">Systèmes d'exploitation</h4><p class="panel-subtitle">Administration et configuration</p></div>
-                    </header>
-                    <div class="panel-body">
-                      <p>Administration de systèmes, virtualisation et gestion des serveurs.</p>
-                      <div class="grid grid-auto">
-                        <article class="skill-tab-card"><i class="fab fa-linux"></i><h4 class="skill-name">Linux</h4><p>Ubuntu, CentOS</p></article>
-                        <article class="skill-tab-card"><i class="fab fa-windows"></i><h4 class="skill-name">Windows 11</h4><p>Administration & configuration</p></article>
-                        <article class="skill-tab-card"><i class="fab fa-windows"></i><h4 class="skill-name">Windows Server</h4><p>Configuration serveur</p></article>
-                        <article class="skill-tab-card"><i class="fas fa-cube"></i><h4 class="skill-name">Virtualisation</h4><p>VMware®, VirtualBox</p></article>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <!-- Réseaux -->
-                <section class="tab-panel" role="tabpanel" id="panel-reseau" aria-labelledby="tab-reseau" aria-hidden="true" tabindex="0">
-                  <div class="panel-content">
-                    <header class="panel-header">
-                      <div class="panel-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /></svg></div>
-                      <div><h4 class="panel-title">Réseaux & Cybersécurité</h4><p class="panel-subtitle">Infrastructures et sécurité</p></div>
-                    </header>
-                    <div class="panel-body">
-                      <p>Configuration réseau, protocoles et bonnes pratiques de sécurité.</p>
-                      <div class="grid grid-auto">
-                        <article class="skill-tab-card"><i class="fas fa-network-wired"></i><h4 class="skill-name">Réseaux</h4><p>Installation de switches et câblage réseau</p></article>
-                        <article class="skill-tab-card"><i class="fas fa-shield-alt"></i><h4 class="skill-name">Cybersécurité</h4><p>Sécurisation des systèmes</p></article>
-                        <article class="skill-tab-card"><i class="fas fa-lock"></i><h4 class="skill-name">Cisco Packet Tracer®</h4><p>Simulation, configuration de routeurs et switches</p></article>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <!-- BDD -->
-                <section class="tab-panel" role="tabpanel" id="panel-bdd" aria-labelledby="tab-bdd" aria-hidden="true" tabindex="0">
-                  <div class="panel-content">
-                    <header class="panel-header">
-                      <div class="panel-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" /><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" /></svg></div>
-                      <div><h4 class="panel-title">Bases de données</h4><p class="panel-subtitle">SGBD et requêtes SQL</p></div>
-                    </header>
-                    <div class="panel-body">
-                      <p>Conception et gestion de bases de données relationnelles.</p>
-                      <div class="grid grid-auto">
-                        <article class="skill-tab-card"><i class="fas fa-database"></i><h4 class="skill-name">SGBD</h4><p>MySQL, PostgreSQL</p></article>
-                        <article class="skill-tab-card"><i class="fas fa-table"></i><h4 class="skill-name">SQL</h4><p>Requêtes, jointures</p></article>
-                        <article class="skill-tab-card"><i class="fas fa-sitemap"></i><h4 class="skill-name">Modélisation</h4><p>MCD, MLD ...</p></article>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <!-- Outils -->
-                <section class="tab-panel" role="tabpanel" id="panel-outils" aria-labelledby="tab-outils" aria-hidden="true" tabindex="0">
-                  <div class="panel-content">
-                    <header class="panel-header">
-                      <div class="panel-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg></div>
-                      <div><h4 class="panel-title">Outils & Méthodologies</h4><p class="panel-subtitle">Outils de développement et gestion de projet</p></div>
-                    </header>
-                    <div class="panel-body">
-                      <p>Outils de versioning, CI/CD et méthodologies agiles.</p>
-                      <div class="grid grid-auto">
-                        <article class="skill-tab-card"><i class="fab fa-git-alt"></i><h4 class="skill-name">Environnements de développement</h4><p>IntelliJ®, Visual Studio Code®</p></article>
-                        <article class="skill-tab-card"><i class="fab fa-github"></i><h4 class="skill-name">Git</h4><p>Dépôts, collaboration ...</p></article>
-                        <article class="skill-tab-card"><i class="fas fa-tasks"></i><h4 class="skill-name">Gestion de projet</h4><p>MindView®, Gantt Project®</p></article>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div><!-- /.tabs-content -->
-            </div><!-- /.tabs-wrapper -->
-          </div><!-- /.main-container -->
-        </div><!-- /.skills-tabs-pro -->
-      </section>
-
-      <!--================== Section Qualifications ==================-->
-      <section class="qualification__section section" id="qualification">
-        <div class="container">
-          <span class="section__label">Parcours</span>
-          <h2 class="section__title">Mon parcours scolaire</h2>
-          <span class="section__subtitle">BTS SIO en cours</span>
-        </div>
-
-        <div class="qualification__sections reveal">
-          <div class="qualification__content" data-content id="education">
-
-            <div class="qualification__data">
-              <div>
-                <h3 class="qualification__title">Collège Courbet</h3>
-                <span class="qualification__subtitle">France</span>
-                <div class="qualification__calender"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 2017 – 2021</div>
-              </div>
-              <div><span class="qualification__rounder"></span><span class="qualification__line"></span></div>
-            </div>
-
-            <div class="qualification__data">
-              <div></div>
-              <div><span class="qualification__rounder"></span><span class="qualification__line"></span></div>
-              <div>
-                <h3 class="qualification__title">Lycée Breteuil</h3>
-                <span class="qualification__subtitle">France</span>
-                <div class="qualification__calender"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 2021 – 2024</div>
-              </div>
-            </div>
-
-            <div class="qualification__data">
-              <div>
-                <h3 class="qualification__title">BUT Informatique</h3>
-                <span class="qualification__subtitle">IUT Vélizy-Villacoublay</span>
-                <div class="qualification__calender"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 2024 – 2025</div>
-                <span class="button button--flex button--small button--link services__button" role="button" aria-label="Voir plus d'informations sur le BUT Informatique">
-                  Voir plus <i class="uil uil-arrow-right button__icon" aria-hidden="true"></i>
-                </span>
-                <div class="services__modal">
-                  <div class="services__modal-content">
-                    <h4 class="services__modal-title">Résumé BUT Informatique :</h4>
-                    <i class="uil uil-times services__modal-close" aria-label="Fermer la modal" role="button"></i>
-                    <ul class="services__modal-services">
-                      <li class="services__modal-service"><i class="uil uil-check-circle services__modal-icon" aria-hidden="true"></i><p>Institut universitaire de technologie, Vélizy-Villacoublay</p></li>
-                      <li class="services__modal-service"><i class="uil uil-check-circle services__modal-icon" aria-hidden="true"></i><p>Apprentissage de Python, SQL, Java, C, HTML, CSS, R</p></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div><span class="qualification__rounder"></span><span class="qualification__line"></span></div>
-            </div>
-
-            <div class="qualification__data">
-              <div></div>
-              <div><span class="qualification__rounder"></span></div>
-              <div>
-                <span class="qualification__badge"><span class="qualification__badge-dot"></span>En cours</span>
-                <h3 class="qualification__title">BTS SIO</h3>
-                <span class="qualification__subtitle">Option SISR</span>
-                <div class="qualification__calender"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 2025 – 2027</div>
-                <span class="button button--flex button--small button--link services__button" role="button" aria-label="Voir plus d'informations sur le BTS SIO">
-                  Voir plus <i class="uil uil-arrow-right button__icon" aria-hidden="true"></i>
-                </span>
-                <div class="services__modal">
-                  <div class="services__modal-content">
-                    <h4 class="services__modal-title">Résumé BTS SIO :</h4>
-                    <i class="uil uil-times services__modal-close" aria-label="Fermer la modal" role="button"></i>
-                    <ul class="services__modal-services">
-                      <li class="services__modal-service"><i class="uil uil-check-circle services__modal-icon" aria-hidden="true"></i><p>Développement d'applications (SISR), réseaux, cybersécurité, bases de données, gestion de projet.</p></li>
-                      <li class="services__modal-service"><i class="uil uil-check-circle services__modal-icon" aria-hidden="true"></i><p>Projets professionnels encadrés.</p></li>
-                      <li class="services__modal-service"><i class="uil uil-check-circle services__modal-icon" aria-hidden="true"></i><p>Stages et apprentissage en entreprise.</p></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /.qualification__content -->
-        </div><!-- /.qualification__sections -->
-      </section>
-
-      <!--================== Section Certification ==================-->
-      <section class="portfolio section" id="certification">
-        <div class="container">
-          <span class="section__label">Formations</span>
-          <h2 class="section__title">Certifications</h2>
-          <span class="section__subtitle">Mon parcours personnel</span>
-        </div>
-
-        <div class="certification-swiper portfolio__container container swiper-container">
-          <div class="swiper-wrapper">
-
-            <!-- Slide 1 – Elements of AI -->
-            <div class="portfolio__content grid swiper-slide">
-              <div class="certification__img-wrapper">
-                <img src="assets/img/certfi1.png" alt="Certification Elements of AI" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" />
-                <span class="certification__img-hint" aria-hidden="true"><i class="uil uil-search-plus"></i> Agrandir</span>
-              </div>
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">Formation "Elements of AI" — Certification 2025</h3>
-                <p class="portfolio__description">Formation en ligne sur les fondamentaux de l'intelligence artificielle avec la plateforme MOOC.fi.</p>
-                <div class="certif-actions">
-                  <a href="https://certificates.mooc.fi/validate/jo1sm9aw099" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Voir la certification Elements of AI">Voir <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
-                  <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="ai" aria-label="Détails sur la certification Elements of AI">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 2 – SecNum -->
-            <div class="portfolio__content grid swiper-slide">
-              <div class="certification__img-wrapper">
-                <img src="assets/img/certfi2.png" alt="Certification SecNum Académie" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" />
-                <span class="certification__img-hint" aria-hidden="true"><i class="uil uil-search-plus"></i> Agrandir</span>
-              </div>
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">SecNum Académie — Certification 2026</h3>
-                <p class="portfolio__description">Formation en ligne pour s'initier à la cybersécurité, approfondir ses connaissances et protéger efficacement ses outils numériques.</p>
-                <div class="certif-actions">
-                  <a href="https://secnumacademie.gouv.fr/" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Voir la certification SecNum Académie">Voir <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
-                  <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="secnum" aria-label="Détails sur la certification SecNum Académie">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 3 – RGPD -->
-            <div class="portfolio__content grid swiper-slide">
-              <div class="certification__img-wrapper">
-                <img src="assets/img/certif3-5.jpg" alt="Certification RGPD — Module 1" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0"
-                  data-gallery='["assets/img/certif3-1.jpg","assets/img/certif3-2.jpg","assets/img/certif3-3.jpg","assets/img/certif3-4.jpg","assets/img/certif3-5.jpg","assets/img/certif3-6.jpg"]' />
-                <span class="certification__img-hint" aria-hidden="true"><i class="uil uil-search-plus"></i> Voir les 6 modules</span>
-              </div>
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">Certification MOOC Atelier RGPD</h3>
-                <p class="portfolio__description">Formation en ligne pour s'initier à la protection des données ou approfondir ses connaissances en la matière.</p>
-                <div class="certif-actions">
-                  <a href="https://atelier-rgpd.cnil.fr/" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Voir la certification RGPD">Voir <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
-                  <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="rgpd" aria-label="Détails sur la certification RGPD">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 4 – IPv6 -->
-            <div class="portfolio__content grid swiper-slide">
-              <div class="certification__img-wrapper">
-                <img src="assets/img/certif4.png" alt="Certification Objectif IPv6" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" />
-                <span class="certification__img-hint" aria-hidden="true"><i class="uil uil-search-plus"></i> Agrandir</span>
-              </div>
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">Objectif IPv6 — IMT (Institut Mines-Télécom)</h3>
-                <p class="portfolio__description">Badge de réussite attestant la maîtrise des fondamentaux d'IPv6, de sa mise en application et de la cohabitation IPv4/IPv6.</p>
-                <div class="certif-actions">
-                  <a href="https://openbadgefactory.com/obv3/credentials/7d5ed3265ae8a095cd3c33a6540a8e055da0db2f" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Partager le badge IPv6">Badge <i class="uil uil-share-alt button__icon" aria-hidden="true"></i></a>
-                  <a href="https://www.fun-mooc.fr/fr/cours/objectif-ipv6/" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Voir la certification Objectif IPv6">Voir <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
-                  <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="ipv6" aria-label="Détails sur la certification Objectif IPv6">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 5 – 5G -->
-            <div class="portfolio__content grid swiper-slide">
-              <div class="certification__img-wrapper">
-                <img src="assets/img/certif5.png" alt="Certification 5G : Principe du réseau coeur" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" />
-                <span class="certification__img-hint" aria-hidden="true"><i class="uil uil-search-plus"></i> Agrandir</span>
-              </div>
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">5G : Principe du réseau coeur — IMT (Institut Mines-Télécom)</h3>
-                <p class="portfolio__description">Certification validant les fondamentaux de l'architecture 5G, des fonctions coeur de réseau (AMF, SMF, UPF...) et des enjeux de sécurité.</p>
-                <div class="certif-actions">
-                  <a href="https://openbadgefactory.com/obv3/credentials/b881f1a0a0b3f4d1a62c563878d79d1fb310d41b" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Partager le badge 5G">Badge <i class="uil uil-share-alt button__icon" aria-hidden="true"></i></a>
-                  <a href="https://www.fun-mooc.fr/fr/cours/5g-principe-du-reseau-coeur/" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer" aria-label="Voir le cours 5G">Cours <i class="uil uil-external-link-alt button__icon" aria-hidden="true"></i></a>
-                  <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="fiveg" aria-label="Détails sur la certification 5G">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /.swiper-wrapper -->
-          <div class="swiper-button-next" aria-label="Certification suivante"><i class="uil uil-angle-right-b" aria-hidden="true"></i></div>
-          <div class="swiper-button-prev" aria-label="Certification précédente"><i class="uil uil-angle-left-b" aria-hidden="true"></i></div>
-          <div class="swiper-pagination" aria-label="Pagination des certifications"></div>
-        </div>
-      </section>
-
-      <!--================== Section Portfolio ==================-->
-      <section class="portfolio section" id="portfolio">
-        <div class="container">
-          <span class="section__label">Projets</span>
-          <h2 class="section__title">Réalisations</h2>
-          <span class="section__subtitle">Projets professionnels encadrés — PPE2 SISR</span>
-        </div>
-
-        <div class="portfolio-hub container reveal" id="portfolioHub">
-          <nav class="portfolio-hub__tabs" aria-label="Choisir une mission">
-            <button type="button" class="portfolio-hub__tab portfolio-hub__tab--active" data-mission="1" aria-selected="true">Mission 1</button>
-            <button type="button" class="portfolio-hub__tab" data-mission="2" aria-selected="false">Mission 2</button>
-            <button type="button" class="portfolio-hub__tab" data-mission="3" aria-selected="false">Mission 3</button>
-          </nav>
-
-          <!-- Mission 1 -->
-          <article class="portfolio-mission portfolio-mission--active" data-mission-panel="1">
-            <div class="portfolio-mission__hero">
-              <div class="portfolio-mission__intro">
-                <img src="assets/img/Mission1.png" alt="Image du projet Mission 1" class="portfolio__img" />
-                <span class="portfolio-mission__label">Mission 1 · Soccer78</span>
-                <h3 class="portfolio-mission__title">Installation du système d'information</h3>
-                <p class="portfolio-mission__period"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 15 jan. – 29 jan. 2026</p>
-              </div>
-            </div>
-            <div class="portfolio-mission__grid">
-              <section class="portfolio-card">
-                <h4 class="portfolio-card__title"><i class="uil uil-users-alt" aria-hidden="true"></i> Organisation</h4>
-                <p>Projet PPE2 réalisé en <strong>équipe</strong> dans un environnement de test sous <strong>VMware</strong> : installation du serveur, configuration du réseau et du DHCP, ajout des clients puis mise en place de <strong>RustDesk</strong> pour la prise en main à distance.</p>
-              </section>
-              <section class="portfolio-card">
-                <h4 class="portfolio-card__title"><i class="uil uil-crosshair" aria-hidden="true"></i> Objectifs</h4>
-                <ul class="portfolio-chips">
-                  <li>Mettre en place un environnement Linux</li>
-                  <li>Assurer la communication réseau</li>
-                  <li>Permettre la prise en main à distance</li>
-                </ul>
-              </section>
-              <section class="portfolio-card portfolio-card--highlight">
-                <h4 class="portfolio-card__title"><i class="uil uil-check-circle" aria-hidden="true"></i> Réalisations</h4>
-                <ul class="portfolio-done">
-                  <li>Installation d'une VM Ubuntu</li>
-                  <li>Configuration réseau en DHCP</li>
-                  <li>Installation et configuration de RustDesk</li>
-                </ul>
-              </section>
-              <section class="portfolio-card">
-                <h4 class="portfolio-card__title"><i class="uil uil-layer-group" aria-hidden="true"></i> Technologies</h4>
-                <div class="portfolio-tech">
-                  <span>Windows Server</span><span>Ubuntu</span><span>VMware</span><span>DHCP</span><span>RustDesk</span>
-                </div>
-              </section>
-            </div>
-            <div class="portfolio-mission__docs">
-              <a href="assets/docs/ex-Mission1.pdf" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer">Énoncé <i class="uil uil-file-alt button__icon" aria-hidden="true"></i></a>
-              <a href="assets/docs/cr-Mission1.pdf" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer">Compte rendu <i class="uil uil-file button__icon" aria-hidden="true"></i></a>
-            </div>
-          </article>
-
-          <!-- Mission 2 -->
-          <article class="portfolio-mission" data-mission-panel="2" hidden>
-            <div class="portfolio-mission__hero">
-              <div class="portfolio-mission__intro">
-                <img src="assets/img/Mission2.png" alt="Image du projet Mission 2" class="portfolio__img" />
-                <span class="portfolio-mission__label">Mission 2 · Soccer78</span>
-                <h3 class="portfolio-mission__title">Évolution réseau, AD & impression</h3>
-                <p class="portfolio-mission__period"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 05 Fév. – 12 Mars. 2026</p>
-              </div>
-            </div>
-            <div class="portfolio-mission__grid">
-              <section class="portfolio-card">
-                <h4 class="portfolio-card__title"><i class="uil uil-users-alt" aria-hidden="true"></i> Organisation</h4>
-                <p>Suite du projet avec des <strong>tests</strong> et l'intégration des équipements réseau : configuration du switch Aruba, accès sécurisé en <strong>SSH</strong> et mise en place d'une solution de sauvegarde des configurations.</p>
-              </section>
-              <section class="portfolio-card">
-                <h4 class="portfolio-card__title"><i class="uil uil-crosshair" aria-hidden="true"></i> Objectifs</h4>
-                <ul class="portfolio-chips">
-                  <li>Administrer un switch réseau</li>
-                  <li>Sécuriser l'accès distant</li>
-                  <li>Sauvegarder la configuration du switch</li>
-                </ul>
-              </section>
-              <section class="portfolio-card portfolio-card--highlight">
-                <h4 class="portfolio-card__title"><i class="uil uil-check-circle" aria-hidden="true"></i> Réalisations</h4>
-                <ul class="portfolio-done">
-                  <li>Réinitialisation du switch Aruba</li>
-                  <li>Activation des ports réseau</li>
-                  <li>Sauvegarde de configuration via TFTP</li>
-                </ul>
-              </section>
-              <section class="portfolio-card">
-                <h4 class="portfolio-card__title"><i class="uil uil-layer-group" aria-hidden="true"></i> Technologies</h4>
-                <div class="portfolio-tech">
-                  <span>Switch Aruba 2530-8G</span><span>TFTP / TFTPD64</span><span>PuTTY</span><span>SSH</span>
-                </div>
-              </section>
-            </div>
-            <div class="portfolio-mission__docs">
-              <a href="assets/docs/ex-Mission2.pdf" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer">Énoncé <i class="uil uil-file-alt button__icon" aria-hidden="true"></i></a>
-              <a href="assets/docs/cr-Mission2.pdf" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer">Compte rendu <i class="uil uil-file button__icon" aria-hidden="true"></i></a>
-            </div>
-          </article>
-
-          <!-- Mission 3 -->
-          <article class="portfolio-mission" data-mission-panel="3" hidden>
-            <div class="portfolio-mission__hero">
-              <div class="portfolio-mission__intro">
-                <img src="assets/img/Mission3.jpg" alt="Image du projet Mission 3" class="portfolio__img" />
-                <span class="portfolio-mission__label">Mission 3 · Soccer78</span>
-                <h3 class="portfolio-mission__title">Sécurisation & services réseau</h3>
-                <p class="portfolio-mission__period"><i class="uil uil-calendar-alt" aria-hidden="true"></i> 19 Mars. – 16 Avr. 2026</p>
-              </div>
-            </div>
-            <div class="portfolio-mission__grid">
-              <section class="portfolio-card">
-                <h4 class="portfolio-card__title"><i class="uil uil-users-alt" aria-hidden="true"></i> Organisation</h4>
-                <p>Phase de <strong>finalisation et d'administration</strong> de l'infrastructure : déploiement de <strong>GLPI</strong>, liaison avec l'Active Directory, configuration du serveur <strong>NTP</strong> et amélioration des services réseau.</p>
-              </section>
-              <section class="portfolio-card">
-                <h4 class="portfolio-card__title"><i class="uil uil-crosshair" aria-hidden="true"></i> Objectifs</h4>
-                <ul class="portfolio-chips">
-                  <li>Déployer une solution de ticketing</li>
-                  <li>Authentifier les utilisateurs du domaine</li>
-                  <li>Synchroniser l'heure du réseau</li>
-                </ul>
-              </section>
-              <section class="portfolio-card portfolio-card--highlight">
-                <h4 class="portfolio-card__title"><i class="uil uil-check-circle" aria-hidden="true"></i> Réalisations</h4>
-                <ul class="portfolio-done">
-                  <li>Installation de GLPI</li>
-                  <li>Liaison LDAP avec Active Directory</li>
-                  <li>Mise en place d'un serveur NTP avec Chrony</li>
-                </ul>
-              </section>
-              <section class="portfolio-card">
-                <h4 class="portfolio-card__title"><i class="uil uil-layer-group" aria-hidden="true"></i> Technologies</h4>
-                <div class="portfolio-tech">
-                  <span>Debian 13</span><span>GLPI</span><span>Chrony</span><span>Active Directory</span>
-                </div>
-              </section>
-            </div>
-            <div class="portfolio-mission__docs">
-              <a href="assets/docs/ex-Mission3.pdf" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer">Énoncé <i class="uil uil-file-alt button__icon" aria-hidden="true"></i></a>
-              <a href="assets/docs/cr-Mission3.pdf" class="button button--flex button--small portfolio__button" target="_blank" rel="noopener noreferrer">Compte rendu <i class="uil uil-file button__icon" aria-hidden="true"></i></a>
-            </div>
-          </article>
-
-        </div><!-- /.portfolio-hub -->
-      </section>
-
-      <!--================== Section BTS SIO ==================-->
-      <section class="services section" id="bts">
-        <div class="container">
-          <span class="section__label">Formation</span>
-          <h2 class="section__title">BTS SIO</h2>
-          <span class="section__subtitle">Services Informatiques aux Organisations</span>
-        </div>
-
-        <div class="bts-intro container reveal">
-          <h3 class="bts-intro__heading">Qu'est-ce que le <span>BTS SIO</span> ?</h3>
-
-          <div class="bts-intro__highlights">
-            <div class="bts-intro__highlight">
-              <span class="bts-intro__highlight-number">Bac+2</span>
-              <span class="bts-intro__highlight-label">Diplôme d'État reconnu</span>
-            </div>
-            <div class="bts-intro__highlight">
-              <span class="bts-intro__highlight-number">2 ans</span>
-              <span class="bts-intro__highlight-label">Formation intensive<br>théorie & pratique</span>
-            </div>
-            <div class="bts-intro__highlight">
-              <span class="bts-intro__highlight-number">6</span>
-              <span class="bts-intro__highlight-label">Semaines de stage<br>en entreprise par année</span>
-            </div>
-          </div>
-
-          <p class="bts-intro__desc">Cette formation couvre l'ensemble du cycle de vie des services informatiques : de la <strong>conception</strong> à la <strong>mise en production</strong>, en passant par l'<strong>exploitation</strong> et la <strong>sécurisation</strong>. Les titulaires du BTS SIO sont immédiatement opérationnels en entreprise grâce à une pédagogie orientée projets et une immersion professionnelle via les stages.</p>
-
-          <div class="bts-intro__features">
-            <div class="bts-intro__feature">
-              <div class="bts-intro__feature-icon"><i class="uil uil-desktop" aria-hidden="true"></i></div>
-              <div class="bts-intro__feature-content">
-                <strong>Gestion de parc</strong>
-                <span>Infrastructure & matériel</span>
-              </div>
-            </div>
-            <div class="bts-intro__feature">
-              <div class="bts-intro__feature-icon"><i class="uil uil-brackets-curly" aria-hidden="true"></i></div>
-              <div class="bts-intro__feature-content">
-                <strong>Développement</strong>
-                <span>Applications & web</span>
-              </div>
-            </div>
-            <div class="bts-intro__feature">
-              <div class="bts-intro__feature-icon"><i class="uil uil-server-network-alt" aria-hidden="true"></i></div>
-              <div class="bts-intro__feature-content">
-                <strong>Administration</strong>
-                <span>Réseaux & systèmes</span>
-              </div>
-            </div>
-            <div class="bts-intro__feature">
-              <div class="bts-intro__feature-icon"><i class="uil uil-shield-check" aria-hidden="true"></i></div>
-              <div class="bts-intro__feature-content">
-                <strong>Cybersécurité</strong>
-                <span>Protection & conformité</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bts-intro__why">
-            <h4 class="bts-intro__why-title"><i class="uil uil-building" aria-hidden="true"></i> Pourquoi recruter un profil BTS SIO ?</h4>
-            <div class="bts-intro__why-grid">
-              <div class="bts-intro__why-item">
-                <i class="uil uil-rocket" aria-hidden="true"></i>
-                <div>
-                  <strong>Opérationnel dès le premier jour</strong>
-                  <p>La formation allie théorie solide et pratique intensive, avec des projets réels et des mises en situation professionnelles.</p>
-                </div>
-              </div>
-              <div class="bts-intro__why-item">
-                <i class="uil uil-award" aria-hidden="true"></i>
-                <div>
-                  <strong>Certifications complémentaires</strong>
-                  <p>Les étudiants sont encouragés à obtenir des certifications reconnues (ANSSI, Cisco, RGPD…) qui renforcent leur expertise.</p>
-                </div>
-              </div>
-              <div class="bts-intro__why-item">
-                <i class="uil uil-sync" aria-hidden="true"></i>
-                <div>
-                  <strong>Polyvalence technique</strong>
-                  <p>Réseau, système, développement, cybersécurité : un profil BTS SIO s'adapte aux différents besoins IT de l'entreprise.</p>
-                </div>
-              </div>
-              <div class="bts-intro__why-item">
-                <i class="uil uil-book-reader" aria-hidden="true"></i>
-                <div>
-                  <strong>Veille & apprentissage continu</strong>
-                  <p>La veille technologique fait partie intégrante de la formation, garantissant un profil toujours à jour sur les dernières technologies.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p class="bts-intro__cta">Deux spécialités au choix <i class="uil uil-angle-double-down" aria-hidden="true"></i></p>
-        </div>
-
-        <div class="bts-tabs container reveal">
-          <div class="bts-tabs__buttons">
-            <button type="button" class="bts-tabs__button bts-tabs__button--active" data-bts-target="#sisr" aria-selected="true" aria-controls="sisr" id="bts-tab-sisr">
-              <i class="uil uil-server-network-alt bts-tabs__icon" aria-hidden="true"></i> Option SISR
-            </button>
-            <button type="button" class="bts-tabs__button" data-bts-target="#slam" aria-selected="false" aria-controls="slam" id="bts-tab-slam">
-              <i class="uil uil-brackets-curly bts-tabs__icon" aria-hidden="true"></i> Option SLAM
-            </button>
-          </div>
-
-          <div class="bts-tabs__panels">
-            <div class="bts-tabs__panel bts-tabs__panel--active services__content" id="sisr" role="tabpanel" aria-labelledby="bts-tab-sisr" data-bts-content>
-              <span class="bts-tabs__badge">Mon option actuelle</span>
-              <h3 class="bts-tabs__title">SISR — Solutions d'Infrastructure, Systèmes et Réseaux</h3>
-              <p class="bts-tabs__description">L'option SISR prépare aux métiers de l'administration des réseaux et systèmes. Elle permet de maîtriser l'installation, la configuration et la sécurisation des infrastructures informatiques.</p>
-              <h4 class="bts-tabs__subtitle">Compétences développées</h4>
-              <ul class="bts-tabs__skills">
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Administration de systèmes (Windows/Linux)</li>
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Configuration et gestion de réseaux</li>
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Sécurité informatique</li>
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Virtualisation et cloud computing</li>
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Supervision des infrastructures</li>
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Support et maintenance des systèmes</li>
-              </ul>
-            </div>
-            <div class="bts-tabs__panel services__content" id="slam" role="tabpanel" aria-labelledby="bts-tab-slam" data-bts-content>
-              <h3 class="bts-tabs__title">SLAM — Solutions Logicielles et Applications Métiers</h3>
-              <p class="bts-tabs__description">L'option SLAM forme aux métiers du développement d'applications. Elle permet d'acquérir les compétences pour concevoir, développer et maintenir des solutions logicielles adaptées aux besoins des organisations.</p>
-              <h4 class="bts-tabs__subtitle">Compétences développées</h4>
-              <ul class="bts-tabs__skills">
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Développement d'applications web et mobiles</li>
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Conception de bases de données</li>
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Programmation orientée objet</li>
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Développement front-end et back-end</li>
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Tests et maintenance logicielle</li>
-                <li><i class="uil uil-check-circle bts-tabs__check" aria-hidden="true"></i> Gestion de projets informatiques</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="bts-e5 container reveal">
-          <h3 class="bts-e5__title"><i class="uil uil-table" aria-hidden="true"></i> Tableau de synthèse E5</h3>
-          <p class="bts-e5__desc">Document officiel de synthèse des compétences et activités du BTS SIO (épreuve E5).</p>
-          <a href="assets/docs/E5-tableau.pdf" class="button button--flex bts-e5__btn" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le tableau de synthèse E5 au format PDF">
-            Voir le tableau E5 <i class="uil uil-file-alt button__icon" aria-hidden="true"></i>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── SEO ── -->
+  <title>Saad Rhazzoul — Portfolio | Étudiant BTS SIO SISR, Cybersécurité &amp; Réseaux</title>
+  <meta name="description" content="Portfolio de Saad Rhazzoul, étudiant en BTS SIO option SISR passionné par la cybersécurité, le développement et les infrastructures réseau. Découvrez mes projets, certifications et stages.">
+  <meta name="author" content="Saad Rhazzoul">
+  <meta name="keywords" content="Saad Rhazzoul, portfolio, BTS SIO, SISR, cybersécurité, réseau, infrastructure, développeur, étudiant informatique">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://saad-rha.xyz/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Saad Rhazzoul — Portfolio">
+  <meta property="og:title" content="Saad Rhazzoul — Portfolio | BTS SIO SISR, Cybersécurité &amp; Réseaux">
+  <meta property="og:description" content="Étudiant en BTS SIO option SISR, passionné par la cybersécurité et les infrastructures réseau. Projets, certifications et stages.">
+  <meta property="og:url" content="https://saad-rha.xyz/">
+  <meta property="og:image" content="https://saad-rha.xyz/assets/favicon.svg">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Saad Rhazzoul — Portfolio | BTS SIO SISR, Cybersécurité &amp; Réseaux">
+  <meta name="twitter:description" content="Étudiant en BTS SIO option SISR, passionné par la cybersécurité et les infrastructures réseau.">
+  <meta name="twitter:image" content="https://saad-rha.xyz/assets/favicon.svg">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ── Fonts ── */
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
+
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      cursor: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Scroll Container ── */
+    #scroll-container {
+      height: 800vh;
+    }
+
+    /* ── Sticky Scene ── */
+    #scene {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Film Grain ── */
+    .film-grain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.045;
+      mix-blend-mode: overlay;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23n)"/></svg>');
+    }
+
+    /* ── Grid background ── */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.4;
+      background-size: 60px 60px;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    }
+
+    /* ── Custom cursor ── */
+    .cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 6px; height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: width .2s, height .2s;
+      will-change: transform;
+    }
+    .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: width .35s cubic-bezier(.34,1.56,.64,1), height .35s cubic-bezier(.34,1.56,.64,1), border-color .3s;
+      will-change: transform;
+    }
+    body:has(a:hover, button:hover) .cursor-dot { width: 0; height: 0; }
+    body:has(a:hover, button:hover) .cursor-ring { width: 60px; height: 60px; border-color: #fff; background: rgba(255,255,255,0.06); }
+
+    @media (hover: none) {
+      .cursor-dot, .cursor-ring { display: none; }
+      body { cursor: auto; }
+    }
+
+    /* ── Hero text layer ── */
+    #hero-text {
+      position: absolute;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      padding: 0 1rem;
+      will-change: transform, opacity, filter;
+      transform-style: preserve-3d;
+    }
+
+    .text-track {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: #fff;
+      text-shadow:
+        0 10px 30px rgba(255,255,255,0.18),
+        0 2px 4px rgba(255,255,255,0.08);
+      visibility: hidden;
+    }
+
+    .text-days {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+      background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.45) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transform: translateZ(0);
+      filter: drop-shadow(0px 10px 20px rgba(255,255,255,0.14)) drop-shadow(0px 2px 4px rgba(255,255,255,0.08));
+      clip-path: inset(0 100% 0 0);
+    }
+
+    /* ── CTA layer ── */
+    #cta-wrapper {
+      position: absolute;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      padding: 0 1.5rem;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      will-change: transform, opacity, filter;
+    }
+
+    #cta-wrapper.active {
+      pointer-events: auto;
+    }
+
+    .cta-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.45) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transform: translateZ(0);
+      filter: drop-shadow(0px 10px 20px rgba(255,255,255,0.15));
+    }
+
+    .cta-sub {
+      color: rgba(255,255,255,0.5);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 300;
+      margin-bottom: 3rem;
+      max-width: 480px;
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Glass buttons */
+    .glass-btn {
+      position: relative;
+      padding: 1rem 2.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1.5px solid transparent;
+      border-radius: 999px;
+      backdrop-filter: blur(24px);
+      overflow: hidden;
+      cursor: none;
+      transition: all 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .glass-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      padding: 1.5px;
+      background: linear-gradient(135deg,
+        rgba(255,255,255,0.4) 0%,
+        rgba(100,150,255,0.4) 33%,
+        rgba(200,150,255,0.4) 66%,
+        rgba(255,255,255,0.4) 100%);
+      background-size: 200% 200%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: borderFlow 3s linear infinite;
+      opacity: 0.55;
+      transition: opacity 0.4s;
+    }
+    .glass-btn:hover {
+      background: linear-gradient(135deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.05) 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(100,150,255,0.2), 0 0 60px rgba(200,150,255,0.1);
+    }
+    .glass-btn:hover::before { opacity: 1; }
+    .glass-btn:active { transform: translateY(0); }
+
+    .glass-btn.primary {
+      background: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 100%);
+    }
+
+    @keyframes borderFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    /* ── Main card ── */
+    #main-card {
+      position: absolute;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 92vw;
+      height: 92vh;
+      border-radius: 32px;
+      overflow: hidden;
+      will-change: transform;
+      pointer-events: auto;
+
+      /* Deep blue physical card */
+      background: linear-gradient(145deg, #0d1f52 0%, #060c18 100%);
+      box-shadow:
+        0 40px 100px -20px rgba(0,0,0,0.95),
+        0 20px 40px -20px rgba(0,0,0,0.8),
+        inset 0 1px 2px rgba(255,255,255,0.18),
+        inset 0 -2px 4px rgba(0,0,0,0.8);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    @media (min-width: 768px) {
+      #main-card { width: 85vw; height: 85vh; border-radius: 40px; }
+    }
+
+    /* Dynamic mouse sheen */
+    .card-sheen {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 50;
+      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.055) 0%, transparent 40%);
+      mix-blend-mode: screen;
+    }
+
+    /* ── Card inner grid ── */
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      z-index: 10;
+    }
+
+    @media (min-width: 1024px) {
+      .card-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        gap: 2rem;
+        padding: 0 3rem;
+      }
+    }
+
+    /* ── Card left text ── */
+    .card-left {
+      order: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      visibility: hidden;
+    }
+
+    @media (min-width: 1024px) {
+      .card-left {
+        order: 1;
+        text-align: left;
+      }
+    }
+
+    .card-left h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .card-left-eyebrow {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: rgba(165,180,252,0.9);
+      margin-bottom: 0.8rem;
+      padding: 5px 12px;
+      border: 1px solid rgba(165,180,252,0.25);
+      border-radius: 999px;
+      background: rgba(165,180,252,0.06);
+    }
+
+    .card-left p {
+      color: rgba(180,205,255,0.65);
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 340px;
+    }
+    .card-left p strong { color: #fff; font-weight: 500; }
+
+    /* Hero scroll hint with bouncing chevron */
+    .hero-scroll-hint {
+      margin-top: 1.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .hero-chev {
+      animation: chev-bounce 1.6s ease-in-out infinite;
+    }
+    @keyframes chev-bounce {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50%      { transform: translateY(5px); opacity: 1; }
+    }
+
+    @media (max-width: 1023px) {
+      .card-left p { display: none; }
+    }
+
+    /* ── Phone mockup wrapper ── */
+    .mockup-wrapper {
+      order: 2;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 340px;
+      visibility: hidden;
+      will-change: transform;
+      transform-style: preserve-3d;
+    }
+
+    @media (min-width: 1024px) {
+      .mockup-wrapper { height: 580px; }
+    }
+
+    .mockup-scale {
+      transform: scale(0.62);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    @media (min-width: 768px) { .mockup-scale { transform: scale(0.82); } }
+    @media (min-width: 1024px) { .mockup-scale { transform: scale(1); } }
+
+    /* iPhone bezel */
+    .iphone-bezel {
+      position: relative;
+      width: 280px;
+      height: 580px;
+      border-radius: 3rem;
+      background-color: #111;
+      box-shadow:
+        inset 0 0 0 2px #52525b,
+        inset 0 0 0 7px #000,
+        0 40px 80px -15px rgba(0,0,0,0.95),
+        0 15px 25px -5px rgba(0,0,0,0.7);
+      transform-style: preserve-3d;
+    }
+
+    .hw-btn {
+      position: absolute;
+      background: linear-gradient(90deg, #404040 0%, #171717 100%);
+      box-shadow: -2px 0 5px rgba(0,0,0,0.8), inset -1px 0 1px rgba(255,255,255,0.15), inset 1px 0 2px rgba(0,0,0,0.8);
+      border-left: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .phone-screen {
+      position: absolute;
+      inset: 7px;
+      background: #050914;
+      border-radius: 2.5rem;
+      overflow: hidden;
+      box-shadow: inset 0 0 15px rgba(0,0,0,1);
+      color: #fff;
+    }
+
+    .screen-glare {
+      position: absolute;
+      inset: 0;
+      z-index: 40;
+      pointer-events: none;
+      background: linear-gradient(110deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 45%);
+    }
+
+    .dynamic-island {
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px; height: 28px;
+      background: #000;
+      border-radius: 999px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 12px;
+    }
+
+    .di-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34,197,94,0.8);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* App UI */
+    .app-ui {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 3rem 1.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .app-header-label {
+      font-size: 9px;
+      color: #a1a1aa;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .app-header-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .app-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Progress ring */
+    .ring-wrapper {
+      position: relative;
+      width: 176px; height: 176px;
+      margin: 0 auto 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8));
+    }
+
+    .ring-wrapper svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .progress-ring-bg { stroke: rgba(255,255,255,0.03); }
+
+    .progress-ring-fg {
+      stroke: #3b82f6;
+      stroke-linecap: round;
+      stroke-dasharray: 402;
+      stroke-dashoffset: 402;
+      transform: rotate(-90deg);
+      transform-origin: center;
+    }
+
+    .ring-center {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .counter-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .counter-label {
+      font-size: 7px;
+      color: rgba(191,219,254,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    /* Widgets */
+    .phone-widget {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.05), inset 0 -1px 1px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.03);
+      border-radius: 1rem;
+      padding: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      visibility: hidden;
+    }
+
+    .widget-icon {
+      width: 40px; height: 40px;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .widget-icon.blue {
+      background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(59,130,246,0.05));
+      border: 1px solid rgba(59,130,246,0.2);
+    }
+
+    .widget-icon.green {
+      background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(16,185,129,0.05));
+      border: 1px solid rgba(16,185,129,0.2);
+    }
+
+    .widget-bars { flex: 1; }
+    .widget-bar-1 { height: 8px; width: 80px; background: #d4d4d8; border-radius: 999px; margin-bottom: 8px; }
+    .widget-bar-2 { height: 6px; width: 50px; background: #52525b; border-radius: 999px; }
+
+    .phone-home-indicator {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px; height: 4px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 999px;
+    }
+
+    /* ── Floating badges ── */
+    .floating-badge {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.01) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.1),
+        0 25px 50px -12px rgba(0,0,0,0.8),
+        inset 0 1px 1px rgba(255,255,255,0.18),
+        inset 0 -1px 1px rgba(0,0,0,0.5);
+      z-index: 30;
+      visibility: hidden;
+    }
+
+    .badge-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .badge-icon.blue-bg {
+      background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(99,102,241,0.05));
+      border: 1px solid rgba(99,102,241,0.3);
+    }
+
+    .badge-icon.purple-bg {
+      background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(139,92,246,0.05));
+      border: 1px solid rgba(139,92,246,0.3);
+    }
+
+    .badge-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .badge-sub {
+      font-size: 0.68rem;
+      color: rgba(191,219,254,0.45);
+      font-weight: 400;
+      margin-top: 1px;
+    }
+
+    .badge--top { top: 16px; left: -60px; }
+    .badge--bottom { bottom: 48px; right: -60px; }
+
+    @media (max-width: 1023px) {
+      .badge--top { left: -10px; top: 8px; }
+      .badge--bottom { right: -10px; bottom: 20px; }
+    }
+
+    /* ── Card right brand ── */
+    .card-right {
+      order: 1;
+      display: flex;
+      justify-content: center;
+      visibility: hidden;
+    }
+
+    @media (min-width: 1024px) {
+      .card-right {
+        order: 3;
+        justify-content: flex-end;
+      }
+    }
+
+    .brand-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transform: translateZ(0);
+      filter: drop-shadow(0px 12px 24px rgba(0,0,0,0.8)) drop-shadow(0px 4px 8px rgba(0,0,0,0.6));
+    }
+
+    /* ── Screen noise on card ── */
+    .card-noise {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.015;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n2"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23n2)"/></svg>');
+    }
+
+    /* ── Progress bar (page scroll) ── */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, #6366f1, #a855f7, #3b82f6);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Progress bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Main scroll container -->
+  <div id="scroll-container">
+    <div id="scene">
+
+      <!-- Grain -->
+      <div class="film-grain" aria-hidden="true"></div>
+
+      <!-- Grid -->
+      <div class="bg-grid" aria-hidden="true"></div>
+
+      <!-- ── Layer 1 : Hero text ── -->
+      <div id="hero-text" aria-label="Saad Rhazzoul — Portfolio">
+        <h1 class="text-track">BONJOUR.</h1>
+        <p class="text-days">Bienvenue.</p>
+        <p class="hero-scroll-hint">
+          <span>Scrollez</span>
+          <svg class="hero-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </p>
+      </div>
+
+      <!-- ── Layer 2 : CTA ── -->
+      <div id="cta-wrapper" aria-hidden="true">
+        <h2 class="cta-title">On y va ?</h2>
+        <p class="cta-sub">Choisissez votre destination.</p>
+        <div class="cta-buttons">
+          <a href="./portfolio.html" class="glass-btn primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Voir le portfolio
+          </a>
+          <a href="./portfolio.html#contact" class="glass-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Me contacter
           </a>
         </div>
-      </section>
-
-      <!--================== Section Stages ==================-->
-      <section class="stages section" id="stages">
-        <div class="container">
-          <span class="section__label">Expérience</span>
-          <h2 class="section__title">Stages</h2>
-          <span class="section__subtitle">Mes expériences en entreprise</span>
-        </div>
-
-        <div class="container stage-wrap">
-          <!-- HERO Stage 1 — Hitachi Rail -->
-          <article class="stage-hero reveal">
-            <div class="stage-hero__top">
-              <span class="stage-hero__status"><span class="stage-hero__pulse"></span>Disponible</span>
-              <span class="stage-hero__year">1<sup>re</sup> année · 6 semaines</span>
-            </div>
-
-            <div class="stage-hero__main">
-              <div class="stage-hero__logo" aria-hidden="true">
-                <i class="uil uil-train"></i>
-              </div>
-              <div class="stage-hero__info">
-                <span class="stage-hero__label">Stage SISR · Réseau & Virtualisation</span>
-                <h3 class="stage-hero__company">Hitachi Rail <span>GTS France</span></h3>
-                <div class="stage-hero__meta">
-                  <span><i class="uil uil-map-marker" aria-hidden="true"></i> Vélizy-Villacoublay</span>
-                  <span><i class="uil uil-calendar-alt" aria-hidden="true"></i> 25 mai – 3 juillet 2026</span>
-                  <span><i class="uil uil-train" aria-hidden="true"></i> Secteur ferroviaire</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Tabs segmented control -->
-          <div class="stage-tabs-wrap reveal">
-            <nav class="stage-tabs" role="tablist" aria-label="Détails du stage">
-              <button type="button" class="stage-tab stage-tab--active" data-stage-tab="contexte" role="tab" aria-selected="true">
-                <i class="uil uil-info-circle" aria-hidden="true"></i>
-                <span>Contexte</span>
-              </button>
-              <button type="button" class="stage-tab" data-stage-tab="missions" role="tab" aria-selected="false">
-                <i class="uil uil-layers" aria-hidden="true"></i>
-                <span>Missions</span>
-              </button>
-              <button type="button" class="stage-tab" data-stage-tab="competences" role="tab" aria-selected="false">
-                <i class="uil uil-award" aria-hidden="true"></i>
-                <span>Compétences</span>
-              </button>
-            </nav>
-          </div>
-
-          <!-- Panels -->
-          <div class="stage-panels reveal">
-
-            <!-- CONTEXTE -->
-            <article class="stage-panel stage-panel--active" data-stage-panel="contexte" role="tabpanel">
-              <div class="stage-panel__lead">
-                <p>Ce stage s'inscrit dans le cadre de ma formation <strong>BTS SIO option SISR</strong>. Il vise une première immersion concrète dans l'administration des infrastructures réseau et systèmes en entreprise.</p>
-                <p>J'intègre l'équipe pour participer au <strong>support et à la mise en œuvre réseau</strong> sur des projets ferroviaires, en collaboration avec des ingénieurs et administrateurs expérimentés.</p>
-              </div>
-              <div class="stage-chips">
-                <span class="stage-chip"><i class="uil uil-server-network" aria-hidden="true"></i> Réseau & VLAN</span>
-                <span class="stage-chip"><i class="uil uil-desktop-cloud-alt" aria-hidden="true"></i> Virtualisation</span>
-                <span class="stage-chip"><i class="uil uil-monitor" aria-hidden="true"></i> Administration IT</span>
-                <span class="stage-chip"><i class="uil uil-shield-check" aria-hidden="true"></i> Cybersécurité</span>
-              </div>
-              <div class="stage-callout">
-                <div class="stage-callout__icon"><i class="uil uil-shield-check" aria-hidden="true"></i></div>
-                <p>Environnement industriel structuré, avec des <strong>enjeux techniques et normatifs</strong> propres au secteur du rail.</p>
-              </div>
-            </article>
-
-            <!-- MISSIONS -->
-            <article class="stage-panel" data-stage-panel="missions" role="tabpanel" hidden>
-              <p class="stage-panel__intro">Participation à des activités de <strong>support et de mise en œuvre réseau</strong> :</p>
-              <ul class="stage-missions">
-                <li class="stage-mission">
-                  <span class="stage-mission__num">01</span>
-                  <i class="uil uil-sitemap stage-mission__icon" aria-hidden="true"></i>
-                  <div>
-                    <strong>Architecture réseau</strong>
-                    <p>Découvrir l'architecture du projet (LAN, VLAN, équipements actifs).</p>
-                  </div>
-                </li>
-                <li class="stage-mission">
-                  <span class="stage-mission__num">02</span>
-                  <i class="uil uil-router stage-mission__icon" aria-hidden="true"></i>
-                  <div>
-                    <strong>Configuration matérielle</strong>
-                    <p>Switchs, routeurs et points d'accès.</p>
-                  </div>
-                </li>
-                <li class="stage-mission">
-                  <span class="stage-mission__num">03</span>
-                  <i class="uil uil-eye stage-mission__icon" aria-hidden="true"></i>
-                  <div>
-                    <strong>Surveillance & incidents</strong>
-                    <p>Suivi des incidents simples.</p>
-                  </div>
-                </li>
-                <li class="stage-mission">
-                  <span class="stage-mission__num">04</span>
-                  <i class="uil uil-file-bookmark-alt stage-mission__icon" aria-hidden="true"></i>
-                  <div>
-                    <strong>Documentation</strong>
-                    <p>Schémas et procédures réseau.</p>
-                  </div>
-                </li>
-                <li class="stage-mission">
-                  <span class="stage-mission__num">05</span>
-                  <i class="uil uil-cloud-database-tree stage-mission__icon" aria-hidden="true"></i>
-                  <div>
-                    <strong>Machines virtuelles</strong>
-                    <p>Création et gestion (Windows, Linux…).</p>
-                  </div>
-                </li>
-                <li class="stage-mission">
-                  <span class="stage-mission__num">06</span>
-                  <i class="uil uil-cloud-computing stage-mission__icon" aria-hidden="true"></i>
-                  <div>
-                    <strong>Virtualisation</strong>
-                    <p>VMware, Proxmox ou équivalents.</p>
-                  </div>
-                </li>
-              </ul>
-            </article>
-
-            <!-- COMPÉTENCES -->
-            <article class="stage-panel" data-stage-panel="competences" role="tabpanel" hidden>
-              <p class="stage-panel__intro">Ces missions permettent d'appréhender :</p>
-              <div class="stage-skills-grid">
-                <div class="stage-skill">
-                  <div class="stage-skill__icon"><i class="uil uil-network-chart" aria-hidden="true"></i></div>
-                  <div>
-                    <strong>Réseau d'entreprise</strong>
-                    <p>Principes fondamentaux d'un <strong>réseau informatique en entreprise</strong>.</p>
-                  </div>
-                </div>
-                <div class="stage-skill">
-                  <div class="stage-skill__icon"><i class="uil uil-cog" aria-hidden="true"></i></div>
-                  <div>
-                    <strong>Équipements réseau</strong>
-                    <p>Fonctionnement et <strong>configuration des équipements réseau</strong>.</p>
-                  </div>
-                </div>
-                <div class="stage-skill">
-                  <div class="stage-skill__icon"><i class="uil uil-desktop" aria-hidden="true"></i></div>
-                  <div>
-                    <strong>Administration IT</strong>
-                    <p>Introduction à l'<strong>administration IT</strong> : VMs, virtualisation, installation d'OS.</p>
-                  </div>
-                </div>
-                <div class="stage-skill">
-                  <div class="stage-skill__icon"><i class="uil uil-train" aria-hidden="true"></i></div>
-                  <div>
-                    <strong>Secteur ferroviaire</strong>
-                    <p>Première immersion dans le <strong>secteur ferroviaire</strong> et ses contraintes.</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-          </div><!-- /.stage-panels -->
-
-          <!-- COMING SOON — 2ème année -->
-          <article class="stage-soon reveal">
-            <div class="stage-soon__icon" aria-hidden="true">
-              <i class="uil uil-hourglass"></i>
-            </div>
-            <div class="stage-soon__content">
-              <span class="stage-soon__badge">À venir</span>
-              <h3 class="stage-soon__title">Stage de 2<sup>e</sup> année</h3>
-              <p>Période prévue en fin de 2<sup>e</sup> année de BTS SIO, pour <strong>approfondir les compétences SISR</strong> acquises en entreprise.</p>
-            </div>
-          </article>
-
-        </div><!-- /.stage-wrap -->
-
-      </section>
-
-      <!--================== Section Veille technologique ==================-->
-      <section class="veille-holographic section" id="veille">
-        <div class="container">
-          <span class="section__label">Veille</span>
-          <h2 class="section__title">Veille technologique</h2>
-          <span class="section__subtitle">Big Data appliqué à la cybersécurité</span>
-        </div>
-
-        <!-- Navigation interne -->
-        <nav class="veille-nav reveal" aria-label="Navigation de la veille technologique">
-          <a href="#veille-intro" class="veille-nav__link"><i class="uil uil-info-circle" aria-hidden="true"></i><span>Introduction</span></a>
-          <a href="#veille-methodo" class="veille-nav__link"><i class="uil uil-cog" aria-hidden="true"></i><span>Méthodologie</span></a>
-          <a href="#veille-tendances" class="veille-nav__link"><i class="uil uil-chart-line" aria-hidden="true"></i><span>Tendances</span></a>
-          <a href="#veille-articles" class="veille-nav__link"><i class="uil uil-newspaper" aria-hidden="true"></i><span>Articles</span></a>
-          <a href="#veille-pearltrees" class="veille-nav__link"><i class="uil uil-trees" aria-hidden="true"></i><span>Pearltrees</span></a>
-          <a href="#veille-conclusion" class="veille-nav__link"><i class="uil uil-check-circle" aria-hidden="true"></i><span>Conclusion</span></a>
-        </nav>
-
-        <!-- 1. Introduction -->
-        <div class="veille-block reveal" id="veille-intro">
-          <div class="veille-block__header">
-            <span class="veille-block__number">01</span>
-            <h3 class="veille-block__title">Introduction</h3>
-          </div>
-          <div class="veille-block__body">
-            <p>La veille technologique consiste à surveiller les évolutions, innovations et tendances dans un domaine informatique afin de rester informé des nouvelles technologies et des menaces émergentes.</p>
-            <p>Dans le cadre de mon BTS SIO option SISR, j'ai choisi comme sujet de veille : <strong>le Big Data appliqué à la cybersécurité</strong></p>
-            <div class="veille-focus-tags">
-              <span class="veille-focus-label">Objectif</span>
-              <span class="veille-focus-tag"><i class="uil uil-crosshair" aria-hidden="true"></i> Détecter les menaces</span>
-              <span class="veille-focus-tag"><i class="uil uil-shield-check" aria-hidden="true"></i> Anticiper les attaques</span>
-              <span class="veille-focus-tag"><i class="uil uil-lock-alt" aria-hidden="true"></i> Renforcer la sécurité</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2. Méthodologie & Outils -->
-        <div class="veille-block reveal" id="veille-methodo">
-          <div class="veille-block__header">
-            <span class="veille-block__number">02</span>
-            <h3 class="veille-block__title">Méthodologie & Outils de veille</h3>
-          </div>
-          <div class="veille-block__body">
-            <p>Ma veille repose sur une méthodologie structurée en trois étapes : la <strong>collecte</strong> d'informations, <strong>l'analyse</strong> et le tri des contenus, puis le <strong>partage</strong> et la mise en application des connaissances acquises.</p>
-            <p>J'utilise principalement un agrégateur de <strong>flux RSS</strong> pour centraliser mes sources, complété par des <strong>alertes automatiques</strong> et la consultation régulière de <strong>sites spécialisés</strong>.</p>
-            <div class="veille-tools-grid">
-              <a href="https://feedly.com/" target="_blank" rel="noopener" class="veille-tool">
-                <i class="uil uil-rss" aria-hidden="true"></i>
-                <strong>Feedly</strong>
-                <small>Agrégateur de flux RSS — centralisation de toutes mes sources en un seul endroit</small>
-              </a>
-              <a href="https://www.google.fr/alerts" target="_blank" rel="noopener" class="veille-tool">
-                <i class="uil uil-bell" aria-hidden="true"></i>
-                <strong>Google Alerts</strong>
-                <small>Alertes automatiques sur les mots-clés "Big Data cybersécurité", "SIEM", "data breach"</small>
-              </a>
-              <a href="https://www.pearltrees.com/s2ad/data-applique-cybersecurite/id102999269" target="_blank" rel="noopener" class="veille-tool">
-                <i class="uil uil-trees" aria-hidden="true"></i>
-                <strong>Pearltrees</strong>
-                <small>Organisation visuelle de ma veille — sources, articles et ressources centralisées</small>
-              </a>
-              <a href="https://cyber.gouv.fr/" target="_blank" rel="noopener" class="veille-tool">
-                <i class="uil uil-university" aria-hidden="true"></i>
-                <strong>ANSSI / CERT-FR</strong>
-                <small>Alertes officielles et bulletins de sécurité du gouvernement français</small>
-              </a>
-              <a href="https://thehackernews.com/" target="_blank" rel="noopener" class="veille-tool">
-                <i class="uil uil-globe" aria-hidden="true"></i>
-                <strong>The Hacker News</strong>
-                <small>Actualités cybersécurité internationales — vulnérabilités, attaques, solutions</small>
-              </a>
-              <a href="https://www.sentinelone.com/blog/" target="_blank" rel="noopener" class="veille-tool">
-                <i class="uil uil-lock-access" aria-hidden="true"></i>
-                <strong>SentinelOne Blog</strong>
-                <small>Analyses approfondies sur les menaces avancées et les solutions de protection IA</small>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. Tendances technologiques -->
-        <div class="veille-block reveal" id="veille-tendances">
-          <div class="veille-block__header">
-            <span class="veille-block__number">03</span>
-            <h3 class="veille-block__title">Tendances technologiques</h3>
-          </div>
-          <div class="veille-block__body">
-            <p>L'intersection du Big Data et de la cybersécurité génère des évolutions majeures. Voici les principales tendances identifiées lors de ma veille :</p>
-            <div class="veille-trends">
-              <div class="veille-trend">
-                <div class="veille-trend__icon"><i class="uil uil-brain" aria-hidden="true"></i></div>
-                <div>
-                  <h4>IA & Machine Learning pour la détection</h4>
-                  <p>Les solutions de sécurité exploitent le machine learning pour analyser des milliards d'événements en temps réel et détecter des comportements anormaux (anomaly detection), bien au-delà des capacités humaines.</p>
-                </div>
-              </div>
-              <div class="veille-trend">
-                <div class="veille-trend__icon"><i class="uil uil-database" aria-hidden="true"></i></div>
-                <div>
-                  <h4>SIEM & analyse de logs à grande échelle</h4>
-                  <p>Les systèmes SIEM (Security Information and Event Management) collectent et corrèlent des volumes massifs de logs pour identifier les incidents de sécurité. Le Big Data permet de traiter ces données à une échelle jamais atteinte.</p>
-                </div>
-              </div>
-              <div class="veille-trend">
-                <div class="veille-trend__icon"><i class="uil uil-user-check" aria-hidden="true"></i></div>
-                <div>
-                  <h4>Analyse comportementale (UEBA)</h4>
-                  <p>L'User and Entity Behavior Analytics utilise le Big Data pour établir des profils de comportement normaux et détecter les déviations — un levier clé contre les menaces internes et les comptes compromis.</p>
-                </div>
-              </div>
-              <div class="veille-trend">
-                <div class="veille-trend__icon"><i class="uil uil-cloud-computing" aria-hidden="true"></i></div>
-                <div>
-                  <h4>Sécurité du cloud et données massives</h4>
-                  <p>Avec la migration vers le cloud, les volumes de données à protéger explosent. Les solutions de sécurité cloud-native s'appuient sur le Big Data pour surveiller en temps réel les environnements multi-cloud.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. Articles récents -->
-        <div class="veille-block reveal" id="veille-articles">
-          <div class="veille-block__header">
-            <span class="veille-block__number">04</span>
-            <h3 class="veille-block__title">Articles récents</h3><em>(Dernière mise à jour : 16 mai 2026)</em>
-          </div>
-          <div class="veille-block__body">
-            <div class="veille-cards-grid">
-              <article class="veille-card">
-                <span class="veille-card-source">Care News · <time datetime="2026-05-11">11 mai 2026</time></span>
-                <h3 class="veille-card-title">Cybersécurité et données : des enjeux cruciaux pour les associations</h3>
-                <p class="veille-card-excerpt">Les associations deviennent des cibles de plus en plus fréquentes des cyberattaques. L'article explique les risques liés aux données sensibles et les bonnes pratiques pour renforcer la sécurité informatique.</p>
-                <a class="veille-btn" href="https://www.carenews.com/salesforce-org/news/cybersecurite-et-donnees-des-enjeux-cruciaux-de-la-gestion-d-une-association" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
-              </article>
-              <article class="veille-card">
-                <span class="veille-card-source">L'Indépendant · <time datetime="2026-05-09">9 mai 2026</time></span>
-                <h3 class="veille-card-title">Exaforce lève 125 millions de dollars pour sa cybersécurité IA</h3>
-                <p class="veille-card-excerpt">Un expert en cybersécurité alerte sur l'explosion des attaques informatiques depuis plusieurs mois. L'intelligence artificielle facilite désormais les vols de données et les campagnes de cybercriminalité.</p>
-                <a class="veille-btn" href="https://www.lindependant.fr/2026/05/09/cybersecurite-un-nombre-dattaques-incroyable-depuis-le-mois-daout-lia-accelere-les-vols-de-donnees-cet-expert-alerte-et-donne-des-cles-pour-se-13362058.php" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
-              </article>
-              <article class="veille-card">
-                <span class="veille-card-source">LeBigData · <time datetime="2026-05-13">13 mai 2026</time></span>
-                <h3 class="veille-card-title">Les cyberattaques en 2025</h3>
-                <p class="veille-card-excerpt">La startup Exaforce développe une plateforme de cybersécurité basée sur l'intelligence artificielle. Cette importante levée de fonds montre l'essor des technologies IA dans la protection des données.</p>
-                <a class="veille-btn" href="https://www.lebigdata.fr/exaforce-leve-125-millions-de-dollars-pour-sa-plateforme-de-cybersecurite-ia" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
-              </article>
-              <article class="veille-card">
-                <span class="veille-card-source">Le Courrier du Vietnam · <time datetime="2026-05-11">11 mai 2026</time></span>
-                <h3 class="veille-card-title">L'ASEAN renforce la lutte contre la cybercriminalité</h3>
-                <p class="veille-card-excerpt">Les pays de l'ASEAN renforcent leur coopération contre les escroqueries en ligne et les cyberattaques. Cette collaboration régionale vise à améliorer la protection des données et la cybersécurité face à des menaces numériques en forte augmentation.</p>
-                <a class="veille-btn" href="https://lecourrier.vn/lasean-renforce-la-lutte-contre-la-cybercriminalite-et-les-escroqueries-en-ligne/1347189.html" target="_blank" rel="noopener">Lire l'article <i class="uil uil-external-link-alt" aria-hidden="true"></i></a>
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. Pearltrees -->
-        <div class="veille-block reveal" id="veille-pearltrees">
-          <div class="veille-block__header">
-            <span class="veille-block__number">05</span>
-            <h3 class="veille-block__title">Pearltrees — Arbre de veille</h3>
-          </div>
-          <div class="veille-block__body">
-            <p>Mon arbre de veille <strong>Pearltrees</strong> centralise et organise visuellement l'ensemble de mes ressources sur le <strong>Big Data appliqué à la cybersécurité</strong>. Explorez les différentes branches pour découvrir mes sources, articles et outils.</p>
-            <div class="veille-pearltrees">
-              <div class="veille-pearltrees__frame">
-                <iframe src="https://www.pearltrees.com/s2ad/data-applique-cybersecurite/id102999269?embed=2&d=202603182325" width="100%" height="550" style="border:0;" allowtransparency="true" loading="lazy" title="Pearltrees — Big Data appliqué à la cybersécurité"></iframe>
-              </div>
-              <div class="veille-pearltrees__footer">
-                <a href="https://www.pearltrees.com/s2ad/data-applique-cybersecurite/id102999269" target="_blank" rel="noopener noreferrer" class="veille-pearltrees__link">
-                  <i class="uil uil-external-link-alt" aria-hidden="true"></i> Voir sur Pearltrees
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6. Conclusion -->
-        <div class="veille-block reveal" id="veille-conclusion">
-          <div class="veille-block__header">
-            <span class="veille-block__number">06</span>
-            <h3 class="veille-block__title">Conclusion</h3>
-          </div>
-          <div class="veille-block__body">
-            <p>Cette veille sur le <strong>Big Data appliqué à la cybersécurité</strong> montre que l'analyse de grandes quantités de données est devenue essentielle pour protéger les systèmes d'information.</p>
-            <p>Les technologies comme les <strong>SIEM, le machine learning et l'analyse comportementale</strong> permettent aujourd'hui d'anticiper et de détecter plus efficacement les menaces.</p>
-            <div class="veille-intro__focus">
-              <i class="uil uil-rocket" aria-hidden="true"></i>
-              Cette veille est <strong>mise à jour régulièrement</strong> afin de suivre l'évolution des technologies et des menaces.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--================== Section Contact ==================-->
-      <section class="contact section" id="contact">
-        <div class="container">
-          <span class="section__label">Contact</span>
-          <h2 class="section__title">Contactez-moi</h2>
-          <span class="section__subtitle">N'hésitez pas à me contacter</span>
-        </div>
-
-        <div class="contact__container container grid reveal">
-          <div>
-            <div class="contact__information">
-              <i class="uil uil-calling contact__icon" aria-hidden="true"></i>
-              <div>
-                <h3 class="contact__title">Téléphone</h3>
-                <span class="contact__subtitle"><a href="tel:+33767626545" aria-label="Appeler Saad Rhazzoul">07 67 62 65 45</a></span>
-              </div>
-            </div>
-            <div class="contact__information">
-              <i class="uil uil-envelope-minus contact__icon" aria-hidden="true"></i>
-              <div>
-                <h3 class="contact__title">Email</h3>
-                <span class="contact__subtitle"><a href="mailto:saad.rhazzoul@gmail.com" aria-label="Envoyer un email à Saad Rhazzoul">saad.rhazzoul@gmail.com</a></span>
-              </div>
-            </div>
-            <div class="contact__information">
-              <i class="uil uil-map-marker contact__icon" aria-hidden="true"></i>
-              <div>
-                <h3 class="contact__title">Adresse</h3>
-                <span class="contact__subtitle">Yvelines, Trappes, France</span>
-              </div>
-            </div>
-
-            <div class="like__container like__container--contact">
-              <p class="like__count"><span id="like-count">0</span> likes</p>
-              <button type="button" id="like-btn" class="button button--flex like__btn" aria-label="Liker ce portfolio">
-                <i class="uil uil-heart like__btn-icon" aria-hidden="true"></i>
-                <span id="like-btn-text">J'aime ce portfolio</span>
-              </button>
-              <p id="like-status" class="like__status" aria-live="polite"></p>
-            </div>
-          </div>
-
-          <form action="#" method="post" class="contact__form grid" aria-label="Formulaire de contact">
-            <div class="contact__inputs grid">
-              <div class="contact__content">
-                <label for="contact-name" class="content__label">Nom</label>
-                <input type="text" id="contact-name" name="name" class="contact__input" required aria-required="true" />
-              </div>
-              <div class="contact__content">
-                <label for="contact-email" class="content__label">Email</label>
-                <input type="email" id="contact-email" name="email" class="contact__input" required aria-required="true" />
-              </div>
-            </div>
-            <div class="contact__content">
-              <label for="contact-message" class="content__label">Message</label>
-              <textarea id="contact-message" name="message" cols="0" rows="7" class="contact__input" required aria-required="true"></textarea>
-            </div>
-            <div>
-              <a href="mailto:saad.rhazzoul@gmail.com?subject=Contact depuis le portfolio&body=Bonjour," class="button button--flex" aria-label="Envoyer un message par email">
-                Envoyez un message <i class="uil uil-message button__icon" aria-hidden="true"></i>
-              </a>
-            </div>
-          </form>
-        </div>
-      </section>
-
-    </main>
-
-    <!--================== Footer ==================-->
-    <footer class="footer">
-      <div class="footer__bg">
-        <div class="footer__container container grid">
-          <div>
-            <h1 class="footer__title">Saad</h1>
-            <span class="footer__subtitle">Étudiant 1ère année en BTS SIO</span>
-          </div>
-          <ul class="footer__links">
-            <li><a href="#qualification" class="footer__link">Diplôme</a></li>
-            <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
-            <li><a href="#contact" class="footer__link">Me contacter</a></li>
-          </ul>
-        </div>
-        <p class="footer__copy">&#169; RHAZZOUL SAAD. Tous droits réservés</p>
       </div>
-    </footer>
 
-    <!--================== Lightbox CV (PDF) ==================-->
-    <div class="cv-lightbox" id="cv-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="CV de Saad Rhazzoul">
-      <div class="cv-lightbox__backdrop" aria-hidden="true"></div>
-      <div class="cv-lightbox__content">
-        <div class="cv-lightbox__header">
-          <span class="cv-lightbox__title"><i class="uil uil-file-alt" aria-hidden="true"></i> Mon CV</span>
-          <div class="cv-lightbox__actions">
-            <a href="assets/MyCV.pdf" download class="cv-lightbox__download" aria-label="Télécharger le CV"><i class="uil uil-download-alt" aria-hidden="true"></i></a>
-            <button type="button" class="cv-lightbox__close" aria-label="Fermer"><i class="uil uil-times" aria-hidden="true"></i></button>
+      <!-- ── Layer 3 : Main Card ── -->
+      <div id="main-card" aria-label="Présentation interactive">
+        <div class="card-noise" aria-hidden="true"></div>
+        <div class="card-sheen" aria-hidden="true"></div>
+
+        <div class="card-inner">
+
+          <!-- Left: description text -->
+          <div class="card-left" id="card-left">
+            <span class="card-left-eyebrow">Portfolio · 2026</span>
+            <h3>Réseau,<br>Sécurité,<br>Code.</h3>
+            <p>
+              Étudiant en <strong style="color:#fff;">BTS SIO option SISR</strong>.<br>
+              Spécialisé en cybersécurité et infrastructures.
+            </p>
           </div>
+
+          <!-- Center: iPhone mockup -->
+          <div class="mockup-wrapper" id="mockup-wrapper">
+            <div class="mockup-scale">
+              <div class="iphone-bezel" id="iphone">
+                <!-- Hardware buttons -->
+                <div class="hw-btn" style="top:120px;left:-3px;width:3px;height:25px;border-radius:3px 0 0 3px;" aria-hidden="true"></div>
+                <div class="hw-btn" style="top:160px;left:-3px;width:3px;height:45px;border-radius:3px 0 0 3px;" aria-hidden="true"></div>
+                <div class="hw-btn" style="top:220px;left:-3px;width:3px;height:45px;border-radius:3px 0 0 3px;" aria-hidden="true"></div>
+                <div class="hw-btn" style="top:170px;right:-3px;width:3px;height:70px;border-radius:0 3px 3px 0;" aria-hidden="true"></div>
+
+                <!-- Screen -->
+                <div class="phone-screen">
+                  <div class="screen-glare" aria-hidden="true"></div>
+                  <div class="dynamic-island" aria-hidden="true">
+                    <div class="di-dot"></div>
+                  </div>
+
+                  <div class="app-ui">
+                    <!-- Header -->
+                    <div class="app-header phone-widget" style="margin-bottom:2rem;visibility:visible;background:none;box-shadow:none;border:none;border-radius:0;padding:0;">
+                      <div>
+                        <div class="app-header-label">Portfolio</div>
+                        <div class="app-header-title">Parcours</div>
+                      </div>
+                      <div class="app-avatar">SR</div>
+                    </div>
+
+                    <!-- Ring counter -->
+                    <div class="ring-wrapper">
+                      <svg viewBox="0 0 176 176" aria-hidden="true">
+                        <circle class="progress-ring-bg" cx="88" cy="88" r="64" fill="none" stroke-width="12"/>
+                        <circle class="progress-ring-fg" cx="88" cy="88" r="64" fill="none" stroke-width="12" id="ring-fg"/>
+                      </svg>
+                      <div class="ring-center">
+                        <div class="counter-val" id="counter-val" aria-live="polite">0</div>
+                        <div class="counter-label">Certifications</div>
+                      </div>
+                    </div>
+
+                    <!-- Widgets -->
+                    <div class="phone-widget" id="widget-1">
+                      <div class="widget-icon blue">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      </div>
+                      <div class="widget-bars">
+                        <div class="widget-bar-1"></div>
+                        <div class="widget-bar-2"></div>
+                      </div>
+                    </div>
+                    <div class="phone-widget" id="widget-2">
+                      <div class="widget-icon green">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <div class="widget-bars">
+                        <div class="widget-bar-1" style="width:64px;"></div>
+                        <div class="widget-bar-2" style="width:96px;"></div>
+                      </div>
+                    </div>
+
+                    <div class="phone-home-indicator" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating badges -->
+              <div class="floating-badge badge--top" id="badge-1">
+                <div class="badge-icon blue-bg">🎓</div>
+                <div>
+                  <div class="badge-title">BTS SIO · SISR</div>
+                  <div class="badge-sub">2025 — 2027</div>
+                </div>
+              </div>
+
+              <div class="floating-badge badge--bottom" id="badge-2">
+                <div class="badge-icon purple-bg">💻</div>
+                <div>
+                  <div class="badge-title">Dev & Réseaux</div>
+                  <div class="badge-sub">Cybersécurité · Infra</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: brand name -->
+          <div class="card-right" id="card-right">
+            <div class="brand-name">Saad<br>RHA</div>
+          </div>
+
         </div>
-        <iframe class="cv-lightbox__iframe" src="" title="CV de Saad Rhazzoul"></iframe>
       </div>
+
     </div>
+  </div><!-- end scroll-container -->
 
-    <!--================== Modale Détail Certification ==================-->
-    <div class="certif-modal" id="certif-modal" aria-hidden="true" role="dialog" aria-modal="true">
-      <div class="certif-modal__backdrop"></div>
-      <div class="certif-modal__content">
-        <button type="button" class="certif-modal__close" aria-label="Fermer"><i class="uil uil-times"></i></button>
-        <div class="certif-modal__header">
-          <div class="certif-modal__icon"><i class="uil uil-award"></i></div>
-          <h3 class="certif-modal__title"></h3>
-        </div>
-        <div class="certif-modal__body"></div>
-      </div>
-    </div>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
 
-    <!--================== Lightbox Certification ==================-->
-    <div class="certification-lightbox" id="certification-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image de certification agrandie">
-      <div class="certification-lightbox__backdrop" aria-hidden="true"></div>
-      <div class="certification-lightbox__content">
-        <img class="certification-lightbox__img" src="" alt="" />
-        <button type="button" class="certification-lightbox__close" aria-label="Fermer"><i class="uil uil-times" aria-hidden="true"></i></button>
-        <button type="button" class="certification-lightbox__prev" aria-label="Image précédente"><i class="uil uil-angle-left-b" aria-hidden="true"></i></button>
-        <button type="button" class="certification-lightbox__next" aria-label="Image suivante"><i class="uil uil-angle-right-b" aria-hidden="true"></i></button>
-        <span class="certification-lightbox__counter" aria-live="polite"></span>
-      </div>
-    </div>
+    /* ── Cursor ── */
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
 
-    <!--================== Scroll Top ==================-->
-    <a href="#" class="scrollup" id="scroll-up" aria-label="Retour en haut de la page">
-      <i class="uil uil-arrow-up scrollup__icon" aria-hidden="true"></i>
-    </a>
+    window.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+    });
 
-    <!--================== Scripts ==================-->
-    <script type="text/javascript" src="assets/swiper-bundle.min.js"></script>
-    <script src="assets/ptj.js"></script>
-    <script src="assets/animations.js"></script>
-    <script src="assets/tabs-pro.js"></script>
-    <script src="assets/stages.js"></script>
-    <script src="assets/portfolio.js"></script>
-    <script src="assets/effects.js"></script>
-  </body>
+    (function animRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animRing);
+    })();
+
+    /* ── Progress bar ── */
+    const pb = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+      pb.style.width = pct + '%';
+    });
+
+    /* ── Card mouse sheen ── */
+    const card = document.getElementById('main-card');
+    let rafSheen;
+    window.addEventListener('mousemove', e => {
+      cancelAnimationFrame(rafSheen);
+      rafSheen = requestAnimationFrame(() => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+
+    /* ── iPhone parallax tilt ── */
+    const iphone = document.getElementById('iphone');
+    let rafTilt;
+    window.addEventListener('mousemove', e => {
+      if (window.scrollY > window.innerHeight * 6) return;
+      cancelAnimationFrame(rafTilt);
+      rafTilt = requestAnimationFrame(() => {
+        const xVal = (e.clientX / window.innerWidth - 0.5) * 2;
+        const yVal = (e.clientY / window.innerHeight - 0.5) * 2;
+        gsap.to(iphone, {
+          rotationY: xVal * 12,
+          rotationX: -yVal * 12,
+          ease: 'power3.out',
+          duration: 1.2
+        });
+      });
+    });
+
+    /* ── Counter animation helper ── */
+    function animateCounter(target, duration) {
+      const el = document.getElementById('counter-val');
+      const start = performance.now();
+      const startVal = parseInt(el.textContent) || 0;
+      function update(now) {
+        const progress = Math.min((now - start) / (duration * 1000), 1);
+        const ease = 1 - Math.pow(1 - progress, 4);
+        el.textContent = Math.round(startVal + (target - startVal) * ease);
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+
+    /* ── Ring animation ── */
+    const ringFg = document.getElementById('ring-fg');
+    const CIRCUMFERENCE = 402;
+
+    /* ── Main GSAP Timeline ── */
+    const isMobile = window.innerWidth < 768;
+
+    // Initial states
+    gsap.set('.text-track', { autoAlpha: 0, y: 60, scale: 0.85, filter: 'blur(20px)', rotationX: -20 });
+    gsap.set('.text-days', { autoAlpha: 1, clipPath: 'inset(0 100% 0 0)' });
+    gsap.set('#main-card', { y: window.innerHeight + 200 });
+    gsap.set(['#card-left', '#card-right', '#mockup-wrapper', '#badge-1', '#badge-2', '#widget-1', '#widget-2'], { autoAlpha: 0 });
+    gsap.set('#cta-wrapper', { autoAlpha: 0, scale: 0.8, filter: 'blur(30px)', visibility: 'visible' });
+
+    // Intro animation
+    const introTl = gsap.timeline({ delay: 0.4 });
+    introTl
+      .to('.text-track', { duration: 1.8, autoAlpha: 1, y: 0, scale: 1, filter: 'blur(0px)', rotationX: 0, ease: 'expo.out' })
+      .to('.text-days', { duration: 1.4, clipPath: 'inset(0 0% 0 0)', ease: 'power4.inOut' }, '-=1.0');
+
+    // Scroll timeline
+    const scrollTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#scroll-container',
+        start: 'top top',
+        end: '+=7000',
+        pin: '#scene',
+        scrub: 1,
+        anticipatePin: 1,
+      }
+    });
+
+    let counterStarted = false;
+
+    scrollTl
+      // 1. Hero text fades back
+      .to(['#hero-text', '.bg-grid'], { scale: 1.15, filter: 'blur(20px)', opacity: 0.15, ease: 'power2.inOut', duration: 2 }, 0)
+      // 2. Card rises
+      .to('#main-card', { y: 0, ease: 'power3.inOut', duration: 2 }, 0)
+      // 3. Card expands to fullscreen
+      .to('#main-card', { width: '100%', height: '100%', borderRadius: '0px', ease: 'power3.inOut', duration: 1.5 })
+      // 4. Mockup enters
+      .fromTo('#mockup-wrapper',
+        { y: 300, z: -500, rotationX: 50, rotationY: -30, autoAlpha: 0, scale: 0.6 },
+        { y: 0, z: 0, rotationX: 0, rotationY: 0, autoAlpha: 1, scale: 1, ease: 'expo.out', duration: 2.5 },
+        '-=0.8'
+      )
+      // 5. Phone widgets
+      .fromTo(['#widget-1', '#widget-2'],
+        { y: 40, autoAlpha: 0, scale: 0.95 },
+        { y: 0, autoAlpha: 1, scale: 1, stagger: 0.15, ease: 'back.out(1.2)', duration: 1.5 },
+        '-=1.5'
+      )
+      // 6. Ring & counter
+      .to('#ring-fg', {
+        strokeDashoffset: 60,
+        duration: 2,
+        ease: 'power3.inOut',
+        onStart: () => { animateCounter(5, 2); }
+      }, '-=1.2')
+      // 7. Badges
+      .fromTo(['#badge-1', '#badge-2'],
+        { y: 100, autoAlpha: 0, scale: 0.7, rotation: -10 },
+        { y: 0, autoAlpha: 1, scale: 1, rotation: 0, ease: 'back.out(1.5)', duration: 1.5, stagger: 0.2 },
+        '-=2.0'
+      )
+      // 8. Left & right text
+      .fromTo('#card-left', { x: -50, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: 'power4.out', duration: 1.5 }, '-=1.5')
+      .fromTo('#card-right', { x: 50, autoAlpha: 0, scale: 0.8 }, { x: 0, autoAlpha: 1, scale: 1, ease: 'expo.out', duration: 1.5 }, '<')
+      // 9. Hold
+      .to({}, { duration: 2.5 })
+      // 10. Swap to CTA
+      .set('#hero-text', { autoAlpha: 0 })
+      .set('#cta-wrapper', { autoAlpha: 1 })
+      .to({}, { duration: 1.5 })
+      // 11. Card elements fade out
+      .to(['#mockup-wrapper', '#badge-1', '#badge-2', '#card-left', '#card-right'], {
+        scale: 0.9, y: -40, z: -200, autoAlpha: 0, ease: 'power3.in', duration: 1.2, stagger: 0.05,
+      })
+      // 12. Card shrinks back
+      .to('#main-card', {
+        width: isMobile ? '92vw' : '85vw',
+        height: isMobile ? '92vh' : '85vh',
+        borderRadius: isMobile ? '32px' : '40px',
+        ease: 'expo.inOut',
+        duration: 1.8
+      }, 'pullback')
+      // 13. CTA reveals
+      .to('#cta-wrapper', { scale: 1, filter: 'blur(0px)', ease: 'expo.inOut', duration: 1.8 }, 'pullback')
+      // 14. Card exits
+      .to('#main-card', { y: -(window.innerHeight + 300), ease: 'power3.in', duration: 1.5 });
+
+    // CTA pointer events
+    ScrollTrigger.create({
+      trigger: '#scroll-container',
+      start: '80% top',
+      onEnter: () => document.getElementById('cta-wrapper').classList.add('active'),
+      onLeaveBack: () => document.getElementById('cta-wrapper').classList.remove('active'),
+    });
+  </script>
+</body>
 </html>

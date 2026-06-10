@@ -1,0 +1,8 @@
+# robots.txt — https://saad-rha.xyz
+# Autorise tous les robots d'indexation à explorer l'ensemble du site.
+
+User-agent: *
+Allow: /
+
+# Plan du site
+Sitemap: https://saad-rha.xyz/sitemap.xml
