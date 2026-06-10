@@ -29,6 +29,35 @@ if (navClose) {
 const navLink = document.querySelectorAll(".nav__link");
 navLink.forEach((n) => n.addEventListener("click", closeMenu));
 
+/*==================== NAV : scroll fluide in-page (garde les href portfolio.html#x) ====================*/
+/* Les liens de la navbar pointent vers "portfolio.html#section" pour fonctionner
+   depuis n'importe quelle page. Mais quand on est DÉJÀ sur portfolio.html, ce href
+   complet fait que le navigateur traite le clic comme une navigation (saut/rechargement)
+   au lieu d'un scroll. On intercepte donc : si la cible est la page courante, on scrolle
+   en douceur ; sinon (autre page) on laisse la navigation normale se faire. */
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".nav__logo, .nav__link").forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var url;
+      try { url = new URL(link.href, location.href); } catch (_) { return; }
+      if (url.host !== location.host || url.pathname !== location.pathname) return; // autre page → navigation normale
+      e.preventDefault();
+      if (url.hash && url.hash !== "#") {
+        var target = document.querySelector(url.hash);
+        if (target) {
+          target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+          history.pushState(null, "", url.hash);
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+        history.pushState(null, "", location.pathname);
+      }
+      closeMenu();
+    });
+  });
+})();
+
 /*==================== AUTO-HIDE HEADER ON MOBILE SCROLL ====================*/
 (function () {
   var lastScroll = 0;
@@ -155,20 +184,7 @@ modalCloses.forEach((modalClose) => {
 
 /* Portfolio : hub par mission (voir assets/portfolio.js) — pas de Swiper */
 
-/*======================= Certification Swiper (même structure que Projets) ===================*/
-var certificationSwiper = new Swiper("#certification .certification-swiper", {
-  loop: true,
-  mousewheel: false,
-
-  navigation: {
-    nextEl: "#certification .swiper-button-next",
-    prevEl: "#certification .swiper-button-prev",
-  },
-  pagination: {
-    el: "#certification .swiper-pagination",
-    clickable: true,
-  },
-});
+/* Certifications : grille statique responsive (lightbox + modale ci-dessous) — plus de Swiper */
 
 /*======================= Certification Lightbox with Carousel ===================*/
 (function () {
@@ -470,7 +486,10 @@ function scrollActive() {
     const sectionHeight = current.offsetHeight;
     const sectionTop = current.offsetTop - 50;
     const sectionId = current.getAttribute("id");
-    const navLink = document.querySelector(".nav__menu a[href*=" + sectionId + "]");
+    // Match la FIN du href (#section) et non "contient" : sinon, avec des liens
+    // "portfolio.html#x", [href*=portfolio] matcherait tous les liens (tous
+    // contiennent "portfolio") et surlignerait le mauvais onglet.
+    const navLink = document.querySelector('.nav__menu a[href$="#' + sectionId + '"]');
 
     if (!navLink) return;
 
