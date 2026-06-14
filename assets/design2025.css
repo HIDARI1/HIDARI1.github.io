@@ -157,7 +157,8 @@ body:not(.dark-theme) #particles-canvas { opacity: 0.18; }
   -webkit-backdrop-filter: blur(2px);
   box-shadow: 0 8px 32px rgba(255,255,255,0.08);
   position: relative;
-  animation: shape-float 12s ease-in-out infinite;
+  animation: shape-float 14s ease-in-out infinite;
+  will-change: transform;
 }
 .shape__inner::after {
   content: '';
@@ -172,8 +173,11 @@ body:not(.dark-theme) #particles-canvas { opacity: 0.18; }
   100% { opacity: 1; transform: translateY(0)      rotate(var(--rot,        12deg)); }
 }
 @keyframes shape-float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(15px); }
+  0%   { transform: translate(0, 0)        rotate(0deg); }
+  25%  { transform: translate(22px, -30px) rotate(2.5deg); }
+  50%  { transform: translate(-16px, 24px) rotate(-2deg); }
+  75%  { transform: translate(18px, 14px)  rotate(1.5deg); }
+  100% { transform: translate(0, 0)        rotate(0deg); }
 }
 
 .shape--1 {
@@ -205,6 +209,14 @@ body:not(.dark-theme) #particles-canvas { opacity: 0.18; }
   --rot: -25deg; --rot-start: -40deg; animation-delay: .7s;
 }
 .shape--5 .shape__inner { background: linear-gradient(to right, var(--c-cyan), transparent); }
+
+/* Flottement désynchronisé : durées + délais négatifs distincts par forme
+   (délai négatif = démarre déjà en plein cycle, donc décalées dès le chargement) */
+.shape--1 .shape__inner { animation-duration: 15s; animation-delay: -1s;  }
+.shape--2 .shape__inner { animation-duration: 19s; animation-delay: -7s;  }
+.shape--3 .shape__inner { animation-duration: 12s; animation-delay: -3s;  }
+.shape--4 .shape__inner { animation-duration: 17s; animation-delay: -11s; }
+.shape--5 .shape__inner { animation-duration: 13s; animation-delay: -5s;  }
 
 @media (max-width: 768px) {
   .shape--1 { width: 350px; height: 90px; }
@@ -816,6 +828,131 @@ body:not(.dark-theme) .home__title .grad-text {
   font-weight: 500;
 }
 
+/* ── About : Langues & Centres d'intérêt ── */
+.about-extra { grid-column: 1 / -1; }
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.about-card {
+  padding: 26px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-lg);
+  backdrop-filter: blur(20px) saturate(180%);
+  transition: var(--t);
+}
+.about-card:hover {
+  background: var(--surface-2);
+  border-color: var(--border-3);
+  transform: translateY(-4px);
+}
+.about-card__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.about-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-sm);
+  background: var(--accent-soft);
+  border: 1px solid rgba(212,197,169,.25);
+  color: var(--accent-hi);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+.about-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+  letter-spacing: -.01em;
+}
+.about-card__text {
+  font-size: 13.5px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin: -4px 0 16px;
+}
+
+/* Langues */
+.lang-list { display: flex; flex-direction: column; gap: 12px; }
+.lang { display: flex; align-items: center; gap: 12px; }
+.lang__code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--border-2);
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--accent-hi);
+  flex-shrink: 0;
+}
+.lang__name { font-size: 14.5px; font-weight: 500; color: var(--text); }
+.lang__level {
+  margin-left: auto;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  padding: 4px 11px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  white-space: nowrap;
+}
+
+/* Centres d'intérêt */
+.interest-list { display: flex; flex-wrap: wrap; gap: 9px; align-content: flex-start; }
+.interest {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-full);
+  font-size: 13px;
+  color: var(--text-dim);
+  transition: var(--t-fast);
+}
+.interest:hover {
+  color: var(--text);
+  border-color: var(--border-3);
+  background: rgba(255,255,255,.08);
+  transform: translateY(-2px);
+}
+.interest i { color: var(--accent); font-size: 15px; }
+
+/* Infos pratiques */
+.about-infos { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
+.about-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, rgba(165,180,252,.08), rgba(253,164,175,.06));
+  border: 1px solid rgba(165,180,252,.2);
+  border-radius: var(--r-full);
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+.about-info i { color: var(--hl-indigo); }
+
+@media (max-width: 768px) {
+  .about-cards { grid-template-columns: 1fr; }
+}
+
 /* ── 15. SKILLS ──────────────────────────────────────────── */
 .skills-tabs-pro { position: relative; }
 .skills-tabs-pro .bg-effects,
@@ -1146,6 +1283,82 @@ body:not(.dark-theme) .home__title .grad-text {
   margin-bottom: 24px;
 }
 .certif-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ── 18b. CERTIFICATIONS — grille statique (toutes visibles d'un coup) ── */
+.certification-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 1024px) { .certification-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .certification-grid { grid-template-columns: 1fr; } }
+
+.certif-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  transition: transform var(--t), border-color var(--t), box-shadow var(--t);
+}
+.certif-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-3);
+  box-shadow: var(--sh);
+}
+
+/* Média : override du wrapper arrondi pour remplir le haut de la carte */
+.certif-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--bg-2);
+  flex-shrink: 0;
+}
+.certif-card__media .portfolio__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  cursor: zoom-in;
+}
+
+.certif-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 22px 22px;
+}
+.certif-card__org {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.certif-card__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.12rem;
+  line-height: 1.25;
+  letter-spacing: -.015em;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.certif-card__desc {
+  font-size: 13.5px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.certif-card .certif-actions { margin-top: auto; }
 
 /* ── 19. PORTFOLIO PROJECTS ──────────────────────────────── */
 .portfolio-hub {
