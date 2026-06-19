@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ── SEO ── -->
-  <title>Saad Rhazzoul — Portfolio | Étudiant BTS SIO SISR, Cybersécurité &amp; Réseaux</title>
-  <meta name="description" content="Portfolio de Saad Rhazzoul, étudiant en BTS SIO option SISR passionné par la cybersécurité, le développement et les infrastructures réseau. Découvrez mes projets, certifications et stages.">
+  <title>Portfolio BTS SIO SISR — Saad Rhazzoul | Cybersécurité</title>
+  <meta name="description" content="Portfolio de Saad Rhazzoul, étudiant BTS SIO SISR en cybersécurité et réseau. Projets, certifications et stage informatique en Île-de-France.">
   <meta name="author" content="Saad Rhazzoul">
-  <meta name="keywords" content="Saad Rhazzoul, portfolio, BTS SIO, SISR, cybersécurité, réseau, infrastructure, développeur, étudiant informatique">
+  <meta name="keywords" content="portfolio BTS SIO SISR, Saad Rhazzoul, portfolio cybersécurité, étudiant réseau informatique, stage informatique Île-de-France, BTS SIO SISR, réseau, infrastructure">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#000000">
   <link rel="canonical" href="https://saad-rha.xyz/">
@@ -20,8 +20,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Saad Rhazzoul — Portfolio">
-  <meta property="og:title" content="Saad Rhazzoul — Portfolio | BTS SIO SISR, Cybersécurité &amp; Réseaux">
-  <meta property="og:description" content="Étudiant en BTS SIO option SISR, passionné par la cybersécurité et les infrastructures réseau. Projets, certifications et stages.">
+  <meta property="og:title" content="Portfolio BTS SIO SISR — Saad Rhazzoul | Cybersécurité">
+  <meta property="og:description" content="Portfolio de Saad Rhazzoul, étudiant BTS SIO SISR en cybersécurité et réseau. Projets, certifications et stage informatique en Île-de-France.">
   <meta property="og:url" content="https://saad-rha.xyz/">
   <meta property="og:image" content="https://saad-rha.xyz/assets/og.png">
   <meta property="og:image:width" content="1731">
@@ -31,13 +31,30 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Saad Rhazzoul — Portfolio | BTS SIO SISR, Cybersécurité &amp; Réseaux">
-  <meta name="twitter:description" content="Étudiant en BTS SIO option SISR, passionné par la cybersécurité et les infrastructures réseau.">
+  <meta name="twitter:title" content="Portfolio BTS SIO SISR — Saad Rhazzoul | Cybersécurité">
+  <meta name="twitter:description" content="Portfolio de Saad Rhazzoul, étudiant BTS SIO SISR : cybersécurité, réseau, projets et stage en Île-de-France.">
   <meta name="twitter:image" content="https://saad-rha.xyz/assets/og.png">
 
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Préconnexions polices (performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Données structurées (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Saad Rhazzoul",
+    "url": "https://saad-rha.xyz/",
+    "image": "https://saad-rha.xyz/assets/og.png",
+    "jobTitle": "Étudiant en BTS SIO option SISR",
+    "description": "Étudiant BTS SIO SISR, spécialisé en cybersécurité, réseau et administration des systèmes.",
+    "knowsAbout": ["BTS SIO SISR","Cybersécurité","Réseaux informatiques","Infrastructure","Administration systèmes","Active Directory","Linux","Windows Server","Proxmox","Supervision SNMP","Cisco"],
+    "address": { "@type": "PostalAddress", "addressLocality": "Trappes", "addressRegion": "Île-de-France", "addressCountry": "FR" },
+    "nationality": "Française",
+    "sameAs": ["https://github.com/HIDARI1"]
+  }
+  </script>
 
   <style>
     /* ── Fonts ── */
@@ -943,6 +960,10 @@
 
     </div>
   </div><!-- end scroll-container -->
+
+  <!-- GSAP + ScrollTrigger : chargés en fin de page (hors <head>) pour ne plus bloquer le rendu -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <script>
     gsap.registerPlugin(ScrollTrigger);

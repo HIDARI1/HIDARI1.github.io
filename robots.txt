@@ -1,8 +1,14 @@
 # robots.txt — https://saad-rha.xyz
-# Autorise tous les robots d'indexation à explorer l'ensemble du site.
+# Tous les robots peuvent explorer le site.
+# IMPORTANT : on ne bloque PAS /assets/ (CSS, JS et images), car Google
+# doit pouvoir charger ces ressources pour rendre et indexer correctement les pages.
 
 User-agent: *
 Allow: /
+
+# Documents PDF internes (livrables de cours / comptes rendus) :
+# non pertinents pour le référencement, on les exclut du crawl.
+Disallow: /assets/docs/
 
 # Plan du site
 Sitemap: https://saad-rha.xyz/sitemap.xml

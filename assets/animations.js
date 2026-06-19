@@ -48,7 +48,7 @@
   var phrases = [
     'Étudiant en BTS SIO',
     'Passionné de cybersécurité',
-    'En recherche de stage',
+    'En stage chez Hitachi Rail GTS',
     'Option SISR'
   ];
 
