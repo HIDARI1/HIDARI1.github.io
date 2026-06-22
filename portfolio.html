@@ -196,7 +196,7 @@
           <!-- Stats bar -->
           <div class="home__stats">
             <div class="home__stat">
-              <span class="home__stat-value">5</span>
+              <span class="home__stat-value">9</span>
               <span class="home__stat-label">Certifications</span>
             </div>
             <div class="home__stat">
@@ -246,23 +246,61 @@
             </div>
           </header>
 
-          <div class="about-stats" aria-label="Chiffres clés">
-            <div class="about-stat">
-              <span class="about-stat__value" data-count="5">0</span>
-              <span class="about-stat__label">Certifications</span>
-            </div>
-            <div class="about-stat">
-              <span class="about-stat__value" data-count="3">0</span>
-              <span class="about-stat__label">Projets PPE2</span>
-            </div>
-            <div class="about-stat">
-              <span class="about-stat__value">1<sup>re</sup></span>
-              <span class="about-stat__label">Année BTS</span>
-            </div>
-            <div class="about-stat about-stat--accent">
-              <span class="about-stat__value"><i class="uil uil-briefcase-alt" aria-hidden="true"></i></span>
-              <span class="about-stat__label">Stage Hitachi Rail</span>
-            </div>
+          <div class="about-highlights" aria-label="Réalisations clés">
+
+            <!-- Certifications -->
+            <article class="hl-card hl-card--cyberini">
+              <div class="hl-card__head">
+                <span class="hl-card__icon hl-card__icon--cyberini"><i class="fas fa-terminal" aria-hidden="true"></i></span>
+                <span class="hl-card__badge">Dernière actu !</span>
+              </div>
+              <div class="hl-card__body">
+                <span class="hl-card__num">1810<span class="hl-card__num-suffix">points</span></span>
+                <h3 class="hl-card__title">Cracking · Inforensique · Web · Pwnage · OSINT…</h3>
+                <p class="hl-card__desc">Cyberini est un centre de formation à destination des particuliers et des professionnels — l'une des plus grandes communautés francophones autour de la cybersécurité.</p>
+              </div>
+              <a href="https://cyberini.com/profil/2_s/" class="hl-card__link" target="_blank" rel="noopener noreferrer">Voir le profil Cyberini <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
+            </article>
+
+            <!-- Stage Hitachi Rail -->
+            <article class="hl-card hl-card--exp">
+              <div class="hl-card__head">
+                <span class="hl-card__icon hl-card__icon--exp"><i class="uil uil-briefcase-alt" aria-hidden="true"></i></span>
+                <span class="hl-card__badge hl-card__badge--live">En cours</span>
+              </div>
+              <div class="hl-card__body">
+                <span class="hl-card__eyebrow">Stage · 1<sup>re</sup> année BTS SIO</span>
+                <h3 class="hl-card__title">Hitachi Rail GTS France</h3>
+                <p class="hl-card__desc">Vélizy-Villacoublay · virtualisation Proxmox, Active Directory, supervision réseau SNMP et cybersécurité.</p>
+              </div>
+              <a href="#stages" class="hl-card__link">Voir le stage <i class="uil uil-arrow-right" aria-hidden="true"></i></a>
+            </article>
+
+            <!-- FlyerFx — projet entrepreneurial -->
+            <article class="hl-card hl-card--flyerfx">
+              <div class="hl-flyerfx__brand">
+                <img src="assets/img/flyerfx.png" alt="Logo FlyerFx — création de supports de communication" width="2000" height="385" decoding="async" />
+              </div>
+              <div class="hl-flyerfx__content">
+                <span class="hl-flyerfx__eyebrow"><i class="uil uil-rocket" aria-hidden="true"></i> Projet entrepreneurial</span>
+                <h3 class="hl-flyerfx__title">Fondateur de <span>FlyerFx</span></h3>
+                <p class="hl-flyerfx__desc">Activité spécialisée dans la création de supports de communication visuelle : flyers professionnels, supports événementiels, cartes de restaurant, affiches publicitaires et visuels marketing personnalisés.</p>
+                <div class="hl-flyerfx__tags">
+                  <span class="hl-flyerfx__tag">Flyers pro</span>
+                  <span class="hl-flyerfx__tag">Supports événementiels</span>
+                  <span class="hl-flyerfx__tag">Cartes de restaurant</span>
+                  <span class="hl-flyerfx__tag">Affiches publicitaires</span>
+                  <span class="hl-flyerfx__tag">Visuels marketing</span>
+                </div>
+                <!-- FlyerFx : pour activer le lien, remplacer href="#" par l'URL du site/GitHub, puis retirer la classe "is-soon", aria-disabled, tabindex et le badge "Bientôt". -->
+                <a class="hl-flyerfx__cta is-soon" href="#" role="button" aria-disabled="true" tabindex="-1" aria-label="Découvrir le projet FlyerFx (lien à venir)">
+                  <i class="uil uil-external-link-alt" aria-hidden="true"></i>
+                  <span>Découvrir le projet</span>
+                  <span class="hl-flyerfx__soon">Bientôt</span>
+                </a>
+              </div>
+            </article>
+
           </div>
 
           <div class="about-extra">
@@ -589,7 +627,10 @@
           <span class="section__subtitle">Mon parcours personnel</span>
         </div>
 
-        <div class="certification-grid container reveal">
+        <div class="certif-slider container reveal">
+          <button type="button" class="certif-slider__nav certif-slider__nav--prev" id="certifPrev" aria-label="Certifications précédentes"><i class="uil uil-angle-left-b" aria-hidden="true"></i></button>
+
+          <div class="certif-slider__track" id="certifTrack">
 
           <!-- Elements of AI -->
           <article class="certif-card">
@@ -679,7 +720,73 @@
             </div>
           </article>
 
-        </div><!-- /.certification-grid -->
+          <!-- Hitachi Rail — GBMS 2.0 -->
+          <article class="certif-card">
+            <div class="certif-card__media certification__img-wrapper">
+              <img src="assets/img/certif6.jpg" alt="Certification Hitachi Rail — Global Business Management System 2.0" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" />
+              <span class="certification__img-hint" aria-hidden="true"><i class="uil uil-search-plus"></i> Agrandir</span>
+            </div>
+            <div class="certif-card__body">
+              <span class="certif-card__org"><i class="uil uil-train" aria-hidden="true"></i> Hitachi Rail · 2026</span>
+              <h3 class="certif-card__title">Global Business Management System 2.0</h3>
+              <p class="certif-card__desc">Formation Hitachi Rail Learning &amp; Development : objectifs, contenu et architecture du GBMS 2.0, ainsi qu'un panorama des politiques internes Hitachi.</p>
+              <div class="certif-actions">
+                <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="gbms" aria-label="Détails sur la certification GBMS 2.0">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hitachi Rail — Protection des données personnelles -->
+          <article class="certif-card">
+            <div class="certif-card__media certification__img-wrapper">
+              <img src="assets/img/certif7.jpg" alt="Certification Hitachi Rail — General personal data protection training" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" />
+              <span class="certification__img-hint" aria-hidden="true"><i class="uil uil-search-plus"></i> Agrandir</span>
+            </div>
+            <div class="certif-card__body">
+              <span class="certif-card__org"><i class="uil uil-train" aria-hidden="true"></i> Hitachi Rail · 2026</span>
+              <h3 class="certif-card__title">Protection des données personnelles</h3>
+              <p class="certif-card__desc">Formation Hitachi sur la protection des données : cadre légal RGPD, identification des données, finalités de traitement, transferts hors UE et mesures de sécurité.</p>
+              <div class="certif-actions">
+                <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="dataprotection" aria-label="Détails sur la formation Protection des données personnelles">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hitachi Rail — Mission GDPR -->
+          <article class="certif-card">
+            <div class="certif-card__media certification__img-wrapper">
+              <img src="assets/img/certif8.jpg" alt="Certification Hitachi Rail — Mission GDPR" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" />
+              <span class="certification__img-hint" aria-hidden="true"><i class="uil uil-search-plus"></i> Agrandir</span>
+            </div>
+            <div class="certif-card__body">
+              <span class="certif-card__org"><i class="uil uil-train" aria-hidden="true"></i> Hitachi Rail · 2026</span>
+              <h3 class="certif-card__title">Mission GDPR</h3>
+              <p class="certif-card__desc">Parcours RGPD en 6 modules : données personnelles et sensibles, traitement, principes de protection, droits des personnes et obligations légales (score requis &gt; 80 %).</p>
+              <div class="certif-actions">
+                <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="missiongdpr" aria-label="Détails sur la certification Mission GDPR">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Hitachi Rail — Cybersecurity Essentials -->
+          <article class="certif-card">
+            <div class="certif-card__media certification__img-wrapper">
+              <img src="assets/img/certif9.jpg" alt="Certification Hitachi Rail — Cyber : Cybersecurity Essentials" class="portfolio__img certification__img-zoom" loading="lazy" role="button" tabindex="0" />
+              <span class="certification__img-hint" aria-hidden="true"><i class="uil uil-search-plus"></i> Agrandir</span>
+            </div>
+            <div class="certif-card__body">
+              <span class="certif-card__org"><i class="uil uil-train" aria-hidden="true"></i> Hitachi Rail · 2026</span>
+              <h3 class="certif-card__title">Cyber : Cybersecurity Essentials</h3>
+              <p class="certif-card__desc">Module cybersécurité sur les risques liés à la digitalisation : fondamentaux, « cinq lois de la cybersécurité » et bonnes pratiques face aux cyberattaques.</p>
+              <div class="certif-actions">
+                <button type="button" class="button button--flex button--small certif-detail-btn" data-certif="cyberess" aria-label="Détails sur la certification Cybersecurity Essentials">Détails <i class="uil uil-info-circle button__icon" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </article>
+
+          </div><!-- /.certif-slider__track -->
+          <button type="button" class="certif-slider__nav certif-slider__nav--next" id="certifNext" aria-label="Certifications suivantes"><i class="uil uil-angle-right-b" aria-hidden="true"></i></button>
+        </div><!-- /.certif-slider -->
       </section>
 
       <!--================== Section Portfolio ==================-->

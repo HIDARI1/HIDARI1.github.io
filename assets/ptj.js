@@ -307,6 +307,34 @@ modalCloses.forEach((modalClose) => {
         '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>MOOC centré sur le <strong>coeur de réseau 5G</strong>, l\'architecture et la sécurité :</p>' +
         '<ul><li>Modes 5G : eMBB, uRLLC, mMTC</li><li>Fonctions coeur : gNB, AMF, SMF, UPF, UDM, AUSF</li><li>Gestion des connexions radio et réduction de la signalisation</li><li>Sécurité radio, interconnexion de réseaux et interfaces SBI/SBA</li></ul></div>' +
         '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">5G Core</span><span class="certif-modal__tag">SBA/SBI</span><span class="certif-modal__tag">Sécurité 5G</span><span class="certif-modal__tag">Fonctions réseau</span><span class="certif-modal__tag">Télécommunications</span></div></div>'
+    },
+    gbms: {
+      title: "Global Business Management System 2.0 — Hitachi Rail",
+      body: '<div class="certif-modal__section"><p class="certif-modal__section-title">Organisme</p><p><strong>Hitachi Rail</strong> — Learning &amp; Development (Global Catalogue) · Durée : 30 min</p></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>Vue d\'ensemble du <strong>Global Business Management System 2.0</strong>, le système de management interne du groupe :</p>' +
+        '<ul><li>Objectifs du GBMS 2.0</li><li>Contenus du GBMS 2.0</li><li>Architecture du GBMS 2.0</li><li>Panorama des politiques Hitachi</li><li>Accès et utilisation du GBMS 2.0</li></ul></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">Système de management</span><span class="certif-modal__tag">Processus internes</span><span class="certif-modal__tag">Politiques Hitachi</span><span class="certif-modal__tag">Gouvernance</span><span class="certif-modal__tag">GTS</span></div></div>'
+    },
+    dataprotection: {
+      title: "Protection des données personnelles — Hitachi Rail",
+      body: '<div class="certif-modal__section"><p class="certif-modal__section-title">Organisme</p><p><strong>Hitachi Rail</strong> — Learning &amp; Development (Global Catalogue) · Durée : 30 min</p></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>Formation sur la <strong>protection des données personnelles</strong> dans le cadre du RGPD :</p>' +
+        '<ul><li>Comprendre pourquoi la protection des données est essentielle</li><li>Cadre législatif et identification des données personnelles</li><li>Finalité d\'un traitement et base légale</li><li>Conditions de partage et de transfert hors de l\'Espace Économique Européen</li><li>Durée de conservation et mesures de sécurité</li><li>Information et droits des personnes, conduite en cas de violation de données</li></ul></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">RGPD</span><span class="certif-modal__tag">Données personnelles</span><span class="certif-modal__tag">Transferts hors UE</span><span class="certif-modal__tag">Base légale</span><span class="certif-modal__tag">Violation de données</span></div></div>'
+    },
+    missiongdpr: {
+      title: "Mission GDPR — Hitachi Rail",
+      body: '<div class="certif-modal__section"><p class="certif-modal__section-title">Organisme</p><p><strong>Hitachi Rail</strong> — Global Catalogue · 6 modules de 5 min · quiz à valider (score supérieur à 80 %) · disponible en 7 langues</p></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>Parcours interactif pour acquérir les bons réflexes en matière de <strong>protection des données personnelles (RGPD)</strong> :</p>' +
+        '<ul><li>Introduction au RGPD</li><li>Données personnelles et données sensibles</li><li>Traitement des données</li><li>Principes de protection des données</li><li>Droits des personnes concernées</li><li>Obligations légales</li></ul></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">RGPD</span><span class="certif-modal__tag">Données sensibles</span><span class="certif-modal__tag">Traitement des données</span><span class="certif-modal__tag">Droits des personnes</span><span class="certif-modal__tag">Conformité</span></div></div>'
+    },
+    cyberess: {
+      title: "Cyber : Cybersecurity Essentials — Hitachi Rail",
+      body: '<div class="certif-modal__section"><p class="certif-modal__section-title">Organisme</p><p><strong>Hitachi Rail</strong> — Learning &amp; Development (Global Catalogue) · Durée : 40 min</p></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Contenu de la formation</p><p>Module décrivant les <strong>nouveaux risques liés à la digitalisation</strong>, articulé autour de plusieurs cours :</p>' +
+        '<ul><li>Introduction à la culture numérique</li><li>Perspective de l\'entreprise sur la cybersécurité</li><li>Fondamentaux : les cinq lois de la cybersécurité</li><li>Hackers, cyberattaques et mécanismes d\'intrusion</li><li>Ressources « Essentials » de cybersécurité</li></ul></div>' +
+        '<div class="certif-modal__section"><p class="certif-modal__section-title">Compétences acquises</p><div class="certif-modal__tags"><span class="certif-modal__tag">Cybersécurité</span><span class="certif-modal__tag">Risques numériques</span><span class="certif-modal__tag">Cyberattaques</span><span class="certif-modal__tag">Hackers</span><span class="certif-modal__tag">Bonnes pratiques</span></div></div>'
     }
   };
 
@@ -555,3 +583,36 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+/*======================= Certifications — Slider ===================*/
+(function () {
+  var slider = document.querySelector(".certif-slider");
+  if (!slider) return;
+  var track = slider.querySelector(".certif-slider__track");
+  var prev = slider.querySelector(".certif-slider__nav--prev");
+  var next = slider.querySelector(".certif-slider__nav--next");
+  if (!track || !prev || !next) return;
+
+  function stepSize() {
+    var card = track.querySelector(".certif-card");
+    var gap = 20;
+    return card ? card.getBoundingClientRect().width + gap : 330;
+  }
+
+  function update() {
+    var max = track.scrollWidth - track.clientWidth - 2;
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= max;
+  }
+
+  prev.addEventListener("click", function () {
+    track.scrollBy({ left: -stepSize() * 1.1, behavior: "smooth" });
+  });
+  next.addEventListener("click", function () {
+    track.scrollBy({ left: stepSize() * 1.1, behavior: "smooth" });
+  });
+
+  track.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+})();
